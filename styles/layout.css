@@ -1,0 +1,42 @@
+﻿body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#container {
+	width:100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#pagecontent {
+	width:100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#masthead {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#sidebar {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#content {
+	width:100%;
+	padding: 0;
+	border: 0;
+}
+#footer {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size:0.2em;
+}
+.float_right {
+	float:right;
+}

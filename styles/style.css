@@ -1,0 +1,9 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+	text-indent: inherit;
+	margin-left: auto;
+}
+a { outline: 0; }
+h1 { text-align: center; margin: 0 auto; font: bold 32px Helvetica, Arial, Sans-Serif; margin: 70px auto 10px; letter-spacing: -1px; }
+h2 { text-align: center; padding: 5px; margin: 10px; background: #fff2b6; color: #398138; }
