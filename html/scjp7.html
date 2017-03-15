@@ -1,0 +1,790 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 7</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<h1 style="text-align: left;" align="left"><span
+ style="font-size: 18pt;">Chapter 7 Threads</span><o:p></o:p></h1>
+<p class="MsoNormal" style=""><span style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Java is fundamentally multi-threaded.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Every thread corresponds to an instance 
+of java.lang.Thread class or a sub-class.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A thread becomes eligible to run, when 
+its start() method is called. Thread scheduler co-ordinates between the threads 
+and allows them to run.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>When a thread begins execution, the 
+scheduler calls its run method.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;">Signature of run method – 
+public void run()<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>When a thread returns from its run method 
+(or stop method is called – deprecated in 1.2), its dead. It cannot be 
+restarted, but its methods can be called. (it’s just an object no more in a 
+running state) <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If start is called again on a dead 
+thread, IllegalThreadStateException is thrown.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>When a thread is in running state, it may 
+move out of that state for various reasons. When it becomes eligible for 
+execution again, thread scheduler allows it to run.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>There are two ways to implement threads.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Extend Thread 
+class<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Create a new class, extending the Thread 
+class.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Provide a public void run method, 
+otherwise empty run in Thread class will be executed.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Create an instance of the new class.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Call start method on the instance (don’t 
+call run – it will be executed on the same thread)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Implement 
+Runnable interface<o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Create a new class 
+implementing the Runnable interface.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Provide a public void run 
+method.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Create an instance of this 
+class.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Create a Thread, passing the 
+instance as a target – new Thread(object)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Target should implement 
+Runnable, Thread class implements it, so it can be a target itself.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Call the start method on the 
+Thread.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">JVM creates one user thread 
+for running a program. This thread is called main thread. The main method of the 
+class is called from the main thread. It dies when the main method ends. If 
+other user threads have been spawned from the main thread, program keeps running 
+even if main thread dies. Basically a program runs until all the user threads 
+(non-daemon threads) are dead.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread can be designated as 
+a daemon thread by calling setDaemon(boolean) method. This method should be 
+called before the thread is started, otherwise IllegalThreadStateException will 
+be thrown.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread spawned by a daemon 
+thread is a daemon thread.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Threads have priorities. 
+Thread class have constants MAX_PRIORITY (10), MIN_PRIORITY (1), NORM_PRIORITY 
+(5)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A newly created thread gets 
+its priority from the creating thread. Normally it’ll be NORM_PRIORITY.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">getPriority and setPriority 
+are the methods to deal with priority of threads.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Java leaves the 
+implementation of thread scheduling to JVM developers. Two types of scheduling 
+can be done.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">1.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Pre-emptive Scheduling.</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Ways for a 
+thread to leave running state -</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">It can cease to be ready to 
+execute ( by calling a blocking i/o method)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">It can get pre-empted by a 
+high-priority thread, which becomes ready to execute.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">It can explicitly call a 
+thread-scheduling method such as wait or suspend.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Solaris JVM’s are 
+pre-emptive.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Windows JVM’s were 
+pre-emptive until Java 1.0.2</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">2.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Time-sliced or Round Robin 
+Scheduling</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread is only allowed to 
+execute for a certain amount of time. After that, it has to contend for the CPU 
+(virtual CPU, JVM) time with other threads.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">This prevents a high-priority 
+thread mono-policing the CPU.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">The drawback with this 
+scheduling is – it creates a non-deterministic system – at any point in time, 
+you cannot tell which thread is running and how long it may continue to run.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Mactinosh JVM’s </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Windows JVM’s after Java 
+1.0.2 </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Different states of a thread:</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">1.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Yielding</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Yield is a static method. 
+Operates on current thread.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Moves the thread from running 
+to ready state.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If there are no threads in 
+ready state, the yielded thread may continue execution, otherwise it may have to 
+compete with the other threads to run.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Run the threads that are 
+doing time-consuming operations with a low priority and call yield periodically 
+from those threads to avoid those threads locking up the CPU.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">2.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Sleeping</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Sleep is also a static 
+method.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Sleeps for a certain amount 
+of time. (passing time without doing anything and w/o using CPU) </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Two overloaded versions – one 
+with milliseconds, one with milliseconds and nanoseconds.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Throws an 
+InterruptedException.(must be caught)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">After the time expires, the 
+sleeping thread goes to ready state. It may not execute immediately after the 
+time expires. If there are other threads in ready state, it may have to compete 
+with those threads to run. The correct statement is the sleeping thread would 
+execute <i>some time after</i> the specified time period has elapsed.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If interrupt method is 
+invoked on a sleeping thread, the thread moves to ready state. The next time it 
+begins running, it executes the InterruptedException handler.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">3.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Suspending</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Suspend and resume are 
+instance methods and are deprecated in 1.2</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread that receives a 
+suspend call, goes to suspended state and stays there until it receives a resume 
+call on it.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread can suspend it 
+itself, or another thread can suspend it.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">But, a thread can be resumed 
+only by another thread.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Calling resume on a thread 
+that is not suspended has no effect.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Compiler won’t warn you if 
+suspend and resume are successive statements, although the thread may not be 
+able to be restarted. </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">4.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Blocking</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Methods that are performing 
+I/O have to wait for some occurrence in the outside world to happen before they 
+can proceed. This behavior is blocking.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If a method needs to wait an 
+indeterminable amount of time until some I/O takes place, then the thread should 
+graciously step out of the CPU. All Java I/O methods behave this way.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread can also become 
+blocked, if it failed to acquire the lock of a monitor.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">5.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Waiting</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">wait, notify and notifyAll 
+methods are not called on Thread, they’re called on Object. Because the object 
+is the one which controls the threads in this case. It asks the threads to wait 
+and then notifies when its state changes. It’s called a monitor.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Wait puts an executing thread 
+into waiting state.(to the monitor’s waiting pool)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Notify moves one thread in 
+the monitor’s waiting pool to ready state. We cannot control which thread is 
+being notified. notifyAll is recommended.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">NotifyAll moves all threads 
+in the monitor’s waiting pool to ready.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">These methods can only be 
+called from synchronized code, or an IllegalMonitorStateException will be 
+thrown. In other words, only the threads that obtained the object’s lock can 
+call these methods.</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-family: &quot;Times New Roman&quot;;">Locks, Monitors and 
+Synchronization</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Every object has a lock (for 
+every synchronized code block). At any moment, this lock is controlled by <u>at 
+most</u> one thread.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread that wants to 
+execute an object’s synchronized code must acquire the lock of the object. If it 
+cannot acquire the lock, the thread goes into blocked state and comes to ready 
+only when the object’s lock is available.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">When a thread, which owns a 
+lock, finishes executing the synchronized code, it gives up the lock.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Monitor (a.k.a Semaphore) is 
+an object that can block and revive threads, an object that controls client 
+threads. Asks the client threads to wait and notifies them when the time is 
+right to continue, based on its state. In strict Java terminology, any object 
+that has some synchronized code is a monitor.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">2 ways to synchronize:</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 25.5pt; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">1.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Synchronize the entire method</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 43.5pt; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Declare the method to be 
+synchronized - very common practice.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 43.5pt; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Thread should obtain the 
+object’s lock.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 25.5pt; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">2.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Synchronize part of the 
+method</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 43.5pt; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Have to pass an arbitrary 
+object which lock is to be obtained to execute the synchronized code block (part 
+of a method).</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 43.5pt; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">We can specify “this” in 
+place object, to obtain very brief locking – not very common.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">wait – points to remember</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Wingdings;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">calling thread gives up CPU</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Wingdings;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">calling thread gives up the 
+lock</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Wingdings;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">calling thread goes to 
+monitor’s waiting pool</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Wingdings;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">wait also has a version with 
+timeout in milliseconds. Use this if you’re not sure when the current thread 
+will get notified, this avoids the thread being stuck in wait state forever.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">notify – points to remember</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Wingdings;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">one thread gets moved out of 
+monitor’s waiting pool to ready state</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Wingdings;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">notifyAll moves all the 
+threads to ready state</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Wingdings;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Thread gets to execute <u>
+must re-acquire</u> the lock of the monitor before it can proceed.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Note the differences between 
+blocked and waiting.</span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 0.5in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 203.4pt;"
+ valign="top" width="271">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Blocked</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt;"
+ valign="top" width="270">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Waiting</span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 203.4pt;"
+ valign="top" width="271">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Thread is 
+	  waiting to get a lock on the monitor.</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">(or waiting 
+	  for a blocking i/o method)</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt;"
+ valign="top" width="270">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Thread has 
+	  been asked to wait. (by means of wait method)</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 203.4pt;"
+ valign="top" width="271">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Caused by 
+	  the thread tried to execute some synchronized code. (or a blocking i/o 
+	  method)</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt;"
+ valign="top" width="270">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">The thread 
+	  already acquired the lock and executed some synchronized code before 
+	  coming across a wait call.</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 203.4pt;"
+ valign="top" width="271">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Can move to 
+	  ready only when the lock is available. ( or the i/o operation is complete)</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt;"
+ valign="top" width="270">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Can move to 
+	  ready only when it gets notified (by means of notify or notifyAll)</span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Points for complex models:</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">1.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Always check monitor’s state 
+in a while loop, rather than in an if statement.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">2.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Always call notifyAll, 
+instead of notify.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Class locks control the 
+static methods.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">wait and sleep must be 
+enclosed in a try/catch for InterruptedException.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A single thread can obtain 
+multiple locks on multiple objects (or on the same object)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A thread owning the lock of 
+an object can call other synchronous methods on the same object. (this is 
+another lock) Other threads can’t do that. They should wait to get the lock.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Non-synchronous methods can 
+be called at any time by any thread.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Synchronous methods are 
+re-entrant. So they can be called recursively.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Synchronized methods can be 
+overrided to be non-synchronous. synchronized behavior affects only the original 
+class.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Locks on inner/outer objects 
+are independent. Getting a lock on outer object doesn’t mean getting the lock on 
+an inner object as well, that lock should be obtained separately.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">wait and notify should be 
+called from synchronized code. This ensures that while calling these methods the 
+thread always has the lock on the object. If you have wait/notify in 
+non-synchronized code compiler won’t catch this. At runtime, if the thread 
+doesn’t have the lock while calling these methods, an 
+IllegalMonitorStateException is thrown.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Deadlocks can occur easily. 
+e.g, Thread A locked Object A and waiting to get a lock on Object B, but Thread 
+B locked Object B and waiting to get a lock on Object A. They’ll be in this 
+state forever.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">It’s the programmer’s 
+responsibility to avoid the deadlock. Always get the locks in the same order.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">While ‘suspended’, the thread 
+keeps the locks it obtained – so suspend is deprecated in 1.2</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Use of stop is also 
+deprecated, instead use a flag in run method. Compiler won’t warn you, if you 
+have statements after a call to stop, even though they are not reachable.</span><o:p></o:p></p>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

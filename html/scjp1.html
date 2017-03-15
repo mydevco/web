@@ -1,0 +1,671 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 1</title>
+  
+  
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="MsoSubtitle" style=""><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Times New Roman&quot;;">Chapter 1 
+Language Fundamentals</span></b><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Source file’s 
+elements (in order)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">a.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Package 
+declaration<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">b.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Import statements<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">c.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Class 
+definitions<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Importing 
+packages doesn’t recursively import sub-packages.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">3.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Sub-packages are 
+really different packages, happen to live within an enclosing package. Classes 
+in sub-packages cannot access classes in enclosing package with default access.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">4.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Comments can 
+appear anywhere. Can’t be nested.(No matter what type of comments)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">5.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>At most one 
+public class definition per file. This class name should match the file name. If 
+there are more than one public class definitions, compiler will accept the class 
+with the file’s name and give an error at the line where the other class is 
+defined.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">6.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>It’s not required 
+having a public class definition in a file. Strange, but true. <span style="font-family: Wingdings;"><span style="">
+J</span></span>
+In this case, the file’s name should be different from the names of classes and 
+interfaces (not public obviously). <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">7.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Even an empty 
+file is a valid source file.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">8.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>An identifier 
+must begin with a letter, dollar sign ($) or underscore (_). Subsequent 
+characters may be letters, $, _ or digits.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">9.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>An identifier 
+cannot have a name of a Java keyword. Embedded keywords are OK. true, false and 
+null are literals (not keywords), but they can’t be used as identifiers as well.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">10.<span
+ style="font-size: 7pt;">&nbsp; </span>const and goto are reserved words, but 
+not used.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">11.<span
+ style="font-size: 7pt;">&nbsp; </span>Unicode characters can appear anywhere in 
+the source code. The following code is valid.<o:p></o:p></p>
+<p class="MsoNormal" style=""><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ch\u0061r a = &#39;a&#39;;</span><o:p></o:p></p>
+<p class="MsoNormal" style=""><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>char \u0062 = &#39;b&#39;;</span><o:p></o:p></p>
+<p class="MsoNormal" style=""><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>char c = &#39;\u0063&#39;;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">12.<span
+ style="font-size: 7pt;">&nbsp; </span>Java has 8 primitive data types.<o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 0.5in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style=""><b>Data Type</b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style=""><b>Size (bits)</b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style=""><b>Initial Value</b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style=""><b>Min Value</b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style=""><b>Max Value</b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">boolean<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">1<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">false<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style=""><span style="">&nbsp;</span>false<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style="">true<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">byte<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">8<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">0<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style="">-128 (-2<sup>7</sup>)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">127 (2<sup>7</sup>
+	  – 1)</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">short<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">16<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">0<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style="">-2<sup>15</sup> <o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style="">2<sup>15</sup> - 1<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">char<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">16<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">‘\u0000’<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style="">‘\u0000’ (0)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style="">‘\uFFFF’ (2<sup>16</sup>
+	  – 1)<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">int<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">32<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">0<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style="">-2<sup>31</sup> <o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style="">2<sup>31</sup> - 1<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">long<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">64<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">0L<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style="">-2<sup>63</sup> <o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style="">2<sup>63</sup> - 1<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">float<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">32<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">0.0F<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style="">1.4E-45<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style="">3.4028235E38<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 59.4pt;"
+ valign="top" width="79">
+      <p class="MsoNormal" style="">double<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 40.5pt;"
+ valign="top" width="54">
+      <p class="MsoNormal" style="">64<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in;"
+ valign="top" width="72">
+      <p class="MsoNormal" style="">0.0<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt;"
+ valign="top" width="90">
+      <p class="MsoNormal" style="">4.9E-324<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt;"
+ valign="top" width="162">
+      <p class="MsoNormal" style="">1.7976931348623157E308<o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">13.<span
+ style="font-size: 7pt;">&nbsp; </span>All numeric data types are signed. char 
+is the only unsigned integral type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">14.<span
+ style="font-size: 7pt;">&nbsp; </span>Object reference variables are 
+initialized to null.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">15.<span
+ style="font-size: 7pt;">&nbsp; </span>Octal literals begin with zero. Hex 
+literals begin with 0X or 0x. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">16.<span
+ style="font-size: 7pt;">&nbsp; </span>Char literals are single quoted 
+characters or unicode values (begin with \u).<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">17.<span
+ style="font-size: 7pt;">&nbsp; </span>A number is by default an int literal, a 
+decimal number is by default a double literal.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">18.<span
+ style="font-size: 7pt;">&nbsp; </span>1E-5d is a valid double literal, E2d is 
+not (since it starts with a letter, compiler thinks that it’s an identifier)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">19.<span
+ style="font-size: 7pt;">&nbsp; </span>Two types of variables. <o:p></o:p></p>
+<ol style="margin-top: 0in;" start="1" type="1">
+  <li class="MsoNormal" style="">Member variables <o:p></o:p></li>
+</ol>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Accessible anywhere in the class.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Automatically initialized before invoking 
+any constructor.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Static variables are initialized at class 
+load time.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can have the same name as the class.<o:p></o:p></p>
+<ol style="margin-top: 0in;" start="2" type="1">
+  <li class="MsoNormal" style="">Automatic variables(method local) <o:p></o:p></li>
+</ol>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Must be initialized explicitly. (Or, 
+compiler will catch it.) Object references can be initialized to null to make 
+the compiler happy. The following code won’t compile. Specify else part or 
+initialize the local variable explicitly.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">public String 
+testMethod ( int a) {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">String tmp; </span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">if<span style="">&nbsp;
+</span>( a &gt; 0 ) tmp = “Positive”; </span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">return tmp;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can have the same name as a member 
+variable, resolution is based on scope.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">20.<span
+ style="font-size: 7pt;">&nbsp; </span>Arrays are Java objects. If you create an 
+array of 5 Strings, there will be 6 objects created.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">21.<span
+ style="font-size: 7pt;">&nbsp; </span>Arrays should be <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Declared. (<span style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int[] 
+a; String b[]; Object []c;</span><span style="">&nbsp; </span>Size should not be 
+specified now) <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Allocated 
+(constructed). ( <span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">a = new 
+int[10]; c = new String[arraysize]</span> )<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">3.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Initialized.
+<span style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">for (int 
+i = 0; i &lt; a.length; a[i++] = 0)</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">22.<span
+ style="font-size: 7pt;">&nbsp; </span>The above three can be done in one step. <o:p></o:p></p>
+<p class="MsoNormal" style="text-indent: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int a[] = { 1, 
+2, 3 };</span> (or )<o:p></o:p></p>
+<p class="MsoNormal" style="text-indent: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int a[] = new 
+int[] { 1, 2, 3 };</span> But never specify the size with the new statement.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">23.<span
+ style="font-size: 7pt;">&nbsp; </span>Java arrays are static arrays. Size has 
+to be specified at compile time. Array.length returns array’s size. (Use Vectors 
+for dynamic purposes).<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">24.<span
+ style="font-size: 7pt;">&nbsp; </span>Array size is never specified with the 
+reference variable, it is always maintained with the array object. It is 
+maintained in array.length, which is a final instance variable.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">25.<span
+ style="font-size: 7pt;">&nbsp; </span>Anonymous arrays can be created and used 
+like this:<span style="">&nbsp; </span>new int[] {1,2,3} or new int[10]<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">26.<span
+ style="font-size: 7pt;">&nbsp; </span>Arrays with zero elements can be created. 
+args array to the main method will be a zero element array if no command 
+parameters are specified. In this case args.length is 0.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">27.<span
+ style="font-size: 7pt;">&nbsp; </span>Comma after the last initializer in array 
+declaration is ignored.<o:p></o:p></p>
+<p class="MsoNormal" style="text-indent: 0.5in;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span
+ style="">&nbsp;</span>int[] i = new int[2] { 5, 10};<span style="">&nbsp;
+</span>// Wrong</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int i[5] = { 
+1, 2, 3, 4, 5};<span style="">&nbsp; </span>// Wrong</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int[] i[] = 
+{{},<span
+ style="">&nbsp;</span>new int[] {} }; // Correct</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int i[][] = { 
+{1,2}, new int[2] }; // Correct</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int i[] = { 1, 
+2, 3, 4, } ; // Correct</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">28.<span
+ style="font-size: 7pt;">&nbsp; </span>Array indexes start with 0. Index is an 
+int data type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">29.<span
+ style="font-size: 7pt;">&nbsp; </span>Square brackets can come after datatype 
+or before/after variable name. White spaces are fine. Compiler just ignores 
+them.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">30.<span
+ style="font-size: 7pt;">&nbsp; </span>Arrays declared even as member variables 
+also need to be allocated memory explicitly.<span style="">&nbsp;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">static int 
+a[];</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">static int b[] 
+= {1,2,3};</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">public static 
+void main(String s[]) {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(a[0]); // Throws a null pointer exception</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(b[0]); // This code runs fine</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(a); // Prints ‘null’</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(b); // Prints a string which is returned by toString</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">31.<span
+ style="font-size: 7pt;">&nbsp; </span>Once declared and allocated (even for 
+local arrays inside methods), array elements are automatically initialized to 
+the default values.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">32.<span
+ style="font-size: 7pt;">&nbsp; </span>If only declared (not constructed), 
+member array variables default to null, but local array variables will <u>not</u> 
+default to null.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">33.<span
+ style="font-size: 7pt;">&nbsp; </span>Java doesn’t support multidimensional 
+arrays formally, but it supports arrays of arrays. From the specification - <i>
+“The number of bracket pairs indicates the depth of array nesting</i>.” So this 
+can perform as a multidimensional array. (no limit to levels of array nesting)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">34.<span
+ style="font-size: 7pt;">&nbsp; </span>In order to be run by JVM, a class should 
+have a main method with the following signature.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">public static 
+void main(String args[])</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">static public 
+void main(String[] s)</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">35.<span
+ style="font-size: 7pt;">&nbsp; </span>args array’s name is not important. 
+args[0] is the first argument. args.length gives no. of arguments.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">36.<span
+ style="font-size: 7pt;">&nbsp; </span>main method can be overloaded. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">37.<span
+ style="font-size: 7pt;">&nbsp; </span>main method can be final.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">38.<span
+ style="font-size: 7pt;">&nbsp; </span>A class with a different main signature 
+or w/o main method will compile. But throws a runtime error.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">39.<span
+ style="font-size: 7pt;">&nbsp; </span>A class without a main method can be run 
+by JVM, if its ancestor class has a main method. (main is just a method and is 
+inherited)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">40.<span
+ style="font-size: 7pt;">&nbsp; </span>Primitives are passed by value.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">41.<span
+ style="font-size: 7pt;">&nbsp; </span>Objects (references) are passed by 
+reference. The object reference itself is passed by value. So, it can’t be 
+changed. But, the object can be changed via the reference.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">42.<span
+ style="font-size: 7pt;">&nbsp; </span>Garbage collection is a mechanism for 
+reclaiming memory from objects that are no longer in use, and making the memory 
+available for new objects.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">43.<span
+ style="font-size: 7pt;">&nbsp; </span>An object being no longer in use means 
+that it can’t be referenced by any ‘active’ part of the program.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">44.<span
+ style="font-size: 7pt;">&nbsp; </span>Garbage collection runs in a low priority 
+thread. It <i>may</i> kick in when memory is too low. No guarantee.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">45.<span
+ style="font-size: 7pt;">&nbsp; </span>It’s not possible to force garbage 
+collection. Invoking System.gc <i>may</i> start garbage collection process.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">46.<span
+ style="font-size: 7pt;">&nbsp; </span>The automatic garbage collection scheme 
+guarantees that a reference to an object is always valid while the object is in 
+use, i.e. the object will not be deleted leaving the reference “dangling”.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">47.<span
+ style="font-size: 7pt;">&nbsp; </span>There are no guarantees that the objects 
+no longer in use will be garbage collected and their finalizers executed at all. 
+gc might not even be run if the program execution does not warrant it. Thus any 
+memory allocated during program execution might remain allocated after program 
+termination, unless reclaimed by the OS or by other means.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">48.<span
+ style="font-size: 7pt;">&nbsp; </span>There are also no guarantees on the order 
+in which the objects will be garbage collected or on the order in which the 
+finalizers are called. Therefore, the program should not make any decisions 
+based on these assumptions.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">49.<span
+ style="font-size: 7pt;">&nbsp; </span>An object is only eligible for garbage 
+collection, if the only references to the object are from other objects that are 
+also eligible for garbage collection. That is, an object can become eligible for 
+garbage collection even if there are references pointing to the object, as long 
+as the objects with the references are also eligible for garbage collection.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">50.<span
+ style="font-size: 7pt;">&nbsp; </span>Circular references do not prevent 
+objects from being garbage collected.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">51.<span
+ style="font-size: 7pt;">&nbsp; </span>We can set the reference variables to 
+null, hinting the gc to garbage collect the objects referred by the variables. 
+Even if we do that, the object may not be gc-ed if it’s attached to a listener. 
+(Typical in case of AWT components) Remember to remove the listener first.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">52.<span
+ style="font-size: 7pt;">&nbsp; </span>All objects have a finalize method. It is 
+inherited from the Object class.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">53.<span
+ style="font-size: 7pt;">&nbsp; </span>finalize method is used to release system 
+resources other than memory. (such as file handles and network connections) The 
+order in which finalize methods are called may not reflect the order in which 
+objects are created. Don’t rely on it. This is the signature of the finalize 
+method.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">protected void 
+finalize() throws Throwable { }</span><o:p></o:p></p>
+<p class="MsoBodyTextIndent2" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">In the 
+descendents this method can be protected or public. Descendents can restrict the 
+exception list that can be thrown by this method. </span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">54.<span
+ style="font-size: 7pt;">&nbsp; </span>finalize is called only once for an 
+object. If any exception is thrown in finalize, the object is still eligible for 
+garbage collection (at the discretion of gc)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">55.<span
+ style="font-size: 7pt;">&nbsp; </span>gc keeps track of unreachable objects and 
+garbage-collects them, but an unreachable object can become reachable again by 
+letting know other objects of its existence from its finalize method (when 
+called by gc). This ‘resurrection’ can be done only once, since finalize is 
+called only one for an object.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">56.<span
+ style="font-size: 7pt;">&nbsp; </span>finalize can be called explicitly, but it 
+does not garbage collect the object.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">57.<span
+ style="font-size: 7pt;">&nbsp; </span>finalize can be overloaded, but only the 
+method with original finalize signature will be called by gc.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">58.<span
+ style="font-size: 7pt;">&nbsp; </span>finalize is not implicitly chained. A 
+finalize method in sub-class should call finalize in super class explicitly as 
+its last action for proper functioning. But compiler doesn’t enforce this check.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">59.<span
+ style="font-size: 7pt;">&nbsp; </span>System.runFinalization can be used to run 
+the finalizers (which have not been executed before) for the objects eligible 
+for garbage collection.<o:p></o:p></p>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

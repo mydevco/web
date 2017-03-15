@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 5</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<h1 style="text-align: left;" align="left"><span
+ style="font-size: 18pt;">Chapter 5 Flow Control and Exceptions</span><o:p></o:p></h1>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Unreachable statements produce a 
+compile-time error. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">while (false) 
+{ x = 3; }</span> // won’t compile<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">for (;false;) 
+{ x =3; }</span> // won’t compile<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">if (false) {x 
+= 3; }</span> // will compile, to provide the ability to conditionally compile 
+the code.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Local variables already declared in an 
+enclosing block, therefore visible in a nested block cannot be re-declared 
+inside the nested block.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A local variable in a block may be 
+re-declared in another local block, if the blocks are disjoint.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Method parameters cannot be re-declared.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Loop constructs<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>3 constructs – for, while, do<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All loops are controlled by a boolean 
+expression.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In while and for, the test occurs at the 
+top, so if the test fails at the first time, body of the loop might not be 
+executed at all.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In do, test occurs at the bottom, so the 
+body is executed <u>at least once</u>.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In for, we can declare multiple variables 
+in the first part of the loop separated by commas, also we can have multiple 
+statements in the third part separated by commas.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In the first section of for statement, we 
+can have a list of declaration statements <u>or </u>a list of expression 
+statements, but not both. We cannot mix them.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All expressions in the third section of 
+for statement will always execute, even if the first expression makes the loop 
+condition false. There is no short –circuit here.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Selection 
+Statements<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>if takes a boolean arguments. Parenthesis 
+required. else part is optional. else if structure provides multiple selective 
+branching.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>switch takes an argument of byte, short, 
+char or int.(assignment compatible to int)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>case value should be a constant 
+expression that can be evaluated at compile time.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Compiler checks each case value against 
+the range of the switch expression’s data type.<span style="">&nbsp; </span>The 
+following code won’t compile.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">byte b;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">switch (b) {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;
+</span>case 200: // 200 not in range of byte</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">
+&nbsp;&nbsp;</span>default:</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>We need to place a break statement in 
+each case block to prevent the execution to fall through other case blocks. But 
+this is not a part of switch statement and not enforced by the compiler.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>We can have multiple case statements 
+execute the same code. Just list them one by one.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>default case can be placed anywhere. 
+It’ll be executed <i>only if</i>
+none of the case values match.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>switch can be nested. Nested case labels 
+are independent, don’t clash with outer case labels. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Empty switch construct is a valid 
+construct. But any statement within the switch block should come under a case 
+label or the default case label.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">3.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Branching 
+statements<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>break statement can be used with any kind 
+of loop or a switch statement or just a labeled block.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>continue statement can be used with only 
+a loop (any kind of loop).<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Loops can have labels. We can use break 
+and continue statements to branch out of multiple levels of nested loops using 
+labels.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Names of the labels follow the same rules 
+as the name of the variables.(Identifiers)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Labels can have the same name, as long as 
+they don’t enclose one another.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="">There is no restriction against using the same identifier as a label 
+and as the name of a package, class, interface, method, field, parameter, or 
+local variable.</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">4.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Exception 
+Handling<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>An
+<em><span style="">exception</span></em> is an event that occurs during the 
+execution of a program that disrupts the normal flow of instructions.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>There are 3 main advantages for 
+exceptions:<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Separates error 
+handling code from “regular” code<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Propagating 
+errors up the call stack (without tedious programming)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">3.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Grouping error 
+types and error differentiation<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>An exception causes a jump to the end of 
+try block. If the exception occurred in a method called from a try block, the 
+called method is abandoned.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If there’s a catch block for the occurred 
+exception or a parent class of the exception, the exception is now considered 
+handled.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ class="code"><span style="font-size: 10pt; font-family: Symbol;">·</span></span><span
+ class="code"><span style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>At least one 
+‘catch’ block or one ‘finally’ block must accompany a ‘try’ statement<span class="code"><span
+ style="font-size: 10pt;">. If all 3 blocks are present, the order is important. 
+(try/catch/finally) </span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ class="code"><span style="font-size: 10pt;">finally and catch can come only 
+with try, they cannot appear on their own.</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Regardless of whether or not an exception 
+occurred or whether or not it was handled, if there is a finally block, it’ll be 
+executed always. (Even if there is a return statement in try block). <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>System.exit() and error conditions are 
+the only exceptions where finally block is not executed.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If there was no exception or the 
+exception was handled, execution continues at the statement after the 
+try/catch/finally blocks.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If the exception is not handled, the 
+process repeats looking for next enclosing try block up the call hierarchy. If 
+this search reaches the top level of the hierarchy (the point at which the 
+thread was created), then the thread is killed and message stack trace is dumped 
+to System.err.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Use throw new xxxException() to throw an 
+exception. If the thrown object is null, a NullPointerException will be thrown 
+at the handler.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If an exception handler re-throws an 
+exception (throw in a catch block), same rules apply. Either you need to have a 
+try/catch within the catch or specify the entire method as throwing the 
+exception that’s being re-thrown in the catch block. Catch blocks at the same 
+level will not handle the exceptions thrown in a catch block – it needs its own 
+handlers.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The method fillInStackTrace() in 
+Throwable class throws a Throwable object. It will be useful when re-throwing an 
+exception or error.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>The Java language requires that methods 
+either <em><span style="">catch</span></em>
+or <em><span style="">specify</span></em> all checked exceptions that can be 
+thrown within the scope of that method.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All objects of type java.lang.Exception 
+are checked exceptions. (Except the classes under java.lang.RuntimeException) If 
+any method that contains lines of code that might throw checked exceptions, 
+compiler checks whether you’ve handled the exceptions or you’ve declared the 
+methods as throwing the exceptions. Hence the name checked exceptions.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If there’s no code in try block that may 
+throw exceptions specified in the catch blocks, compiler will produce an error. 
+(This is not the case for super-class Exception)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Java.lang.RuntimeException and 
+java.lang.Error need not be handled or declared.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>An overriding method may not throw a 
+checked exception unless the overridden method also throws that exception or a 
+super-class of that exception. In other words, an overriding method may not 
+throw checked exceptions that are not thrown by the overridden method. If we 
+allow the overriding methods in sub-classes to throw more general exceptions 
+than the overridden method in the parent class, then the compiler has no way of 
+checking the exceptions the sub-class might throw. (If we declared a parent 
+class variable and at runtime it refers to sub-class object) This violates the 
+concept of checked exceptions and the sub-classes would be able to by-pass the 
+enforced checks done by the compiler for checked exceptions. This should not be 
+allowed.<o:p></o:p></p>
+<p class="MsoNormal" style="">Exception--&gt;ClassNotFoundException, 
+ClassNotSupportedException, IllegalAccessException, InstantiationException, 
+IterruptedException, NoSuchMethodException, <u>RuntimeException</u>, 
+AWTException, <u>IOException</u> <o:p></o:p></p>
+<p class="MsoNormal" style="">RuntimeException--&gt;EmptyStackException, 
+NoSuchElementException, ArithmeticException, ArrayStoreException, 
+ClassCastException, <u>IllegalArgumentException</u>, 
+IllegalMonitorStateException, <o:p></o:p></p>
+<p class="MsoNormal" style=""><u>IndexOutOfBoundsException</u>, 
+NegativeArraySizeException, NullPointerException, SecurityException. <o:p></o:p></p>
+<p class="MsoNormal" style="">
+IllegalArgumentException--&gt;IllegalThreadStateException, NumberFormatException <o:p></o:p></p>
+<p class="MsoNormal" style="">
+IndexOutOfBoundsException--&gt;ArrayIndexOutOfBoundsException, 
+StringIndexOutOfBoundsException <o:p></o:p></p>
+<p class="MsoNormal" style="">IOException--&gt;EOFException, FileNotFoundException, 
+InterruptedIOException, UTFDataFormatException, MalformedURLException, 
+ProtocolException, SockException, UnknownHostException, UnknownServiceException. <o:p></o:p></p>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

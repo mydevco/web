@@ -1,0 +1,1680 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 15</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Times New Roman&quot;;">Chapter 15 
+I/O</span><u1:p></u1:p></b><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Inside JVM, text is 
+represented in 16 bit Unicode. For I/O, UTF (<b>U</b>CS (Universal Character 
+set) <b>T</b>ransformation <b>F</b>ormat) is used. UTF uses as many bits as 
+needed to encode a character.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Often programs need to bring 
+in information from an external source or send out information to an external 
+destination. The information can be anywhere: in a file, on disk, somewhere on 
+the network, in memory, or in another program. Also, it can be of any type: 
+objects, characters, images, or sounds. <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">To bring in information, a 
+program opens a stream on an information source (a file, memory or a socket) and 
+reads the information serially. Similarly, a program can send information to an 
+external destination by opening a stream to a destination and writing the 
+information out serially.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>No matter where the information is coming 
+from or going to and no matter what type of data is being read or written, the 
+algorithms for reading and writing data is pretty much always the same. <o:p></o:p></p>
+<table style="margin-left: 36.4pt; border-collapse: collapse;"
+ border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 1px solid windowtext; padding: 0in; width: 184pt;"
+ width="245">
+      <p class="MsoNormal" style=""><strong><span style=""><u1:p></u1:p>Reading</span></strong><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 1px; padding: 0in; width: 184pt;"
+ width="245">
+      <p class="MsoNormal" style=""><strong><span style="">Writing</span></strong><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: 1px; padding: 0in; width: 184pt;"
+ width="245">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">open a 
+	  stream<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">while more 
+	  information<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;"><span style="">&nbsp;&nbsp;&nbsp;
+      </span>read information<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">close the 
+	  stream<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: 1px; padding: 0in; width: 184pt;"
+ width="245">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">open a 
+	  stream<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">while more 
+	  information<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;"><span style="">&nbsp;&nbsp;&nbsp;
+      </span>write information<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">close the 
+	  stream<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;"><u1:p></u1:p>·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">For this kind of general I/O 
+Stream/Reader/Writer model is used. These classes are in java.io package. They 
+view the input/output as an ordered sequence of bytes/characters.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">We can create I/O chains of 
+arbitrary length by chaining these classes.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>These classes are divided into two class 
+hierarchies based on the data type (either characters or bytes) on which they 
+operate. Streams operate on bytes while Readers/Writers operate on chars.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>However, it&#39;s often more convenient to 
+group the classes based on their purpose rather than on the data type they read 
+and write. Thus, we can cross-group the streams by whether they read from and 
+write to data &quot;sinks&quot; (Low level streams) or process the information as its 
+being read or written (High level filter streams).<o:p></o:p></p>
+<u1:p></u1:p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><b><span
+ style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;;">Low Level 
+Streams / Data sink streams</span></b><u1:p></u1:p><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Low Level Streams/Data sink streams read 
+from or write to specialized data sinks such as strings, files, or pipes. 
+Typically, for each reader or input stream intended to read from a specific kind 
+of input source, java.io contains a parallel writer or output stream that can 
+create it. The following table gives <span class="code"><span
+ style="font-size: 10pt;">java.io</span></span>&#39;s data sink streams. <o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 39.75pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 3.75pt; width: 45pt;"
+ width="60">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><u1:p></u1:p>
+	  Sink Type<u1:p></u1:p></b><span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 85.5pt;"
+ width="114">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>
+	  Character Streams<u1:p></u1:p></b><span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.5in;"
+ width="144">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Byte 
+	  Streams<u1:p></u1:p></b><span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 229.5pt;"
+ width="306">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Purpose<u1:p></u1:p></b><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="height: 49.9pt;">
+      <td rowspan="2"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 45pt; height: 49.9pt;"
+ width="60">
+      <p class="MsoNormal" style="">Memory<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 85.5pt; height: 49.9pt;"
+ width="114">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">CharArrayReader</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">CharArrayWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.5in; height: 49.9pt;"
+ width="144">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">ByteArrayInputStream</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">ByteArrayOutputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 229.5pt; height: 49.9pt;"
+ width="306">
+      <p class="MsoNormal" style="">Use these streams to read from and write to 
+	  memory. You create these streams on an existing array and then use the 
+	  read and write methods to read from or write to the array.<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 85.5pt;"
+ width="114">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">StringReader</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">StringWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.5in;"
+ width="144">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">StringBufferInputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 229.5pt;"
+ width="306">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Use <span
+ class="code">StringReader</span> to read characters from a <span
+ class="code">String</span> as it lives in memory. Use <span
+ class="code">StringWriter</span> to write to a <span class="code">String</span>.
+      <span class="code">StringWriter</span> collects the characters written to 
+	  it in a <span class="code">StringBuffer</span>, which can then be 
+	  converted to a <span class="code">String</span>. <span
+ class="code">StringBufferInputStream</span> is similar to <span
+ class="code">StringReader</span>, except that it reads bytes from a <span
+ class="code">StringBuffer.<u1:p></u1:p></span></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 45pt;"
+ width="60">
+      <p class="MsoNormal" style="">Pipe<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 85.5pt;"
+ width="114">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">PipedReader</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">PipedWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.5in;"
+ width="144">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">PipedInputStream</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">PipedOutputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 229.5pt;"
+ width="306">
+      <p class="MsoNormal" style="">Implement the input and output components of 
+	  a pipe. Pipes are used to channel the output from one program (or thread) 
+	  into the input of another. <span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 45pt;"
+ width="60">
+      <p class="MsoNormal" style="">File<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 85.5pt;"
+ width="114">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">FileReader</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">FileWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.5in;"
+ width="144">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">FileInputStream</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">FileOutputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 229.5pt;"
+ width="306">
+      <p class="MsoNormal" style="">Collectively called file streams, these 
+	  streams are used to read from or write to a file on the native file 
+	  system. <span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><b><span
+ style="font-size: 13.5pt; font-family: &quot;Times New Roman&quot;;">High Level 
+Filter Streams / Processing streams</span><u1:p></u1:p></b><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span style="">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Processing 
+streams perform some sort of operation, such as buffering or character encoding, 
+as they read and write. Like the data sink streams, <span
+ class="code"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">java.io</span></span>
+often contains pairs of streams: one that performs a particular operation during 
+reading and another that performs the same operation (or reverses it) during 
+writing. This table gives <span class="code"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">java.io</span></span>&#39;s 
+processing streams. <o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 39.75pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b><u1:p></u1:p>
+	  Process<u1:p></u1:p></b><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>
+	  Character
+      <u1:p></u1:p></b><o:p></o:p></p>
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Streams<u1:p></u1:p></b><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Byte 
+	  Streams<u1:p></u1:p></b><span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="text-align: center;" align="center"><b>Purpose<u1:p></u1:p></b><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Buffering<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">BufferedReader</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">BufferedWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">BufferedInputStream</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">BufferedOutputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Buffer data while reading or writing, 
+	  thereby reducing the number of accesses required on the original data 
+	  source. Buffered streams are typically more efficient than similar 
+	  nonbuffered streams.<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Filtering<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">FilterReader</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">FilterWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">FilterInputStream</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">FilterOutputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Abstract classes, like their parents. They 
+	  define the interface for filter streams, which filter data as it&#39;s being 
+	  read or written.<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Converting between<br>
+	  Bytes and Characters<span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">InputStreamReader</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">OutputStreamWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style="">N/A<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">A reader and writer pair that forms the 
+	  bridge between byte streams and character streams. An <span
+ class="code"><span style="font-size: 10pt;">InputStreamReader</span></span>
+	  reads bytes from an <span class="code"><span style="font-size: 10pt;">
+	  InputStream</span></span>
+	  and converts them to characters using either the default 
+	  character-encoding or a character-encoding specified by name. Similarly, 
+	  an <span class="code"><span style="font-size: 10pt;">OutputStreamWriter</span></span>
+	  converts characters to bytes using either the default character-encoding 
+	  or a character-encoding specified by name and then writes those bytes to 
+	  an <span class="code"><span
+ style="font-size: 10pt;">OutputStream</span></span>. <span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Concatenation<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style="">N/A<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">SequenceInputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Concatenates multiple input streams into one 
+	  input stream. <span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Object Serialization<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style="">N/A<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">ObjectInputStream</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">ObjectOutputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Used to serialize objects. <span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Data Conversion<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style="">N/A<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">DataInputStream</span></span>,<br>
+      <span class="code"><span style="font-size: 10pt;">DataOutputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Read or write primitive Java data types in a 
+	  machine-independent format. Implement DataInput/DataOutput interfaces.<span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Counting<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">LineNumberReader</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">LineNumberInputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Keeps track of line numbers while reading. <span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Peeking Ahead<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">PushbackReader</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">PushbackInputStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Two input streams each with a 1-character 
+	  (or byte) pushback buffer. Sometimes, when reading data from a stream, you 
+	  will find it useful to peek at the next item in the stream in order to 
+	  decide what to do next. However, if you do peek ahead, you&#39;ll need to put 
+	  the item back so that it can be read again and processed normally. Certain 
+	  kinds of parsers need this functionality.<span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 3.75pt; width: 76.5pt;"
+ width="102">
+      <p class="MsoNormal" style="">Printing<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 1.25in;"
+ width="120">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">PrintWriter</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 112.5pt;"
+ width="150">
+      <p class="MsoNormal" style=""><span class="code"><span
+ style="font-size: 10pt;">PrintStream</span></span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 3.75pt; width: 193.5pt;"
+ width="258">
+      <p class="MsoNormal" style="">Contain convenient printing methods. These 
+	  are the easiest streams to write to, so you will often see other writable 
+	  streams wrapped in one of these.<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoNormal" style=""><span style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ class="code"><span style="font-size: 10pt;">Reader</span></span> and <span
+ class="code"><span style="font-size: 10pt;">InputStream</span></span>
+define similar APIs but for different data types. For example, <span
+ class="code"><span style="font-size: 10pt;">Reader</span></span>
+contains these methods for reading characters and arrays of characters:
+<o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int read() 
+throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+read(char cbuf[]) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">abstract int 
+read(char cbuf[], int offset, int length) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in;"><span class="code"><span
+ style="font-size: 10pt;">InputStream</span></span> defines the same methods but 
+for reading bytes and arrays of bytes: <o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">abstract int 
+read() throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+read(byte cbuf[]) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+read(byte cbuf[], int offset, int length) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in;">Also, both <span
+ class="code"><span style="font-size: 10pt;">Reader</span></span> and <span
+ class="code"><span style="font-size: 10pt;">InputStream</span></span>
+provide methods for marking a location in the stream, skipping input, and 
+resetting the current position. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in;">Both Reader and InputStream 
+are abstract. Subclasses should provide implementation for the read() method.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><!--[if !supportLists]--><span
+ style="font-size: 10pt; font-family: Symbol;">·<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><!--[endif]--><span
+ class="code"><span style="font-size: 10pt;">Writer</span></span> and <span
+ class="code"><span style="font-size: 10pt;">OutputStream</span></span>
+are similarly parallel. <span class="code"><span
+ style="font-size: 10pt;">Writer</span></span> defines these methods for writing 
+characters and arrays of characters: <o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+write(int c) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">abstract int 
+write(char cbuf[])throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+write(char cbuf[], int offset, int length) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in;">&nbsp;&nbsp;&nbsp;&nbsp; And <span class="code"><span style="font-size: 10pt;">
+OutputStream</span></span>
+defines the same methods but for bytes: <o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">abstract int 
+write(int c) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+write(byte cbuf[]) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+write(byte cbuf[], int offset, int length) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0.25in 0.0001pt 0.75in; text-indent: -0.25in;"><!--[if !supportLists]--><span
+ style="font-size: 10pt; font-family: Symbol;">·<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><!--[endif]--><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Writer 
+defines extra methods to write strings.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+write(String str) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+write(String str, int offset, int length) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Both Writer 
+and OutputStream are abstract. Subclasses should provide implementation for the 
+write() method.<span style=""> </span><u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constructors 
+for some common streams, reader and writers:<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileInputStream(String name) throws FileNotFoundException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileInputStream(File file) throws FileNotFoundException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileInputStream(FileDescriptor fdObj) <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileOutputStream(String name) throws FileNotFoundException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileOutputStream(String name, boolean append) throws FileNotFoundException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileOutputStream (File file) throws FileNotFoundException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileOutputStream (FileDescriptor fdObj) <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+DataInputStream(InputStream in)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+DataOutputStream(OutputStream out)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedInputStream(InputStream in)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedInputStream(InputStream in, int size)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedOutputStream(OutputStream out)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedOutputStream(OutputStream out, int size)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileReader(File file) throws FileNotFoundException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">FileReader 
+(FileDescriptor fdObj)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">FileReader 
+(String name) throws FileNotFoundException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileWriter(File file) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileWriter(String name) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileWriter(String name, boolean append) throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+FileWriter(FileDescriptor fdObj)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+InputStreamReader(InputStream in)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+InputStreamReader(InputStream in, String encodingName) throws 
+UnsupportedEncodingException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+OutputStreamWriter(OutputStream out)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+OutputStreamWriter (OutputStream out, String encodingName) throws 
+UnsupportedEncodingException<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+PrintWriter(Writer out) <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+PrintWriter(Writer out, boolean autoflush) <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+PrintWriter(OutputStream out) <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+PrintWriter(OutputStream out, boolean autoflush)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedReader(Reader in)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedReader(Reader in, int size)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedWriter(Writer out)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0.25in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+BufferedWriter (Writer out, int size)<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 15.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 13.5pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 156.75pt; height: 13.5pt;"
+ valign="top" width="209">
+      <p class="MsoNormal" style=""><b><u1:p></u1:p>Encoding Name<u1:p></u1:p></b><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 208.5pt; height: 13.5pt;"
+ valign="top" width="278">
+      <p class="MsoNormal" style=""><b>Character Set Name<u1:p></u1:p></b><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 156.75pt; height: 16.6pt;"
+ valign="top" width="209">
+      <p class="MsoNormal" style="">8859_1<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 208.5pt; height: 16.6pt;"
+ valign="top" width="278">
+      <p class="MsoNormal" style="">ISO Latin-1 (subsumes ASCII)<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 156.75pt; height: 16.6pt;"
+ valign="top" width="209">
+      <p class="MsoNormal" style="">8859_2<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 208.5pt; height: 16.6pt;"
+ valign="top" width="278">
+      <p class="MsoNormal" style="">ISO Latin-2<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 156.75pt; height: 16.6pt;"
+ valign="top" width="209">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">8859_3<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 208.5pt; height: 16.6pt;"
+ valign="top" width="278">
+      <p class="MsoNormal" style="">ISO Latin-3<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 156.75pt; height: 16.6pt;"
+ valign="top" width="209">
+      <p class="MsoNormal" style="">8859_4<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 208.5pt; height: 16.6pt;"
+ valign="top" width="278">
+      <p class="MsoNormal" style="">ISO Latin / Cyrillic<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 156.75pt; height: 16.6pt;"
+ valign="top" width="209">
+      <p class="MsoNormal" style="">UTF8<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 208.5pt; height: 16.6pt;"
+ valign="top" width="278">
+      <p class="MsoNormal" style="">Standard UTF-8 (subsumes ASCII)<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;"><u1:p></u1:p>·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>OutputStreamWriter and InputStreamReader 
+are the only ones where you can specify an encoding scheme apart from the 
+default encoding scheme of the host system. getEncoding method can be used to 
+obtain the encoding scheme used.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>With UTF-8 Normal ASCII characters are 
+given 1 byte. All Java characters can be encoded with at most 3 bytes, never 
+more.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All of the streams--readers, writers, 
+input streams, and output streams--are automatically opened when created. You 
+can close any stream explicitly by calling its <span class="code"><span
+ style="font-size: 10pt;">close</span></span> method. Or the garbage collector 
+can implicitly close it, which occurs when the object is no longer referenced. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Closing the streams automatically flushes 
+them. You can also call flush method.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>New FileWriter(“filename”) or 
+FileOutputStream(“filename”) will overwrite if “filename” is existing or create 
+a new file, if not existing. But we can specify the append mode in the second 
+argument.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Print writers provide the ability to 
+write textual representations of Java primitive values. They have to be chained 
+to the low-level streams or writers. Methods in this class never throw an 
+IOException.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>PrintStream and PrintWriter classes can 
+be created with autoflush feature, so that each println method will 
+automatically be written to the next available stream. PrintStream is 
+deprecated.(though System.out and System.err are still of this type)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>System.in is of InputStream type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>System.in, System.out, System.err are 
+automatically created for a program, by JVM.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Use buffered streams for improving 
+performance.BufferedReader provides readLine method. <o:p></o:p></p>
+<p class="MsoNormal" style=""><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>User defined classes must implement Serializable or Externalizable 
+interfaces to be serialized.<u1:p></u1:p><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Serializable is a marker 
+interface with no methods. Externalizable has two methods to be implemented – 
+readExternal(ObjectInput) and writeExternal(ObjectOutput).<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">ObjectOutputStream can write 
+both Java Primitives and Object hierarchies. When a compound object is 
+serialized all its constituent objects that are serializable are also 
+serialized.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">ObjectOutputStream implements 
+ObjectOutput, which inherits from DataOutput.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All AWT components implement 
+Serializable (Since Component class implements it), so by default we can just 
+use an ObjectOutputStream to serialize any AWT component.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">File class is used to 
+navigate the file system.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Constructing a File instance 
+(or Garbage-Collecting it) never affects the file system.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">File class doesn’t have a 
+method to change the current working directory.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">File constructors<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 27.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 117pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constructor<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 328.5pt;"
+ valign="top" width="438">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">File(File 
+	  dir, String name)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 328.5pt;"
+ valign="top" width="438">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Creates a 
+	  File instance that represents the file with the specified name in the 
+	  specified directory<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">File(String 
+	  path)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 328.5pt;"
+ valign="top" width="438">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Creates a 
+	  File instance that represents the file whose pathname is the given path 
+	  argument.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">File(String 
+	  path, String name)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 328.5pt;"
+ valign="top" width="438">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Creates a 
+	  File instance whose pathname is the pathname of the specified directory, 
+	  followed by the separator character, followed by the name argument.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">File methods<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 27.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Method<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  canRead()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Tests if the 
+	  application can read from the specified file.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  canWrite()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Tests if the 
+	  application can write to this file.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  delete()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Deletes the 
+	  file specified by this object.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  exists()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Tests if 
+	  this File exists.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String 
+	  getAbsolutePath()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  absolute pathname of the file represented by this object.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String 
+	  getCanonicalPath()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  canonical form of this File object&#39;s pathname.<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">..</span></b><span
+ style="font-family: &quot;Times New Roman&quot;;"> and <b>.</b> are resolved.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String 
+	  getName()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  name of the file represented by this object.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String 
+	  getParent()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  parent part of the pathname of this File object, or null if the name has 
+	  no parent part.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String 
+	  getPath()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;"><span style="">
+	  &nbsp;</span>Returns the pathname of the file represented by this object.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  isAbsolute()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Tests if the 
+	  file represented by this File object is an absolute pathname.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  isDirectory()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Tests if the 
+	  file represented by this File object is a directory.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  isFile()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Tests if the 
+	  file represented by this File object is a &quot;normal&quot; file.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">long 
+	  lastModified()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  time that the file represented by this File object was last modified.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">long 
+	  length()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  length of the file (in bytes) represented by this File object.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String[] 
+	  list()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns a 
+	  list of the files in the directory specified by this File object.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String[] 
+	  list(FilenameFilter)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns a 
+	  list of the files in the directory specified by this File that satisfy the 
+	  specified filter.<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  FileNameFilter is an interface that has a method accept().<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">This list 
+	  method will call accept for each entry in the list of files and only 
+	  returns the files for which accept returns true.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  mkdir()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Creates a 
+	  directory whose pathname is specified by this File object.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  mkdirs()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Creates a 
+	  directory whose pathname is specified by this File object, including any 
+	  necessary parent directories.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  renameTo(File)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 319.5pt;"
+ valign="top" width="426">
+      <p class="preformatted"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Renames the 
+	  file specified by this File object to have the pathname given by the File 
+	  argument.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Instances of the file 
+descriptor class serve as an opaque handle to the underlying machine-specific 
+structure representing an open file or an open socket.<span
+ style="">&nbsp; </span><span style="">&nbsp;</span><u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;"><span style="">&nbsp;</span>Applications 
+should not create their own file descriptors<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">RandomAccessFile lets you 
+read/write at arbitrary places within files.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">RAF provides methods to 
+read/write bytes.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">RAF also provides methods to 
+read/write Java primitives and UTF strings. (RAF implements the interfaces 
+DataInput and DataOutput)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">File and RAF instances should 
+be closed when no longer needed.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All reading/writing 
+operations throw an IOException. Need to catch or declare our methods to be 
+throwing that exception.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Read/Write methods throw a 
+SecurityException if the application doesn’t have rights for the file.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">RAF cannot be chained with 
+streams/readers/writers.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">RAF Constructors<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 0.45in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 2.75in;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constructor<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261pt;"
+ valign="top" width="348">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.75in;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  RandomAccessFile(File file, String mode) <u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">throws 
+	  FileNotFoundException,<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  IllegalArgumentException, SecurityException<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261pt;"
+ valign="top" width="348">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Creates a 
+	  random access file stream to read from, and optionally to write to, the 
+	  file specified by the File argument.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.75in;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  RandomAccessFile(String name, String mode) throws FileNotFoundException,<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  IllegalArgumentException, SecurityException<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261pt;"
+ valign="top" width="348">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Creates a 
+	  random access file stream to read from, and optionally to write to, a file 
+	  with the specified name.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;"><span style="">
+&nbsp;</span></span><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">The mode argument must either 
+be equal to &quot;r&quot; or<span style="">&nbsp;</span>&quot;rw&quot;, indicating either to open the 
+file for input or<span style="">&nbsp; </span>for both input and output. <span style="">
+&nbsp;</span><u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Some RAF methods<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 0.45in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Method<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt;"
+ valign="top" width="444">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">long 
+	  getFilePointer() throws IOException<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt;"
+ valign="top" width="444">
+      <p class="MsoNormal" style="">Returns the offset from the beginning of the 
+	  file, in bytes, at which the next read or write occurs.<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">void seek(long pos) throws IOException<o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;">&nbsp;<o:p></o:p></p>
+      </td>
+      <u1:p></u1:p><td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt;"
+ valign="top" width="444">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Sets the 
+	  file-pointer offset, measured from the beginning of this file, at which 
+	  the next read or write occurs. The offset may be set beyond the end of the 
+	  file. Setting the offset beyond the end of the file does not change the 
+	  file length. The file length will change only by writing after the offset 
+	  has been set beyond the end of the file.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.75in;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">long length() throws IOException<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt;"
+ valign="top" width="444">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  length of this file, measured in bytes.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

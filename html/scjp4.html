@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 4</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="MsoNormal" style=""><b style=""><span style="font-size: 18pt;">Chapter 
+4 Converting and Casting</span></b><o:p></o:p></p>
+<p class="MsoNormal" style="">Unary Numeric Promotion<o:p></o:p></p>
+<p class="MsoNormal" style="">Contexts:<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Operand of the unary arithmetic operators 
++ and –<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Operand of the unary integer bit-wise 
+complement operator ~<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>During array creation, for example new 
+int[x], where the dimension expression x must evaluate to an int value.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Indexing array elements, for example 
+table[‘a’], where the index expression must evaluate to an int value.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Individual operands of the shift 
+operators.<o:p></o:p></p>
+<p class="MsoNormal" style="">Binary numeric promotion<o:p></o:p></p>
+<p class="MsoNormal" style="">Contexts:<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Operands of arithmetic operators *, / , 
+%, + and –<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Operands of relational operators &lt;, &lt;= , 
+&gt; and &gt;=<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Numeric Operands of equality operators == 
+and !=<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Integer Operands of bit-wise operators &amp;, 
+^ and |<o:p></o:p></p>
+<p class="MsoNormal" style=""><span style="font-size: 10pt;">Conversion of 
+Primitives</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3 types of 
+conversion – assignment conversion, method call conversion and arithmetic 
+promotion<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>boolean may not 
+be converted to/from any non-boolean type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">3.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Widening 
+conversions accepted. Narrowing conversions rejected.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">4.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>byte, short can’t 
+be converted to char and vice versa.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">5.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Arithmetic 
+promotion<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;">5.1<span
+ style="font-size: 7pt;">&nbsp; </span>Unary operators<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>if the operand is byte, short or char<span style="">&nbsp;</span>{<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">convert it to int;<o:p></o:p></p>
+<p class="MsoNormal" style=""><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>else { <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: 0.25in;">do 
+nothing; no conversion needed;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: 0.5in;">}<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;">5.2<span
+ style="font-size: 7pt;">&nbsp; </span>Binary operators<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>if one operand is double {<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">all double; convert the other 
+operand to double;<o:p></o:p></p>
+<p class="MsoNormal" style=""><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>}<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>else if one 
+operand is float { <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">all float; convert the other 
+operand to float;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.25in;">}<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.25in;">else if 
+one operand is long { <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">all long; convert the other 
+operand to long;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.25in;">}<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.25in;">else { <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">all int; convert all to int;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.25in;">}<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">6.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>When assigning a 
+literal value to a variable, the range of the variable’s data type is checked 
+against the value of the literal and assignment is allowed or compiler will 
+produce an error.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">char c = 3;</span>
+// this will compile, even though a numeric literal is by default an int since 
+the range of char will accept the value<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int a = 3;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">char d = a;</span>
+// this won’t compile, since we’re assigning an int to char<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">char e = -1;</span>
+// this also won’t compile, since the value is not in the range of char <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">float f = 1.3;</span>
+// this won’t compile, even though the value is within float range. Here range 
+is not<span style="">&nbsp; </span>important, but precision is. 1.3 is by 
+default a double, so a specific cast or f = 1.3f will work.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;">float f = 1/3; // this will 
+compile, since RHS evaluates to an int.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;">Float f = 1.0 / 3.0; // this 
+won’t compile, since RHS evaluates to a double.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">7.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Also when 
+assigning a final variable to a variable, even if the final variable’s data type 
+is wider than the variable, if the value is within the range of the variable an 
+implicit conversion is done.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">byte b;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">final int a = 10;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">b = a; // Legal, since value of 
+‘a’ is determinable and within range of b<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">final int x = a;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">b = x; // Legal, since value of 
+‘x’ is determinable and within range of b<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">int y;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">final int z = y;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;">b = z; // Illegal, since value of 
+‘z’ is not determinable<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">8.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Method call 
+conversions always look for the exact data type or a wider one in the method 
+signatures. They will not do narrowing conversions to resolve methods, instead 
+we will get a compile error.<o:p></o:p></p>
+<p class="MsoNormal" style="">Here is the figure of allowable primitive 
+conversion.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;">byte <span
+ style="font-family: Wingdings;"><span style="">à</span></span>
+short <span style="font-family: Wingdings;"><span style="">à</span></span>
+int <span style="font-family: Wingdings;"><span style="">à</span></span>
+long <span style="font-family: Wingdings;"><span style="">à</span></span>
+float <span style="font-family: Wingdings;"><span style="">à</span></span>
+double<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;"><span style="">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: Symbol;"><span style="">­</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.5in;"><span
+ style="">&nbsp;&nbsp;&nbsp; </span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>char<o:p></o:p></p>
+<p class="MsoNormal" style="">Casting of Primitives<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">9.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Needed with 
+narrowing conversions. Use with care – radical information loss. Also can be 
+used with widening conversions, to improve the clarity of the code.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">10.<span
+ style="font-size: 7pt;">&nbsp; </span>Can cast any non-boolean type to another 
+non-boolean type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">11.<span
+ style="font-size: 7pt;">&nbsp; </span>Cannot cast a boolean or to a boolean 
+type.<o:p></o:p></p>
+<p class="MsoNormal" style="">Conversion of Object references<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">12.<span
+ style="font-size: 7pt;">&nbsp; </span>Three types of reference variables to 
+denote objects - class, interface or array type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">13.<span
+ style="font-size: 7pt;">&nbsp; </span>Two kinds of objects can be created – 
+class or array.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">14.<span
+ style="font-size: 7pt;">&nbsp; </span>Two types of conversion – assignment and 
+method call.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">15.<span
+ style="font-size: 7pt;">&nbsp; </span>Permitted if the direction of the 
+conversion is ‘up’ the inheritance hierarchy. Means that types can be 
+assigned/substituted to only super-types – super-classes or interfaces. Not the 
+other way around, explicit casting is needed for that.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">16.<span
+ style="font-size: 7pt;">&nbsp; </span>Interfaces can be used as types when 
+declaring variables, so they participate in the object reference conversion. But 
+we cannot instantiate an interface, since it is abstract and doesn’t provide any 
+implementation. These variables can be used to hold objects of classes that 
+implement the interface. The reason for having interfaces as types may be, I 
+think, several unrelated classes may implement the same interface and if there’s 
+a need to deal with them collectively one way of treating them may be an array 
+of the interface type that they implement.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">17.<span
+ style="font-size: 7pt;">&nbsp; </span>Primitive arrays can be converted to only 
+the arrays of the same primitive type. They cannot be converted to another type 
+of primitive array. Only object reference arrays can be converted / cast.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">18.<span
+ style="font-size: 7pt;">&nbsp; </span>Primitive arrays can be converted to an 
+Object reference, but not to an Object[] reference. This is because all arrays 
+(primitive arrays and Object[]) are extended from Object.<o:p></o:p></p>
+<p class="MsoNormal" style="">Casting of Object references<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">19.<span
+ style="font-size: 7pt;">&nbsp; </span>Allows super-types to be assigned to 
+subtypes. Extensive checks done both at compile and runtime. At compile time, 
+class of the object may not be known, so at runtime if checks fail, a 
+ClassCastException is thrown.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">20.<span
+ style="font-size: 7pt;">&nbsp; </span>Cast operator, instanceof operator and 
+the == operator behave the same way in allowing references to be the operands of 
+them. You cannot cast or apply instanceof or compare <i>unrelated references</i>,<i>sibling 
+references or any incompatible references.</i><o:p></o:p></p>
+<p class="MsoNormal" style="">Compile-time Rules<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>When old and new types are classes, one 
+class must be the sub-class of the other.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>When old and new types are arrays, both 
+must contain reference types and it must be legal to cast between those types 
+(primitive arrays cannot be cast, conversion possible only between same type of 
+primitive arrays).<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>We can always cast between an interface 
+and a non-final object.<o:p></o:p></p>
+<p class="MsoNormal" style="">Run-time rules<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If new type is a class, the class of the 
+expression being converted must be new type or extend new type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If new type is an interface, the class of 
+the expression being converted must implement the interface.<o:p></o:p></p>
+<p class="MsoNormal" style="">An Object reference can be converted to: 
+(java.lang.Object)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>an Object reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>a Cloneable interface reference, with 
+casting, with runtime check<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any class reference, with casting, with 
+runtime check<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any array referenece, with casting, with 
+runtime check<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any interface reference, with casting, 
+with runtime check<o:p></o:p></p>
+<p class="MsoNormal" style="">A Class type reference can be converted to:<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any super-class type reference, 
+(including Object)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any sub-class type reference, with 
+casting, with runtime check<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>an interface reference, if the class 
+implements that interface<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any interface reference, with casting, 
+with runtime check (except if the class is final and doesn’t implement the 
+interface)<o:p></o:p></p>
+<p class="MsoNormal" style="">An Interface reference can be converted to:<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>an Object reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>a super-interface reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any interface/class reference with 
+casting, with runtime check (except if the class is final and doesn’t implement 
+the interface)<o:p></o:p></p>
+<p class="MsoNormal" style="">A Primitive Array reference can be converted to:<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>an Object reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>a Cloneable interface reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>a primitive array reference of the same 
+type<o:p></o:p></p>
+<p class="MsoNormal" style="">An Object Array reference can be converted to:<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>an Object reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>a<span
+ style="">&nbsp; </span>Cloneable interface reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>a super-class Array reference, including 
+an Object Array reference<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>any sub-class Array reference with 
+casting, with runtime check<o:p></o:p></p>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

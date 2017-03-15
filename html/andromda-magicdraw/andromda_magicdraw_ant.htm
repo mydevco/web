@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Model Driven Development with AndroMDA3</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../../default.html">
+		<img alt="My developer connection home" height="88" src="../../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../../default.html">Home</a></li>
+				<li><a href="../../about_mdc.htm">About</a></li>
+				<li><a href="../../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../../articlelist.htm">Articles</a></li>
+				<li><a href="../../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+		<msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><msnavigation border="0" cellpadding="0" cellspacing="0" dir="ltr" width="100%"><tr><td valign="top" width="1%">
+
+</td><td valign="top" width="24"></td><msnavigation valign="top">
+
+  <table border="0" width="80%">
+    <tr>
+      <td align="center" colspan="2">Model Driven Development with AndroMDA3.2, 
+	  Magic Draw 12.0 &amp; Ant</td>
+    </tr>
+    <tr>
+      <td colspan="2"></td>
+    </tr>
+    <tr>
+      <td colspan="2">Software required</td>
+    </tr>
+    <tr>
+      <td width="5%"></td>
+      <td width="60%">
+      <ul>
+        <li>JDK 1.5
+        <a href="http://java.sun.com/javase/downloads/index_jdk5.jsp">
+		http://java.sun.com/javase/downloads/index_jdk5.jsp</a></li>
+        <li>ANT <a target="_blank" href="http://ant.apache.org/bindownload.cgi">
+		http://ant.apache.org/bindownload.cgi</a></li>
+        <li>AndroMDA 3.2
+        <a target="_blank" href="http://galaxy.andromda.org/index.php?option=com_content&task=blogcategory&id=14&Itemid=60">
+		http://galaxy.andromda.org/index.php?option=com_content&amp;task=blogcategory&amp;id=14&amp;Itemid=60</a></li>
+        <li>Magic Draw 12.0 <a target="_blank" href="http://www.magicdraw.com/">
+		http://www.magicdraw.com/</a></li>
+        <li>Download all the required mappings file from
+        <a target="_blank" href="http://galaxy.andromda.org/docs/mappings.html">
+		http://galaxy.andromda.org/docs/mappings.html</a> in a directory 
+		andromda-mappings-3.2. Customize or add new mapping if required.</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Customize AndroMDA distribution for ease of ant script</td>
+    </tr>
+    <tr>
+      <td width="5%"></td>
+      <td width="60%">Andromda distribution is organized for Maven builds. To 
+	  use the it with ant, create a folder &quot;xml.zips.uml2&quot; inside 
+	  andromda-bin-3.2/andromda. Copy here, all the xml.zip files from the 
+	  following location:<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile/3.2/andromda-profile-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-datatype/3.2/andromda-profile-datatype-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-meta/3.2/andromda-profile-meta-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-persistence/3.2/andromda-profile-persistence-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-presentation/3.2/andromda-profile-presentation-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-process/3.2/andromda-profile-process-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-service/3.2/andromda-profile-service-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-webservice/3.2/andromda-profile-webservice-3.2.xml.zip<br>
+      andromda-bin-3.2/andromda/org/andromda/profiles/uml2/andromda-profile-xml/3.2/andromda-profile-xml-3.2.xml.zip</td>
+    </tr>
+    <tr>
+      <td colspan="2">Development</td>
+    </tr>
+    <tr>
+      <td width="5%"></td>
+      <td width="60%">Open Magicdraw 12.0 or 11.6 and load the modules 
+	  andromda-profile-3.2.xml.zip and andromda-profile-datatype-3.2.xml.zip<br>
+      Draw the class diagram for entities/value object/services. For example I 
+	  have drawn a simple class diagram for value objects:<br>
+      <img border="0" src="androm1.gif" width="353" height="260"><p>
+      Save the magicdraw project as .xml file. By default magicdraw saves the 
+	  project as mdzip file.</p>
+      <p>Click on File-&gt;Export-&gt;EMF-UML2 and point to a working directory. I 
+	  used a directory names &quot;src&quot;. It would generate files with extension 
+	  &quot;uml2&quot;. Leave the file with your project name and move module specific 
+	  uml2 files in Andromda/andromda-bin-3.2/andromda/xml.zips.uml2.</td>
+    </tr>
+    <tr>
+      <td colspan="2">Build</td>
+    </tr>
+    <tr>
+      <td width="5%"></td>
+      <td width="60%">Create andromda.xml file. Here is a
+      <a target="_blank" href="andromda.xml">sample file </a>using java 
+	  cartridge. Add the cartridges you need.<br>
+      Create a build file using the example <a target="_blank" href="build.xml">
+	  ant file here</a>.<p>&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="5%">Evolve</td>
+      <td width="60%">Evolve your build file and AndroMDA configuration files 
+	  based on the cartridge reference document at AndroMDA:
+      <a target="_blank" href="http://galaxy.andromda.org/docs/andromda-cartridges/index.html">
+	  http://galaxy.andromda.org/docs/andromda-cartridges/index.html</a> and 
+	  How-To guides at
+      <a target="_blank" href="http://galaxy.andromda.org/docs/howto-guides.html">
+	  http://galaxy.andromda.org/docs/howto-guides.html</a><p>For issues with 
+	  current cartridges and tips to customize the cartridges refer to
+      <a target="_blank" href="http://galaxy.andromda.org/forum/">support forum</a>.</p>
+      <p>Wish you all the best for your model driven development.</td>
+    </tr>
+  </table>
+  
+		</td></tr></table><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+				Send mail to <a href="mailto:webmaster@mydeveloperconnection.com">
+				webmaster@mydeveloperconnection.com</a> with questions or 
+				comments about this web site.<br>
+				&nbsp;</td></tr></table></td></tr></table><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+				Send mail to <a href="mailto:webmaster@mydeveloperconnection.com">
+				webmaster@mydeveloperconnection.com</a> with questions or 
+				comments about this web site.<br>
+				&nbsp;</td></tr></table></td></tr></table><!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

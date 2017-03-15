@@ -1,0 +1,694 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Java Traps: Java Interview Questions</title>
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<p>These are some tricky questions usually found in java questionnaire or 
+interviews. Check the answers at the end. These are very easy to answer if you 
+have the liberty to try on a computer.</p>
+<p>Questions:</p>
+<ol>
+  <li>The code in finally block will never get executed in the following 
+  program? True/False</li>
+</ol>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>&nbsp;try { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (choice) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	  while (true)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; system 
+	  .exit(1):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+      }finally {<br>
+&nbsp;&nbsp;&nbsp; codetocleanup();<br>
+      }<br>
+	  &nbsp;</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<ol>
+  <li value="2">Write an nearest equivalent of size operator in C. Hint: Use 
+  Runtime class.</li>
+  <li>Which one is faster in java ?<ol>
+    <li type="a">for(int i = 100000; i &gt; 0; i--) {}</li>
+    <li type="a">for(int i = 1; i &lt; 100001; i++) {}</li>
+  </ol>
+  </li>
+  <li>Which one is faster in java ?<ol>
+    <li type="a">Math.max(a,b);</li>
+    <li type="a">(a&gt;b)?a:b</li>
+  </ol>
+  </li>
+  <li>Is Array operations are faster or of Vector.</li>
+  <li>What will be the value of Point p after methods in a and b if the value 
+  before method call is (700,800).</li>
+  <li type="a" value="1">
+  <p>
+  static void changePoint ( Point p) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  p.x = 100; p.y=200;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+  </li>
+  <li type="a">
+  <p>
+  static void changePoint(Point p) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  p=new Point(100,200);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+  </li>
+  <li value="7">MyClass.java and empty file is valid source file. True/False?</li>
+  <li>Which one of these statements are valid?<ol>
+    <li>
+    Char&nbsp;&nbsp;&nbsp;&nbsp; \u0061r &nbsp;a&nbsp; =’a’;</li>
+    <li>
+    Char&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;\u0062&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =&nbsp; ’b’;</li>
+    <li>
+    Char&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =’\u0063’;</li>
+  </ol>
+  <p>&nbsp;<ol>
+    <li type="a">1&nbsp;&nbsp;&nbsp; b. 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c.3&nbsp;&nbsp;&nbsp;&nbsp; d. ALL&nbsp;&nbsp;&nbsp;&nbsp; e. NONE</li>
+  </ol>
+  </li>
+  <li>Which one of these primitive types are unsigned?<ol>
+    <li type="a">int</li>
+    <li type="a">long</li>
+    <li type="a">char</li>
+    <li type="a">double</li>
+    <li type="a">float</li>
+  </ol>
+  </li>
+  <li>Java supports both multi dimension and nested arrays. True/False</li>
+  <li>public main(int number) { } is a valid method. True/False?</li>
+  <li>public static final main(String[] args) {} is a valid method. True/False?</li>
+  <li>
+  A class without a method can be run by&nbsp; JVM if its ancestor class has main. 
+  True/False?</li>
+  <li>
+  GC is&nbsp; a high&nbsp; priority thread. True/False?</li>
+  <li>Can circular reference prevent an object to be GCed?</li>
+  <li>If there is an exception in finalize method, will the object be garbage 
+  collected?</li>
+  <li>An object is resurrected by making other object refer to the dying object 
+  in finalize method. Will this object be ever garbage collected?</li>
+  <li>Can finalize method be overloaded?</li>
+  <li>Does the finalize method in subclass invoke finalize method in super 
+  class?</li>
+  <li>Which one throws arithmetic exception:<ol>
+    <li type="a">int i = 100/0;</li>
+    <li type="a">float f = 100.00/0.0</li>
+  </ol>
+  </li>
+  <li>Which one is not correct<ol>
+    <li type="a">
+    x = = Float.NaN </li>
+    <li type="a">
+    Float.isNan(x);</li>
+    <li type="a">
+    Myobject .equals(float.NaN);</li>
+  </ol>
+  </li>
+  <li>What will be output from the following statements:<ol>
+    <li type="a">System.out.println(1+2+”3”);</li>
+    <li type="a">System.out.println (“1”+2+3);</li>
+  </ol>
+  </li>
+  <li>Is the following statement correct: <br>
+  char ch = &#39;d&#39;;<br>
+  if(ch &lt; 32.00){ }<br>
+  &nbsp;</li>
+  <li>Determine the output:<ol>
+    <li type="a">byte b=10;<br>
+    b=b+10;<br>
+    System.out.println(&quot;The value of b is &quot; + b);</li>
+    <li type="a">byte b=10;<br>
+    b+=10;<br>
+    System.out.println(&quot;The value of b is &quot; + b);</li>
+    <li type="a">char c = 3;<br>
+    int a = 65;<br>
+    char d = a;<br>
+    System.out.println(&quot;The value of d is &quot; + d);</li>
+    <li type="a">
+    float f = 1.3;&nbsp; <br>
+    System.out.println(&quot;The value of f is &quot; + f);</li>
+    <li type="a">
+    float f = 1.3f;&nbsp; <br>
+    System.out.println(&quot;The value of f is &quot; + f);</li>
+    <li type="a">
+    float f = 6/2; <br>
+    System.out.println(&quot;The value of f is &quot; + f);</li>
+    <li type="a">
+    &nbsp;float f = 6.0/2.0;<br>
+    System.out.println(&quot;The value of f is &quot; + f);</li>
+    <li type="a">
+    byte b;<br>
+    final int a = 10;<br>
+    b=a;<br>
+    System.out.println(&quot;The value of b is &quot; + b);</li>
+    <li type="a">
+    byte b;<br>
+    final int a = 10;<br>
+    final int x = a;<br>
+    b = x;&nbsp;&nbsp; <br>
+    System.out.println(&quot;The value of b is &quot; + b);</li>
+    <li type="a">
+    int y;<br>
+    final int z = y;<br>
+    b = z;&nbsp;&nbsp; <br>
+    System.out.println(&quot;The value of b is &quot; + b);</li>
+    <li type="a">
+    public class precedence{<br>
+	&nbsp;&nbsp;&nbsp; public static void main(String[] args) {<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int i = 0;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=i++;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=i++;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=i++;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i=i++;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;The value of i is &quot; + i);<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int &nbsp;&nbsp;arr []= new int [5];<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int index= 0;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; arr [index]= index = 3;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;The value of first element is &quot; + arr[0]);<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;The value of fourth element is &quot; + arr[3]); <br>
+	&nbsp;&nbsp;&nbsp; }<br>
+    }</li>
+    <li type="a">if(-0.0==0.0){<br>
+	&nbsp;&nbsp;&nbsp; System.out.println(&quot;-0.0==0.0&quot;);<br>
+    } else {<br>
+	&nbsp;&nbsp;&nbsp; System.out.println(&quot;-0.0!=0.0&quot;);<br>
+    }</li>
+  </ol>
+  </li>
+  <li>
+  If you&nbsp; have reference variable of parent class type and you assign a child 
+  class object to that&nbsp; variable and invoke static method. Which method will be 
+  invoked? Parent/Child.</li>
+  <li>
+  Local variables can&nbsp; not be&nbsp; declared static or final or transient 
+  .True/False?</li>
+  <li>
+  <p>
+  Final variables declared without initialization can be initialized in static 
+  initializer ( static final var) or in constructor( final var). True/False?</p>
+  </li>
+  <li>
+  <p>
+  What is the use of transient variable? Can a transiant variable be static?</p>
+  </li>
+  <li>
+  <p>
+  What is the use of volatile variable?</p>
+  </li>
+  <li>
+  <p>
+  Random access file extends from File. True/False?</p>
+  </li>
+  <li>
+  <p>
+  Map implements collection. True/False?</p>
+  </li>
+  <li>
+  <p>
+  Dictionary is an interface or class?</p>
+  </li>
+  <li>
+  <p>
+  Can we declare derived class first and then base class in java?</p>
+  </li>
+  <li>
+  <p>
+  Can constructor throw exception?</p>
+  </li>
+  <li>
+  <p>
+  Array whether local or class&nbsp; levels are always initialized. True/False?</p>
+  </li>
+  <li>
+  <p>
+  Can we cast two derived class for each other, both having same parent class. 
+  Yes/No</p>
+  </li>
+  <li>
+  <p>
+  Can inner class have static members? Yes/No</p>
+  </li>
+  <li>
+  <p>
+  Does File class have any method to read or write content in a file? Yes/No</p>
+  </li>
+  <li>
+  <p>
+  Which ones are classes and which ones are interfaces?</p>
+<ol>
+  <li type="a">
+  <p>
+  InputStream, OutputStream</p>
+  </li>
+  <li type="a">
+  <p>
+  DataInputStream, DataOutputStream</p>
+  </li>
+</ol>
+  </li>
+  <li>
+  <p>
+  What is the rule regarding overriding methods throwing exceptions?</p>
+  </li>
+  <li>
+  <p>
+  Member variables are resolved compiletime or runtime?</p>
+  </li>
+  <li>
+  <p>
+  Can we override variables?<br>
+  class S1{ &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public string S= “ S1”;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public string gets() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; returns S;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  }<br>
+  class S2 extend S1 {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public string S = “ S2”;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public string gets() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return s;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+  }<br>
+  public class shadow{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static void main(String S[]) {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  S1 S1 = new S1();<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  S2 S2= new S2();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println(&quot;Print S1 &quot; + s1.s);&nbsp; <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println(&quot;Print S1 &quot; + S2.s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  S1=S2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println(&quot;Print S1 now &quot; + S1.S) ;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println( &quot;Print S1.gets() now &quot; + S1.gets());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  }</p>
+  </li>
+  <li>
+  <p>
+  If an overridden method calls super class method which access class member 
+  variable, which variable will be used base class or super class.<br>
+  class S1 {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string S= “ S1”;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public string gets (){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return S;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void display () {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println(&quot;Display in S1 &quot; + S);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  }<br>
+  class S2 extends S1{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string S= “ S2”;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void display(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  super.display();
+  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println(&quot;Display in S2 &quot; +S);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  }<br>
+  public class shadow 2&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string s =” base”;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static void main(String s[]) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  S2 s2=new S2();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  S2.display ();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  S1 s1=new S1();<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println(&quot;Print S1 &quot; + S1.gets());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  System.out.println(&quot;Print S2 &quot; + S2.S2.gets());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  }</p>
+  </li>
+  <li>
+  <p>
+  Can we have static method in interface?</p>
+  </li>
+  <li>
+  <p>
+  Can an interface have variables? Can these variables be transient?</p>
+  </li>
+  <li>
+  <p>
+  Can an interface be final?</p>
+  </li>
+  <li>
+  <p>
+  Can a class implement two interfaces which has got methods with same name and 
+  signatures?</p>
+  </li>
+  <li>
+  <p>
+  Can a class implement two interfaces with same variable names.</p>
+  </li>
+  <li>
+  <p>
+  Nested classes can extend only the enclosing class and can not implement any 
+  interface? True/False</p>
+  </li>
+  <li>
+  <p>
+  What are the different types of inner classes. (Read answer).</p>
+  </li>
+</ol>
+  <p>Answers:</p>
+<ol>
+  <li>True&nbsp;&nbsp;&nbsp; </li>
+  <li>
+  Static Runtime runtime=Runtime.getRuntime();<br>
+  long start,end;<br>
+  Object obj;<br>
+  runtime.gc(); <br>
+  start=runtime.freememory();<br>
+  obj=new object();<br>
+  end= Runtime.freememory();<br>
+  System.out.println(“sixe of obj”+ (start-end)+ “ bytes”);<br>
+  [Note: Since GC can&#39;t be enforced in java the result is not always 
+  predictable.]</li>
+  <li>a</li>
+  <li>b</li>
+  <li>Array</li>
+  <li>a. (100,200) b. (700,800)&nbsp; [Note: Primitive are passed by value in method 
+  parameter and objects are passed by value of the reference. In a method if the 
+  object values are&nbsp;changed , it will reflect, but if we try to change the 
+  reference itself&nbsp; its original reference /object will not change, as only&nbsp;copy 
+  of the reference is changed.</li>
+  <li>True</li>
+  <li>d. ALL</li>
+  <li>c. char (All numeric data types are signed .char is the only&nbsp; unsigned 
+  integer type.)</li>
+  <li>False. Java doesn&#39;t support multi dimension arrays. It supports only 
+  nested arrays.</li>
+  <li>True</li>
+  <li>True</li>
+  <li>True</li>
+  <li>False. GC is a low priority thread.</li>
+  <li>No</li>
+  <li>Exception in finalize method doesn&#39;t prevent GC.</li>
+  <li>Resurrection can happen in finalize method which will prevent GC to 
+  reclaim the object memory. However this could be done only once. Next time GC 
+  will not invoke finalize method before garbage collection.</li>
+  <li>Yes but only the following version is called by garbage collector:<br>
+  &nbsp;&nbsp;&nbsp; protected void finalize() throws Throwable { };</li>
+  <li>
+  <p>
+  Finalize is not implicitly chained. A finalize method in sub-class &nbsp;should 
+  call finalize in super class explicitly as its last action for&nbsp; proper 
+  functioning . Compilers does not&nbsp;enforce this check.</p>
+  </li>
+  <li>
+  <p>
+  b float f = 100.00/0.0. Float division by zero returns NAN (not a number) 
+  instead of exception. </p>
+  </li>
+  <li>
+  <p>
+  a</p>
+  </li>
+  <li>
+  <p>
+  a: 33&nbsp;&nbsp;&nbsp;&nbsp; b:123</p>
+  </li>
+  <li>
+  <p>
+  Correct.</p>
+  </li>
+  <li>
+  <p>
+  a. Compilation error as b=b+10 evaluates to int.</p>
+  <ol>
+    <li type="a" value="2">
+  <p>
+  The value of b is 20</p>
+    </li>
+    <li type="a">
+  <p>
+  Compilation error</p>
+    </li>
+    <li type="a">
+  <p>
+  Compilation error</p>
+    </li>
+    <li type="a">
+  <p>
+  The value of f is 1.3</p>
+    </li>
+    <li type="a">
+  <p>
+  The value of f is 3.0</p>
+    </li>
+    <li type="a">
+  <p>
+  Compilation error as 6.0/2.0 evaluates to double.</p>
+    </li>
+    <li type="a">
+  <p>
+  The value of b is 10</p>
+    </li>
+    <li type="a">
+  <p>
+  The value of b is 10</p>
+    </li>
+    <li type="a">
+  <p>
+  Compilation error as the value of z is not determined.</p>
+    </li>
+    <li type="a">
+  <p>
+  The value of i is 0<br>
+  The value of first element is 3<br>
+  The value of fourth element is 0</p>
+    </li>
+    <li type="a">
+  <p>
+  -0.0==0.0</p>
+    </li>
+  </ol>
+  </li>
+  <li>
+  <p>
+  Parent</p>
+  </li>
+  <li>
+  <p>
+  True</p>
+  </li>
+  <li>
+  <p>
+  True but at most once.</p>
+  </li>
+  <li>
+  <p>
+  Transient variables are not stored as&nbsp; objects persistence state .Not 
+  serialized for security. Transient variables may not be final&nbsp; or static 
+  . Compilers does not&nbsp; give any errors as static variables&nbsp; are 
+  anyway not serialized.</p>
+  </li>
+  <li>
+  <p>
+  Volatile can be applied only&nbsp; to variables. Not for static or &nbsp;final. 
+  Declaring a variable volatile&nbsp; indicates that it might&nbsp; be modified&nbsp; 
+  asynchronously, so that thread will get&nbsp; correct&nbsp; value. Used in 
+  multi processor environment.</p>
+  </li>
+  <li>
+  <p>
+  False, Random access file descends from object&nbsp; and implements data input 
+  and data output.</p>
+  </li>
+  <li>
+  <p>
+  Map doesn&#39;t implement collection.</p>
+  </li>
+  <li>
+  <p>
+  Dictionary is a class not an interface.</p>
+  </li>
+  <li>
+  <p>
+  Yes. </p>
+  </li>
+  <li>
+  <p>
+  Yes. Constructor can throw exception.</p>
+  </li>
+  <li>
+  <p>
+  True</p>
+  </li>
+  <li>
+  <p>
+  No</p>
+  </li>
+  <li>
+  <p>
+  No</p>
+  </li>
+  <li>
+  <p>
+  No</p>
+  </li>
+  <li>
+  <p>
+  a. Abstract Class&nbsp;&nbsp;&nbsp; b. Interface</p>
+  </li>
+  <li>
+  <p>
+  Overriding method can not throw more generic exception than base method.</p>
+  </li>
+  <li>
+  <p>
+  Compile Time</p>
+  </li>
+  <li>
+  <p>
+  Yes but variables when overridden shadows the super class variable.<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Print S1 S1<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Print S1 S2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Print S1 now S1<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  Print S1.gets() now S2</p>
+  </li>
+  <li>
+  <p>
+  Methods access&nbsp; variables only in the context&nbsp; of the class they 
+  belong to. If subclass calls super class method, it will access super class 
+  variable.<br>
+&nbsp;&nbsp;&nbsp; Display in S1 S1<br>
+&nbsp;&nbsp;&nbsp; Display in S2 S2<br>
+&nbsp;&nbsp;&nbsp; Print S1 S1<br>
+&nbsp;&nbsp;&nbsp; Print S2 S1</p>
+  </li>
+  <li>
+  <p>
+  All methods in an inter face&nbsp; are implicitly&nbsp; public, abstract and 
+  never static.</p>
+  </li>
+  <li>
+  <p>
+  All variables&nbsp; in an interface&nbsp; are implicitly static , public and 
+  final. They cannot be transient or volatile. A class can shadow the interface&nbsp; 
+  variable with its variable&nbsp;while implementing.</p>
+  </li>
+  <li>
+  <p>
+  Interface cannot be declared final as they are implicitly abstract.</p>
+  </li>
+  <li>
+  <p>
+  Yes.</p>
+  </li>
+  <li>
+  <p>
+  If both the interface have same variable&nbsp; and the variable is not 
+  declared&nbsp; in implementing class , the compiler will throw ´field 
+  ambiguous “ error.</p>
+  </li>
+  <li>
+  <p>
+  False. Nested class can extend any&nbsp; class or implement any interface.</p>
+  </li>
+  <li>
+  <p>
+  An inner class is part of the implementation of its enclosing class (or 
+  classes). As such, it has access to the private members of any enclosing 
+  class. Top-level nested classes are declared with static keyword. Top level 
+  inner classes can be accessed / instantiated without an instance of the outer 
+  class. Can access only static members of outer class. Can’t access instance 
+  variables or methods of the enclosing class. Non static inner classes which 
+  are declared without static keyword can not exist without enclosing class. Can 
+  access all the features (even private) of the enclosing outer class. Local 
+  classes are defined inside a block (could be a method, a constructor, a local 
+  block, a static initializer or an instance initializer). Cannot be specified 
+  with static modifier. A class can not have non static inner interface. All 
+  inner class except anonymous can be abstract or final.</p>
+  </li>
+</ol>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

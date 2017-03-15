@@ -1,0 +1,1270 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 12</title>
+  
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p><b><font size="4">Chapter 12 Events</font></b></p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java 1.0’s original outward rippling event model had shortcomings.</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An event could only be handled by the component that originated the 
+event or one of its containers.</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No way to disable processing of irrelevant events.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java 1.1 introduced new “event delegation model”.</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A component may be told which objects should be notified when the 
+component generates a particular kind of event.</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If a component is not interested in an event type, those events 
+won’t be propagated.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Both models are supported in Java 2, but the old model will 
+eventually disappear. Both models should not be mixed in a single program. If we 
+do that, the program is most likely to fail.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event delegation model’s main concepts: Event classes, Event 
+listeners, Explicit event enabling and Event adapter classes.</p>
+<p>Event Classes</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Events are Java objects. All the pertinent information is 
+encapsulated in that object. The super class of all events is 
+java.util.EventObject. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This java.util.EventObjectclass defines a method that returns the 
+object that generated the event:&nbsp;&nbsp;&nbsp; </p>
+<p>Object getSource()</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All events related to AWT are in java.awt.event package. AWTEvent is 
+the abstract super class of all AWT events. This class defines a method that 
+returns the ID of the event. All events define constants to represent the type 
+of event. </p>
+<p>int getID() – returns an int in the form of an integer value that identifies 
+the type of event.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is useful to divide the event classes into Semantic events and 
+Low-level events.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic Events – </p>
+<p>These classes are used for high-level semantic events, to represent user 
+interaction with GUI. ActionEvent, AdjustmentEvent, ItemEvent, TextEvent</p>
+<table
+ style="border: medium none ; margin-left: 12.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 15pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 82.5pt; height: 15pt;"
+ valign="top" width="110">
+      <p style="">Event Class</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 15pt;"
+ valign="top" width="270">
+      <p style="">Source</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 189pt; height: 15pt;"
+ valign="top" width="252">
+      <p style="">Event Types</p>
+      </td>
+    </tr>
+    <tr style="height: 45.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 45.5pt;"
+ width="110">
+      <p style="">ActionEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 45.5pt;"
+ width="270">
+      <p style="">Button – when clicked</p>
+      <p style="">List – when doubleclicked</p>
+      <p style="">MenuItem – when clicked</p>
+      <p style="">TextField – when Enter key is pressed</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 189pt; height: 45.5pt;"
+ valign="top" width="252">
+      <p style="">ACTION_PERFORMED</p>
+      </td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 16.6pt;"
+ valign="top" width="110">
+      <p style="">AdjustmentEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 16.6pt;"
+ valign="top" width="270">
+      <p style="">Scrollbar – when adjustments are made</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 189pt; height: 16.6pt;"
+ valign="top" width="252">
+      <p style="">ADJUSTMENT_VALUE_CHANGED</p>
+      </td>
+    </tr>
+    <tr style="height: 47.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 47.75pt;"
+ width="110">
+      <p style="">ItemEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 47.75pt;"
+ width="270">
+      <p style="">CheckBox – when selected or deselected</p>
+      <p style="">CheckboxMenuItem – same as checkbox</p>
+      <p style="">Choice – when an item is selected or deselected</p>
+      <p style="">List - when an item is selected or deselected</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 189pt; height: 47.75pt;"
+ valign="top" width="252">
+      <p style="">ITEM_STATE_CHANGED</p>
+      </td>
+    </tr>
+    <tr style="height: 31pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 31pt;"
+ width="110">
+      <p style="">TextEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 31pt;"
+ width="270">
+      <p style="">TextField</p>
+      <p style="">TextArea</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 189pt; height: 31pt;"
+ valign="top" width="252">
+      <p style="">TEXT_VALUE_CHANGED</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Methods defined in the events to get the information about them.</p>
+<table
+ style="border: medium none ; margin-left: 12.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 15pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 82.5pt; height: 15pt;"
+ valign="top" width="110">
+      <p style="">Event Class</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 15pt;"
+ valign="top" width="162">
+      <p style="">Method</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 15pt;"
+ valign="top" width="384">
+      <p style="">Description</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td rowspan="2"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ width="110">
+      <p style="">ActionEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">String getActionCommand</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns the command name associated with this action</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">int getModifiers</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns the sum of modifier constants corresponding to the 
+	  keyboard modifiers held down during this action.</p>
+      <p style="">SHIFT_MASK, ALT_MASK, CTRL_MASK, META_MASK</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ valign="top" width="110">
+      <p style="">AdjustmentEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">int getvalue</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns the current value designated by the adjustable 
+	  component</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td rowspan="2"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ width="110">
+      <p style="">ItemEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">Object getItem</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns the object that was selected or deselected</p>
+      <p style="">Label of the checkbox </p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">int getStateChange</p>
+      <p style="">SELECTED DESELECTED</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returned value indicates whether it was a selection or a 
+	  de-selection that took place, given by the two constants in ItemEvent.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Low-level Events – </p>
+<p>These classes are used to represent low-level input or window operations. 
+Several low-level events can constitute a single semantic event.</p>
+<p>ComponentEvent, ContainerEvent, FocusEvent, KeyEvent, MouseEvent, PaintEvent, 
+WindowEvent</p>
+<table
+ style="border: medium none ; margin-left: 48.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 15pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 82.5pt; height: 15pt;"
+ valign="top" width="110">
+      <p style="">Event Class</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 15pt;"
+ valign="top" width="108">
+      <p style="">Source</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 15pt;"
+ valign="top" width="444">
+      <p style="">Event Types</p>
+      </td>
+    </tr>
+    <tr style="height: 35.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 35.5pt;"
+ width="110">
+      <p style="">ComponentEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 35.5pt;"
+ width="108">
+      <p style="">All components</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 35.5pt;"
+ valign="top" width="444">
+      <p style="">COMPONENT_SHOWN, COMPONENT_HIDDEN, COMPONENT_MOVED, 
+	  COMPONENT_RESIZED</p>
+      <p style="">AWT handles this event automatically. Programs should not 
+	  handle this event.</p>
+      </td>
+    </tr>
+    <tr style="height: 22pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 22pt;"
+ width="110">
+      <p style="">ContainerEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 22pt;"
+ width="108">
+      <p style="">All containers</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 22pt;"
+ valign="top" width="444">
+      <p style="">COMPONENT_ADDED, COMPONENT_REMOVED</p>
+      <p style="">AWT handles this event automatically. Programs should not 
+	  handle this event.</p>
+      </td>
+    </tr>
+    <tr style="height: 25.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 25.6pt;"
+ width="110">
+      <p style="">FocusEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 25.6pt;"
+ width="108">
+      <p style="">All components</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 25.6pt;"
+ valign="top" width="444">
+      <p style="">FOCUS_GAINED, FOCUS_LOST</p>
+      <p style="">Receiving focus means the component will receive all the 
+	  keystrokes.</p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 17.5pt;"
+ width="110">
+      <p style="">InputEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 17.5pt;"
+ width="108">
+      <p style="">All components</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 17.5pt;"
+ valign="top" width="444">
+      <p style="">This is an abstract class. Parent of KeyEvent and MouseEvent. 
+	  Constants for key and mouse masks are defined in this class.</p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 17.5pt;"
+ width="110">
+      <p style="">KeyEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 17.5pt;"
+ width="108">
+      <p style="">All components</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 17.5pt;"
+ valign="top" width="444">
+      <p style="">KEYPRESSED, KEYRELEASED, KEYTYPED (when a character is typed)</p>
+      </td>
+    </tr>
+    <tr style="height: 34.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 34.6pt;"
+ width="110">
+      <p style="">MouseEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 34.6pt;"
+ width="108">
+      <p style="">All components</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 34.6pt;"
+ valign="top" width="444">
+      <p style="">MOUSE_PRESSED, MOUSE_RELEASED, MOUSE_CLICKED, MOUSE_DRAGGED, 
+	  MOUSE_MOVED, MOUSE_ENTERED, MOUSE_EXITED</p>
+      </td>
+    </tr>
+    <tr style="height: 47.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 47.75pt;"
+ width="110">
+      <p style="">PaintEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 47.75pt;"
+ width="108">
+      <p style="">All components</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 47.75pt;"
+ valign="top" width="444">
+      <p style="">This event occurs when a component should have its 
+	  paint()/update() methods invoked. AWT handles this event automatically. 
+	  Programs should not handle this event. This event is not supposed to be 
+	  handled by the event listener model. Components should override 
+	  paint/update methods to get rendered.</p>
+      </td>
+    </tr>
+    <tr style="height: 47.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 47.75pt;"
+ width="110">
+      <p style="">WindowEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt; height: 47.75pt;"
+ width="108">
+      <p style="">All windows</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 333pt; height: 47.75pt;"
+ valign="top" width="444">
+      <p style="">This event is generated when an important operation is 
+	  performed on a window.</p>
+      <p style="">WINDOW_OPENED, WINDOW_CLOSING, WINDOW_CLOSED, 
+	  WINDOW_ICONIFIED, WINDOW_DEICONIFIED, WINDOW_ACTIVATED, WINDOW_DEACTIVATED</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Methods defined in the events to get the information about them.</p>
+<table
+ style="border: medium none ; margin-left: 48.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ valign="top" width="110">
+      <p style="">Event Class</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">Method</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Description</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ valign="top" width="110">
+      <p style="">ComponentEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">Component getComponent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns a reference to the same object as getSource, but the 
+	  returned reference is of type Component.</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td rowspan="2"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ width="110">
+      <p style="">ContainerEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p style="">Container getContainer</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns the container where this event originated. </p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>Component getChild</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns the child component that was added or removed in this 
+	  event</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ valign="top" width="110">
+      <p>FocusEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>boolean isTemporary</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p>Determines whether the loss of focus is permanent or temporary</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td rowspan="3"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ width="110">
+      <p>InputEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>long getWhen</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p>Returns the time the event has taken place.</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>int getModifiers</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Returns the modifiers flag for this event.</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>void consume</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p style="">Consumes this event so that it will not be processed in the 
+	  default manner by the source that originated it. </p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td rowspan="2"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ width="110">
+      <p>KeyEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>int getKeyCode</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p>For KEY_PRESSED or KEY_RELEASED events, this method can be used to get 
+	  the integer key-code associated with the key. Key-codes are defined as 
+	  constants is KeyEvent class.</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>char getKeyChar</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p>For KEY_TYPED events, this method returns the Unicode character that 
+	  was generated by the keystroke.</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td rowspan="4"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ width="110">
+      <p>MouseEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>int getX</p>
+      </td>
+      <td rowspan="3"
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ width="384">
+      <p>Return the position of the mouse within the originated component at the 
+	  time the event took place</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>int getY</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>Point getPoint</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>int getClickCount</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p>Returns the number of mouse clicks.</p>
+      </td>
+    </tr>
+    <tr style="height: 13.9pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 82.5pt; height: 13.9pt;"
+ valign="top" width="110">
+      <p>WindowEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 121.5pt; height: 13.9pt;"
+ valign="top" width="162">
+      <p>Window getWindow</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4in; height: 13.9pt;"
+ valign="top" width="384">
+      <p>Returns a reference to the Window object that caused the event to be 
+	  generated.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Event Listeners</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each listener interface extends java.util.EventListener interface.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There are 11 listener interfaces corresponding to particular events. 
+Any class that wants to handle an event should implement the corresponding 
+interface. Listener interface methods are passed the event object that has all 
+the information about the event occurred. &nbsp;</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then the listener classes should be registered with the component 
+that is the source/originator of the event by calling the addXXXListener method 
+on the component. Listeners are unregistered by calling removeXXXListener method 
+on the component.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A component may have multiple listeners for any event type.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A component can be its own listener if it implements the necessary 
+interface. Or it can handle its events by implementing the processEvent method. 
+(This is discussed in explicit event enabling section)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All registered listeners with the component are notified (by 
+invoking the methods passing the event object). But the order of notification is 
+not guaranteed (even if the same component is registered as its own listener). 
+Also the notification is not guaranteed to occur on the same thread. Listeners 
+should take cautions not to corrupt the shared data. Access to any data shared 
+between the listeners should be synchronized.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Same listener object can implement multiple listener interfaces.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event listeners are usually implemented as anonymous classes.</p>
+<table
+ style="border: medium none ; margin-left: 33.15pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 24pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 84.75pt; height: 24pt;"
+ valign="top" width="113">
+      <p style="">Event Type</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 24pt;"
+ valign="top" width="126">
+      <p style="">Event Source</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 24pt;"
+ valign="top" width="216">
+      <p style="">Listener Registration and removal methods provided by the 
+	  source</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 24pt;"
+ valign="top" width="192">
+      <p style="">Event Listener Interface implemented by a listener</p>
+      </td>
+    </tr>
+    <tr style="height: 49pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 49pt;"
+ valign="top" width="113">
+      <p style="">ActionEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 49pt;"
+ valign="top" width="126">
+      <p style="">Button</p>
+      <p style="">List</p>
+      <p style="">MenuItem</p>
+      <p style="">TextField</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 49pt;"
+ valign="top" width="216">
+      <p style="">addActionListener</p>
+      <p style="">removeActionListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 49pt;"
+ valign="top" width="192">
+      <p style="">ActionListener</p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 26.5pt;"
+ valign="top" width="113">
+      <p style="">AdjustmentEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 26.5pt;"
+ valign="top" width="126">
+      <p style="">Scrollbar</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 26.5pt;"
+ valign="top" width="216">
+      <p style="">addAdjustmentListener</p>
+      <p style="">removeAdjustmentListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 26.5pt;"
+ valign="top" width="192">
+      <p style="">AdjustmentListener</p>
+      </td>
+    </tr>
+    <tr style="height: 36.4pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 36.4pt;"
+ valign="top" width="113">
+      <p style="">ItemEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 36.4pt;"
+ valign="top" width="126">
+      <p style="">Choice</p>
+      <p style="">List</p>
+      <p style="">Checkbox</p>
+      <p style="">CheckboxMenuItem</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 36.4pt;"
+ valign="top" width="216">
+      <p style="">addItemListener</p>
+      <p style="">removeItemListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 36.4pt;"
+ valign="top" width="192">
+      <p style="">ItemListener</p>
+      </td>
+    </tr>
+    <tr style="height: 27.85pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 27.85pt;"
+ valign="top" width="113">
+      <p style="">TextEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 27.85pt;"
+ valign="top" width="126">
+      <p style="">TextField</p>
+      <p style="">TextArea</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 27.85pt;"
+ valign="top" width="216">
+      <p style="">addTextListener</p>
+      <p style="">removeTextListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 27.85pt;"
+ valign="top" width="192">
+      <p style="">TextListener</p>
+      </td>
+    </tr>
+    <tr style="height: 29.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 29.65pt;"
+ valign="top" width="113">
+      <p style="">ComponentEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 29.65pt;"
+ valign="top" width="126">
+      <p style="">Component</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 29.65pt;"
+ valign="top" width="216">
+      <p style="">add ComponentListener</p>
+      <p style="">remove ComponentListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 29.65pt;"
+ valign="top" width="192">
+      <p style="">ComponentListener</p>
+      </td>
+    </tr>
+    <tr style="height: 29.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 29.65pt;"
+ valign="top" width="113">
+      <p style="">ContainerEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 29.65pt;"
+ valign="top" width="126">
+      <p style="">Container</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 29.65pt;"
+ valign="top" width="216">
+      <p style="">addContainerListener</p>
+      <p style="">removeContainerListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 29.65pt;"
+ valign="top" width="192">
+      <p style="">ContainerListener</p>
+      </td>
+    </tr>
+    <tr style="height: 29.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 29.65pt;"
+ valign="top" width="113">
+      <p style="">FocusEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 29.65pt;"
+ valign="top" width="126">
+      <p style="">Component</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 29.65pt;"
+ valign="top" width="216">
+      <p style="">addFocusListener</p>
+      <p style="">removeFocusListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 29.65pt;"
+ valign="top" width="192">
+      <p style="">FocusListener</p>
+      </td>
+    </tr>
+    <tr style="height: 29.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 29.65pt;"
+ valign="top" width="113">
+      <p style="">KeyEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 29.65pt;"
+ valign="top" width="126">
+      <p style="">Component</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 29.65pt;"
+ valign="top" width="216">
+      <p style="">addKeyListener</p>
+      <p style="">removeKeyListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 29.65pt;"
+ valign="top" width="192">
+      <p style="">KeyListener</p>
+      </td>
+    </tr>
+    <tr style="height: 29.65pt;">
+      <td rowspan="2"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 29.65pt;"
+ width="113">
+      <p style="">MouseEvent</p>
+      </td>
+      <td rowspan="2"
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 29.65pt;"
+ width="126">
+      <p style="">Component</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 29.65pt;"
+ valign="top" width="216">
+      <p style="">addMouseListener</p>
+      <p style="">removeMouseListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 29.65pt;"
+ valign="top" width="192">
+      <p style="">MouseListener</p>
+      </td>
+    </tr>
+    <tr style="height: 29.65pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 29.65pt;"
+ valign="top" width="216">
+      <p style="">addMouseMotionListener</p>
+      <p style="">removeMouseMotionListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 29.65pt;"
+ valign="top" width="192">
+      <p style="">MouseMotionListener</p>
+      </td>
+    </tr>
+    <tr style="height: 29.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 84.75pt; height: 29.65pt;"
+ valign="top" width="113">
+      <p style="">WindowEvent</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 94.5pt; height: 29.65pt;"
+ valign="top" width="126">
+      <p style="">Window</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.25in; height: 29.65pt;"
+ valign="top" width="216">
+      <p style="">addWindowListener</p>
+      <p style="">removeWindowListner</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2in; height: 29.65pt;"
+ valign="top" width="192">
+      <p style="">WindowListener</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Event Listener interfaces and their methods:</p>
+<table
+ style="border: medium none ; margin-left: 41.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 0.25in;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">Event Listener Interface</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p style="">Event Listener Methods</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">ActionListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p style="">void actionPerformed(ActionEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">AdjustmentListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p style="">void adjustmentValueChanged(AdjustmentEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">ItemListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void itemStateChanged(ItemEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">TextListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void textValueChanged(TextEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">ComponentListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void componentHidden(ComponentEvent evt)</p>
+      <p>void componentShown(ComponentEvent evt)</p>
+      <p>void componentMoved(ComponentEvent evt)</p>
+      <p>void componentResized(ComponentEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">ContainerListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void componentAdded(ContainerEvent evt)</p>
+      <p>void componentRemoved(ContainerEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">FocusListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void focusGained(FocusEvent evt)</p>
+      <p>void focusLost(FocusEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">KeyListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void keyPressed(KeyEvent evt)</p>
+      <p>void keyReleased(KeyEvent evt)</p>
+      <p>void keyTyped(KeyEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">MouseListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void mouseClicked(MouseEvent evt)</p>
+      <p>void mouseReleased(MouseEvent evt)</p>
+      <p>void mousePressed(MouseEvent evt)</p>
+      <p>void mouseEntered(MouseEvent evt)</p>
+      <p>void mouseExited(MouseEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">MouseMotionListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void mouseDragged(MouseEvent evt)</p>
+      <p>void mouseMoved(MouseEvent evt)</p>
+      </td>
+    </tr>
+    <tr style="height: 0.25in;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 0.25in;"
+ valign="top" width="156">
+      <p style="">WindowListener</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 283.5pt; height: 0.25in;"
+ valign="top" width="378">
+      <p>void windowActivated(WindowEvent evt)</p>
+      <p>void windowDeactivated(WindowEvent evt)</p>
+      <p>void windowIconified(WindowEvent evt)</p>
+      <p>void windowDeiconified(WindowEvent evt)</p>
+      <p>void windowClosing(WindowEvent evt)</p>
+      <p>void windowClosed(WindowEvent evt)</p>
+      <p>void windowOpened(WindowEvent evt)</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Event Adapters</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event Adapters are convenient classes implementing the event 
+listener interfaces. They provide empty bodies for the listener interface 
+methods, so we can implement only the methods of interest without providing 
+empty implementation. They are useful when implementing low-level event 
+listeners.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There are 7 event adapter classes, one each for one low-level event 
+listener interface.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obviously, in semantic event listener interfaces, there is only one 
+method, so there is no need for event adapters.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Event adapters are usually implemented as anonymous classes.</p>
+<p>Explicit Event Enabling</p>
+<p>How events are produced and handled?</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OS dispatches events to JVM. How much low-level processing is done 
+by OS or JVM depends on the type of the component. In case of Swing components 
+JVM handles the low-level events.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JVM creates event objects and passes them to the components.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the event is enabled for that component, processEvent method in 
+that component (inherited from java.awt.Component) is called. Default behavior 
+of this method is to delegate the processing to more specific processXXXEvent 
+method. Then this processXXXEvent method invokes appropriate methods in all 
+registered listeners of this event.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All the registered listeners of the event for the component are 
+notified. But the order is not guaranteed. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This delegation model works well for pre-defined components. If the 
+component is customized by sub-classing another component, then it has the 
+opportunity to handle its own events by implementing appropriate processXXXEvent 
+methods or the processEvent method itself.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To handle its own events, the subclass component must explicitly 
+enable all events of interest. This is done by calling enableEvents method with 
+appropriate event masks in the constructor. Enabling more than one event 
+requires OR’ing corresponding event masks. These event masks are defined as 
+constants in java.awt.AWTEvent.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the component wants to also notify the registered listeners for 
+the event, then the overriding methods should call the parent version of the 
+methods explicitly.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Component class has a method processMouseMotionEvent, even though 
+there is no event called MouseMotionEvent.</p>
+<p>Steps for handling events using listeners or by the same component</p>
+<table
+ style="border: medium none ; margin-left: 6.15pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 13pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 224.25pt; height: 13pt;"
+ valign="top" width="299">
+      Delegating to listeners</td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 226.5pt; height: 13pt;"
+ valign="top" width="302">
+      Handling own events (explicit enabling)</td>
+    </tr>
+    <tr style="height: 57.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 224.25pt; height: 57.5pt;"
+ valign="top" width="299">
+      <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create a listener class, 
+	  either by implementing an event listener interface or extending an event 
+	  adapter class.</p>
+      <p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create an instance of the 
+	  component</p>
+      <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create an instance of the 
+	  listener class</p>
+      <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Call addXXXListener on the 
+	  component passing the listener object. (This step automatically enables 
+	  the processing of this type of event. Default behavior of processEvent 
+	  method in the component is to delegate the processing to processXXXEvent 
+	  and that method will invoke appropriate listener class methods.)</p>
+      <p style="">&nbsp;</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 226.5pt; height: 57.5pt;"
+ valign="top" width="302">
+      1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create a subclass of a component<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	  Call enableEvents(XXX_EVENT_MASK) in the constructor.</p>
+      <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Provide processXXXEvent and/or 
+	  processEvent in the subclass component. If also want to notify the 
+	  listeners, call parent method.</p>
+      <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create an instance of the subclass 
+	  component</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

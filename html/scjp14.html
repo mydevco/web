@@ -1,0 +1,532 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 14</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><b
+ style=""><span style="font-size: 18pt;">Chapter 14 Applets and HTML</span></b><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">&lt;APPLET&gt; tag specifies applet 
+information in a HTML page<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">It must be enclosed between 
+&lt;BODY&gt; and &lt;/BODY&gt;<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">&lt;/APPLET&gt; tag is mandatory to 
+close the &lt;APPLET&gt; tag<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">CODE, WIDTH and HEIGHT are 
+mandatory attributes within &lt;APPLET&gt; tag. Their order is not significant. 
+Instead of the class file, applet can specified via a serialized file using 
+OBJECT attribute. If we specify OBJECT attribute CODE attribute is not specified 
+and vice versa.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">In HTML 4.0, OBJECT tag can 
+be specified instead of APPLET tag. With OBJECT tag, we specify the applet with 
+CLASSID attribute.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">The following are other 
+optional tags<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 24.15pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 13pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 129.75pt; height: 13pt;"
+ valign="top" width="173">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Tag Name<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 13pt;"
+ valign="top" width="391">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Purpose<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">CODEBASE<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Directory 
+	  for the applet’s class<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">ALT<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Alternate 
+	  text for browsers with no support for applets but can understand &lt;APPLET&gt; 
+	  tag<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">HSPACE<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Left/Right 
+	  boundaries b/w other HTML elements on a page<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">VSPACE<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Top/Bottom 
+	  boundaries b/w other HTML elements on a page<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">ALIGN<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Alignment 
+	  with respect to other HTML elements<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">NAME<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Name of the 
+	  applet for inter-applet communication<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">ARCHIVE<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Name of the 
+	  JAR file (Lot of files can be downloaded in a single download to reduce 
+	  the time needed) Even multiple jar files can be specified, separated by 
+	  commas.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 17.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 129.75pt; height: 17.5pt;"
+ valign="top" width="173">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">OBJECT<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 293.25pt; height: 17.5pt;"
+ valign="top" width="391">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Specified if 
+	  CODE attribute is not present and vice versa. Applet is read in from the 
+	  specified serialized file.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Between &lt;APPLET&gt; and 
+&lt;/APPLET&gt;, PARAM tags can be specified. These are used to pass parameters from 
+HTML page to the applet.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">&lt;PARAM NAME = ”name” VALUE = 
+”value”&gt;<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Applets call 
+getParameter(name) to get the parameter. The name is not case sensitive here.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">The value returned by 
+getParameter is case sensitive, it is returned as defined in the HTML page.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If not defined, getParameter 
+returns null.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Text specified between 
+&lt;APPLET&gt; and &lt;/APPLET&gt; is displayed by completely applet ignorant browsers, who 
+cannot understand even the &lt;APPLET&gt; tag.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If the applet class has only 
+non-default constructors, applet viewer throws runtime errors while loading the 
+applet since the default constructor is not provided by the JVM. But IE doesn’t 
+have this problem. But with applets always do the initialization in the init 
+method. That’s the normal practice.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Methods involved in applet’s 
+lifecycle.<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 0.7in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Method<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 14.35pt;"
+ valign="top" width="486">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 35.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 35.5pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void init()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 35.5pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">This method 
+	  is called only once by the applet context to inform the applet that it has 
+	  been loaded into the system. Always followed by calls to start() and 
+	  paint() methods. Same purpose as a constructor. Use this method to perform 
+	  any initialization.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 26.5pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void start()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 26.5pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Applet 
+	  context calls this method for the first time after calling init(), and 
+	  thereafter every time the applet page is made visible.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 26.5pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void stop()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 26.5pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Applet 
+	  context calls this method when it wants the applet to stop the execution. 
+	  This method is called when the applet page is no longer visible.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 26.5pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  destroy()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 26.5pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">This method 
+	  is called to inform the applet that it should relinquish any system 
+	  resources that it had allocated. Stop() method is called prior to this 
+	  method.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 26.5pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  paint(Graphics g)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 26.5pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Applets 
+	  normally put all the rendering operations in this method.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Limitations for Applets:<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Reading, writing or deleting 
+files on local host is not allowed.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Running other applications 
+from within the applet is prohibited.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Calling System.exit() to 
+terminate the applet is not allowed.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Accessing user, file and 
+system information, other than locale-specific information like Java version, OS 
+name and version, text-encoding standard, file-path and line separators, is 
+prohibited.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Connecting to hosts other 
+than the one from which the applet was loaded is not permitted.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Top-level windows that an 
+applet creates have a warning message for applets loaded over the net.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Some other methods of Applet 
+class<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 0.2in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Method<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 14.35pt;"
+ valign="top" width="486">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 24.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 24.25pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">URL 
+	  getDocumentBase()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 24.25pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  document URL, i.e. the URL of the HTML file in which the applet is 
+	  embedded.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 13pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 13pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">URL 
+	  getCodeBase()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 13pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Returns the 
+	  base URL, i.e. the URL of the applet class file that contains the applet.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 13pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 139.5pt; height: 13pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  showStatus(String msg)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 364.5pt; height: 13pt;"
+ valign="top" width="486">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Applet can 
+	  request the applet context to display messages in its “status window”.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

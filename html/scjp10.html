@@ -1,0 +1,1090 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 10</title>
+  
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="MsoNormal" style="margin-left: 0.25in;"><b style=""><span
+ style="font-size: 18pt;">Chapter 10 Components</span></b><o:p></o:p></p>
+<div class="Section1">
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Java’s building blocks for 
+creating GUIs.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All non-menu related 
+components inherit from java.awt.Component, that provides basic support for 
+event handling, controlling component size, color, font and drawing of 
+components and their contents. </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Component class implements 
+ImageObserver, MenuContainer and Serializable interfaces. So all AWT components 
+can be serialized and can host pop-up menus.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Component methods:</span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 57.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 16.5pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 69pt; height: 16.5pt;"
+ valign="top" width="92">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Controls</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4.75in; height: 16.5pt;"
+ valign="top" width="456">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Methods / 
+	  Description</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 39.1pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 69pt; height: 39.1pt;"
+ valign="top" width="92">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Size</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4.75in; height: 39.1pt;"
+ valign="top" width="456">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Dimension 
+	  getSize()</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setSize(int width, int height)</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setSize(Dimension d)</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 39.1pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 69pt; height: 39.1pt;"
+ valign="top" width="92">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Location</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4.75in; height: 39.1pt;"
+ valign="top" width="456">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Point 
+	  getLocation()</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setLocation(int x, int y)</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setLocation(Point p)</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 39.1pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 69pt; height: 39.1pt;"
+ valign="top" width="92">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Size and 
+	  Location</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4.75in; height: 39.1pt;"
+ valign="top" width="456">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Rectangle 
+	  getBounds()</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setBounds (int x, int y, int width, int height)</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setBounds (Rectangle r)</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 24.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 69pt; height: 24.25pt;"
+ valign="top" width="92">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Color</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4.75in; height: 24.25pt;"
+ valign="top" width="456">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setForeground(Color c)</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setBackground(Color c)</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 24.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 69pt; height: 24.25pt;"
+ valign="top" width="92">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Font</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4.75in; height: 24.25pt;"
+ valign="top" width="456">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setFont(Font f)</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setFont(Font f)</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 24.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 69pt; height: 24.25pt;"
+ valign="top" width="92">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Visibility 
+	  and Enabling</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 4.75in; height: 24.25pt;"
+ valign="top" width="456">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setEnabled(boolean b)</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+	  setVisible(boolean b)</span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Container class extends 
+Component. This class defines methods for nesting components in a container.</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Component 
+add(Component comp)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Component 
+add(Component comp, int index)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+add(Component comp, Object constraints)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+add(Component comp, Object constraints, int index)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+remove(int index)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+remove(Component comp)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+removeAll()</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">The following are the 
+containers:</span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 43.65pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 18.4pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 55.5pt; height: 18.4pt;"
+ valign="top" width="74">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Container</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 414.75pt; height: 18.4pt;"
+ valign="top" width="553">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description</span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 50.35pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 55.5pt; height: 50.35pt;"
+ valign="top" width="74">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Panel</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 414.75pt; height: 50.35pt;"
+ valign="top" width="553">
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Provides 
+	  intermediate level of spatial organization and containment.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Not a 
+	  top-level window</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Does not 
+	  have title, border or menubar.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Can be 
+	  recursively nested.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Default 
+	  layout is Flow layout.</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 38.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 55.5pt; height: 38.65pt;"
+ valign="top" width="74">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Applet</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 414.75pt; height: 38.65pt;"
+ valign="top" width="553">
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Specialized 
+	  Panel, run inside other applications (typically browsers)</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Changing 
+	  the size of an applet is allowed or forbidden depending on the browser.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Default 
+	  layout is Flow layout.</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 38.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 55.5pt; height: 38.65pt;"
+ valign="top" width="74">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Window</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 414.75pt; height: 38.65pt;"
+ valign="top" width="553">
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Top-level 
+	  window without a title, border or menus.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Seldom used 
+	  directly. Subclasses (Frame and Dialog) are used.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Defines 
+	  these methods:</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">void pack() 
+	  – Initiates layout management, window size might be changed as a result</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">void show() 
+	  – Makes the window visible, also brings it to front</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">void 
+	  dispose() – When a window is no longer needed, call this to free 
+	  resources.</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 38.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 55.5pt; height: 38.65pt;"
+ valign="top" width="74">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Frame</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 414.75pt; height: 38.65pt;"
+ valign="top" width="553">
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Top-level 
+	  window (optionally user-resizable and movable) with a title-bar, an icon 
+	  and menus.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Typically 
+	  the starting point of a GUI application.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Default 
+	  layout is Border layout.</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 38.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 55.5pt; height: 38.65pt;"
+ valign="top" width="74">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Dialog</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 414.75pt; height: 38.65pt;"
+ valign="top" width="553">
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Top-level 
+	  window (optionally user-resizable and movable) with a title-bar.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Doesn’t 
+	  have icons or menus.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Can be made 
+	  modal.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">A parent 
+	  frame needs to be specified to create a Dialog.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Default 
+	  layout is Border layout.</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 38.65pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 55.5pt; height: 38.65pt;"
+ valign="top" width="74">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">ScrollPane</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 414.75pt; height: 38.65pt;"
+ valign="top" width="553">
+      <p class="preformatted"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">Can contain 
+	  a single component. If the component is larger than the scrollpane, it 
+	  acquires vertical / horizontal scrollbars as specified in the constructor.</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">
+	  SCROLLBARS_AS_NEEDED – default, if nothing specified</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">
+	  SCROLLBARS_ALWAYS</span><o:p></o:p></p>
+      <p class="preformatted"
+ style="margin-left: 0.75in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </span><span style="font-family: &quot;Times New Roman&quot;;">
+	  SCROLLBARS_NEVER</span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Top-level containers (Window, 
+Frame and Dialog) cannot be nested. They can contain other containers and other 
+components.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">GUI components:</span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 41.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 12.75pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 63pt; height: 12.75pt;"
+ valign="top" width="84">
+      <h1><span style="">Component</span><o:p></o:p></h1>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 12.75pt;"
+ valign="top" width="276">
+      <h1><span style="">Description</span><o:p></o:p></h1>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 12.75pt;"
+ valign="top" width="168">
+      <h1><span style="">Constructors </span><o:p></o:p></h1>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 12.75pt;"
+ valign="top" width="103">
+      <h1><span style="">Events</span><o:p></o:p></h1>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 26.5pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Button<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 26.5pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>A 
+	  button with a textual label.<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 26.5pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">new Button(“Apply”)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 26.5pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Action event.<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 26.5pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Canvas<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 26.5pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>No 
+	  default appearance.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Can 
+	  be sub-classed to create custom drawing areas.<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 26.5pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">&nbsp;<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 26.5pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Mouse, MouseMotion, Key events.<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 26.5pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Checkbox<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 26.5pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Toggling check box.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Default initial state is false.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  getState(), setState(boolean state) - methods<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Can 
+	  be grouped with a CheckboxGroup to provide radio behavior.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Checkboxgroup is not a subclass of Component.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Checkboxgroup provides these methods: getSelectedCheckbox and 
+	  setSelectedCheckbox(Checkbox new)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 26.5pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">Checkbox(String label)<o:p></o:p></p>
+      <p class="MsoNormal" style="">Checkbox(String label, boolean initialstate)<o:p></o:p></p>
+      <p class="MsoNormal" style="">Checkbox(String label, CheckBoxGroup group)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 26.5pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Item event<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 26.5pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Choice<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 26.5pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>A 
+	  pull-down list<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Can 
+	  be populated by repeatedly calling addItem(String item) method.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Only 
+	  the current choice is visible.<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 26.5pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">&nbsp;<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 26.5pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Item event<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 26.5pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">FileDialog<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 26.5pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Subclass of Dialog<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Open 
+	  or Save file dialog, modal<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Dialog automatically removed, after user selects the file or hits cancel.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  getFile(), getDirectory() methods can be used to get information about the 
+	  selected file.<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 26.5pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">FileDialog(Frame parent, String title, int 
+	  mode)<o:p></o:p></p>
+      <p class="MsoNormal" style="">Mode can be FileDialog.LOAD or <o:p></o:p></p>
+      <p class="MsoNormal" style="">FileDialog.SAVE<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 26.5pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">&nbsp;<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 52.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 52.6pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Label<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 52.6pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Displays a single line of read-only non-selectable text <o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Alignment can be<o:p></o:p></p>
+      <p class="MsoNormal" style="margin-left: 5.4pt;">Label.LEFT, Label.RIGHT 
+	  or Label.CENTER<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 52.6pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">Label()<o:p></o:p></p>
+      <p class="MsoNormal" style="">Label(String label)<o:p></o:p></p>
+      <p class="MsoNormal" style="">Label(String label, int align)<o:p></o:p></p>
+      <p class="MsoNormal" style="">&nbsp;<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 52.6pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">None<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 112pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 112pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">List<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 112pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Scrollable vertical list of text items.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>No of 
+	  visible rows can be specified, if not specified layout manager determines 
+	  this.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Acquires a vertical scrollbar if needed.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>List 
+	  class methods:<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 30.6pt; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  addItem(String), addItem(String, int index)<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 30.6pt; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  getItem(int index), getItemCount()<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 30.6pt; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  getRows() – no of visible rows<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 30.6pt; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>int 
+	  getSelectedIndex()<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 30.6pt; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>int[] 
+	  getSelectedIndexes()<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 30.6pt; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  String getSelectedItem()<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 30.6pt; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  String[] getSelectedItems()<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 112pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">List()<o:p></o:p></p>
+      <p class="MsoNormal" style="">List(int nVisibleRows)<o:p></o:p></p>
+      <p class="MsoNormal" style="">List(int nVisibleRows, boolean 
+	  multiSelectOK)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 112pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Item event – selecting or deselecting<o:p></o:p></p>
+      <p class="MsoNormal" style="">Action event – double clicking<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 112pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 112pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Scrollbar<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 112pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>With 
+	  the last form of constructor, calculate the spread as maxvalue – minvalue. 
+	  Then the slider width is slidersize / spread times of scrollbar width.<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 112pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">Scrollbar() – a vertical scrollbar.<o:p></o:p></p>
+      <p class="MsoNormal" style="">Scrollbar(int orientation)<o:p></o:p></p>
+      <p class="MsoNormal" style="">Scrollbar(int orientation, int initialvalue, 
+	  int slidersize, int minvalue, int maxvalue)<o:p></o:p></p>
+      <p class="MsoNormal" style="">Orientation can be<o:p></o:p></p>
+      <p class="MsoNormal" style="">Scrollbar.HORIZONTAL <o:p></o:p></p>
+      <p class="MsoNormal" style="">Scrollbar.VERTICAL<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 112pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Adjustment event<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 112pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 112pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">TextField<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 112pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Extends TextComponent<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Single line of edit / display of text.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Scrolled using arrow keys.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Depending on the font, number of displayable characters can vary.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>But, 
+	  never changes size once created.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Methods from TextComponent:<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  String getSelectedText()<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  String getText()<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>void 
+	  setEditable(boolean editable)<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>void 
+	  setText(String text)<span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 112pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">TextField() – empty field<o:p></o:p></p>
+      <p class="MsoNormal" style="">TextField(int ncols) – size <o:p></o:p></p>
+      <p class="MsoNormal" style="">TextField(String text) – initial text<o:p></o:p></p>
+      <p class="MsoNormal" style="">TextField(String text, int ncols) – initial 
+	  text and size<o:p></o:p></p>
+      <p class="MsoNormal" style="">&nbsp;<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><u1:p></u1:p><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 112pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Text event<o:p></o:p></p>
+      <p class="MsoNormal" style=""><u1:p></u1:p>Action event – Enter key is 
+	  pressed.<span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+    <tr style="height: 112pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63pt; height: 112pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">TextArea<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 207pt; height: 112pt;"
+ valign="top" width="276">
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Extends TextComponent<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Multiple lines of edit/display of text.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Scrolled using arrow keys.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Can 
+	  use the TextComponent methods specified above.<o:p></o:p></p>
+      <p class="MsoNormal"
+ style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+	  Scroll parameter in last constructor form could be<o:p></o:p></p>
+      <p class="MsoBodyTextIndent2"
+ style="margin: 0in 0in 0.0001pt 23.4pt;"><span
+ style="font-size: 8pt; font-family: &quot;Times New Roman&quot;;">
+	  TextArea.SCROLLBARS_BOTH, TextArea.SCROLLBARS_NONE, 
+	  TextArea.SCROLLBARS_HORIZONTAL_ONLY<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="MsoNormal" style="margin-left: 23.4pt;"><span
+ style="font-size: 8pt;">TextArea.SCROLLBARS_VERTICAL_ONLY</span><span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.75in; height: 112pt;"
+ valign="top" width="168">
+      <p class="MsoNormal" style="">TextArea() – empty area<o:p></o:p></p>
+      <p class="MsoNormal" style="">TextArea(int nrows, int ncols) – size <o:p></o:p></p>
+      <p class="MsoNormal" style="">TextArea(String text) – initial text<o:p></o:p></p>
+      <p class="MsoNormal" style="">TextArea(String text, int nrows, int ncols) 
+	  – initial text and size<o:p></o:p></p>
+      <p class="MsoNormal" style="">TextArea(String text, int nrows, int ncols, 
+	  int scroll)<span style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 77.25pt; height: 112pt;"
+ valign="top" width="103">
+      <p class="MsoNormal" style="">Text event<span
+ style="font-family: &quot;Arial Unicode MS&quot;;"><o:p></o:p></span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoNormal" style=""><span style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Pull-down menus are accessed via a menu 
+bar, which can appear only on Frames.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All menu related components inherit from 
+java.awt.MenuComponent<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Steps to create and use a menu<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Create an instance of<span style="">&nbsp; </span>
+MenuBar class<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Attach it to the frame – using 
+setMenubar() method of Frame<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Create an instance of Menu and populate 
+it by adding MenuItems, CheckboxMenuItems, separators and Menus. Use 
+addSeparator() method to add separators. Use add() method to add other items.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Attach the Menu to the MenuBar. Use add() 
+method of Menubar to add a menu to it. Use setHelpMenu to set a particular menu 
+to appear always as right-most menu.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Menu(String label) – creates a Menu 
+instance. Label is what displayed on the Menubar. If this menu is used as a 
+pull-down sub-menu, label is the menu item’s label.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>MenuItems generate Action Events.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>CheckboxMenuItems generate Item Events.<o:p></o:p></p>
+</div>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

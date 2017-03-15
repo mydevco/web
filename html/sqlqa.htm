@@ -1,0 +1,1076 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>SQL Interview Questions: SQL Tips</title>
+
+
+
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<ul>
+  <li>What is normalization? Explain different levels of normalization?
+  <ul>
+    <li>Check out the article Q100139 from Microsoft knowledge base and of 
+	course, there&#39;s much more information available in the net. It&#39;ll be a good 
+	idea to get a hold of any RDBMS fundamentals text book, especially the one 
+	by C. J. Date. Most of the times, it will be okay if you can explain till 
+	third normal form. </li>
+  </ul>
+  </li>
+  <li>What is denormalization and when would you go for it?
+  <ul>
+    <li>As the name indicates, denormalization is the reverse process of 
+	normalization. It&#39;s the controlled introduction of redundancy in to the 
+	database design. It helps improve the query performance as the number of 
+	joins could be reduced. </li>
+  </ul>
+  </li>
+  <li>How do you implement one-to-one, one-to-many and many-to-many 
+  relationships while designing tables?
+  <ul>
+    <li>One-to-One relationship can be implemented as a single table and rarely 
+	as two tables with primary and foreign key relationships. One-to-Many 
+	relationships are implemented by splitting the data into two tables with 
+	primary key and foreign key relationships. Many-to-Many relationships are 
+	implemented using a junction table with the keys from both the tables 
+	forming the composite primary key of the junction table. It will be a good 
+	idea to read up a database designing fundamentals text book. </li>
+  </ul>
+  </li>
+  <li>What&#39;s the difference between a primary key and a unique key?
+  <ul>
+    <li>Both primary key and unique enforce uniqueness of the column on which 
+	they are defined. But by default primary key creates a clustered index on 
+	the column, where are unique creates a nonclustered index by default. 
+	Another major difference is that, primary key doesn&#39;t allow NULLs, but 
+	unique key allows one NULL only. </li>
+  </ul>
+  </li>
+  <li>What are user defined datatypes and when you should go for them?
+  <ul>
+    <li>User defined datatypes let you extend the base SQL Server datatypes by 
+	providing a descriptive name, and format to the database. Take for example, 
+	in your database, there is a column called Flight_Num which appears in many 
+	tables. In all these tables it should be varchar(8). In this case you could 
+	create a user defined datatype called Flight_num_type of varchar(8) and use 
+	it across all your tables. See sp_addtype, sp_droptype in books online. </li>
+  </ul>
+  </li>
+  <li>What is bit datatype and what&#39;s the information that can be stored inside 
+  a bit column?
+  <ul>
+    <li>Bit datatype is used to store boolean information like 1 or 0 (true or 
+	false). Untill SQL Server 6.5 bit datatype could hold either a 1 or 0 and 
+	there was no support for NULL. But from SQL Server 7.0 onwards, bit datatype 
+	can represent a third state, which is NULL. </li>
+  </ul>
+  </li>
+  <li>Define candidate key, alternate key, composite key.
+  <ul>
+    <li>A candidate key is one that can identify each row of a table uniquely. 
+	Generally a candidate key becomes the primary key of the table. If the table 
+	has more than one candidate key, one of them will become the primary key, 
+	and the rest are called alternate keys. A key formed by combining at least 
+	two or more columns is called composite key. </li>
+  </ul>
+  </li>
+  <li>What are defaults? Is there a column to which a default can&#39;t be bound?
+  <ul>
+    <li>A default is a value that will be used by a column, if no value is 
+	supplied to that column while inserting data. IDENTITY columns and timestamp 
+	columns can&#39;t have defaults bound to them. See CREATE DEFAULT in books 
+	online. </li>
+  </ul>
+  </li>
+  <li>What is a transaction and what are ACID properties?
+  <ul>
+    <li>A transaction is a logical unit of work in which, all the steps must be 
+	performed or none. ACID stands for Atomicity, Consistency, Isolation, 
+	Durability. These are the properties of a transaction. For more information 
+	and explanation of these properties, see SQL Server books online or any 
+	RDBMS fundamentals text book. Explain different isolation levels An 
+	isolation level determines the degree of isolation of data between 
+	concurrent transactions. The default SQL Server isolation level is Read 
+	Committed. Here are the other isolation levels (in the ascending order of 
+	isolation): Read Uncommitted, Read Committed, Repeatable Read, Serializable. 
+	See SQL Server books online for an explanation of the isolation levels. Be 
+	sure to read about SET TRANSACTION ISOLATION LEVEL, which lets you customize 
+	the isolation level at the connection level. Read Committed - A transaction 
+	operating at the Read Committed level cannot see changes made by other 
+	transactions until those transactions are committed. At this level of 
+	isolation, dirty reads are not possible but nonrepeatable reads and phantoms 
+	are possible. Read Uncommitted - A transaction operating at the Read 
+	Uncommitted level can see uncommitted changes made by other transactions. At 
+	this level of isolation, dirty reads, nonrepeatable reads, and phantoms are 
+	all possible. Repeatable Read - A transaction operating at the Repeatable 
+	Read level is guaranteed not to see any changes made by other transactions 
+	in values it has already read. At this level of isolation, dirty reads and 
+	nonrepeatable reads are not possible but phantoms are possible. Serializable 
+	- A transaction operating at the Serializable level guarantees that all 
+	concurrent transactions interact only in ways that produce the same effect 
+	as if each transaction were entirely executed one after the other. At this 
+	isolation level, dirty reads, nonrepeatable reads, and phantoms are not 
+	possible. </li>
+  </ul>
+  </li>
+  <li>CREATE INDEX myIndex ON myTable(myColumn)What type of Index will get 
+  created after executing the above statement?
+  <ul>
+    <li>Non-clustered index. Important thing to note: By default a clustered 
+	index gets created on the primary key, unless specified otherwise. </li>
+  </ul>
+  </li>
+  <li>What&#39;s the maximum size of a row?
+  <ul>
+    <li>8060 bytes. Don&#39;t be surprised with questions like &#39;what is the maximum 
+	number of columns per table&#39;. 1024 columns per table. Check out SQL Server 
+	books online for the page titled: &quot;Maximum Capacity Specifications&quot;. Explain 
+	Active/Active and Active/Passive cluster configurations Hopefully you have 
+	experience setting up cluster servers. But if you don&#39;t, at least be 
+	familiar with the way clustering works and the two clusterning 
+	configurations Active/Active and Active/Passive. SQL Server books online has 
+	enough information on this topic and there is a good white paper available 
+	on Microsoft site. Explain the architecture of SQL Server This is a very 
+	important question and you better be able to answer it if consider yourself 
+	a DBA. SQL Server books online is the best place to read about SQL Server 
+	architecture. Read up the chapter dedicated to SQL Server Architecture. </li>
+  </ul>
+  </li>
+  <li>What is lock escalation?
+  <ul>
+    <li>Lock escalation is the process of converting a lot of low level locks 
+	(like row locks, page locks) into higher level locks (like table locks). 
+	Every lock is a memory structure too many locks would mean, more memory 
+	being occupied by locks. To prevent this from happening, SQL Server 
+	escalates the many fine-grain locks to fewer coarse-grain locks. Lock 
+	escalation threshold was definable in SQL Server 6.5, but from SQL Server 
+	7.0 onwards it&#39;s dynamically managed by SQL Server. </li>
+  </ul>
+  </li>
+  <li>What&#39;s the difference between DELETE TABLE and TRUNCATE TABLE commands?
+  <ul>
+    <li>DELETE TABLE is a logged operation, so the deletion of each row gets 
+	logged in the transaction log, which makes it slow. TRUNCATE TABLE also 
+	deletes all the rows in a table, but it won&#39;t log the deletion of each row, 
+	instead it logs the deallocation of the data pages of the table, which makes 
+	it faster. Of course, TRUNCATE TABLE can be rolled back. TRUNCATE TABLE is 
+	functionally identical to DELETE statement with no WHERE clause: both remove 
+	all rows in the table. But TRUNCATE TABLE is faster and uses fewer system 
+	and transaction log resources than DELETE. The DELETE statement removes rows 
+	one at a time and records an entry in the transaction log for each deleted 
+	row. TRUNCATE TABLE removes the data by deallocating the data pages used to 
+	store the table&#39;s data, and only the page deallocations are recorded in the 
+	transaction log. TRUNCATE TABLE removes all rows from a table, but the table 
+	structure and its columns, constraints, indexes and so on remain. The 
+	counter used by an identity for new rows is reset to the seed for the 
+	column. If you want to retain the identity counter, use DELETE instead. If 
+	you want to remove table definition and its data, use the DROP TABLE 
+	statement. You cannot use TRUNCATE TABLE on a table referenced by a FOREIGN 
+	KEY constraint; instead, use DELETE statement without a WHERE clause. 
+	Because TRUNCATE TABLE is not logged, it cannot activate a trigger. TRUNCATE 
+	TABLE may not be used on tables participating in an indexed view </li>
+  </ul>
+  </li>
+  <li>Explain the storage models of OLAP
+  <ul>
+    <li>Check out MOLAP, ROLAP and HOLAP in SQL Server books online for more 
+	infomation. </li>
+  </ul>
+  </li>
+  <li>What are the new features introduced in SQL Server 2000 (or the latest 
+  release of SQL Server at the time of your interview)? What changed between the 
+  previous version of SQL Server and the current version?
+  <ul>
+    <li>This question is generally asked to see how current is your knowledge. 
+	Generally there is a section in the beginning of the books online titled 
+	&quot;What&#39;s New&quot;, which has all such information. Of course, reading just that 
+	is not enough, you should have tried those things to better answer the 
+	questions. Also check out the section titled &quot;Backward Compatibility&quot; in 
+	books online which talks about the changes that have taken place in the new 
+	version. </li>
+  </ul>
+  </li>
+  <li>What are constraints? Explain different types of constraints.
+  <ul>
+    <li>Constraints enable the RDBMS enforce the integrity of the database 
+	automatically, without needing you to create triggers, rule or defaults. 
+	Types of constraints: NOT NULL, CHECK, UNIQUE, PRIMARY KEY, FOREIGN KEY. For 
+	an explanation of these constraints see books online for the pages titled: 
+	&quot;Constraints&quot; and &quot;CREATE TABLE&quot;, &quot;ALTER TABLE&quot; </li>
+  </ul>
+  </li>
+  <li>What is an index? What are the types of indexes? How many clustered 
+  indexes can be created on a table? I create a separate index on each column of 
+  a table. What are the advantages and disadvantages of this approach?
+  <ul>
+    <li>Indexes in SQL Server are similar to the indexes in books. They help SQL 
+	Server retrieve the data quicker. Indexes are of two types. Clustered 
+	indexes and non-clustered indexes. When you create a clustered index on a 
+	table, all the rows in the table are stored in the order of the clustered 
+	index key. So, there can be only one clustered index per table. 
+	Non-clustered indexes have their own storage separate from the table data 
+	storage. Non-clustered indexes are stored as B-tree structures (so do 
+	clustered indexes), with the leaf level nodes having the index key and it&#39;s 
+	row locater. The row located could be the RID or the Clustered index key, 
+	depending up on the absence or presence of clustered index on the table. If 
+	you create an index on each column of a table, it improves the query 
+	performance, as the query optimizer can choose from all the existing indexes 
+	to come up with an efficient execution plan. At the same t ime, data 
+	modification operations (such as INSERT, UPDATE, DELETE) will become slow, 
+	as every time data changes in the table, all the indexes need to be updated. 
+	Another disadvantage is that, indexes need disk space, the more indexes you 
+	have, more disk space is used. </li>
+  </ul>
+  </li>
+  <li>What is RAID and what are different types of RAID configurations?
+  <ul>
+    <li>RAID stands for Redundant Array of Inexpensive Disks, used to provide 
+	fault tolerance to database servers. There are six RAID levels 0 through 5 
+	offering different levels of performance, fault tolerance. MSDN has some 
+	information about RAID levels and for detailed information, check out the 
+	RAID advisory board&#39;s homepage </li>
+  </ul>
+  </li>
+  <li>What are the steps you will take to improve performance of a poor 
+  performing query?
+  <ul>
+    <li>This is a very open ended question and there could be a lot of reasons 
+	behind the poor performance of a query. But some general issues that you 
+	could talk about would be: No indexes, table scans, missing or out of date 
+	statistics, blocking, excess recompilations of stored procedures, procedures 
+	and triggers without SET NOCOUNT ON, poorly written query with unnecessarily 
+	complicated joins, too much normalization, excess usage of cursors and 
+	temporary tables. Some of the tools/ways that help you troubleshooting 
+	performance problems are: SET SHOWPLAN_ALL ON, SET SHOWPLAN_TEXT ON, SET 
+	STATISTICS IO ON, SQL Server Profiler, Windows NT /2000 Performance monitor, 
+	Graphical execution plan in Query Analyzer. Download the white paper on 
+	performance tuning SQL Server from Microsoft web site. Don&#39;t forget to check 
+	out sql-server-performance.com </li>
+  </ul>
+  </li>
+  <li>What are the steps you will take, if you are tasked with securing an SQL 
+  Server?
+  <ul>
+    <li>Again this is another open ended question. Here are some things you 
+	could talk about: Preferring NT authentication, using server, databse and 
+	application roles to control access to the data, securing the physical 
+	database files using NTFS permissions, using an unguessable SA password, 
+	restricting physical access to the SQL Server, renaming the Administrator 
+	account on the SQL Server computer, disabling the Guest account, enabling 
+	auditing, using multiprotocol encryption, setting up SSL, setting up 
+	firewalls, isolating SQL Server from the web server etc. Read the white 
+	paper on SQL Server security from Microsoft website. Also check out My SQL 
+	Server security best practices </li>
+  </ul>
+  </li>
+  <li>What is a deadlock and what is a live lock? How will you go about 
+  resolving deadlocks?
+  <ul>
+    <li>Deadlock is a situation when two processes, each having a lock on one 
+	piece of data, attempt to acquire a lock on the other&#39;s piece. Each process 
+	would wait indefinitely for the other to release the lock, unless one of the 
+	user processes is terminated. SQL Server detects deadlocks and terminates 
+	one user&#39;s process. A livelock is one, where a request for an exclusive lock 
+	is repeatedly denied because a series of overlapping shared locks keeps 
+	interfering. SQL Server detects the situation after four denials and refuses 
+	further shared locks. A livelock also occurs when read transactions 
+	monopolize a table or page, forcing a write transaction to wait 
+	indefinitely. Check out SET DEADLOCK_PRIORITY and &quot;Minimizing Deadlocks&quot; in 
+	SQL Server books online. Also check out the article Q169960 from Microsoft 
+	knowledge base. </li>
+  </ul>
+  </li>
+  <li>What is blocking and how would you troubleshoot it?
+  <ul>
+    <li>Blocking happens when one connection from an application holds a lock 
+	and a second connection requires a conflicting lock type. This forces the 
+	second connection to wait, blocked on the first. Read up the following 
+	topics in SQL Server books online: Understanding and avoiding blocking, 
+	Coding efficient transactions. Explain CREATE DATABASE syntax Many of us are 
+	used to creating databases from the Enterprise Manager or by just issuing 
+	the command: CREATE DATABAE MyDB. </li>
+  </ul>
+  </li>
+  <li>But what if you have to create a database with two filegroups, one on 
+  drive C and the other on drive D with log on drive E with an initial size of 
+  600 MB and with a growth factor of 15%?
+  <ul>
+    <li>That&#39;s why being a DBA you should be familiar with the CREATE DATABASE 
+	syntax. Check out SQL Server books online for more information. </li>
+  </ul>
+  </li>
+  <li>How to restart SQL Server in single user mode? How to start SQL Server in 
+  minimal configuration mode?
+  <ul>
+    <li>SQL Server can be started from command line, using the SQLSERVR.EXE. 
+	This EXE has some very important parameters with which a DBA should be 
+	familiar with. -m is used for starting SQL Server in single user mode and -f 
+	is used to start the SQL Server in minimal configuration mode. Check out SQL 
+	Server books online for more parameters and their explanations. </li>
+  </ul>
+  </li>
+  <li>As a part of your job, what are the DBCC commands that you commonly use 
+  for database maintenance?
+  <ul>
+    <li>DBCC CHECKDB, DBCC CHECKTABLE, DBCC CHECKCATALOG, DBCC CHECKALLOC, DBCC 
+	SHOWCONTIG, DBCC SHRINKDATABASE, DBCC SHRINKFILE etc. But there are a whole 
+	load of DBCC commands which are very useful for DBAs. Check out SQL Server 
+	books online for more information. </li>
+  </ul>
+  </li>
+  <li>What are statistics, under what circumstances they go out of date, how do 
+  you update them?
+  <ul>
+    <li>Statistics determine the selectivity of the indexes. If an indexed 
+	column has unique values then the selectivity of that index is more, as 
+	opposed to an index with non-unique values. Query optimizer uses these 
+	indexes in determining whether to choose an index or not while executing a 
+	query. Some situations under which you should update statistics: 1) If there 
+	is significant change in the key values in the index 2) If a large amount of 
+	data in an indexed column has been added, changed, or removed (that is, if 
+	the distribution of key values has changed), or the table has been truncated 
+	using the TRUNCATE TABLE statement and then repopulated 3) Database is 
+	upgraded from a previous version. Look up SQL Server books online for the 
+	following commands: UPDATE STATISTICS, STATS_DATE, DBCC SHOW_STATISTICS, 
+	CREATE STATISTICS, DROP STATISTICS, sp_autostats, sp_createstats, 
+	sp_updatestats </li>
+  </ul>
+  </li>
+  <li>What are the different ways of moving data/databases between servers and 
+  databases in SQL Server?
+  <ul>
+    <li>There are lots of options available, you have to choose your option 
+	depending upon your requirements. Some of the options you have are: 
+	BACKUP/RESTORE, dettaching and attaching databases, replication, DTS, BCP, 
+	logshipping, INSERT...SELECT, SELECT...INTO, creating INSERT scripts to 
+	generate data. </li>
+  </ul>
+  </li>
+  <li>Explain different types of BACKUPs avaialabe in SQL Server? Given a 
+  particular scenario, how would you go about choosing a backup plan?
+  <ul>
+    <li>Types of backups you can create in SQL Sever 7.0+ are Full database 
+	backup, differential database backup, transaction log backup, filegroup 
+	backup. Check out the BACKUP and RESTORE commands in SQL Server books 
+	online. Be prepared to write the commands in your interview. Books online 
+	also has information on detailed backup/restore architecture and when one 
+	should go for a particular kind of backup. </li>
+  </ul>
+  </li>
+  <li>What is database replication? What are the different types of replication 
+  you can set up in SQL Server?
+  <ul>
+    <li>Replication is the process of copying/moving data between databases on 
+	the same or different servers. SQL Server supports the following types of 
+	replication scenarios: · Snapshot replication · Transactional replication 
+	(with immediate updating subscribers, with queued updating subscribers) · 
+	Merge replication See SQL Server books online for indepth coverage on 
+	replication. Be prepared to explain how different replication agents 
+	function, what are the main system tables used in replication etc. </li>
+  </ul>
+  </li>
+  <li>How to determine the service pack currently installed on SQL Server?
+  <ul>
+    <li>The global variable @@Version stores the build number of the 
+	sqlservr.exe, which is used to determine the service pack installed. To know 
+	more about this process visit SQL Server service packs and versions. </li>
+  </ul>
+  </li>
+  <li>What are cursors? Explain different types of cursors. What are the 
+  disadvantages of cursors? How can you avoid cursors?
+  <ul>
+    <li>Cursors allow row-by-row processing of the resultsets. Types of cursors: 
+	Static, Dynamic, Forward-only, Keyset-driven. See books online for more 
+	information. Disadvantages of cursors: Each time you fetch a row from the 
+	cursor, it results in a network roundtrip, where as a normal SELECT query 
+	makes only one roundtrip, however large the resultset is. Cursors are also 
+	costly because they require more resources and temporary storage (results in 
+	more IO operations). Further, there are restrictions on the SELECT 
+	statements that can be used with some types of cursors. Most of the times, 
+	set based operations can be used instead of cursors. Here is an example: If 
+	you have to give a flat hike to your employees using the following criteria: 
+	Salary between 30000 and 40000 -- 5000 hike Salary between 40000 and 55000 
+	-- 7000 hike Salary between 55000 and 65000 -- 9000 hike. In this situation 
+	many developers tend to use a cursor, determine each employee&#39;s salary and 
+	update his salary according to the above formula. But the same can be 
+	achieved by multiple update statements or can be combined in a single UPDATE 
+	statement as shown below: </li>
+    <li>UPDATE tbl_emp SET salary = CASE WHEN salary BETWEEN 30000 AND 40000 
+	THEN salary + 5000 WHEN salary BETWEEN 40000 AND 55000 THEN salary + 7000 
+	WHEN salary BETWEEN 55000 AND 65000 THEN salary + 10000 END </li>
+    <li>Another situation in which developers tend to use cursors: You need to 
+	call a stored procedure when a column in a particular row meets certain 
+	condition. You don&#39;t have to use cursors for this. This can be achieved 
+	using WHILE loop, as long as there is a unique key to identify each row. For 
+	examples of using WHILE loop for row by row processing, check out the &#39;My 
+	code library&#39; section of my site or search for WHILE. Write down the general 
+	syntax for a SELECT statements covering all the options. Here&#39;s the basic 
+	syntax: (Also checkout SELECT in books online for advanced syntax). </li>
+    <li>SELECT select_list [INTO new_table_] FROM table_source [WHERE 
+	search_condition] [GROUP BY group_by_expression] [HAVING search_condition] 
+	[ORDER BY order_expression [ASC | DESC] ] </li>
+    <li>Example
+    <p>/* Use DECLARE @local_variable, DECLARE CURSOR and SET. */<br>
+    DECLARE @MyVariable CURSOR<br>
+    <br>
+    DECLARE MyCursor CURSOR FOR<br>
+    SELECT LastName FROM Northwind.dbo.Employees<br>
+    <br>
+    SET @MyVariable = MyCursor<br>
+    <br>
+    /* Use DECLARE @local_variable and SET */<br>
+    DECLARE @MyVariable CURSOR<br>
+    <br>
+    SET @MyVariable = CURSOR SCROLL KEYSET FOR<br>
+    SELECT LastName FROM Northwind.dbo.Employees</p>
+    <p>DEALLOCATE @MyCursor</li>
+  </ul>
+  </li>
+  <li>What is a join and explain different types of joins.
+  <ul>
+    <li>Joins are used in queries to explain how different tables are related. 
+	Joins also let you select data from a table depending upon data from another 
+	table. Types of joins: INNER JOINs, OUTER JOINs, CROSS JOINs. OUTER JOINs 
+	are further classified as LEFT OUTER JOINS, RIGHT OUTER JOINS and FULL OUTER 
+	JOINS. For more information see pages from books online titled: &quot;Join 
+	Fundamentals&quot; and &quot;Using Joins&quot;. </li>
+  </ul>
+  </li>
+  <li>Can you have a nested transaction?
+  <ul>
+    <li>Yes, very much. Check out BEGIN TRAN, COMMIT, ROLLBACK, SAVE TRAN and 
+	@@TRANCOUNT
+    </li>
+  </ul>
+  </li>
+  <li>What is an extended stored procedure? Can you instantiate a COM object by 
+  using T-SQL?
+  <ul>
+    <li>An extended stored procedure is a function within a DLL (written in a 
+	programming language like C, C++ using Open Data Services (ODS) API) that 
+	can be called from T-SQL, just the way we call normal stored procedures 
+	using the EXEC statement. See books online to learn how to create extended 
+	stored procedures and how to add them to SQL Server. Yes, you can 
+	instantiate a COM (written in languages like VB, VC++) object from T-SQL by 
+	using sp_OACreate stored procedure. Also see books online for sp_OAMethod, 
+	sp_OAGetProperty, sp_OASetProperty, sp_OADestroy. For an example of creating 
+	a COM object in VB and calling it from T-SQL, see &#39;My code library&#39; section 
+	of this site. </li>
+  </ul>
+  </li>
+  <li>What is the system function to get the current user&#39;s user id?
+  <ul>
+    <li>USER_ID(). Also check out other system functions like USER_NAME(), 
+	SYSTEM_USER, SESSION_USER, CURRENT_USER, USER, SUSER_SID(), HOST_NAME().
+    </li>
+  </ul>
+  </li>
+  <li>What are triggers? How many triggers you can have on a table? How to 
+  invoke a trigger on demand?
+  <ul>
+    <li>Triggers are special kind of stored procedures that get executed 
+	automatically when an INSERT, UPDATE or DELETE operation takes place on a 
+	table. In SQL Server 6.5 you could define only 3 triggers per table, one for 
+	INSERT, one for UPDATE and one for DELETE. From SQL Server 7.0 onwards, this 
+	restriction is gone, and you could create multiple triggers per each action. 
+	But in 7.0 there&#39;s no way to control the order in which the triggers fire. 
+	In SQL Server 2000 you could specify which trigger fires first or fires last 
+	using sp_settriggerorder. Triggers can&#39;t be invoked on demand. They get 
+	triggered only when an associated action (INSERT, UPDATE, DELETE) happens on 
+	the table on which they are defined. Triggers are generally used to 
+	implement business rules, auditing. Triggers can also be used to extend the 
+	referential integrity checks, but wherever possible, use constraints for 
+	this purpose, instead of triggers, as constraints are much faster. Till SQL 
+	Server 7.0, triggers fire only after the data modification operation 
+	happens. So in a way, they are called post triggers. But in SQL Server 2000 
+	you could create pre triggers also. Search SQL Server 2000 books online for 
+	INSTEAD OF triggers. Also check out books online for &#39;inserted table&#39;, 
+	&#39;deleted table&#39; and COLUMNS_UPDATED() </li>
+    <li>Example: Trigger with remainder e-mail message </li>
+    <li>
+    USE pubs<br>
+    IF EXISTS (SELECT name FROM sysobjects<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE name = &#39;reminder&#39; AND type = &#39;TR&#39;)<br>
+	&nbsp;&nbsp; DROP TRIGGER reminder<br>
+    GO<br>
+    CREATE TRIGGER reminder<br>
+    ON titles<br>
+    FOR INSERT, UPDATE, DELETE <br>
+    AS<br>
+	&nbsp;&nbsp; EXEC master..xp_sendmail &#39;MaryM&#39;, <br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#39;Don&#39;&#39;t forget to print a report for the distributors.&#39;<br>
+    GO<p>&nbsp;</li>
+  </ul>
+  </li>
+  <li>There is a trigger defined for INSERT operations on a table, in an OLTP 
+  system. The trigger is written to instantiate a COM object and pass the newly 
+  insterted rows to it for some custom processing. What do you think of this 
+  implementation? Can this be implemented better?
+  <ul>
+    <li>Instantiating COM objects is a time consuming process and since you are 
+	doing it from within a trigger, it slows down the data insertion process. 
+	Same is the case with sending emails from triggers. This scenario can be 
+	better implemented by logging all the necessary data into a separate table, 
+	and have a job which periodically checks this table and does the needful.
+    </li>
+  </ul>
+  </li>
+  <li>What are the trigger limitations:
+  <ul>
+    <li>The CREATE TRIGGER statement must be the first statement in the batch. 
+	All other statements that follow in that batch are interpreted as part of 
+	the definition of the CREATE TRIGGER statement.<br>
+	&nbsp;</li>
+    <li>Permission to create triggers defaults to the table owner, who cannot 
+	transfer it to other users.<br>
+	&nbsp;</li>
+    <li>You can create a trigger only in the current database, although a 
+	trigger can reference objects outside of the current database.<br>
+	&nbsp;</li>
+    <li>A trigger cannot be created on a temporary or system table, although 
+	triggers can reference temporary tables.&nbsp;<br>
+	&nbsp;</li>
+    <li>INSTEAD OF DELETE and INSTEAD OF UPDATE triggers cannot be defined on a 
+	table that has a foreign key defined with a DELETE or UPDATE action.<br>
+	&nbsp;</li>
+    <li>Although a TRUNCATE TABLE statement is like a DELETE statement without a 
+	WHERE clause (it deletes all rows), it does not cause DELETE triggers to 
+	fire because the TRUNCATE TABLE statement is not logged.<br>
+	&nbsp;</li>
+    <li>The WRITETEXT statement does not cause the INSERT or UPDATE triggers to 
+	fire. </li>
+  </ul>
+  </li>
+</ul>
+<ul>
+  <li>What is a self join? Explain it with an example.
+  <ul>
+    <li>Self join is just like any other join, except that two instances of the 
+	same table will be joined in the query. Here is an example: Employees table 
+	which contains rows for normal employees as well as managers. So, to find 
+	out the managers of all the employees, you need a self join. </li>
+    <li>CREATE TABLE emp ( empid int, mgrid int, empname char(10) ) </li>
+    <li>INSERT emp SELECT 1,2,&#39;Vyas&#39; INSERT emp SELECT 2,3,&#39;Mohan&#39; INSERT emp 
+	SELECT 3,NULL,&#39;Shobha&#39; INSERT emp SELECT 4,2,&#39;Shridhar&#39; INSERT emp SELECT 
+	5,2,&#39;Sourabh&#39; </li>
+    <li>SELECT t1.empname [Employee], t2.empname [Manager] FROM emp t1, emp t2 
+	WHERE t1.mgrid = t2.empid Here&#39;s an advanced query using a LEFT OUTER JOIN 
+	that even returns the employees without managers (super bosses) </li>
+    <li>SELECT t1.empname [Employee], COALESCE(t2.empname, &#39;No manager&#39;) 
+	[Manager] FROM emp t1 LEFT OUTER JOIN emp t2 ON t1.mgrid = t2.empid </li>
+  </ul>
+  </li>
+  <li>What is the difference between stored procedure and functions?
+  <ul>
+    <li>Stored procedures are different from
+    <!--GLOSSARY-->function in that they do not return values in place of their 
+	names and they cannot be used directly in an expression. </li>
+  </ul>
+  </li>
+  <li>Mention some cpacity specification of SQL Server 7.0/2000/2005.
+  <ul>
+    <li>
+    <table>
+      <tr>
+        <th class="label" width="42%" bgColor="#c0c0c0">Object</th>
+        <th class="label" width="29%" bgColor="#c0c0c0">SQL Server 7.0</th>
+        <th class="label" width="29%" bgColor="#c0c0c0">SQL Server 2000</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">
+        <p align="center">Clustered indexes</th>
+        <th class="label" width="29%">1</th>
+        <th class="label" width="29%">1</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Columns per Index</th>
+        <th class="label" width="29%">16</th>
+        <th class="label" width="29%">16</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Columns per foreign/primary Key</th>
+        <th class="label" width="29%">16</th>
+        <th class="label" width="29%">16</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Columns per base table</th>
+        <th class="label" width="29%">1024</th>
+        <th class="label" width="29%">1024</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Columns per select statement</th>
+        <th class="label" width="29%">4096</th>
+        <th class="label" width="29%">4096</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Columns per insert statement</th>
+        <th class="label" width="29%">1024</th>
+        <th class="label" width="29%">1024</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Databases per instance of sql server</th>
+        <th class="label" width="29%">32767</th>
+        <th class="label" width="29%">32767</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Foreign key table reference per table&nbsp;</th>
+        <th class="label" width="29%">253</th>
+        <th class="label" width="29%">253</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Identifier length</th>
+        <th class="label" width="29%">128</th>
+        <th class="label" width="29%">128</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Nested Stored procedure levels</th>
+        <th class="label" width="29%">32</th>
+        <th class="label" width="29%">32</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Nested sub queries</th>
+        <th class="label" width="29%">32</th>
+        <th class="label" width="29%">32</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Nested trigger levels</th>
+        <th class="label" width="29%">32</th>
+        <th class="label" width="29%">32</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Non clustered indexes</th>
+        <th class="label" width="29%">249</th>
+        <th class="label" width="29%">249</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Paremeter per stored procedure</th>
+        <th class="label" width="29%">1024</th>
+        <th class="label" width="29%">1024</th>
+      </tr>
+      <tr>
+        <th class="label" width="42%">Tables per select</th>
+        <th class="label" width="29%">256</th>
+        <th class="label" width="29%">256</th>
+      </tr>
+    </table>
+    </li>
+  </ul>
+  <table width="490" border="1" style="text-align: center" align="left">
+    <tr>
+      <a name="sectionToggle0">
+      <th bgcolor="#C0C0C0" width="151">SQL Server 2005 Database Engine object </th>
+      <th bgcolor="#C0C0C0" width="182">Maximum sizes/numbers SQL Server 2005 
+	  (32-bit) </th>
+      <th bgcolor="#C0C0C0" width="135">Maximum sizes/numbers SQL Server 2005 
+	  (64-bit) </th>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Batch size<sup>1</sup></td>
+      <td width="182">65,536 * Network Packet Size</td>
+      <td width="135">65,536 * Network Packet Size</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Bytes per short string column</td>
+      <td width="182">8,000</td>
+      <td width="135">8,000</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Bytes per GROUP BY, ORDER BY</td>
+      <td width="182">8,060</td>
+      <td width="135">8,060</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Bytes per index key<sup>2</sup></td>
+      <td width="182">900</td>
+      <td width="135">900</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Bytes per foreign key</td>
+      <td width="182">900</td>
+      <td width="135">900</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Bytes per primary key</td>
+      <td width="182">900</td>
+      <td width="135">900</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Bytes per row<sup>8</sup></td>
+      <td width="182">8,060</td>
+      <td width="135">8,060</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Bytes per <b>varchar(max)</b>, <b>varbinary(max)</b>, <b>
+	  xml</b>, <b>
+      text</b>, or <b>image</b> column</td>
+      <td width="182">2^31-1</td>
+      <td width="135">2^31-1</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Characters per <b>ntext</b> or <b>nvarchar(max)</b> column</td>
+      <td width="182">2^30-1</td>
+      <td width="135">2^30-1</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Clustered indexes per table</td>
+      <td width="182">1</td>
+      <td width="135">1</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns in GROUP BY, ORDER BY</td>
+      <td width="182">Limited only by number of bytes</td>
+      <td width="135">Limited only by number of bytes</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns or expressions in a GROUP BY WITH CUBE or WITH 
+	  ROLLUP statement</td>
+      <td width="182">10</td>
+      <td width="135">10</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns per index key<sup>7</sup></td>
+      <td width="182">16</td>
+      <td width="135">16</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns per foreign key</td>
+      <td width="182">16</td>
+      <td width="135">16</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns per primary key</td>
+      <td width="182">16</td>
+      <td width="135">16</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns per base table</td>
+      <td width="182">1,024</td>
+      <td width="135">1,024</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns per SELECT statement</td>
+      <td width="182">4,096</td>
+      <td width="135">4,096</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Columns per INSERT statement</td>
+      <td width="182">1,024</td>
+      <td width="135">1,024</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Connections per client</td>
+      <td width="182">Maximum value of configured connections</td>
+      <td width="135">Maximum value of configured connections</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Database size</td>
+      <td width="182">1,048,516 terabytes</td>
+      <td width="135">1,048,516 terabytes</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Databases per instance of SQL Server</td>
+      <td width="182">32,767</td>
+      <td width="135">32,767</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Filegroups per database</td>
+      <td width="182">32,767</td>
+      <td width="135">32,767</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Files per database</td>
+      <td width="182">32,767</td>
+      <td width="135">32,767</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">File size (data)</td>
+      <td width="182">16 terabytes</td>
+      <td width="135">16 terabytes</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">File size (log)</td>
+      <td width="182">2 terabytes</td>
+      <td width="135">2 terabytes</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Foreign key table references per table<sup>4</sup></td>
+      <td width="182">253</td>
+      <td width="135">253</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Identifier length (in characters)</td>
+      <td width="182">128</td>
+      <td width="135">128</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Instances per computer</td>
+      <td width="182">50 instances on a stand-alone server for all SQL Server 
+	  2005 editions except for Workgroup Edition. Workgroup Edition supports a 
+	  maximum of 16 instances.<p>SQL Server 2005 supports 25 instances on a 
+	  failover cluster.</td>
+      <td width="135">50 instances on a stand-alone server.<p>25 instances on a 
+	  failover cluster.</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Length of a string containing SQL statements (batch size)<sup>1</sup></td>
+      <td width="182">65,536 * Network packet size</td>
+      <td width="135">65,536 * Network packet size</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Locks per connection</td>
+      <td width="182">Maximum locks per server</td>
+      <td width="135">Maximum locks per server</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Locks per instance of SQL Server<sup>5</sup></td>
+      <td width="182">Up to 2,147,483,647 </td>
+      <td width="135">Limited only by memory</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Nested stored procedure levels<sup>6</sup></td>
+      <td width="182">32</td>
+      <td width="135">32</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Nested subqueries</td>
+      <td width="182">32</td>
+      <td width="135">32</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Nested trigger levels</td>
+      <td width="182">32</td>
+      <td width="135">32</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Nonclustered indexes per table</td>
+      <td width="182">249</td>
+      <td width="135">249</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Parameters per stored procedure</td>
+      <td width="182">2,100</td>
+      <td width="135">2,100</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Parameters per user-defined function</td>
+      <td width="182">2,100</td>
+      <td width="135">2,100</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">REFERENCES per table</td>
+      <td width="182">253</td>
+      <td width="135">253</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Rows per table</td>
+      <td width="182">Limited by available storage</td>
+      <td width="135">Limited by available storage</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Tables per database<sup>3</sup></td>
+      <td width="182">Limited by number of objects in a database</td>
+      <td width="135">Limited by number of objects in a database</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Partitions per partitioned table or index</td>
+      <td width="182">1,000</td>
+      <td width="135">1,000</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Statistics on non-indexed columns</td>
+      <td width="182">2,000</td>
+      <td width="135">2,000</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Tables per SELECT statement</td>
+      <td width="182">256</td>
+      <td width="135">256</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">Triggers per table<sup>3</sup></td>
+      <td width="182">Limited by number of objects in a database</td>
+      <td width="135">Limited by number of objects in a database</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">UNIQUE indexes or constraints per table</td>
+      <td width="182">249 nonclustered and 1 clustered</td>
+      <td width="135">249 nonclustered and 1 clustered</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">User connections</td>
+      <td width="182">32,767</td>
+      <td width="135">32,767</td>
+      </a>
+    </tr>
+    <tr>
+      <a name="sectionToggle0">
+      <td width="151">XML indexes</td>
+      <td width="182">249</td>
+      <td width="135">249</td>
+      </a>
+    </tr>
+  </table>
+  </li>
+</ul>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Data structure and Algorithm Turorial</title>
+
+
+
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<h2>Data structure and Algorithm bits </h2>
+
+<p><u>Data Structures in General:</u><br>
+<br>
+<b>Collections:</b> Collections can be broken down into two types—linear and 
+nonlinear. A linear collection is a list of elements where one element follows 
+the previous element. Elements in a linear collection are normally ordered by 
+position (first, second, third, etc.). In the real world, a grocery list 
+exemplifies a linear collection; in the computer world (which is also real), an 
+array is designed as a linear collection. Nonlinear collections hold elements 
+that do not have positional order within the collection. An organizational chart 
+is an example of a nonlinear collection, as is a rack of billiard balls. In the 
+computer world, trees, heaps, graphs, and sets are nonlinear collections.<br>
+<br>
+A <b>binary tree</b> is a special type of tree collection where each node has no 
+more than two children. A binary tree can become a binary search tree, making 
+searches for large amounts of data much more efficient. This is accomplished by 
+placing nodes in such a way that the path from the root to a node where the data 
+are stored takes the shortest route possible. Yet another tree type, the heap, 
+is organized so that the smallest data value is always placed in the root node. 
+The root node is removed during a deletion, and insertions into and deletions 
+from a heap always cause the heap to reorganize so that the smallest value is 
+placed in the root. Heaps are often used for sorts, called a heap sort. Data 
+elements stored in a heap can be kept sorted by repeatedly deleting the root 
+node and reorganizing the heap.<br>
+<br>
+A <b>set</b> is a collection of unordered data values where each value is 
+unique. A graph is a set of nodes and a set of edges connecting the nodes. <b>
+Graphs</b> are used to model situations where each of the nodes in a graph must 
+be visited, sometimes in a particular order, and the goal is to find the most 
+efficient way to “traverse” the graph. A <b>network</b> is a special type of 
+graph in which each of the edges is assigned a weight. The weight is associated 
+with a cost for using that edge to move from one node to another.<br>
+<br>
+<u><b>Bubble sort (VB):<br>
+</b></u>Public Sub BubbleSort()<br>
+Dim outer, inner, temp As Integer<br>
+For outer = numElements - 1 To 2 Step -1<br>
+For inner = 0 To outer - 1<br>
+If (arr(inner) &gt; arr(inner + 1)) Then<br>
+temp = arr(inner)<br>
+arr(inner) = arr(inner + 1)<br>
+arr(inner + 1) = temp<br>
+End If<br>
+Next<br>
+Next<br>
+End Sub<br>
+<br>
+<u><b>Selection sort:</b></u> This sort works by starting at the beginning of 
+the array, comparing the first element with the other elements in the array. <br>
+The smallest element is placed in position 0, and the sort then begins again at 
+position 1. This continues until each position except the last <br>
+position has been the starting point for a new loop.<br>
+<br>
+<u><b>Insertion Sort:</b></u> Regular approach of identifying best position for 
+a card from top and inserting it there.<br>
+Public Sub InsertionSort()<br>
+Dim inner, outer, temp As Integer<br>
+For outer = 1 To numElements - 1<br>
+temp = arr(outer)<br>
+inner = outer<br>
+While (inner &gt; 0 AndAlso (arr(inner - 1) &gt;= temp))<br>
+arr(inner) = arr(inner - 1)<br>
+inner -= 1<br>
+End While<br>
+arr(inner) = temp<br>
+Next<br>
+End Sub<br>
+<br>
+The <u><b>Selection sort</b></u> is the most efficient of the algorithms, 
+followed by the Bubble sort, and then the Insertion sort among basic sorting 
+algorithms. None of these algorithms is not well suited for larger data sets.<br>
+<br>
+A <b>sequential search</b> (also called a linear search) is very easy to 
+implement. Start at the beginning of the array and compare each accessed array 
+element to the value you’re searching for. If you find a match, the search is 
+over. If you get to the end of the array without generating <br>
+a match, then the value is not in the array.<br>
+<br>
+<b>Self Organizing Data:</b> The concept behind this strategy is that we can 
+minimize search times by putting items that are frequently searched for at the 
+beginning of the data set. Eventually, all the most frequently searched for data 
+items will be located at the beginning of the data set. <br>
+The data set is organized not by the programmer before the program runs, but by 
+the program while the program is running.<br>
+<br>
+<u><b>Binary Search:</b></u> 50-50 algorithms:<br>
+Normal:<br>
+Public Function binSearch(ByVal value As Integer) As Integer<br>
+Dim upperBound, lowerBound, mid As Integer<br>
+upperBound = arr.GetUpperBound(0)<br>
+lowerBound = 0<br>
+While (lowerBound &lt;= upperBound)<br>
+mid = (upperBound + lowerBound) \ 2<br>
+If (arr(mid) = value) Then<br>
+Return mid<br>
+ElseIf (value &lt; arr(mid)) Then<br>
+upperBound = mid - 1<br>
+Else<br>
+lowerBound = mid + 1<br>
+End If<br>
+End While<br>
+Return -1<br>
+End Function<br>
+<br>
+<u><b>Recursive:</b></u><br>
+Public Function RbinSearch(ByVal value As Integer, ByVal lower As Integer, ByVal 
+upper As Integer) As Integer<br>
+If (lower &gt; upper) Then<br>
+Return -1<br>
+Else<br>
+Dim mid As Integer<br>
+mid = (upper + lower) \ 2<br>
+If (value &lt; arr(mid)) Then<br>
+RbinSearch(value, lower, mid - 1)<br>
+ElseIf (value = arr(mid)) Then<br>
+Return mid<br>
+Else<br>
+RbinSearch(value, mid + 1, upper)<br>
+End If<br>
+End If<br>
+End Function<br>
+<br>
+<u><b>Stacks and Queues:</b></u> Data in a stack are added and removed from only 
+one end of the list (LIFO); data in a queue are added at one end and removed 
+from the other end of a list (FIFO). Stacks are used extensively in programming 
+language implementations, from everything from expression <br>
+evaluation to handling function calls. Queues are used to prioritize operating 
+system processes and to simulate events in the real world, such as teller lines 
+at banks and the operation of elevators in buildings. Stack has methods like 
+peek, clear and contains. Queue has operations like peek, enque and deque. 
+Implementing the Queue class using an ArrayList is straightforward. When we need 
+to insert an item into our queue, the Arraylist Add method places the item in 
+the next free element of the list. When we need to remove the front item from 
+the queue, the ArrayList moves each remaining item in the list up one element. 
+We don’t have to maintain a placeholder.<br>
+<br>
+One algorithm that we can use to convert numbers from decimal to octal or binary 
+makes use of a stack. The steps of the algorithm are as follows:<br>
+<br>
+Get number<br>
+Get base<br>
+Loop<br>
+Push the number mod base onto the stack<br>
+Number becomes the number integer-divided by the base<br>
+While number not equal to 0<br>
+<br>
+Queues are also useful for sorting data. <b>Radix Sort</b> is based on queue. 
+The radix sort works by making two passes over a set of data, in this case 
+integers in the range 0–99. The first pass sorts the numbers based on the 1’s 
+digit and the second pass sorts the numbers based on the <br>
+10’s digit. Each number is then placed in a bin based on the digit in each of 
+these places.<br>
+<br>
+Given the numbers: 91 46 85 15 92 35 31 22<br>
+the first pass results in this bin configuration:<br>
+Bin 0:<br>
+Bin 1: 91 31<br>
+Bin 2: 92 22<br>
+Bin 3:<br>
+Bin 4:<br>
+Bin 5: 85 15 35<br>
+Bin 6: 46<br>
+Bin 7:<br>
+Bin 8:<br>
+Bin 9:<br>
+<br>
+Now put the numbers in order based on which bin they’re in:<br>
+91 31 92 22 85 15 35 46<br>
+<br>
+Next, take the list and sort by the 10’s digit into the appropriate bins:<br>
+Bin 0:<br>
+Bin 1: 15<br>
+Bin 2: 22<br>
+Bin 3: 31 35<br>
+Bin 4: 46<br>
+Bin 5:<br>
+Bin 6:<br>
+Bin 7:<br>
+Bin 8: 85<br>
+Bin 9: 91 92<br>
+<br>
+Take the numbers from the bins and put them back into a list, which results<br>
+in a sorted set of integers:<br>
+15 22 31 35 46 85 91 92<br>
+<br>
+<b>Hashing</b> is a very common technique for storing data in such a way that 
+the data can be inserted and retrieved very quickly. Hashing uses a data 
+structure called a hash table. Although hash tables provide fast insertion, 
+deletion, and retrieval, they perform poorly for operations that involve 
+searching, such as finding the minimum or maximum value.<br>
+<br>
+Problem 0: Computing Fibonacci number using recursion:<br>
+The Fibonacci numbers can be described by the following sequence:<br>
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, . . .<br>
+<br>
+Simple recursive program you can use to generate any specific number in this 
+sequence. Here is the code for the function:<br>
+<br>
+Function recurFib(ByVal n As Integer) As Long<br>
+If (n &lt; 2) Then<br>
+Return n<br>
+Else<br>
+Return recurFib(n - 1) + recurFib(n - 2)<br>
+End If<br>
+End Function<br>
+<br>
+The problem with the recursive solution is that too many values are recomputed 
+during a recursive call.<br>
+<br>
+Better approach: <br>
+Function iterFib(ByVal n As Integer) As Long<br>
+Dim index As Integer<br>
+Dim val(n) As Integer<br>
+If (n = 1 Or n = 2) Then<br>
+Return 1<br>
+Else<br>
+val(1) = 1<br>
+val(2) = 2<br>
+For index = 3 To n - 1<br>
+val(index) = val(index - 1) + val(index - 2)<br>
+Next<br>
+Return val(n - 1)<br>
+End If<br>
+End Function<br>
+<br>
+<b>Problem:</b> Finding the longest common substring in two strings. For 
+example, in the words “raven” and “havoc,” the longest common substring is <br>
+“av”.<br>
+<br>
+Solution:
+<a target="_blank" href="http://en.wikipedia.org/wiki/Longest_common_substring_problem">
+http://en.wikipedia.org/wiki/Longest_common_substring_problem</a>&nbsp; 
+(increment diagonally and largest sequence of number is longest common <br>
+string)<br>
+<br>
+function LCSubstr(S[1..m], T[1..n])<br>
+L := array(0..m, 0..n)<br>
+z := 0<br>
+ret := {}<br>
+for i := 1..m<br>
+for j := 1..n<br>
+if S[i] = T[j]<br>
+L[i,j] := L[i-1,j-1] + 1<br>
+if L[i,j] &gt; z<br>
+z := L[i,j]<br>
+ret := {}<br>
+if L[i,j] = z<br>
+ret := ret {S[i-z+1..i]}<br>
+return ret<br>
+<br>
+<b>Problem</b>: The <b>Knapsack Problem</b>: If the safe in our example has five 
+items, the items have a size of 3, 4, 7, 8, and 9, respectively, and values of 
+4, 5, 10, 11, and 13, respectively, and the knapsack has a capacity of 16, then 
+the proper solution is to pick items 3 and 5 with a total size of 16 and a total 
+value of 23. Write generic code:<br>
+<br>
+Module Module1<br>
+Sub Main()<br>
+Dim capacity As Integer = 16<br>
+Dim size() As Integer = {3, 4, 7, 8, 9}<br>
+Dim values() As Integer = {4, 5, 10, 11, 13}<br>
+Dim totval(capacity) As Integer<br>
+Dim best(capacity) As Integer<br>
+Dim n As Integer = values.Length<br>
+Dim i, j As Integer<br>
+For j = 0 To n - 1<br>
+For i = 0 To capacity<br>
+If (i &gt;= size(j)) Then<br>
+If (totval(i) &lt; totval(i - size(j)) + values(j)) Then<br>
+totval(i) = totval(i - size(j)) + values(j)<br>
+best(i) = j<br>
+End If<br>
+End If<br>
+Next<br>
+Next<br>
+Console.WriteLine(&quot;The maximum value is: &quot; &amp; _<br>
+totval(capacity))<br>
+Console.Read()<br>
+End Sub<br>
+End Module<br>
+<br>
+<b>Problem</b>: <b>Greedy algorithm</b>: A greedy algorithm is one that always 
+chooses the best solution at the time, with no regard for how that choice will 
+affect future choices. Using a greedy algorithm generally indicates that the 
+implementer hopes that the series of “best” local choices made will lead to a 
+final “best” choice. If so, then the algorithm has produced an optimal solution; 
+if not, a suboptimal solution has been found. However, for many problems, it is 
+not worth the trouble to find an optimal solution, so using a greedy algorithm 
+works just fine.<br>
+<br>
+The classic example of following a greedy algorithm is making change. Let’s say 
+you buy some items at the store and the change from your purchase is 63 cents. 
+How does the clerk determine the change to give you? If the clerk follows a 
+greedy algorithm, he or she gives you two quarters, a dime, and three pennies. 
+That is the smallest number of coins that will equal 63 cents (given that we 
+don’t allow fifty-cent pieces).
+<a target="_blank" href="http://en.wikipedia.org/wiki/Greedy_algorithm">
+http://en.wikipedia.org/wiki/Greedy_algorithm</a> <br>
+<br>
+<b>Problem</b>: <b>Huffman Algorithm</b>: Compressing data is an important 
+technique for the practice of computing. Data sent over the Internet need to be
+<br>
+sent as compactly as possible. There are many different schemes for compressing 
+data, but one particular scheme makes use of a greedy algorithm—Huffman coding. 
+This algorithm is named for the late David Huffman, an information theorist and 
+computer <br>
+scientist who invented the technique in the 1950s. Data compressed using a 
+Huffman code can achieve savings of 20% to 90%. When data are compressed, the 
+characters that make up the data are usually translated into some other 
+representation to save space. A typical <br>
+compression scheme is to translate each character to a binary character code, or 
+bit string. </p>
+<p>For example, we can encode the character “a” as 000, the character “b” as 
+001, the character “c” as 010, and so on. This is called a fixed-length code. 
+The Huffman code algorithm takes a string of characters, translates them to a 
+variable-length binary string, and creates a binary tree for the purpose of 
+decoding the binary strings. The path to each left child is assigned the binary 
+character 0 and each right child is assigned the binary character 1. The 
+algorithm works as follows: Start with a string of characters you want<br>
+to compress. For each character in the string, calculate its frequency of 
+occurrence in the string. Then sort the characters into order from lowest 
+frequency to highest frequency. Take the two characters with the smallest 
+frequencies and create a node with each character (and its frequency) as 
+children of the node. The parent node’s data element consists of the sum of the 
+frequencies of the two child nodes. Insert the node back into the list. Continue 
+this process until every character is placed into the tree. When this process is 
+complete, you have a complete binary tree that can be used to decode the Huffman 
+code. Decoding involves following a path of 0s and 1s until you get to a leaf 
+node, which will contain a character.
+<a target="_blank" href="http://en.wikipedia.org/wiki/Huffman_coding">
+http://en.wikipedia.org/wiki/Huffman_coding</a></p>
+<p><br>
+<br>
+<b>Problem:</b> String search algorithms
+<a target="_blank" href="http://en.wikipedia.org/wiki/Rabin-Karp_string_search_algorithm">
+http://en.wikipedia.org/wiki/Rabin-Karp_string_search_algorithm</a></p>
+<p><br>
+<br>
+<b>Problem:</b> Find duplicate number in an sequential array up length 5.<br>
+Solution: Since there are n values from 1 to n-1 with one duplicate, we can use 
+the fact that the sum of the integers from 1 to m is (m*(m+1))/2, take the sum 
+from 1 to n-1, subtract that from the actual sum of numbers in the array, and 
+the result will be the duplicated number:<br>
+<br>
+let s ← 0<br>
+for 1 &lt;= i &lt;= n:<br>
+s ← s + A[i]<br>
+return s - n*(n-1)/2<br>
+<br>
+A <b>binary search tree</b> is a binary tree in which data with lesser values 
+are stored in left nodes and data with greater values are stored in right nodes. 
+This property provides for very efficient searches. </p>
+<p>There are three traversal methods used with BSTs: <br>
+<b>inorder</b>, <b>preorder</b>, and <b>postorder</b>. An inorder traversal 
+visits all the nodes in a BST in ascending order of the node key values. A 
+preorder traversal visits the root node first, followed by the nodes in the 
+subtrees under the left child of the root, followed by the<br>
+nodes in the subtrees under the right child of the root.<br>
+<br>
+The code for finding the minimum and maximum values is almost trivial in both 
+cases, owing to the properties of a BST. The smallest value in a BST will always 
+be found at the last left-child node of a subtree beginning with the left child 
+of the root node. In contrast, the largest value in a BST is found at the last 
+right-child node of a subtree beginning with the right child of the root node. 
+Code for finding the minimum value first:<br>
+<br>
+Public Function FindMin() As Integer<br>
+Dim current As Node = root<br>
+While (Not (current.Left Is Nothing))<br>
+current = current.Left<br>
+End While<br>
+Return current.iData<br>
+End Function<br>
+<br>
+Now here’s the code for finding the maximum value in a BST:<br>
+<br>
+Public Function FindMax() As Integer<br>
+Dim current As Node = root<br>
+While (Not (current.Right Is Nothing))<br>
+current = current.Right<br>
+End While<br>
+Return current.iData<br>
+End Function<br>
+<br>
+In general, an algorithm is called <u><b>polymorphic</b></u> if it can achieve 
+the same functionality using different data structures. For example, if the same 
+sorting or searching algorithm could be used with different types of containers, 
+such as vectors, lists, maps, etc., then that algorithm would be called 
+polymorphic. As a case in point, the generic algorithms of the STL library in 
+C++ are polymorphic because they can be used for different container classes.
+<br>
+In the context of Java collections, the polymorphic algorithms are all supplied 
+by the various static methods of the java.util.Collections class. Consider, for 
+example, the method sort(List list). This method is capable of sorting any 
+collection that has implemented the List interface, and that includes containers 
+of types ArrayList, LinkedList, Vector, etc. </p>
+<p><u><b>Puzzles and questions<br>
+&nbsp;</b></u></p>
+<p><b>Problem:</b> There are 4 men who want to cross a bridge. They all begin on 
+the same side. You have 17 minutes to get all of them across to the <br>
+other side. It is night. There is one flashlight. A maximum of two people can 
+cross at one time. Any party who crosses, either 1 or 2 people, <br>
+must have the flashlight with them. The flashlight must be walked back and 
+forth, it cannot be thrown, etc. Each man walks at a different <br>
+speed. A pair must walk together at the rate of the slower mans pace. <br>
+Man 1:1 minute to cross<br>
+Man 2: 2 minutes to cross<br>
+Man 3: 5 minutes to cross<br>
+Man 4: 10 minutes to cross<br>
+<br>
+Solution: 1 and 2 cross together. 1 comes back. then 3 and 4 cross. 2 comes 
+back. then 1 and 2 cross. Total time is 2+1+10+2+2 = 17. <br>
+<br>
+<b>Problem:</b> You have 5 jars of pills. Each pill weighs 10 gram, except for 
+contaminated pills contained in one jar, where each pill weighs 9 gm. <br>
+Given a scale, how could you tell which jar had the contaminated pills in just 
+one measurement? <br>
+<br>
+Solution: Take one pill from first, two from second, three from third and so on. 
+Total pills are n(n+1)/2 and should weigh 10n(n+1)/2. If it <br>
+weighs x gm less than that then the x&#39;th jar is contaminated, since we took x 
+pills from that jar which weighed 1 gm less. <br>
+<br>
+<br>
+<b>Problem:</b> One train leaves Los Angeles at 15 MPH heading for New York. 
+Another train leaves from New York at 20mph heading for Los Angeles on <br>
+the same track. If a bird, flying at 25mph, leaves from Los Angeles at the same 
+time as the train and flies back and forth between the two <br>
+trains until they collide, how far will the bird have traveled? <br>
+<br>
+Solution: If distance is X miles between NY and LA, then it takes X/(15+20) 
+hours for the trains to collide, and bird will have travelled <br>
+25X/(15+20) = 5X/7 miles in that time. <br>
+<br>
+<b>Problem:</b> Imagine that you have 26 constants, labelled A through Z. Each 
+constant is assigned a value in the following way: A = 1; the rest of <br>
+the values equal their position in the alphabet (B corresponds to the second 
+position so it equals 2, C = 3, etc.) raised to the power of the <br>
+preceeding constant value. So, B = 2 ^ (A&#39;s value), or B = 2^1 = 2. C = 3^2 = 9. 
+D = 4^9, etc., etc. Find the exact numerical value to the <br>
+following equation: <br>
+(X - A) * (X - B) * (X - C) * ... * (X - Y) * (X - Z) <br>
+<br>
+Answer is 0, because (X-X) is present in the product. <br>
+&nbsp;</p>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

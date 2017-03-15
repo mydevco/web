@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Spring Tutorial</title>
+
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+		<msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><msnavigation border="0" cellpadding="0" cellspacing="0" dir="ltr" width="100%"><tr><td valign="top" width="1%">
+<p>
+</p>
+
+</td><td valign="top" width="24"></td><msnavigation valign="top"><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><msnavigation valign="top">
+
+<p>Spring is a lightweight open source framework to develop enterprise 
+applications using POJOs as building blocks and dependency injection.</p>
+<p><u><font size="4">Dependency injection</font></u> (DI) is a programming 
+design pattern and architectural model, sometimes also referred to as inversion 
+of control or IOC, although technically speaking, dependency injection 
+specifically refers to an implementation of a particular form of IOC. Dependancy 
+Injection describes the situation where one object uses a second object to 
+provide a particular capacity. For example, being passed a database connection 
+as an argument to the constructor instead of creating one internally. The term 
+&quot;Dependency injection&quot; is a misnomer, since it is not a dependency that is 
+injected, rather it is a provider of some capability or resource that is 
+injected. There are three common forms of dependency injection: setter-, 
+constructor- and interface-based injection. Dependency injection is a way to 
+achieve loose coupling. Inversion of control (IOC) relates to the way in which 
+an object obtains references to its dependencies. This is often done by a lookup 
+method. The advantage of inversion of control is that it decouples objects from 
+specific lookup mechanisms and implementations of the objects it depends on. As 
+a result, more flexibility is obtained for production applications as well as 
+for testing.<br>
+&nbsp;</p>
+<p>There are various IOC containers available currently. Apart from Spring, 
+HiveMind, PicoContainer and avalon also supports IOC. The recent addition to 
+this list is micro container from JBoss. Spring is most widely used framework 
+and more and more enterprise applications previously written on EJBs are now 
+being converted to Spring.</p>
+<p>One of the chief <u>advantages</u> of the Spring framework is its layered 
+architecture, which allows you to be selective about which of its components you 
+use while also providing a cohesive framework for J2EE application 
+development.&nbsp;The Spring modules are built on top of the core container, which 
+defines how beans are created, configured, and managed, as shown in the 
+following figure. Each of the modules (or components) that comprise the Spring 
+framework can stand on its own or be implemented jointly with one or more of the 
+others. The functionality of each component is as follows:<br>
+<br>
+* <span style="text-decoration: underline">The core container</span>: The core 
+container provides the essential functionality of the Spring framework. A 
+primary component of the core container is the BeanFactory, an implementation of 
+the Factory pattern. The BeanFactory applies the Inversion of Control (IOC) 
+pattern to separate an application’s configuration and dependency specification 
+from the actual application code.<br>
+<br>
+* <span style="text-decoration: underline">Spring context:</span> The Spring 
+context is a configuration file that provides context information to the Spring 
+framework. The Spring context includes enterprise services such as JNDI, EJB, 
+e-mail, internalization, validation, and scheduling functionality.<br>
+<br>
+*<span style="text-decoration: underline"> Spring AOP</span>: The Spring AOP 
+module integrates aspect-oriented programming functionality directly into the 
+Spring framework, through its configuration management feature. As a result you 
+can easily AOP-enable any object managed by the Spring framework. The Spring AOP 
+module provides transaction management services for objects in any Spring-based 
+application. With Spring AOP you can incorporate declarative transaction 
+management into your applications without relying on EJB components.<br>
+<br>
+* <span style="text-decoration: underline">Spring DAO</span>: The Spring JDBC 
+DAO abstraction layer offers a meaningful exception hierarchy for managing the 
+exception handling and error messages thrown by different database vendors. The 
+exception hierarchy simplifies error handling and greatly reduces the amount of 
+exception code you need to write, such as opening and closing connections. 
+Spring DAO’s JDBC-oriented exceptions comply to its generic DAO exception 
+hierarchy.<br>
+<br>
+* <span style="text-decoration: underline">Spring ORM</span>: The Spring 
+framework plugs into several ORM frameworks to provide its Object Relational 
+tool, including JDO, Hibernate, and iBatis SQL Maps. All of these comply to 
+Spring’s generic transaction and DAO exception hierarchies.<br>
+<br>
+* <span style="text-decoration: underline">Spring Web module</span>: The Web 
+context module builds on top of the application context module, providing 
+contexts for Web-based applications. As a result, the Spring framework supports 
+integration with Jakarta Struts. The Web module also eases the tasks of handling 
+multi-part requests and binding request parameters to domain objects.<br>
+<br>
+* <span style="text-decoration: underline">Spring MVC framework</span>: The 
+Model-View-Controller (MVC) framework is a full-featured MVC implementation for 
+building Web applications. The MVC framework is highly configurable via strategy 
+interfaces and accommodates numerous view technologies including JSP, Velocity, 
+Tiles, iText, and POI.<br>
+&nbsp;</p>
+<p><img border="0" src="../images/SpringArch.jpg" width="722" height="496"></p>
+<p>Spring framework functionality can be used in any J2EE server and most of it 
+also is adaptable to non-managed environments. A central focus of Spring is to 
+allow for reusable business and data-access objects that are not tied to 
+specific J2EE services. Such objects can be reused across J2EE environments (Web 
+or EJB), standalone applications, test environments, and so on, without any 
+hassle. </p>
+<p>The core of Spring is the <tt>org.springframework.beans</tt> package, 
+designed for working with JavaBeans. This package typically isn&#39;t used directly 
+by users, but underpins much Spring functionality. </p>
+<p>The next higher layer of abstraction is the <u> <b>bean factory</b></u>. A 
+Spring bean factory is a generic factory that enables objects to be retrieved by 
+name, and which can manage relationships between objects. </p>
+<p>Bean factories support two modes of object: </p>
+<ul>
+  <li><b>Singleton</b>: in this case, there&#39;s one shared instance of the object 
+  with a particular name, which will be retrieved on lookup. This is the 
+  default, and most often used, mode. It&#39;s ideal for stateless service objects.
+  </li>
+  <li><b>Prototype</b> or non-singleton: in this case, each retrieval will 
+  result in the creation of an independent object. For example, this could be 
+  used to allow each caller to have its own distinct object reference. </li>
+</ul>
+<p>Because the Spring container manages relationships between objects, it can 
+add value where necessary through services such as transparent pooling for 
+managed POJOs, and support for hot swapping, where the container introduces a 
+level of indirection that allows the target of a reference to be swapped at 
+runtime without affecting callers and without loss of thread safety. One of the 
+beauties of Dependency Injection (discussed shortly) is that all this is 
+possible transparently, with no API involved. </p>
+<p>As <tt>org.springframework.beans.factory.BeanFactory</tt> is a simple 
+interface, it can be implemented in different ways. The <tt>BeanDefinitionReader</tt> 
+interface separates the metadata format from <tt>BeanFactory</tt> 
+implementations themselves, so the generic <tt>BeanFactory</tt> implementations 
+Spring provides can be used with different types of metadata. You could easily 
+implement your own <tt>BeanFactory</tt> or BeanDefinitionReader, although few 
+users find a need to. The most commonly used BeanFactory definitions are: </p>
+<ul>
+  <li><tt>XmlBeanFactory</tt>. This parses a simple, intuitive XML structure 
+  defining the classes and properties of named objects. We provide a DTD to make 
+  authoring easier. </li>
+  <li><tt>DefaultListableBeanFactory</tt>: This provides the ability to parse 
+  bean definitions in properties files, and create BeanFactories 
+  programmatically. </li>
+</ul>
+<p>Each bean definition can be a POJO (defined by class name and JavaBean 
+initialisation properties or constructor arguments), or a <tt>FactoryBean</tt>. 
+The <tt>FactoryBean</tt> interface adds a level of indirection. Typically this 
+is used to create proxied objects using AOP or other approaches: for example, 
+proxies that add declarative transaction management. This is conceptually 
+similar to EJB interception, but works out much simpler in practice, and is more 
+powerful. </p>
+<p>BeanFactories can optionally participate in a hierarchy, &quot;inheriting&quot; 
+definitions from their ancestors. This enables the sharing of common 
+configuration across a whole application, while individual resources such as 
+controller servlets also have their own independent set of objects. </p>
+<p>A Spring ApplicationContext is a subinterface of BeanFactory. Spring users 
+normally configure their applications in XML &quot;bean definition&quot; files. The root 
+of a Spring XML bean definition document is a <tt>&lt;beans&gt;</tt> element. The <tt>
+&lt;beans&gt;</tt> element contains one or more <tt>&lt;bean&gt;</tt> definitions. We 
+normally specify the class and properties of each bean definition. </p>
+<p>Beans defined in XML files are lazily loaded, which means that the beans 
+themselves will not be instantiated until they are needed. Spring can handle 
+lists, maps and <tt>java.util.Properties</tt>. Other advanced container 
+capabilities include: </p>
+<ul>
+  <li><b>Inner beans</b>, in which a property element contains an anonymous bean 
+  definition not visible at top-level scope </li>
+  <li><b>Post processors</b>: special bean definitions that customize container 
+  behavior </li>
+  <li><b>Method Injection</b>, a form of IoC in which the container implements 
+  an abstract method or overrides a concrete method to inject a dependency. This 
+  is a more rarely used form of Dependency Injection than Setter or Constructor 
+  Injection. However, it can be useful to avoid an explicit container dependency 
+  when looking up a new object instance for each invocation, or to allow 
+  configuration to vary over time--for example, with the method implementation 
+  being backed by a SQL query in one environment and a fil system read in 
+  another. </li>
+</ul>
+<p>Bean factories and application contexts are often associated with a scope 
+defined by the J2EE server or web container, such as ServletContext or EJB. 
+These hooks provided by the J2EE specification generally avoid the need to use a 
+Singleton to bootstrap a bean factory. </p>
+<p>However, it&#39;s trivial to instantiate a BeanFactory programmatically if we 
+wish. For example, we could create the bean factory and get a reference to the 
+business object defined above in the following three lines of code: </p>
+<pre>XmlBeanFactory bf = new XmlBeanFactory(new ClassPathResource(&quot;myFile.xml&quot;, getClass()));
+MyBusinessObject mbo = (MyBusinessObject) bf.getBean(&quot;exampleBusinessObject&quot;);</pre>
+<p>This code will work outside an application server: it doesn&#39;t even depend on 
+J2EE, as the Spring IoC container is pure Java. Each bean definition can be a 
+POJO (defined by class name and JavaBean initialization properties) or a 
+FactoryBean. The FactoryBean interface adds a level of indirection to the 
+applications built using the Spring framework.<br>
+&nbsp;</p>
+<p>You can download a sample spring 2.0 kickstart code from google code site
+<a target="_blank" href="http://code.google.com/p/spring-kickstart/">
+http://code.google.com/p/spring-kickstart/</a></p>
+<p><u><b>Spring AOP</b> </u> </p>
+<p>The first goal of Spring&#39;s AOP support is to provide J2EE services to POJOs. 
+Spring AOP is portable between application servers, so there&#39;s no risk of vendor 
+lock in. It works in either web or EJB container, and has been used successfully 
+in WebLogic, Tomcat, JBoss, Resin, Jetty, Orion and many other application 
+servers and web containers. </p>
+<p>Spring AOP supports method interception. Key AOP concepts supported include:
+</p>
+<ul>
+  <li><b>Interception</b>: Custom behaviour can be inserted before or after 
+  method invocations against any interface or class. This is similar to &quot;around 
+  advice&quot; in AspectJ terminology. </li>
+  <li><b>Introduction</b>: Specifying that an advice should cause an object to 
+  implement additional interfaces. This can amount to mixin inheritance. </li>
+  <li>Static and dynamic <b>pointcuts</b>: Specifying the points in program 
+  execution at which interception should take place. Static pointcuts concern 
+  method signatures; dynamic pointcuts may also consider method arguments at the 
+  point where they are evaluated. Pointcuts are defined separately from 
+  interceptors, enabling a standard interceptor to be applied in different 
+  applications and code contexts. </li>
+</ul>
+<p>Spring supports both stateful (one instance per advised object) and stateless 
+interceptors (one instance for all advice). </p>
+<p>Spring does <i>not</i> support field interception. This is a deliberate 
+design decision. I have always felt that field interception violates 
+encapsulation. I prefer to think of AOP as <i>complementing</i>, rather than 
+conflicting with, OOP. In five or ten years time we will probably have travelled 
+a lot farther on the AOP learning curve and feel comfortable giving AOP a seat 
+at the top table of application design. (At that point language-based solutions 
+such as AspectJ may be far more attractive than they are today.) </p>
+<p>Spring implements AOP using dynamic proxies (where an interface exists) or 
+CGLIB byte code generation at runtime (which enables proxying of classes). Both 
+these approaches work in any application server, or in a standalone environment.
+</p>
+<p>Spring was the first AOP framework to implement the AOP Alliance interfaces (<a target="_blank" href="http://www.sourceforge.net/projects/aopalliance">www.sourceforge.net/projects/aopalliance</a>). 
+These represent an attempt to define interfaces allowing interoperability of 
+interceptors between AOP frameworks. </p>
+<p>Spring integrates with AspectJ, providing the ability to seamlessly include 
+AspectJ aspects into Spring applications . Since Spring 1.1 it has been possible 
+to dependency inject AspectJ aspects using the Spring IoC container, just like 
+any Java class. Thus AspectJ aspects can depend on any Spring-managed objects. 
+The integration with the forthcoming AspectJ 5 release is still more exciting, 
+with AspectJ set to provide the ability to dependency inject any POJO using 
+Spring, based on an annotation-driven pointcut. </p>
+<p>Because Spring advises objects at instance, rather than class loader, level, 
+it is possible to use multiple instances of the same class with different 
+advice, or use unadvised instances along with advised instances. </p>
+<p>Perhaps the commonest use of Spring AOP is for declarative transaction 
+management. This builds on the transaction abstraction described above, and can 
+deliver declarative transaction management on any POJO. Depending on the 
+transaction strategy, the underlying mechanism can be JTA, JDBC, Hibernate or 
+any other API offering transaction management. </p>
+<p>It&#39;s also possible to use Spring AOP to implement application-specific 
+aspects. Whether or not you choose to do this depends on your level of comfort 
+with AOP concepts, rather than Spring&#39;s capabilities, but it can be very useful.&nbsp; 
+Application-specific aspects can be a powerful way of removing the need for 
+boilerplate code across many methods. </p>
+<p>Spring AOP integrates transparently with the Spring BeanFactory concept. Code 
+obtaining an object from a Spring BeanFactory doesn&#39;t need to know whether or 
+not it is advised. As with any object, the contract will be defined by the 
+interfaces the object implements. </p>
+<p>The following XML snippet illustrates how to define an AOP proxy: </p>
+<pre>&lt;bean id=&quot;myTest&quot;
+	class=&quot;org.springframework.aop.framework.ProxyFactoryBean&quot;&gt;
+	&lt;property name=&quot;proxyInterfaces&quot;&gt;
+		&lt;value&gt;org.springframework.beans.ITestBean&lt;/value&gt;
+	&lt;/property&gt;
+	&lt;property name=&quot;interceptorNames&quot;&gt;
+		&lt;list&gt;
+			&lt;value&gt;txInterceptor&lt;/value&gt;
+			&lt;value&gt;target&lt;/value&gt;
+		&lt;/list&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</pre>
+<p>Note that the class of the bean definition is always the AOP framework&#39;s 
+ProxyFactoryBean, although the type of the bean as used in references or 
+returned by the BeanFactory getBean() method will depend on the proxy 
+interfaces. (Multiple proxy methods are supported.) The &quot;interceptorNames&quot; 
+property of the ProxyFactoryBean takes a list of String. (Bean names must be 
+used rather than bean references, as new instances of stateful interceptors may 
+need to be created if the proxy is a &quot;prototype&quot;, rather than a singleton bean 
+definition.) The names in this list can be interceptors or pointcuts 
+(interceptors and information about when they should apply). The &quot;target&quot; value 
+in the list above automatically creates an &quot;invoker interceptor&quot; wrapping the 
+target object. It is the name of a bean in the factory that implements the proxy 
+interface. The myTest bean in this example can be used like any other bean in 
+the bean factory. For example, other objects can reference it via &lt;ref&gt; elements 
+and these references will be set by Spring IoC. </p>
+<p>There are a number of ways to set up proxying more concisely, if you don&#39;t 
+need the full power of the AOP framework, such as using Java 5.0 annotations to 
+drive transactional proxying without XML metadata, or the ability to use a 
+single piece of XML to apply a consistent proxying strategy to many beans 
+defined in a Spring factory. </p>
+<p>It&#39;s also possible to construct AOP proxies programmatically without using a 
+BeanFactory, although this is more rarely used: </p>
+<pre>TestBean target = new TestBean();
+DebugInterceptor di = new DebugInterceptor();
+MyInterceptor mi = new MyInterceptor();
+ProxyFactory factory = new ProxyFactory(target);
+factory.addInterceptor(0, di);
+factory.addInterceptor(1, mi);
+// An &quot;invoker interceptor&quot; is automatically added to wrap the target
+ITestBean tb = (ITestBean) factory.getProxy();
+</pre>
+<p>Spring web flow in the latest version of Spring MVC web framework. Spring&#39;s 
+documentation is a good place to start with:
+<a target="_blank" href="http://static.springframework.org/spring-webflow/docs/1.0.x/reference/index.html">
+http://static.springframework.org/spring-webflow/docs/1.0.x/reference/index.html</a></p>
+<p>Struts could be integrated with Spring. Refer to this 
+<a href="../pdf/Spring%20Live_Sample%20Chapter.pdf">sample chapter</a> for the 
+nut and bolts required for integration.<br>
+<br>
+<br>
+&nbsp;</p>
+
+		</td></tr></table><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+				Send mail to <a href="mailto:webmaster@mydeveloperconnection.com">
+				webmaster@mydeveloperconnection.com</a> with questions or 
+				comments about this web site.<br>
+				&nbsp;</td></tr></table></td></tr></table><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+				Send mail to <a href="mailto:webmaster@mydeveloperconnection.com">
+				webmaster@mydeveloperconnection.com</a> with questions or 
+				comments about this web site.<br>
+				&nbsp;</td></tr></table></td></tr></table><!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Struts quick reference: Struts Interview Points</title>
+
+
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<p><b>What is Struts? </b></p>
+<blockquote>
+  <ul>
+    <li>An open source Jakarta Apache project</li>
+    <li>An Implementation of a MVC Paradigm</li>
+    <li>A framework written in Java</li>
+    <li>A web-tier layer built on Servlets, JSP, and XML.</li>
+  </ul>
+</blockquote>
+<p>An open source Jakarta Apache project <br>
+Struts is part of the Apache Jakarta Project, sponsored by the Apache Software 
+Foundation.&nbsp; http://jakarta.apache.org/struts/index.html<br>
+<br>
+Struts is an implementation of the Model-View-Controller (MVC) pattern: This is 
+considered a Model 2 architecture. (Model 1 architecture combines the roles of 
+the view and controller components.)<br>
+The model component handles the business domain state and data<br>
+The view component handles the presentation of the business domain.<br>
+The controller component processes the user input to direct the flow and manage 
+user state.<br>
+<br>
+<b>Model View Controller Components:</b><br>
+A framework written in Java<br>
+Some of the classes in the frame work are:<br>
+&nbsp;&nbsp;&nbsp; ActionServlet<br>
+&nbsp;&nbsp;&nbsp; RequestProcessor<br>
+&nbsp;&nbsp;&nbsp; ActionMapping<br>
+&nbsp;&nbsp;&nbsp; Action<br>
+&nbsp;&nbsp;&nbsp; ActionForm<br>
+&nbsp;&nbsp;&nbsp; ActionForward<br>
+<img border="0" src="../images/struts/struts2.gif" width="922" height="544"></p>
+<p><br>
+<b>ActionServlet:</b><br>
+The Struts ActionServlet class extends the javax.servlet.http.HttpServlet class 
+and is responsible for packaging and routing HTTP traffic to the appropriate 
+handler.<br>
+This servlet takes on administering the behavior of the �Controller�.<br>
+The ActionServlet is configured via the deployment descriptor of the web 
+application and is typically is configured in the deployment descriptor to 
+accept a pattern of URLs such as *.do.<br>
+<br>
+<b>RequestProcessor:</b><br>
+Takes on the behavior of the �Controller� by handling the core processing logic.<br>
+Determine the ActionMapping associated with the request and instantiates the 
+Action.<br>
+Instantiates ActionForm if needed.<br>
+Processes the ActionForward.<br>
+<br>
+<b>ActionMapping:</b><br>
+Maps a path attribute to that of an incoming URI<br>
+&nbsp;</p>
+<p><b>Action:</b><br>
+The RequestProcessor delegate the work to be done to an Action.<br>
+Provides loose coupling between the user request and the business layer.<br>
+public ActionForward execute(ActionMapping mapping,<br>
+ActionForm form,<br>
+ServletRequest request,<br>
+ServletResponse response)<br>
+throws IOException, ServletException<br>
+<br>
+<b>ActionForm:</b><br>
+Hold state and behavior for user input.<br>
+Can be used to validate presentation data.<br>
+Should be used to encapsulate data that is for delivery to the data model.<br>
+<br>
+<b>ActionForward:</b><br>
+Encapsulates the destination of where to send control upon completion of the 
+Action.<br>
+The destination is detailed in the configuration file: HTML, JSP, servlets.<br>
+&nbsp;</p>
+<p>
+<b>Configuring Struts:</b><br>
+There are two configuration files: web.xml and struts-config.xml<br>
+The deployment descriptor for servelets is the web.xml file.<br>
+Struts specific information resides in the struts-config.xml file.<br>
+web.xml Deployment Descriptor route request to the ActionServlet.<br>
+struts-config.xml: The primary Struts framework configuration and implementation 
+configuration are contained in the stuts-config.xml file.<br>
+The power and flexibility of Struts is due to the extracting of configuration 
+information from across the frame work. struts-config.xml may be given a 
+different name.<br>
+<b><br>
+Features:</b><br>
+Built in exception handling at an action an global scope are specified in the 
+config file.<br>
+I18 N, Internationalization, support with resource bundles.<br>
+<br>
+<b>JSP custom tags:<br>
+</b>Validator framework from the jakarta.commons project; this is set up as a 
+plugin and configured via validation.xml and validation-rules.xml<br>
+Tiles � a templating mechanism incorporated into Struts for managing page 
+layout.<br>
+Supports database access classes.</p>
+<p><b>Best Practices:</b><br>
+The Action should not perform any business logic. (Action is part of the 
+controller).<br>
+The ActionForm should not be used as the data model.<br>
+The ActionForm should not be used to validate business objects.<br>
+&nbsp;</p>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

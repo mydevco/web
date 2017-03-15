@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>CPP All in one example</title>
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<p>CPP All in one example. The example itself is a detailed C++ tutorial. Just 
+go through the comments besides each line of code.</p>
+<p>ProjectManager.h<br>
+<br>
+#include &lt;iostream&gt; /*C++ standard header for iostream.h. When speciefied in 
+angular brackets<br>
+the file is presumed to be a project or standard header and the search starts 
+from environment path which could be changed */<br>
+#include &lt;string.h&gt; // C style of header file. The c++ library doesn&#39;t have .h 
+extension.<br>
+#include &lt;cassert&gt;<br>
+#include &quot;Def.h&quot; /* user defined header file. the search for this header starts 
+from current working directory when specified incide quatation mark.*/<br>
+using namespace std; /*the pupose of namespacees is to reduce name polution. 
+They can be nested.<br>
+std is the standard namespace of C++ library. */<br>
+class ProjectManager { /* classes are fundamental packcging unit to localize 
+data and methods(services)*/<br>
+<br>
+private: /* most restrictive aqccess specifier. Can be accesed by only class 
+member and friend functions.*/<br>
+int *groupEmpCodes;<br>
+int groupSize;<br>
+<br>
+public: /* most relaxed access specifier. Can be accessed by using dot &#39;.&#39; 
+operator with the object of this class*/<br>
+string name; //use char* if your compiler doesn&#39;t support strings.<br>
+static const int defaultGroupSize=0;<br>
+<br>
+/* static: static members are associated with class rather than with object of 
+the class. That means we have only one copy of that variable or method even if 
+there are many instancees of the class. Its like global vaiable except static 
+member have scope and doesn&#39;t pollute global namespace*/<br>
+/* const: To avoid unwanted changes we use const correctness which gives 
+compiler error whenever unexpected changes occur.*/<br>
+/* All const static members are initialized in source file except integral 
+types*/<br>
+<br>
+ProjectManager(string sname=&quot;XYZ&quot;,int sz=defaultGroupSize);<br>
+/*Constructors: A constructor is a special class member function with the same 
+name as class name used for intialization. No return type can be specified for a 
+constructor. When it doesn&#39;t require an argument to be supplied by user, its 
+called default constructor.*/<br>
+<br>
+ProjectManager(string sname,int *ecodes,int groupsize);<br>
+/* Function overloading: functions could be overloaded by specifying different 
+signatures with the same function name. Signature is the number and type of 
+arguements passed to any function. Here constructors arre being overloaded*/<br>
+<br>
+ProjectManager(const ProjectManager &amp;PM);<br>
+/*References: An alternative to pointers in C++. Reference is an alias. It can&#39;t 
+be null and cannot be reassigned to. passing by refence doesn&#39;t make any local 
+copy. Taken from algol language*/<br>
+/* Const references: Making the argument a const reference will allow the 
+function to be used in all situations. This means that, for built-in types, the 
+function will not modify the argument, and for user-defined types the function 
+will call only const member functions, and won&#39;t modify any public data members.<br>
+The use of const references in function arguments is especially important 
+because your function may receive a temporary object, created as a return value 
+of another function or explicitly by the user of your function. Temporary 
+objects are always const, so if you don&#39;t use a const reference, that argument 
+won&#39;t be accepted by the compile*/<br>
+<br>
+/* Copy constructor: These type of constructors are called copy constructors. 
+They are called when object is passed by value. assignment operator acts on 
+existing objects. Copy constructor creates a new object.*/<br>
+inline int gsize() const {return groupSize;}<br>
+<br>
+/*Inline function: Function calls are more expensive than direct memory access. 
+Inline functions are expanded in place at its point of call. It doesn&#39;t involve 
+any function call atall but the ultimate decision to make a function is of 
+compiler&#39;s even we declare inline keyword before a function.*/<br>
+<br>
+void Pm(string sname, int sz, int *group);<br>
+<br>
+int&amp; operator[](int groupmember);<br>
+/*Operator overloading: One of the feature of OOPs. It can transform complex 
+program listing to a user friendly statements. Use the operator keyword. pass 
+the required arguemnts only. Specify correct return type. There is no 
+distinction between overloaded prefix operator and postfix operator. Operator 
+overloading can be used with function overloading.Operators like member access 
+or dot operator (.), the scope resolution operator(::),the conditional 
+operator(?:) and the pointer to member operator (.*) cannot be overloaded.*/<br>
+<br>
+~ProjectManager(){ delete []groupEmpCodes;}<br>
+/* Destructor: Is again a special function with the same name as class name with 
+~ appended to it. Its automatically invoked when the object oes out of scope. 
+Used for cleanup operations.*/<br>
+<br>
+};<br>
+//Here are the implementation ProjectManager.cpp<br>
+<br>
+void ProjectManager::Pm(string sname,int sz, int *group)<br>
+{<br>
+groupSize = sz;<br>
+name = sname;<br>
+groupEmpCodes = new int[sz];<br>
+<br>
+for(int i=0; i&lt; sz; ++i)<br>
+if(!group)<br>
+groupEmpCodes[i] = 0;<br>
+else groupEmpCodes[i] = group[i];<br>
+}<br>
+ProjectManager::ProjectManager(string sname,int sz) { Pm(sname,sz,0);}<br>
+ProjectManager::ProjectManager(string sname,int *ecodes,int groupsize)<br>
+{ Pm(sname,groupsize,ecodes);}<br>
+ProjectManager::ProjectManager(const ProjectManager &amp;P)<br>
+{ Pm(P.name, P.groupSize, P.groupEmpCodes);}<br>
+int&amp; ProjectManager::operator[](int groupmember)<br>
+{<br>
+assert(index &gt;= 0 &amp;&amp; index &lt; groupSize);<br>
+return groupEmpCodes[index];<br>
+}<br>
+<br>
+//A sample user of this class<br>
+void main()<br>
+{<br>
+ProjectManager pm1;//invokes the default constructor<br>
+int ec[] = {101,102,103,104};<br>
+string pmname;<br>
+cout&lt;&lt; &quot;Enter project manager name \n&quot;&lt;&lt;endl;//&lt;&lt; is a member is of ostream<br>
+cin&gt;&gt;pmname;//&gt;&gt; is a member of istream<br>
+ProjectManager pm2(pmname,*ec,4);/*invokes ProjectManager(string sname,int 
+*ecodes,int groupsize)*/<br>
+cout&lt;&lt; &quot;the employee codes of group members of &quot;&lt;&lt; pmname&lt;&lt; endl;<br>
+for(int x=0;x&lt;pm2.gsize();x++)<br>
+{<br>
+cout&lt;&lt; pm2[x]&lt;&lt;&quot;, &quot;;//invokes overloaded operator []<br>
+}<br>
+cout&lt;&lt;&#39;\n&#39;;<br>
+<br>
+<br>
+ProjectManager pm3(pm2);//invokes copy constructor<br>
+Projectmanager pm4= pm2;//invokes copy constructor<br>
+}<br>
+&nbsp;</p>
+<script language="Javascript">
+<!--
+
+setonclickmethods();
+
+// -->   
+</script>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

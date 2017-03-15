@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<TITLE>Simple Reference (many-to-one)</TITLE>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../../default.html">
+		<img alt="My developer connection home" height="88" src="../../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../../default.html">Home</a></li>
+				<li><a href="../../about_mdc.htm">About</a></li>
+				<li><a href="../../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../../articlelist.htm">Articles</a></li>
+				<li><a href="../../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+		<msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><msnavigation border="0" cellpadding="0" cellspacing="0" dir="ltr" width="100%"><tr><td valign="top" width="1%">
+<p>
+</p>
+
+</td><td valign="top" width="24"></td><msnavigation valign="top"><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p><img border="0" src="../../_borders/mdcletter.JPG" width="48" height="48"></p>
+
+</td></tr></table><msnavigation border="0" cellpadding="0" cellspacing="0" dir="ltr" width="100%"><tr><td valign="top" width="1%">
+<p>
+</p>
+
+</td><td valign="top" width="24"></td><msnavigation valign="top"><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<p><img border="0" src="../../_borders/mdcletter.JPG" width="48" height="48"></p>
+
+</td></tr></table><msnavigation dir="ltr" border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" width="1%">
+<p>
+</p>
+
+</td><td valign="top" width="24"></td><msnavigation valign="top">
+    <div style="padding-top: 0; padding-bottom: 0">
+      <u>2. Simple Reference (many-to-one) </u>
+<br/>
+<br/>
+    	Definition: A many-to-one reference is analogous to a simple Java 
+		reference. It is the same as the one-to-one situation except there is no 
+		requirement to have a shared PK. Instead a FK is used.
+<br/>
+    
+<br/>Scenario: We have two first-rank classes, Foo and Bar which are related to 
+		each other as follows:
+<br/>
+        <br/>
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr bgcolor="#FFFFFF">
+<td nowrap="true" bgcolor="#FFFFFF">
+Bar&nbsp;Foo.getBar()&nbsp;//&nbsp;returns&nbsp;corresponding&nbsp;Bar&nbsp;instance<br/>
+</td>
+</tr>
+</table>
+    
+    <br/>Hibernate Mapping:
+<br/>
+            In Hibernate, this could be mapped as follows:
+<br/>
+        <br/>
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+<tr bgcolor="#FFFFFF">
+<td nowrap="true" bgcolor="#FFFFFF">
+&lt;class&nbsp;name=&quot;Foo&quot;&nbsp;table=&quot;foo&quot;&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;many-to-one&nbsp;name=&quot;bar&quot;&nbsp;class=&quot;Bar&quot;&nbsp;column=&quot;bar_id&quot;/&gt;<br/>
+&lt;/class&gt;<br/>
+</td>
+</tr>
+</table>
+    
+    <br/>Table Schema:
+        <p>
+<table style="margin-left:36.0pt;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt" cellpadding="0" cellspacing="0" border="1">
+<tr>
+<td style="width:59.4pt;border:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="79" class="tablehead" colspan="2">
+<p>
+Foo
+</p>
+</td>
+</tr>
+<tr>
+            <td style="width:59.4pt;border:solid windowtext .5pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="79" class="tabledata">
+<p>id</p>
+</td>
+            <td style="width:59.4pt;border:solid windowtext .5pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="79" class="tabledata">
+<p>bar_id</p>
+</td>
+        </tr>
+</table>
+</p>
+        <p>
+<table style="margin-left:36.0pt;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt" cellpadding="0" cellspacing="0" border="1">
+<tr>
+<td style="width:59.4pt;border:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="79" class="tablehead" colspan="">
+<p>
+Bar
+</p>
+</td>
+</tr>
+<tr>
+            <td style="width:59.4pt;border:solid windowtext .5pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="79" class="tabledata">
+<p>id</p>
+</td>
+        </tr>
+</table>
+</p>
+        <br/>
+            Now we have created an extra column in Foo&#39;s table which holds the 
+		FK to Bar. Foo and Bar can have completely different PKs and the 
+		relationship will still hold.
+<br/>
+    
+<br/>Bidirectionality:
+<br/>
+            This relationship can be declared both ways, with Bar having 
+		getFoo(), by simply adding a similar mapping and property to Bar. This 
+		will result in Bar&#39;s table getting an extra column foo_id.
+<br/>
+    
+    <br/>
+            </div>
+		<msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+				Send mail to <a href="mailto:webmaster@mydeveloperconnection.com">
+				webmaster@mydeveloperconnection.com</a> with questions or 
+				comments about this web site.<br>
+				&nbsp;</td></tr></table><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+				Send mail to <a href="mailto:webmaster@mydeveloperconnection.com">
+				webmaster@mydeveloperconnection.com</a> with questions or 
+				comments about this web site.<br>
+				&nbsp;</td></tr></table><msnavigation border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+				Send mail to <a href="mailto:webmaster@mydeveloperconnection.com">
+				webmaster@mydeveloperconnection.com</a> with questions or 
+				comments about this web site.<br>
+				&nbsp;</td></tr></table></td></tr></table><!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

@@ -1,0 +1,1824 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Questions on Java Fundamentals: Java Interview Questions</title>
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<h2>Questions on Language Fundamentals</h2>
+<p>&nbsp;
+<ol type="1">
+  <!-- Question 1 -->
+  <li>Which of these are legal identifiers. Select the three correct answers.
+    <ol type="A">
+      <li>number_1
+      <li>number_a
+      <li>$1234
+      <li>-volatile</li>
+    </ol>
+  <li>Which of these are not legal identifiers. Select the four correct answers.
+    <ol type="A">
+      <li>1alpha
+      <li>_abcd
+      <li>xy+abc
+      <li>transient
+      <li>account-num
+      <li>very_long_name</li>
+    </ol>
+  <li>Which of the following are keywords in Java. Select the two correct 
+  answers.
+    <ol type="A">
+      <li>friend
+      <li>NULL
+      <li>implement
+      <li>synchronized
+      <li>throws</li>
+    </ol>
+  <li>Which of the following are Java keywords. Select the four correct answers.
+    <ol type="A">
+      <li>super
+      <li>strictfp
+      <li>void
+      <li>synchronize
+      <li>instanceof</li>
+    </ol>
+  <li>Which of these are Java keywords. Select the five correct answers
+    <ol type="A">
+      <li>TRUE
+      <li>volatile
+      <li>transient
+      <li>native
+      <li>interface
+      <li>then
+      <li>new</li>
+    </ol>
+    <!-- Question 6 -->
+  <li>Using up to four characters, write the Java representation of octal 
+  literal 6.
+  <li>Using up to four characters, write the Java representation of integer 
+  literal 3 in hexadecimal.
+  <li>Using up to four characters, write the Java representation of integer 
+  literal 10 in hexadecimal.
+  <li>What is the minimum value of char type. Select the one correct answer.
+    <ol type="A">
+      <li>0
+      <li>-2<sup>15</sup>
+      <li>-2<sup>8</sup>
+      <li>-2<sup>15</sup> - 1
+      <li>-2<sup>16</sup>
+      <li>-2<sup>16</sup> - 1</li>
+    </ol>
+  <li>How many bytes are used to represent the primitive data type int in Java. 
+  Select the one correct answer.
+    <ol type="A">
+      <li>2
+      <li>4
+      <li>8
+      <li>1
+      <li>The number of bytes to represent an int is compiler dependent.</li>
+    </ol>
+    <!-- Question 11 -->
+  <li>What is the legal range of values for a variable declared as a byte. 
+  Select the one correct answer.
+    <ol type="A">
+      <li>0 to 256
+      <li>0 to 255
+      <li>-128 to 127
+      <li>-128 to 128
+      <li>-127 to 128
+      <li>-2<sup>15</sup> to 2<sup>15</sup> - 1</li>
+    </ol>
+  <li>The width in bits of double primitive type in Java is --. Select the one 
+  correct answer.
+    <ol type="A">
+      <li>The width of double is platform dependent
+      <li>64
+      <li>128
+      <li>8
+      <li>4</li>
+    </ol>
+  <li>What would happen when the following is compiled and executed. Select the 
+  one correct answer.<br>
+    <code>
+    <pre><font color="red">
+</font>public class Compare { 
+   public static void main(String args[]) {
+      int x = 10, y;
+      if(x &lt; 10) 
+         y = 1;
+      if(x&gt;= 10) y = 2;
+      System.out.println(&quot;y is &quot; + y);
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program compiles and prints y is 0 when executed.
+      <li>The program compiles and prints y is 1 when executed.
+      <li>The program compiles and prints y is 2 when executed.
+      <li>The program does not compile complaining about y not being 
+	  initialized.
+      <li>The program throws a runtime exception.</li>
+    </ol>
+  <li>What would happen when the following is compiled and executed. Select the 
+  one correct answer.<br>
+    <code>
+    <pre><font color="red">
+</font>class example {
+   int x;
+   int y;
+   String name;
+   public static void main(String args[]) {
+      example pnt = new example();
+      System.out.println(&quot;pnt is &quot; + pnt.name + 
+         &quot; &quot; + pnt.x + &quot; &quot; + pnt.y);		
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program does not compile because x, y and name are not 
+	  initialized.
+      <li>The program throws a runtime exception as x, y, and name are used 
+	  before initialization.
+      <li>The program prints pnt is 0 0.
+      <li>The program prints pnt is null 0 0.
+      <li>The program prints pnt is NULL false false</li>
+    </ol>
+  <li>The initial value of an instance variable of type String that is not 
+  explicitly initialized in the program is --. Select the one correct answer.
+    <ol type="A">
+      <li>null
+      <li>&quot;&quot;
+      <li>NULL
+      <li>0
+      <li>The instance variable must be explicitly assigned.</li>
+    </ol>
+    <!-- Question 16 -->
+  <li>The initial value of a local variable of type String that is not 
+  explicitly initialized and which is defined in a member function of a class. 
+  Select the one correct answer.
+    <ol type="A">
+      <li>null
+      <li>&quot;&quot;
+      <li>NULL
+      <li>0
+      <li>The local variable must be explicitly assigned.</li>
+    </ol>
+  <li>Which of the following are legal Java programs. Select the four correct 
+  answers.
+    <ol type="A">
+      <li><code>// The comments come before the package<br>
+        package pkg;<br>
+        import java.awt.*;<br>
+        class C{}<br>
+        </code>
+      <li><code>package pkg;<br>
+        import java.awt.*;<br>
+        class C{}<br>
+        </code>
+      <li><code>package pkg1;<br>
+        package pkg2;<br>
+        import java.awt.*;<br>
+        class C{}<br>
+        </code>
+      <li><code>package pkg;<br>
+        import java.awt.*;<br>
+        </code>
+      <li><code>import java.awt.*;<br>
+        class C{}<br>
+        </code>
+      <li><code>import java.awt.*;<br>
+        package pkg;<br>
+        class C {}<br>
+        </code></li>
+    </ol>
+  <li>Which of the following statements are correct. Select the four correct 
+  answers.
+    <ol type="A">
+      <li>A Java program must have a package statement.
+      <li>A package statement if present must be the first statement of the 
+	  program (barring any comments).
+      <li>If a Java program defines both a package and import statement, then 
+	  the import statement must come before the package statement.
+      <li>An empty file is a valid source file.
+      <li>A Java file without any class or interface definitions can also be 
+	  compiled.
+      <li>If an import statement is present, it must appear before any class or 
+	  interface definitions.</li>
+    </ol>
+  <li>What would be the results of compiling and running the following class. 
+  Select the one correct answer.<code>
+    <pre><font color="red">
+</font>class test {
+   public static void main() {
+      System.out.println(&quot;test&quot;);
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program does not compile as there is no main method defined.
+      <li>The program compiles and runs generating an output of &quot;test&quot;
+      <li>The program compiles and runs but does not generate any output.
+      <li>The program compiles but does not run.</li>
+    </ol>
+  <li>Which of these are valid declarations for the main method? Select the one 
+  correct answer.
+    <ol type="A">
+      <li>public void main();
+      <li>public static void main(String args[]);
+      <li>static public void main(String);
+      <li>public static void main(String );
+      <li>public static int main(String args[]);</li>
+    </ol>
+  <li>Which of the following are valid declarations for the main method. Select 
+  the three correct answers.
+    <ol type="A">
+      <li>public static void main(String args[]);
+      <li>public static void main(String []args);
+      <li>final static public void main (String args[]);
+      <li>public static int main(String args[]);
+      <li>public static abstract void main(String args[]);</li>
+    </ol>
+  <li>What happens when the following program is compiled and executed with the 
+  command - java test. Select the one correct answer.<code>
+    <pre>class test {
+   public static void main(String args[]) {
+      if(args.length &gt; 0)
+         System.out.println(args.length);
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program compiles and runs but does not print anything.
+      <li>The program compiles and runs and prints 0
+      <li>The program compiles and runs and prints 1
+      <li>The program compiles and runs and prints 2
+      <li>The program does not compile.</li>
+    </ol>
+  <li>What is the result of compiling and running this program? Select the one 
+  correct answer.<code>
+    <pre>public class test {
+   public static void main(String args[]) {
+      int i, j;
+      int k = 0;
+      j = 2;
+      k = j = i = 1;
+      System.out.println(k);		
+   }
+}
+
+</code>
+</pre>
+    <ol type="A">
+      <li>The program does not compile as k is being read without being 
+	  initialized.
+      <li>The program does not compile because of the statement k = j = i = 1;
+      <li>The program compiles and runs printing 0.
+      <li>The program compiles and runs printing 1.
+      <li>The program compiles and runs printing 2.</li>
+    </ol>
+  <li>What gets printed on the standard output when the class below is compiled 
+  and executed by entering &quot;java test lets see what happens&quot;. Select the one 
+  correct answer.<code>
+    <pre>public class test {
+   public static void main(String args[]) {
+      System.out.println(args[0]+&quot; &quot;+args[args.length-1]);
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program will throw an ArrayIndexOutOfBounds exception.
+      <li>The program will print &quot;java test&quot;
+      <li>The program will print &quot;java happens&quot;;
+      <li>The program will print &quot;test happens&quot;
+      <li>The program will print &quot;lets happens&quot;</li>
+    </ol>
+  <li>What gets printed on the standard output when the class below is compiled 
+  and executed by entering &quot;java test lets see what happens&quot;. Select the one 
+  correct answer.<code>
+    <pre>public class test {
+   public static void main(String args[]) {
+      System.out.println(args[0]+&quot; &quot;+args[args.length]);
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program will throw an ArrayIndexOutOfBounds exception.
+      <li>The program will print &quot;java test&quot;
+      <li>The program will print &quot;java happens&quot;;
+      <li>The program will print &quot;test happens&quot;
+      <li>The program will print &quot;lets happens&quot;</li>
+    </ol>
+  <li>What all gets printed on the standard output when the class below is 
+  compiled and executed by entering &quot;java test lets see what happens&quot;. Select 
+  the two correct answers.<code>
+    <pre>public class test {
+   public static void main(String args[]) {
+      System.out.println(args[0]+&quot; &quot;+args.length);
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>java
+      <li>test
+      <li>lets
+      <li>3
+      <li>4
+      <li>5
+      <li>6</li>
+    </ol>
+  <li>What happens when the following program is compiled and run. Select the 
+  one correct answer.<code>
+    <pre>public class example {
+   int i = 0;
+   public static void main(String args[]) {
+      int i = 1;
+      i = change_i(i);
+      System.out.println(i);
+   }
+   public static int change_i(int i) {
+      i = 2;
+      i *= 2;
+      return i;
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program does not compile.
+      <li>The program prints 0.
+      <li>The program prints 1.
+      <li>The program prints 2.
+      <li>The program prints 4.</li>
+    </ol>
+  <li>What happens when the following program is compiled and run. Select the 
+  one correct answer.<code>
+    <pre>public class example {
+   int i = 0;
+   public static void main(String args[]) {
+      int i = 1;
+      change_i(i);
+      System.out.println(i);
+   }
+   public static void change_i(int i) {
+      i = 2;
+      i *= 2;
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program does not compile.
+      <li>The program prints 0.
+      <li>The program prints 1.
+      <li>The program prints 2.
+      <li>The program prints 4.</li>
+    </ol>
+  <li>What happens when the following program is compiled and run. Select the 
+  one correct answer.<code>
+    <pre>public class example {
+   int i[] = {0};
+   public static void main(String args[]) {
+      int i[] = {1};
+      change_i(i);
+      System.out.println(i[0]);
+   }
+   public static void change_i(int i[]) {
+      i[0] = 2;
+      i[0] *= 2;
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program does not compile.
+      <li>The program prints 0.
+      <li>The program prints 1.
+      <li>The program prints 2.
+      <li>The program prints 4.</li>
+    </ol>
+  <li>What happens when the following program is compiled and run. Select the 
+  one correct answer.<code>
+    <pre>public class example {
+   int i[] = {0};
+   public static void main(String args[]) {
+      int i[] = {1};
+      change_i(i);
+      System.out.println(i[0]);
+   }
+   public static void change_i(int i[]) {
+      int j[] = {2};
+      i = j;
+   }
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program does not compile.
+      <li>The program prints 0.
+      <li>The program prints 1.
+      <li>The program prints 2.
+      <li>The program prints 4.</li>
+    </ol>
+  </li>
+</ol>
+<br>
+<b>Answers to questions on Language Fundamentals</b><br>
+				Java list of keywords:
+<table cellPadding="5" border="1">
+  <tbody>
+    <tr>
+      <td><code>abstract</code></td>
+      <td><code>double</code></td>
+      <td><code>int</code></td>
+      <td><code>strictfp</code> **</td>
+    </tr>
+    <tr>
+      <td><code>boolean</code></td>
+      <td><code>else</code></td>
+      <td><code>interface</code></td>
+      <td><code>super</code></td>
+    </tr>
+    <tr>
+      <td><code>break</code></td>
+      <td><code>extends</code></td>
+      <td><code>long</code></td>
+      <td><code>switch</code></td>
+    </tr>
+    <tr>
+      <td><code>byte</code></td>
+      <td><code>final</code></td>
+      <td><code>native</code></td>
+      <td><code>synchronized</code></td>
+    </tr>
+    <tr>
+      <td><code>case</code></td>
+      <td><code>finally</code></td>
+      <td><code>new</code></td>
+      <td><code>this</code></td>
+    </tr>
+    <tr>
+      <td><code>catch</code></td>
+      <td><code>float</code></td>
+      <td><code>package</code></td>
+      <td><code>throw</code></td>
+    </tr>
+    <tr>
+      <td><code>char</code></td>
+      <td><code>for</code></td>
+      <td><code>private</code></td>
+      <td><code>throws</code></td>
+    </tr>
+    <tr>
+      <td><code>class</code></td>
+      <td><code>goto </code>*</td>
+      <td><code>protected</code></td>
+      <td><code>transient</code></td>
+    </tr>
+    <tr>
+      <td><code>const </code>*</td>
+      <td><code>if</code></td>
+      <td><code>public</code></td>
+      <td><code>try</code></td>
+    </tr>
+    <tr>
+      <td><code>continue</code></td>
+      <td><code>implements</code></td>
+      <td><code>return</code></td>
+      <td><code>void</code></td>
+    </tr>
+    <tr>
+      <td><code>default</code></td>
+      <td><code>import</code></td>
+      <td><code>short</code></td>
+      <td><code>volatile</code></td>
+    </tr>
+    <tr>
+      <td><code>do</code></td>
+      <td><code>instanceof</code></td>
+      <td><code>static</code></td>
+      <td><code>while</code></td>
+    </tr>
+  </tbody>
+</table>
+<ol type="1">
+  <li>a, b, c
+  <li>a, c, d, e
+  <li>d, e
+  <li>a, b, c, e. Please note that strictfp is a new keyword in Java 2. See <a href="http://www.java.sun.com/docs/books/tutorial/java/nutsandbolts/_keywords.html">
+  <font color="#FFFFFF">Sun&#39;s site</font></a> for more details.
+  <li>b, c, d, e, g
+  <li>Any of the following are correct answers - 06, 006, or 0006
+  <li>Any of the following are correct answers - 0x03, 0X03, 0X3 or 0x3
+  <li>Any of the following are correct answers - 0x0a, 0X0a, 0Xa, 0xa, 0x0A, 
+  0X0A, 0XA, 0xA<br>
+  <li>a
+  <li>b
+  <li>c
+  <li>b
+  <li>d. The variable y is getting read before being properly initialized.
+  <li>d. Instance variable of type int and String are initialized to 0 and null 
+  respectively.
+  <li>a
+  <li>e
+  <li>a, b, d, e
+  <li>b, d, e, f
+  <li>d
+  <li>b
+  <li>a, b, c
+  <li>a
+  <li>d
+  <li>e
+  <li>a
+  <li>c, e
+  <li>e
+  <li>c
+  <li>e
+  <li>c</li>
+</ol>
+<hr>
+<p>&nbsp;</p>
+<h2><font color="#FFFFFF">Questions on Operator and Assignments</font></h2>
+<p>&nbsp;
+<ol type="1">
+  <li>In the following class definition, which is the first line (if any) that 
+  causes a compilation error. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		char c;
+		int i;
+		c = &#39;A&#39;;		// 1
+		i = c;		//2
+		c = i + 1;	//3
+		c++;		//4
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The line labeled 1.
+      <li>The line labeled 2.
+      <li>The line labeled 3.
+      <li>The line labeled 4.
+      <li>All the lines are correct and the program compiles.</li>
+    </ol>
+  <li>Which of these assignments are valid. Select the four correct answers.
+    <ol type="A">
+      <li>short s = 28;
+      <li>float f = 2.3;
+      <li>double d = 2.3;
+      <li>int I = &#39;1&#39;;
+      <li>byte b = 12;</li>
+    </ol>
+  <li>What gets printed when the following program is compiled and run. Select 
+  the one correct answer.<code>
+    <pre>class test {
+	public static void main(String args[]) {
+		int i,j,k,l=0;
+		k = l++;
+		j = ++k;
+		i = j++;
+		System.out.println(i);		
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0
+      <li>1
+      <li>2
+      <li>3</li>
+    </ol>
+  <li>Which of these lines will compile? Select the four correct answers.
+    <ol type="A">
+      <li>short s = 20;
+      <li>byte b = 128;
+      <li>char c = 32;
+      <li>double d = 1.4;;
+      <li>float f = 1.4;
+      <li>byte e = 0;</li>
+    </ol>
+  <li>The signed right shift operator in Java is --. Select the one correct 
+  answer.
+    <ol type="A">
+      <li>&lt;&lt;;
+      <li>&gt;&gt;
+      <li>&gt;&gt;&gt;;
+      <li>None of these.</li>
+    </ol>
+  <li>What gets printed on the standard output when the class below is compiled 
+  and executed. Select the one correct answer.<code>
+    <pre>public class ShortCkt {
+	public static void main(String args[]) {
+		int i = 0;
+		boolean t = true;
+		boolean f = false, b;
+		b = (t &amp;&amp; ((i++) == 0));
+		b = (f &amp;&amp; ((i+=2) &gt; 0));
+		System.out.println(i);		
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0
+      <li>1
+      <li>2
+      <li>3</li>
+    </ol>
+  <li>What gets printed on the standard output when the class below is compiled 
+  and executed. Select the one correct answer.<code>
+    <pre>public class ShortCkt {
+	public static void main(String args[]) {
+		int i = 0;
+		boolean t = true;
+		boolean f = false, b;
+		b = (t &amp; ((i++) == 0));
+		b = (f &amp; ((i+=2) &gt; 0));
+		System.out.println(i);		
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0
+      <li>1
+      <li>2
+      <li>3</li>
+    </ol>
+  <li>What gets printed on the standard output when the class below is compiled 
+  and executed. Select the one correct answer.<code>
+    <pre>public class ShortCkt {
+	public static void main(String args[]) {
+		int i = 0;
+		boolean t = true;
+		boolean f = false, b;
+		b = (t || ((i++) == 0));
+		b = (f || ((i+=2) &gt; 0));
+		System.out.println(i);		
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0
+      <li>1
+      <li>2
+      <li>3</li>
+    </ol>
+  <li>What gets printed on the standard output when the class below is compiled 
+  and executed. Select the one correct answer.<code>
+    <pre>public class ShortCkt {
+	public static void main(String args[]) {
+		int i = 0;
+		boolean t = true;
+		boolean f = false, b;
+		b = (t | ((i++) == 0));
+		b = (f | ((i+=2) &gt; 0));
+		System.out.println(i);		
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0
+      <li>1
+      <li>2
+      <li>3</li>
+    </ol>
+  <li>Which operator is used to perform bitwise inversion in Java. Select the 
+  one correct answer.
+    <ol type="A">
+      <li>~
+      <li>!
+      <li>&amp;
+      <li>|
+      <li>^</li>
+    </ol>
+  <li>What gets printed when the following program is compiled and run. Select 
+  the one correct answer.<code>
+    <pre>
+public class test {
+	public static void main(String args[]) {
+		byte x = 3;
+		x = (byte)~x;
+		System.out.println(x);
+	}
+}
+
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>3
+      <li>0
+      <li>1
+      <li>11
+      <li>252
+      <li>214
+      <li>124
+      <li>-4</li>
+    </ol>
+  <li>What gets displayed on the screen when the following program is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		int x,y;
+		x = 3 &amp; 5;
+		y = 3 | 5;
+		System.out.println(x + &quot; &quot; + y);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>7 1
+      <li>3 7
+      <li>1 7
+      <li>3 1
+      <li>1 3
+      <li>7 3
+      <li>7 5</li>
+    </ol>
+  <li>What gets displayed on the screen when the following program is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		int x,y;
+		x = 1 &amp; 7;
+		y = 3 ^ 6;
+		System.out.println(x + &quot; &quot; + y);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>1 3
+      <li>3 5
+      <li>5 1
+      <li>3 6
+      <li>1 7
+      <li>1 5</li>
+    </ol>
+  <li>Which operator is used to perform bitwise exclusive or.
+    <ol type="A">
+      <li>&amp;
+      <li>^
+      <li>|
+      <li>!
+      <li>~</li>
+    </ol>
+  <li>What gets displayed on the screen when the following program is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		boolean x = true;
+		int a;
+		if(x) a = x ? 1: 2;
+		else a = x ? 3: 4;
+		System.out.println(a);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>1
+      <li>2
+      <li>3
+      <li>4</li>
+    </ol>
+  <li>What gets displayed on the screen when the following program is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		boolean x = false;
+		int a;
+		if(x) a = x ? 1: 2;
+		else a = x ? 3: 4;
+		System.out.println(a);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>1
+      <li>2
+      <li>3
+      <li>4</li>
+    </ol>
+  <li>What gets displayed on the screen when the following program is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		int x, y;
+
+		x = 5 &gt;&gt; 2;
+		y = x &gt;&gt;&gt; 2;
+ 		System.out.println(y);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>5
+      <li>2
+      <li>80
+      <li>0
+      <li>64</li>
+    </ol>
+  <li>What gets displayed on the screen when the following program is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		int x;
+
+		x = -3 &gt;&gt; 1;
+		x = x &gt;&gt;&gt; 2;
+		x = x &lt;&lt; 1;
+ 		System.out.println(x);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>1
+      <li>0
+      <li>7
+      <li>5
+      <li>23
+      <li>2147483646</li>
+    </ol>
+  <li>Which of the following are correct. Select all correct answers.
+    <ol type="A">
+      <li>Java provides two operators to do left shift - &lt;&lt; and &lt;&lt;&lt;.
+      <li>&gt;&gt; is the zero fill right shift operator.
+      <li>&gt;&gt;&gt; is the signed right shift operator.
+      <li>For positive numbers, results of operators &gt;&gt; and &gt;&gt;&gt; are same.</li>
+    </ol>
+  <li>What is the result of compiling and running the following program. Select 
+  one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		int i = -1;
+		i = i &gt;&gt; 1;	 
+ 		System.out.println(i);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>63
+      <li>-1
+      <li>0
+      <li>1
+      <li>127
+      <li>128
+      <li>255</li>
+    </ol>
+  <li>What all gets printed when the following gets compiled and run. Select the 
+  two correct answers.<code>
+    <pre>public class example {
+	public static void main(String args[]) {
+		int x = 0;
+		if(x &gt; 0) x = 1;
+
+		switch(x) {
+		case 1: System.out.println(1);
+		case 0: System.out.println(0);
+		case 2: System.out.println(2);
+			break;
+		case 3: System.out.println(3);
+		default: System.out.println(4);
+			break;
+		}
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0
+      <li>1
+      <li>2
+      <li>3
+      <li>4</li>
+    </ol>
+  <li>What happens when the following class is compiled and run. Select one 
+  correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+		int x = 0, y = 1, z;
+		if(x) 
+		    z = 0;
+		else
+		    z = 1;
+
+		if(y) 
+		    z = 2;
+		else
+		    z = 3;
+		System.out.println(z); 		
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The program prints 0
+      <li>The program prints 1
+      <li>The program prints 2
+      <li>The program prints 3
+      <li>The program does not compile because of problems in the if statement.</li>
+    </ol>
+  <li>Which all lines are part of the output when the following code is compiled 
+  and run. Select the nine correct answers.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+	    for(int i = 0; i &lt; 3; i++) {
+		for(int j = 3; j &gt;= 0; j--) {
+		    if(i == j) continue;
+		    System.out.println(i + &quot; &quot; + j);
+		}
+	    }
+ 	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0 0
+      <li>0 1
+      <li>0 2
+      <li>0 3
+      <li>1 0
+      <li>1 1
+      <li>1 2
+      <li>1 3
+      <li>2 0
+      <li>2 1
+      <li>2 2
+      <li>2 3
+      <li>3 0
+      <li>3 1
+      <li>3 2
+      <li>3 3
+      <li>The program does not print anything.</li>
+    </ol>
+  <li>Which all lines are part of the output when the following code is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+	    for(int i = 0; i &lt; 3; i++) {
+		for(int j = 3; j &lt;= 0; j--) {
+		    if(i == j) continue;
+		    System.out.println(i + &quot; &quot; + j);
+		}
+	    }
+ 	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0 0
+      <li>0 1
+      <li>0 2
+      <li>0 3
+      <li>1 0
+      <li>1 1
+      <li>1 2
+      <li>1 3
+      <li>2 0
+      <li>2 1
+      <li>2 2
+      <li>2 3
+      <li>3 0
+      <li>3 1
+      <li>3 2
+      <li>3 3
+      <li>The program does not print anything.</li>
+    </ol>
+  <li>Which all lines are part of the output when the following code is compiled 
+  and run. Select the six correct answers.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+	    for(int i = 0; i &lt; 3; i++) {
+		for(int j = 3; j &gt;= 0; j--) {
+		    if(i == j) break;
+		    System.out.println(i + &quot; &quot; + j);
+		}
+	    }
+ 	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0 0
+      <li>0 1
+      <li>0 2
+      <li>0 3
+      <li>1 0
+      <li>1 1
+      <li>1 2
+      <li>1 3
+      <li>2 0
+      <li>2 1
+      <li>2 2
+      <li>2 3
+      <li>3 0
+      <li>3 1
+      <li>3 2
+      <li>3 3</li>
+    </ol>
+  <li>Which all lines are part of the output when the following code is compiled 
+  and run. Select the six correct answers.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+outer: 	    for(int i = 0; i &lt; 3; i++) {
+		for(int j = 3; j &gt;= 0; j--) {
+		    if(i == j) continue outer;
+		    System.out.println(i + &quot; &quot; + j);
+		}
+	    }
+ 	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0 0
+      <li>0 1
+      <li>0 2
+      <li>0 3
+      <li>1 0
+      <li>1 1
+      <li>1 2
+      <li>1 3
+      <li>2 0
+      <li>2 1
+      <li>2 2
+      <li>2 3
+      <li>3 0
+      <li>3 1
+      <li>3 2
+      <li>3 3</li>
+    </ol>
+  <li>Which all lines are part of the output when the following code is compiled 
+  and run. Select the three correct answers.<code>
+    <pre>public class test {
+	public static void main(String args[]) {
+outer :	    for(int i = 0; i &lt; 3; i++) {
+		for(int j = 3; j &gt;= 0; j--) {
+		    if(i == j) break outer;
+		    System.out.println(i + &quot; &quot; + j);
+		}
+	    }
+ 	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>0 0
+      <li>0 1
+      <li>0 2
+      <li>0 3
+      <li>1 0
+      <li>1 1
+      <li>1 2
+      <li>1 3
+      <li>2 0
+      <li>2 1
+      <li>2 2
+      <li>2 3
+      <li>3 0
+      <li>3 1
+      <li>3 2
+      <li>3 3</li>
+    </ol>
+  </li>
+</ol>
+<br>
+<!---- End of questions --->
+<b>Answers to questions on Operators and Assignments</b><br>
+<ol type="1">
+  <li>c. It is not possible to assign an integer to a character in this case 
+  without a cast.
+  <li>a, c, d, e. 2.3 is of type double. So it cannot be assigned to a float 
+  without a cast.
+  <li>b
+  <li>a, c, d, f. If RHS (Right hand side) is an integer within the correct 
+  range of LHS (Left hand side), and if LHS is char, byte, or short, no cast is 
+  required. A decimal number is a double by default. Assigning it to float 
+  requires a cast.
+  <li>b
+  <li>b. In the second assignment to variable b, the expression (i+=2) does not 
+  get evaluated.
+  <li>d
+  <li>c
+  <li>d
+  <li>a
+  <li>h
+  <li>c
+  <li>f
+  <li>b
+  <li>a
+  <li>d
+  <li>d
+  <li>f
+  <li>d
+  <li>b
+  <li>a, c
+  <li>e. The expression in the if statement must evaluate to a boolean.
+  <li>b, c, d, e, g, h, i, j, l
+  <li>q
+  <li>b, c, d, g, h, l
+  <li>b, c, d, g, h, l
+  <li>b, c, d</li>
+</ol>
+<hr>
+<p>&nbsp;</p>
+<h2><font color="#FFFFFF">Questions on Declaration and Access Control</font></h2>
+<p>&nbsp;
+<ol type="1">
+  <li>Given a one dimensional array arr, what is the correct way of getting the 
+  number of elements in arr. Select the one correct answer.
+    <ol type="A">
+      <li>arr.length
+      <li>arr.length - 1
+      <li>arr.size
+      <li>arr.size - 1
+      <li>arr.length()
+      <li>arr.length() - 1</li>
+    </ol>
+  <li>Which of these statements are legal. Select the three correct answers.
+    <ol type="A">
+      <li>int arr[][] = new int[5][5];
+      <li>int []arr[] = new int[5][5];
+      <li>int[][] arr = new int[5][5];
+      <li>int[] arr = new int[5][];
+      <li>int[] arr = new int[][5];</li>
+    </ol>
+  <li>Write the expression to access the number of elements in a one dimensional 
+  array arr. The expression should not be assigned to any variable.
+  <li>Which of these array declarations and initializations are legal? Select 
+  the two correct answers.
+    <ol type="A">
+      <li>int arr[4] = new int[4];
+      <li>int[4] arr = new int[4];
+      <li>int arr[] = new int[4];
+      <li>int arr[] = new int[4][4];
+      <li>int[] arr = new int[4];</li>
+    </ol>
+  <li>What will the result of compiling and executing the following program. 
+  Select the one correct answer.
+    <pre>class Test {
+    public static void main(String args[]) {
+	int arr[] = new int[2];
+	System.out.println(arr[0]);
+    }
+}
+</pre>
+    <ol type="A">
+      <li>The program does not compile because arr[0] is being read before being 
+	  initialized.
+      <li>The program generates a runtime exception because arr[0] is being read 
+	  before being initialized.
+      <li>The program compiles and prints 0 when executed.
+      <li>The program compiles and prints 1 when executed.
+      <li>The program compiles and runs but the results are not predictable 
+	  because of un-initialized memory being read.</li>
+    </ol>
+  <li>Which of the following are legal declaration and definition of a method. 
+  Select all correct answers.
+    <ol type="A">
+      <li>void method() {};
+      <li>void method(void) {};
+      <li>method() {};
+      <li>method(void) {};
+      <li>void method {};</li>
+    </ol>
+  <li>Which of the following are valid constructors within a class Test. Select 
+  the two correct answers.
+    <ol type="A">
+      <li>test() { }
+      <li>Test() { }
+      <li>void Test() { }
+      <li>private final Test() { }
+      <li>abstract Test() { }
+      <li>Test(Test t) { }
+      <li>Test(void) { }</li>
+    </ol>
+  <li>What is the result of compiling and running the following class. Select 
+  the one correct answer.<code>
+    <pre>class Test {
+   public void methodA(int i) {
+      System.out.println(i); 
+   }
+   public int methodA(int i) {
+      System.out.println(i+1); 
+      return i+1; 
+   }
+   public static void main(String args[]) {
+      Test X = new Test();
+      X.methodA(5);
+   }
+}
+
+</pre>
+    </code>Select the one correct answer.
+    <ol type="A">
+      <li>The program compiles and runs printing 5.
+      <li>The program compiles and runs printing 6.
+      <li>The program gives runtime exception because it does not find the 
+	  method Test.methodA(int)
+      <li>The program give compilation error because methodA is defined twice in 
+	  class Test.</li>
+    </ol>
+  </li>
+</ol>
+<b>Answers to questions on Declarations</b><br>
+<ol type="1">
+  <li>a
+  <li>a, b, c
+  <li>arr.length
+  <li>c, e. The size of the array should not be specified when declaring the 
+  array.
+  <li>c
+  <li>a
+  <li>b, f. A constructor must have the same name as the class, hence a is not a 
+  constructor. It must not return any value, hence c is not correct. A 
+  constructor cannot be declared abstract or final.
+  <li>d</li>
+</ol>
+<hr>
+<p>&nbsp;</p>
+<!--Start 468x60 Dimeclicks.com Code Here-->
+<!--
+<center>
+<a href="http://www7.dimeclicks.com/cgi-bin/general/click.cgi?javaprepare"><img
+src="http://www7.dimeclicks.com/cgi-bin/getimage.cgi/host?REGION=dimeclicks"></a> <br>
+<a href="http://www7.dimeclicks.com"><font size="2" face="arial">The DimeClicks.com Network
+Sign-Up Today  </font></a><br>
+</center>
+-->
+<!--End 468x60 Dimeclicks.com Code Here-->
+<h2><font color="#FFFFFF">Questions on Classes</font></h2>
+<p>&nbsp;
+<ol type="1">
+  <li>What gets displayed on the screen when the following program is compiled 
+  and run. Select the one correct answer.<code>
+    <pre>protected class example {
+	public static void main(String args[]) {
+		String test = &quot;abc&quot;;
+		test = test + test;
+		System.out.println(test);
+	}
+}
+
+</pre>
+    </code>
+    <ol type="A">
+      <li>The class does not compile because the top level class cannot be 
+	  protected.
+      <li>The program prints &quot;abc&quot;
+      <li>The program prints &quot;abcabc&quot;
+      <li>The program does not compile because statement &quot;test = test + test&quot; is 
+	  illegal.</li>
+    </ol>
+  <li>A top level class may have only the following access modifier. Select the 
+  one correct answer.
+    <ol type="A">
+      <li>package
+      <li>friendly
+      <li>private
+      <li>protected
+      <li>public</li>
+    </ol>
+  <li>Write down the modifier of a method that makes the method available to all 
+  classes in the same package and to all the subclasses of this class.
+  <li>Select the one most appropriate answer. A top level class without any 
+  modifier is accessible to -
+    <ol type="A">
+      <li>any class
+      <li>any class within the same package
+      <li>any class within the same file
+      <li>any subclass of this class.</li>
+    </ol>
+  <li>Is this True or False. In Java an abstract class cannot be sub-classed.
+  <li>Is this True or False. In Java a final class must be sub-classed before it 
+  can be used.
+  <li>Which of the following are true. Select the three correct answers.
+    <ol type="A">
+      <li>A static method may be invoked before even a single instance of the 
+	  class is constructed.
+      <li>A static method cannot access non-static methods of the class.
+      <li>Abstract modifier can appear before a class or a method but not before 
+	  a variable.
+      <li>final modifier can appear before a class or a variable but not before 
+	  a method.
+      <li>Synchronized modifier may appear before a method or a variable but not 
+	  before a class.</li>
+    </ol>
+  </li>
+</ol>
+<b>Answers to questions on classes in Java</b><br>
+<ol type="1">
+  <li>a
+  <li>e
+  <li>protected
+  <li>b
+  <li>False
+  <li>False
+  <li>a, b, c. final modifier may appear before a method, a variable or before a 
+  class.</li>
+</ol>
+<hr>
+<p>&nbsp;</p>
+<h2><font color="#FFFFFF">Questions on Files and Input/Output</font></h2>
+				This topic is part of SCJP 1.2 exam but not SCJP 1.4 exam.<br>
+<ol type="1">
+  <li>Which abstract class is the super class of all classes used for reading 
+  bytes. Select the one correct answer.
+    <ol type="A">
+      <li>Reader
+      <li>FileReader
+      <li>ByteReader
+      <li>InputStream
+      <li>FileInputStream</li>
+    </ol>
+  <li>Which abstract class is the super class of all classes used for writing 
+  characters. Select the one correct answer.
+    <ol type="A">
+      <li>Writer
+      <li>FileWriter
+      <li>CharWriter
+      <li>OutputStream
+      <li>FileOutputStream</li>
+    </ol>
+  <li>Which of these are legal ways of accessing a File named &quot;file.tst&quot; for 
+  reading. Select the two correct answers.
+    <ol type="A">
+      <li>FileReader fr = new FileReader(&quot;file.tst&quot;);
+      <li>FileInputStream fr = new FileInputStream(&quot;file.tst&quot;);<br>
+        InputStreamReader isr = new InputStreamReader(fr, &quot;UTF8&quot;);
+      <li>FileReader fr = new FileReader(&quot;file.tst&quot;, &quot;UTF8&quot;);
+      <li>InputStreamReader isr = new InputStreamReader(&quot;file.tst&quot;);</li>
+    </ol>
+  <li>Name the class that allows reading of binary representations of Java 
+  primitives from an input byte stream.
+  <li>Which of these classes are abstract. Select the three correct answers.
+    <ol type="A">
+      <li>FilterWriter
+      <li>Reader
+      <li>InputStream
+      <li>CharArrayReader
+      <li>DataInputStream</li>
+    </ol>
+  <li>Name the exception thrown by the read method defined in InputStream class</li>
+</ol>
+<b>Answers to questions on Files and I/O</b><br>
+<ol type="1">
+  <li>d
+  <li>a
+  <li>a, b. FileReader class uses the default character encoding, hence c is 
+  incorrect. InputStreamReader character class does not have a constructor that 
+  takes file name as an argument. Hence d is incorrect.
+  <li>DataInpiutStream
+  <li>a,b,c
+  <li>IOException</li>
+</ol>
+<hr>
+<p>&nbsp;</p>
+<h3><font color="#FFFFFF">Questions on Collections</font></h3>
+<p>&nbsp;
+<ol type="1">
+  <li>TreeMap class is used to implement which collection interface. Select the 
+  one correct answer.
+    <ol type="A">
+      <li>Set
+      <li>SortedSet
+      <li>List
+      <li>Tree
+      <li>SortedMap</li>
+    </ol>
+  <li>Name the Collection interface implemented by the Vector class.
+  <li>Name the Collection interface implemented by the Hashtable class.
+  <li>Name the Collection interface implemented by the HashSet class.
+  <li>Which of these are interfaces in the collection framework. Select the two 
+  correct answers.
+    <ol type="A">
+      <li>Set
+      <li>List
+      <li>Array
+      <li>Vector
+      <li>LinkedList</li>
+    </ol>
+  <li>Which of these are interfaces in the collection framework. Select the two 
+  correct answers.
+    <ol type="A">
+      <li>HashMap
+      <li>ArrayList
+      <li>Collection
+      <li>SortedMap
+      <li>TreeMap</li>
+    </ol>
+  <li>What is the name of collection interface used to maintain non-unique 
+  elements in order.
+  <li>What is the name of collection interface used to maintain unique elements.
+  <li>What is the name of collection interface used to maintain mappings of keys 
+  to values.
+  <li>Is this true or false. Map interface is derived from the Collection 
+  interface.
+    <ol type="A">
+      <li>True
+      <li>False</li>
+    </ol>
+  </li>
+</ol>
+<b>Answers to questions on Collections</b><br>
+<ol type="1">
+  <li>e
+  <li>List
+  <li>Map
+  <li>Set
+  <li>a,b
+  <li>c,d
+  <li>List
+  <li>Set
+  <li>Map
+  <li>b</li>
+</ol>
+<hr>
+<p>&nbsp;</p>
+<h2><font color="#FFFFFF">Questions on Assertions</font></h2>
+				This topic is part of SCJP 1.4 exam but not SCJP 1.2 exam.
+<p>&nbsp;
+<ol type="1">
+  <li>What happens when the following code is compiled and run. Select the one 
+  correct answer.<br>
+    <code>for(int i = 1; i &lt; 3; i++)<br>
+    &nbsp;&nbsp;for(int j = 3; j &gt; i; j--)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; assert i!=j {System.out.println(i); }<br>
+    </code><br>
+    <ol type="A">
+      <li>The class compiles and runs, but does not print anything.
+      <li>The number 1 gets printed with AssertionError
+      <li>The number 2 gets printed with AssertionError
+      <li>The number 3 gets printed with AssertionError
+      <li>The program generates a compilation error.</li>
+    </ol>
+    <br>
+  <li>What happens when the following code is compiled and run. Select the one 
+  correct answer.<br>
+    <code>for(int i = 1; i &lt; 3; i++)<br>
+    &nbsp;&nbsp;for(int j = 3; j &gt;= 1; j--)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; assert i!=j : i;<br>
+    </code><br>
+    <ol type="A">
+      <li>The class compiles and runs, but does not print anything.
+      <li>The number 1 gets printed with AssertionError
+      <li>The number 2 gets printed with AssertionError
+      <li>The number 3 gets printed with AssertionError
+      <li>The program generates a compilation error.</li>
+    </ol>
+    <br>
+  <li>What happens when the following code is compiled and run. Select the one 
+  correct answer.<br>
+    <code>for(int i = 1; i &lt; 4; i++)<br>
+    &nbsp;&nbsp;for(int j = 1; j &lt; 4; j++)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;if(i &lt; j)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assert i!=j : i;<br>
+    </code><br>
+    <ol type="A">
+      <li>The class compiles and runs, but does not print anything.
+      <li>The number 1 gets printed with AssertionError
+      <li>The number 2 gets printed with AssertionError
+      <li>The number 3 gets printed with AssertionError
+      <li>The program generates a compilation error.</li>
+    </ol>
+    <br>
+  <li>Which of the following statement is true about the assert statement. 
+  Select the one correct answer.
+    <ol type="A">
+      <li>If a Java class contains assert statements, then it must be compiled 
+	  with -1.4 option.
+      <li>When a program having assertions is run, -assertion option must be 
+	  specified, otherwise the assertions get ignored.
+      <li>A possible syntax of assert statement is<br>
+        &nbsp;<code>assert logical_expression</code> If logical_expression evaluates 
+	  to true, the program generates an AssertionError.
+      <li>The program terminates on its first AssertionError.</li>
+    </ol>
+  </li>
+</ol>
+<br>
+<b>Answers to questions on Assertions</b><br>
+<ol type="1">
+  <li>e. The condition in assert statement must be followed by a semi-colon.
+  <li>b. When i and j are both 1, assert condition is false, and AssertionError 
+  gets generated.
+  <li>a. When the if condition returns true, the assert statement also returns 
+  true. Hence AssertionError does not get generated.
+  <li>d. The option A is incorrect, as the Java compiler option is -source 1.4 . 
+  The option B is incorrect, as the runtime option is -ea or -enableassertions. 
+  If the logical expression evaluates to false, then the program generates an 
+  AssertionError, hence C is incorrect.</li>
+</ol>
+<hr>
+<p>&nbsp;</p>
+<h2><font color="#FFFFFF">Questions on Events</font></h2>
+				This topic is part of SCJP 1.2 exam but not SCJP 1.4 exam.
+<p>&nbsp;
+<ol type="1">
+  <li>Name the method defined in EventObject class that returns the Object 
+  generated from the event. Select the one correct answer.
+    <ol type="A">
+      <li>getEvent()
+      <li>getObject()
+      <li>getID()
+      <li>getSource()</li>
+    </ol>
+  <li>What is the return type of the method getID() defined in AWTEvent class. 
+  Select the one correct answer.
+    <ol type="A">
+      <li>int
+      <li>long
+      <li>Object
+      <li>Component
+      <li>short</li>
+    </ol>
+  <li>Name the event that gets generated when a button is clicked. Select the 
+  one correct answer.
+    <ol type="A">
+      <li>KeyEvent
+      <li>MouseEvent
+      <li>ItemEvent
+      <li>ActionEvent</li>
+    </ol>
+  <li>Which event is generated when the position of a scrollbar is changed. 
+  Select the one correct answer.
+    <ol type="A">
+      <li>KeyEvent
+      <li>MouseEvent
+      <li>ItemEvent
+      <li>ActionEvent
+      <li>AdjustmentEvent</li>
+    </ol>
+  <li>Which of the following Objects can generate ActionEvent. Select the one 
+  correct answer.
+    <ol type="A">
+      <li>List
+      <li>TextArea
+      <li>CheckboxMenuItem
+      <li>Choice</li>
+    </ol>
+  <li>Which of the following Objects can generate ItemEvent. Select the two 
+  correct answer.
+    <ol type="A">
+      <li>CheckBox
+      <li>Button
+      <li>List
+      <li>MenuItem</li>
+    </ol>
+  <li>Which method identifies the type of an event generated. Select the one 
+  correct answer.
+    <ol type="A">
+      <li>getSource()
+      <li>getType()
+      <li>getEventType()
+      <li>getID()</li>
+    </ol>
+  <li>Which of the following are legal adapter classes in Java. Select the two 
+  correct answers.
+    <ol type="A">
+      <li>ActionAdapter
+      <li>ItemAdapter
+      <li>TextAdapter
+      <li>MouseAdapter
+      <li>MouseMotionAdapter</li>
+    </ol>
+  <li>Name the class of the argument of method actionPerformed() defined in the 
+  ActionListener interface.
+  <li>Which of these listener classes have corresponding adapter classes. Select 
+  the two correct answers.
+    <ol type="A">
+      <li>ContainerListener
+      <li>TextListener
+      <li>ItemListener
+      <li>MouseMotionListener</li>
+    </ol>
+  <li>Which of these are valid adapter classes. Select the one correct answer.
+    <ol type="A">
+      <li>ActionAdapter
+      <li>AdjustmentAdapter
+      <li>KeyAdapter
+      <li>TextAdapter</li>
+    </ol>
+  <li>Which of these methods are defined in MouseMotionlistener interface. 
+  Select the two correct answers.
+    <ol type="A">
+      <li>mouseClicked()
+      <li>mousePressed()
+      <li>mouseEntered()
+      <li>mouseDragged()
+      <li>mouseMoved()</li>
+    </ol>
+  <li>What is the return type of the method getSource() defined in EventObject 
+  class. Select the one correct answer.
+    <ol type="A">
+      <li>int
+      <li>long
+      <li>Object
+      <li>Component
+      <li>short</li>
+    </ol>
+  </li>
+</ol>
+<b>Answers to questions on Events</b><br>
+<ol type="1">
+  <li>d
+  <li>a
+  <li>d
+  <li>e
+  <li>a
+  <li>a, c
+  <li>d
+  <li>d, e
+  <li>ActionEvent
+  <li>a, d
+  <li>c
+  <li>d, e
+  <li>c</li>
+</ol>
+<hr>
+<p align="center"><b><font size="4">Questions on AWT</font></b></p>
+<p>&nbsp;</p>
+<ol type="1">
+  <li>Which of the following classes are derived from the Container class. 
+  Select the four correct answers.
+    <ol type="A">
+      <li>Component
+      <li>Panel
+      <li>java.applet.Applet
+      <li>Dialog
+      <li>Frame
+      <li>MenuComponent</li>
+    </ol>
+  <li>Which of the following classes are derived from the Component class. 
+  Select the four correct answers.
+    <ol type="A">
+      <li>Container
+      <li>Window
+      <li>List
+      <li>MenuItem
+      <li>Choice</li>
+    </ol>
+  <li>Name the class used to represent a GUI application window, which is 
+  optionally resizable and can have a title bar, an icon, and menus. Select the 
+  one correct answer.
+    <ol type="A">
+      <li>Window
+      <li>Panel
+      <li>Dialog
+      <li>Frame</li>
+    </ol>
+  <li>Which abstract class is the super class of all menu related classes.
+  <li>Which of these classes can be added to a Frame component. Select the three 
+  correct answers.
+    <ol type="A">
+      <li>Menu
+      <li>Button
+      <li>PopupMenu
+      <li>Window
+      <li>List</li>
+    </ol>
+  <li>Which class can be used to represent a checkbox with a textual label that 
+  can appear in a menu. Select the one correct answer.
+    <ol type="A">
+      <li>MenuBar
+      <li>MenuItem
+      <li>CheckboxMenuItem
+      <li>Menu
+      <li>CheckBox</li>
+    </ol>
+  <li>Which of these classes can be added to any Container class, using the add 
+  method defined in Container class. Select the two correct answers.
+    <ol type="A">
+      <li>Button
+      <li>CheckboxMenuItem
+      <li>Menu
+      <li>Canvas</li>
+    </ol>
+  </li>
+</ol>
+<b>Answers to questions on AWT</b><br>
+<ol type="1">
+  <li>b, c, d, e
+  <li>a, b, c, e
+  <li>d
+  <li>MenuComponent
+  <li>b, c, e
+  <li>c
+  <li>a, d</li>
+</ol>
+<hr>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

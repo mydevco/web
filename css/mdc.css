@@ -1,4 +1,4 @@
-﻿@font-face {
+@font-face {
 	font-family: 'codropsicons';
 	src:url('../fonts/codropsicons/codropsicons.eot');
 	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
@@ -30,14 +30,15 @@ body.technews	{
 		background-size: 128px 128px;
 }
 li {
-    border-bottom: 1px green dotted;
+    border-bottom: 2px green dotted;
+    margin-top: 25px;
 	margin-bottom: 25px;
-	padding: 2px;
+	padding: 5px;
 }
 ol li {
     list-style: none; /* Remove list bullets */
-    padding: 0;
-    margin: 0;
+    padding: 3;
+    margin: 2;
 }
 
 li : nth-child {

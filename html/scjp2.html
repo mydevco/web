@@ -1,0 +1,800 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 2</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><b
+ style=""><span style="font-size: 18pt;">Chapter 2 Operators and assignments</span></b><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Unary operators.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.1<span
+ style="font-size: 7pt;">&nbsp; </span>Increment and Decrement operators ++ --<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">We have postfix and prefix 
+notation. In post-fix notation value of the variable/expression is <u>modified 
+after</u> the value is taken for the execution of statement. In prefix notation, 
+value of the variable/expression is <u>modified before</u> the value is taken 
+for the execution of statement.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">x = 5; y = 0; 
+y = x++;</span><span style="">&nbsp; </span>Result will be x = 6, y = 5<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">x = 5; y = 0; 
+y = ++x;</span><span style="">&nbsp; </span>Result will be x = 6, y = 6<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">Implicit narrowing conversion 
+is done, when applied to byte, short or char.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.2<span
+ style="font-size: 7pt;">&nbsp; </span>Unary minus and unary plus + -<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">+ has no effect than to stress 
+positivity.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">- negates an expression’s 
+value. (2’s complement for integral expressions)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.3<span
+ style="font-size: 7pt;">&nbsp; </span>Negation !<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">Inverts the value of a boolean 
+expression.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.4<span
+ style="font-size: 7pt;">&nbsp; </span>Complement ~<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">Inverts the bit pattern of an 
+integral expression. (1’s complement – 0s to 1s and 1s to 0s)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">Cannot be applied to 
+non-integral types.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.5<span
+ style="font-size: 7pt;">&nbsp; </span>Cast ()<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in;">Persuades compiler to allow 
+certain assignments. Extensive checking is done at compile and runtime to ensure 
+type-safety.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Arithmetic 
+operators - *, /, %, +, - <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to all numeric types. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to only the numeric types, 
+except ‘+’ – it can be applied to Strings as well.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All arithmetic operations are done at 
+least with ‘int’. (If types are smaller, promotion happens. Result will be of a 
+type at least as wide as the wide type of operands)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Accuracy is lost silently when arithmetic 
+overflow/error occurs. Result is a nonsense value.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Integer division by zero throws an 
+exception.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>% - reduce the magnitude of LHS by the 
+magnitude of RHS. (continuous subtraction)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>% - sign of the result entirely 
+determined by sign of LHS<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>5 % 0 throws an ArithmeticException.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Floating point calculations can produce 
+NaN (square root of a negative no) or Infinity ( division by zero). Float and 
+Double wrapper classes have named constants for NaN and infinities.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>NaN’s are non-ordinal for comparisons. x 
+==<span style="">&nbsp; </span>Float.NaN won’t work. Use Float.IsNaN(x) But 
+equals method on wrapper objects(Double or Float) with NaN values compares Nan’s 
+correctly.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Infinities are ordinal. X == 
+Double.POSITIVE_INFINITY will give expected result.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>+ also performs String concatenation 
+(when any operand in an expression is a String). The language itself overloads 
+this operator. toString method of non-String object operands are called to 
+perform concatenation. In case of primitives, a wrapper object is created with 
+the primitive value and toString method of that object is called. (“Vel” + 3 
+will work.)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Be aware of associativity when multiple 
+operands are involved.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">
+System.out.println( 1 + 2 + “3” );</span> // Prints 33<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">
+System.out.println( “1” + 2 + 3 );</span> // Prints 123<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">3.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Shift operators - 
+&lt;&lt;, &gt;&gt;, &gt;&gt;&gt;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;&lt; performs a signed left shift. 0 bits 
+are brought in from the right. Sign bit (MSB) is preserved. Value becomes old 
+value * 2 ^ x where x is no of bits shifted.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&gt;&gt; performs a signed right shift. Sign 
+bit is brought in from the left. (0 if positive, 1 if negative. Value becomes 
+old value / 2 ^ x where x is no of bits shifted. Also called arithmetic right 
+shift.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&gt;&gt;&gt; performs an unsigned logical right 
+shift. 0 bits are brought in from the left. This operator exists since Java 
+doesn’t provide an unsigned data type (except char). &gt;&gt;&gt; changes the sign of a 
+negative number to be positive. So don’t use it with negative numbers, if you 
+want to preserve the sign. Also don’t use it with types smaller than int. (Since 
+types smaller than int are promoted to an int before any shift operation and the 
+result is cast down again, so the end result is unpredictable.)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Shift operators can be applied to only 
+integral types.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-1 &gt;&gt; 1 is –1, not 0. This differs from 
+simple division by 2. We can think of it as shift operation rounding down.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>1 &lt;&lt; 31 will become the minimum value 
+that an int can represent. (Value becomes negative, after this operation, if you 
+do a signed right shift sign bit is brought in from the left and the value 
+remains negative.)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Negative numbers are represented in two’s 
+complement notation. (Take one’s complement and add 1 to get two’s complement)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Shift operators never shift more than the 
+number of bits the type of result can have. ( i.e. int 32, long 64) RHS operand 
+is reduced to RHS % x where x is no of bits in type of result.<span style="">&nbsp;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1.25in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">int x; </span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1.25in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">x =<span
+ style="">&nbsp; </span>x &gt;&gt; 33;</span><span style="">&nbsp; </span>// Here 
+actually what happens is x &gt;&gt; 1<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">4.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Comparison 
+operators – all return boolean type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">4.1<span
+ style="font-size: 7pt;">&nbsp; </span>Ordinal comparisons - &lt;, &lt;=, &gt; , &gt;= <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Only operate on numeric types. Test the 
+relative value of the numeric operands.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Arithmetic promotions apply. char can be 
+compared to float.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">4.2<span
+ style="font-size: 7pt;">&nbsp; </span>Object type comparison – instanceof<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Tests the class of an object at runtime. 
+Checking is done at compile and runtime same as the cast operator.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Returns true if the object denoted by LHS 
+reference can be cast to RHS type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>LHS should be an object reference 
+expression, variable or an array reference.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>RHS should be a class (abstract classes 
+are fine), an interface or an array type, castable to LHS object reference. 
+Compiler error if LHS &amp; RHS are unrelated.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can’t use java.lang.Class or its String 
+name as RHS.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Returns true if LHS is a class or 
+subclass of RHS class<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Returns true if LHS implements RHS 
+interface.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Returns true if LHS is an array reference 
+and of type RHS.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x instanceof Component[] – legal.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x instanceof [] – illegal. Can’t test for 
+‘any array of any type’<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Returns false if LHS is null, no 
+exceptions are thrown.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If x instanceof Y is not allowed by 
+compiler, then Y y = (Y) x is not a valid cast expression. If x instanceof Y is 
+allowed and returns false, the above cast is valid but throws a 
+ClassCastException at runtime. If x instanceof Y returns true, the above cast is 
+valid and runs fine.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">4.3<span
+ style="font-size: 7pt;">&nbsp; </span>Equality comparisons - ==, !=<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>For primitives it’s a straightforward 
+value comparison. (promotions apply)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>For object references, this doesn’t make 
+much sense. Use equals method for meaningful comparisons. (Make sure that the 
+class implements equals in a meaningful way, like for X.equals(Y) to be true, Y 
+instance of X must be true as well)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>For String literals, == will return true, 
+this is because of compiler optimization.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">5.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Bit-wise 
+operators - &amp;, ^, |<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Operate on numeric and boolean operands.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&amp; - AND operator, both bits must be 1 to 
+produce 1.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>| - OR operator, any one bit can be 1 to 
+produce 1.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>^ - XOR operator, any one bit can be 1, 
+but not both, to produce 1.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In case of booleans true is 1, false is 
+0.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can’t cast any other type to boolean.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">6.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Short-circuit 
+logical operators - &amp;&amp;, ||<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Operate only on boolean types.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>RHS might not be evaluated (hence the 
+name short-circuit), if the result can be determined only by looking at LHS.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>false &amp;&amp; X<span style="">&nbsp; </span>is 
+always false.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>true || X is always true.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>RHS is evaluated only if the result is 
+not certain from the LHS.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>That’s why there’s no logical XOR 
+operator. Both bits need to be known to calculate the result.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Short-circuiting doesn’t change the 
+result of the operation. But side effects might be changed. (i.e. some 
+statements in RHS might not be executed, if short-circuit happens. Be careful)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">7.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Ternary operator<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Format a = x ? b : c ;<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x should be a boolean expression.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Based on x, either b or c is evaluated. 
+Both are never evaluated.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>b will be assigned to a if x is true, 
+else c is assigned to a.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>b and c should be assignment compatible 
+to a. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>b and c are made identical during the 
+operation according to promotions.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">8.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Assignment 
+operators.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Simple assignment =.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>op= calculate and assign 
+operators(extended assignment operators)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>*=, /=, %=, +=, -=<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>x += y means x = x + y. But x is 
+evaluated only once. Be aware.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Assignment of reference variables copies 
+the reference value, not the object body.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Assignment has value, value of LHS after 
+assignment. So a = b = c = 0 is legal. c = 0 is executed first, and the value of 
+the assignment (0) assigned to b, then the value of that assignment (again 0) is 
+assigned to a. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Extended assignment operators do an 
+implicit cast. (Useful when applied to byte, short or char)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.5in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">byte b = 10;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">b = b + 10; // 
+Won’t compile, explicit cast required since the expression evaluates to an int</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">b += 10; // 
+OK, += does an implicit cast from int to byte</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-family: &quot;Times New Roman&quot;;">9.</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>General<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>In Java, No overflow or underflow of 
+integers happens. i.e. The values wrap around. Adding 1 to the maximum int value 
+results in the minimum value. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Always keep in mind that operands are 
+evaluated from left to right, and the operations are executed in the order of 
+precedence and associativity.<span
+ style="">&nbsp; </span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Unary Postfix operators and all binary 
+operators (except assignment operators) have left to right assoiciativity.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>All unary operators (except postfix 
+operators), assignment operators, ternary operator, object creation and cast 
+operators have right to left assoiciativity.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Inspect the following code.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">public class 
+Precedence {</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>final public static void main(String args[]) {</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>int i = 0; </span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i = i++; </span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i = i++; </span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>i = i++;</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(i); </span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">// prints 0, 
+since = operator has the lowest precedence.</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>int array[] = new int[5];</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>int index = 0;</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: 0.5in;"><span
+ class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">array[index] = 
+index = 3; </span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in; text-indent: 0.5in;"><span
+ class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">// 1<sup>st</sup>
+element gets assigned to 3, not the 4<sup>th</sup> element</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>for (int c = 0; c &lt; array.length; c++)</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;</span>System.out.println(array[c]);<span
+ style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(&quot;index is &quot; + index); // prints 3<span
+ style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>}</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span class="code"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">}</span></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 40.65pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 9.75pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 158.25pt; height: 9.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><b><span style="">Type of Operators</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 9.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><b><span style="">Operators</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 9.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><b><span style="">Associativity</span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Postfix operators</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">[] . 
+	  (parameters) ++ --</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Left to 
+	  Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Prefix Unary operators</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">++<span style="">&nbsp;
+      </span>-- + - ~ !</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Right to Left</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Object creation and cast</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">new (type)</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Right to Left</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">
+	  Multiplication/Division/Modulus</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">* / %</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Addition/Subtraction</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">+ -</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Shift</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">&gt;&gt; &gt;&gt;&gt; &lt;&lt;</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Relational</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">&lt; &lt;= &gt; &gt;= instanceof</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Equality</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">== !=</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Bit-wise/Boolean AND</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">&amp;</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Bit-wise/Boolean XOR</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">^</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Bit-wise/Boolean OR</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">|</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Logical AND (Short-circuit or 
+	  Conditional)</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">&amp;&amp;</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Logical OR (Short-circuit or 
+	  Conditional)</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">||</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Left to Right</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Ternary</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">? :</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Right to Left</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 15.75pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 158.25pt; height: 15.75pt;"
+ valign="top" width="211">
+      <p class="MsoNormal" style=""><span style="">Assignment</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 15.75pt;"
+ valign="top" width="264">
+      <p class="MsoNormal" style=""><span style="">= += -= *= /= %= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= 
+	  &amp;= ^= |=</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 105.75pt; height: 15.75pt;"
+ valign="top" width="141">
+      <p class="MsoNormal" style=""><span style="">Right to Left</span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1>&nbsp;<o:p></o:p></h1>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

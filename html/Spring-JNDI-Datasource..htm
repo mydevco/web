@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Configure datasource using JNDI in spring.</title>
+  
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<big><big><span style="font-weight: bold;">Configuring datasource in spring 
+				through JNDI:</span></big></big><br>
+				There are several ways to configure JNDI based data source in 
+				Spring. The following steps explains the same using Sun&#39;s file 
+				system based JNDI implementetion along with JndiTemplate in 
+				Spring. The following code uses apache c3p0 connection pool. You 
+				can replace the datasource creationg code with simple data 
+				source or some other connection pool api.<br>
+<br>
+<span style="text-decoration: underline; font-weight: bold;">Step1</span>: 
+				Define a connection properties file in class path. The 
+				properties file should have all the keys and values required for 
+				creating a datasource. You can replace the connection properties 
+				file with a xml file or&nbsp;constants in your code.<br>
+				a simple properties file for c3p0 and postgres looks like this:<br>
+<br>
+				driverClass=org.postgresql.Driver<br>
+				user=postgres<br>
+				password=postgres<br>
+				jdbcUrl=jdbc:postgresql://localhost/mydb<br>
+<br>
+<span style="text-decoration: underline; font-weight: bold;">Step 2</span>: 
+				Place the following piece of code in standalone class or 
+				wherever you get your bean factory. When executed, it generates 
+				a .binding file in your jndi root directory (c:/temp here). This 
+				.binding file contains your datasource information which could 
+				be used by jndi lookup api. You can use eclipse to resolve 
+				import depedencies. The following api needs to be in class path<br>
+<ol>
+  <li>jndi.jar, fscontext.jar and providerutil.jar downloadable from Sun&#39;s JNDI 
+  download page.</li>
+  <li>c3p0-0.9.0.jar available from apache or hibernate.</li>
+</ol>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; System.setProperty(Context.INITIAL_CONTEXT_FACTORY,<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &quot;com.sun.jndi.fscontext.RefFSContextFactory&quot;);<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; System.setProperty(Context.PROVIDER_URL, 
+				&quot;file:c:/temp&quot;); // change provider url to a platform specific 
+				path<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Context registry = new InitialContext();<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // create a new connection pool data source, read the 
+				properties<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // file<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // and bind it to a name<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ComboPooledDataSource cpds = new 
+				ComboPooledDataSource();<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Properties dsProperties = new Properties();<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; FileInputStream cpdsPropFile = new 
+				FileInputStream(&quot;myconnection.properties);// 
+				myconnection.properties created in step1<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; dsProperties.load(cpdsPropFile);<br>
+				&nbsp;&nbsp;&nbsp; 
+				&nbsp;&nbsp;&nbsp;&nbsp;cpds.setDriverClass(dsProperties.getProperty(&quot;driverClass&quot;));<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;cpds.setUser(dsProperties.getProperty(&quot;user&quot;));<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cpds.setDescription(&quot;MYCONNECTIONKEY&quot; + &quot; Data Source&quot;); 
+				//replace MYCONNECTIONKEY with the key you wish to use for 
+				lookup<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;cpds.setPassword(dsProperties.getProperty(&quot;password&quot;));<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cpds.setJdbcUrl(dsProperties.getProperty(&quot;jdbcUrl&quot;));<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Connection con = cpds.getConnection();<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if (con != null){ <br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //Success<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;registry.rebind(&quot;MYCONNECTIONKEY&quot;, cpds);<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // &quot;closing&quot; a connection sends it back to the 
+				pool<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; con.close();<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; } else {<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; //Something wrong<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+<br>
+<span style="font-weight: bold; text-decoration: underline;">Step3:</span> &nbsp;The 
+				following entry in applicationcontext.xml configures a 
+				datasource bound with JNDI key created in step2.<br>
+				&nbsp;&nbsp;&nbsp; &lt;!-- JNDI datasource for hibernate --&gt;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+				&nbsp;&nbsp;&nbsp; &lt;bean id=&quot;jndiTemplate&quot; 
+				class=&quot;org.springframework.jndi.JndiTemplate&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;property name=&quot;environment&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;props&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;prop 
+				key=&quot;java.naming.factory.initial&quot;&gt;com.sun.jndi.fscontext.RefFSContextFactory&lt;/prop&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;prop 
+				key=&quot;java.naming.provider.url&quot;&gt;file:c:/temp&lt;/prop&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/props&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+				&nbsp;&nbsp;&nbsp; &lt;/bean&gt;<br>
+				&nbsp;&nbsp;&nbsp; &lt;bean id=&quot;jndiDataSource&quot; 
+				class=&quot;org.springframework.jndi.JndiObjectFactoryBean&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;property name=&quot;jndiTemplate&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ref bean=&quot;jndiTemplate&quot;/&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;property name=&quot;jndiName&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;value&gt;MYCONNECTIONKEY&lt;/value&gt;<br>
+				&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+				&nbsp; &nbsp;&nbsp;&nbsp; &lt;/bean&gt;<br>
+				&nbsp;&nbsp;&nbsp; &lt;!-- Hibernate SessionFactory --&gt;<br>
+				&nbsp;&nbsp;&nbsp; &lt;bean id=&quot;sessionFactory&quot; 
+				class=&quot;org.springframework.orm.hibernate3.LocalSessionFactoryBean&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property name=&quot;dataSource&quot;&gt;&lt;ref 
+				bean=&quot;jndiDataSource&quot;/&gt;&lt;/property&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property name=&quot;mappingResources&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;list&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;.......&lt;/value&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/list&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property name=&quot;hibernateProperties&quot;&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;props&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;prop key=&quot;hibernate.show_sql&quot;&gt;false&lt;/prop&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;prop 
+				key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.PostgreSQLDialect&lt;/prop&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;prop 
+				key=&quot;hibernate.jdbc.batch_size&quot;&gt;1000&lt;/prop&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/prop&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;prop 
+				key=&quot;hibernate.cache.use_query_cache&quot;&gt;true&lt;/prop&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/props&gt;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+				&nbsp;&nbsp;&nbsp; &lt;/bean&gt;<br>
+<br>
+				That&#39;s it. Whenever you change your connection properties, make 
+				sure the code in step2 gets executed to rebind new data source. 
+				Similar approach could be used with LDAP based jndi. <br>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

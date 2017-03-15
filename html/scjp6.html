@@ -1,0 +1,1168 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 6</title>
+  
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p><b><font size="4">Chapter 6 Objects and Classes</font></b></p>
+<p style="">Implementing OO relationships</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“is a” relationship is implemented by inheritance (extends keyword)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“has a” relationship is implemented by providing the class with 
+member variables.</p>
+<p style="">Overloading and Overriding</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overloading is an example of polymorphism. (operational / parametric)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overriding is an example of runtime polymorphism (inclusive)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A method can have the same name as another method in the same class, 
+provided it forms either a valid overload or override</p>
+<table
+ style="border: medium none ; margin-left: 0.5in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">Overloading</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      Overriding</td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">Signature has to be different. Just a difference in return 
+	  type is not enough.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      <p style="">Signature has to be the same. (including the return type)</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">Accessibility may vary freely.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      <p style="">Overriding methods cannot be more private than the overridden 
+	  methods.</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">Exception list may vary freely.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      <p style="">Overriding methods may not throw more checked exceptions than 
+	  the overridden methods.</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">Just the name is reused. Methods are independent methods. 
+	  Resolved at compile-time based on method signature.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      <p style="">Related directly to sub-classing. Overrides the parent class 
+	  method. Resolved at run-time based on type of the object.</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">Can call each other by providing appropriate argument list.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      <p style="">Overriding method can call overridden method by 
+	  super.methodName(), this can be used only to access the immediate 
+	  super-class’s method. super.super won’t work. Also, a class outside the 
+	  inheritance hierarchy can’t use this technique.</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">Methods can be static or non-static. Since the methods are 
+	  independent, it doesn’t matter. But if two methods have the same 
+	  signature, declaring one as static and another as non-static does not 
+	  provide a valid overload. It’s a compile time error.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      <p style="">static methods don’t participate in overriding, since they are 
+	  resolved at compile time based on the type of reference variable. A static 
+	  method in a sub-class can’t use ‘super’ (for the same reason that it can’t 
+	  use ‘this’ for)</p>
+      <p style="">Remember that a static method can’t be overridden to be 
+	  non-static and a non-static method can’t be overridden to be static. In 
+	  other words, a static method and a non-static method cannot have the same 
+	  name and signature (if signatures are different, it would have formed a 
+	  valid overload)</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.95in;"
+ valign="top" width="283">
+      <p style="">There’s no limit on number of overloaded methods a class can 
+	  have.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 3.2in;"
+ valign="top" width="307">
+      <p style="">Each parent class method may be overridden at most once in any 
+	  sub-class. (That is, you cannot have two identical methods in the same 
+	  class)</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Variables can also be overridden, it’s known as shadowing or hiding. 
+But, member variable references are resolved at compile-time. So at the runtime, 
+if the class of the object referred by a parent class reference variable, is in 
+fact a sub-class having a shadowing member variable, only the parent class 
+variable is accessed, since it’s already resolved at compile time based on the 
+reference variable type. Only methods are resolved at run-time.</p>
+<p>public class Shadow {</p>
+<p>&nbsp; public static void main(String s[]) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S1 s1 = new S1();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S2 s2 = new S2();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s1.s); // prints S1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s1.getS()); // prints 
+S1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(s2.s); // prints S2</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;System.out.println(s2.getS()); // prints S2</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s1 = s2;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s1.s); // prints S1, 
+not S2 - </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// since variable is resolved at compile time</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s1.getS()); // prints 
+S2 - </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // since 
+method is resolved at run time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>class S1 {</p>
+<p>&nbsp; public String s = &quot;S1&quot;;</p>
+<p>&nbsp; </p>
+<p>&nbsp; public String getS() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return s;</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>class S2 extends S1{</p>
+<p>&nbsp; public String s = &quot;S2&quot;;</p>
+<p>&nbsp; public String getS() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return s;</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>In the above code, if we didn’t have the overriding getS() method in the 
+sub-class and if we call the method from sub-class reference variable, the 
+method will return only the super-class member variable value. For explanation, 
+see the following point.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Also, methods access variables only in context of the class of the 
+object they belong to. If a sub-class method calls explicitly a super class 
+method, the super class method always will access the super-class variable. 
+Super class methods will not access the shadowing variables declared in 
+subclasses because they don’t know about them. (When an object is created, 
+instances of all its super-classes are also created.) But the method accessed 
+will be again subject to dynamic lookup. It is always decided at runtime which 
+implementation is called. (Only static methods are resolved at compile-time)</p>
+<p>public class Shadow2 {</p>
+<p>&nbsp; String s = &quot;main&quot;;</p>
+<p>&nbsp; public static void main(String s[]) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S2 s2 = new S2();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s2.display();&nbsp; // Produces an 
+output – S1, S2</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S1 s1 = new S1();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s1.getS()); // prints 
+S1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s2.getS()); // prints 
+S1 – since super-class method </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// always accesses super-class variable</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>class S1 {</p>
+<p>&nbsp; String s = &quot;S1&quot;;</p>
+<p>&nbsp; public String getS() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return s;</p>
+<p>&nbsp; }</p>
+<p>&nbsp; void display() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s);</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>class S2 extends S1{</p>
+<p>&nbsp; String s = &quot;S2&quot;;</p>
+<p>&nbsp; void display() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.display();&nbsp;&nbsp; // Prints 
+S1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(s); // prints S2</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With OO languages, the class of the object may not be known at 
+compile-time (by virtue of inheritance). JVM from the start is designed to 
+support OO. So, the JVM insures that the method called will be from the real 
+class of the object (not with the variable type declared). This is accomplished 
+by virtual method invocation (late binding). Compiler will form the argument 
+list and produce one method invocation instruction – its job is over. The job of 
+identifying and calling the proper target code is performed by JVM.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JVM knows about the variable’s real type at any time since when it 
+allocates memory for an object, it also marks the type with it. Objects always 
+know ‘who they are’. This is the basis of instanceof operator.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub-classes can use super keyword to access the shadowed variables in 
+super-classes. This technique allows for accessing only the immediate 
+super-class. super.super is not valid. But casting the ‘this’ reference to 
+classes up above the hierarchy will do the trick. By this way, variables in 
+super-classes above any level can be accessed from a sub-class, since variables 
+are resolved at compile time, when we cast the ‘this’ reference to a 
+super-super-class, the compiler binds the super-super-class variable. But this 
+technique is not possible with methods since methods are resolved always at 
+runtime, and the method gets called depends on the type of object, not the type 
+of reference variable. So it is not at all possible to access a method in a 
+super-super-class from a subclass.</p>
+<p>public class ShadowTest {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static void main(String s[]){</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;new STChild().demo();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>}</p>
+<p>class STGrandParent {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double wealth = 50000.00;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public double getWealth() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;System.out.println(&quot;GrandParent-&quot; + 
+wealth);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return wealth;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>}</p>
+<p>class STParent extends STGrandParent {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double wealth = 100000.00;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public double getWealth() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;System.out.println(&quot;Parent-&quot; + wealth);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return wealth;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>}</p>
+<p>class STChild extends STParent {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double wealth = 200000.00;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public double getWealth() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;System.out.println(&quot;Child-&quot; + wealth);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;return wealth;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void demo() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;getWealth(); // Calls Child method</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;super.getWealth(); // Calls Parent 
+method</p>
+<p>// Compiler error, GrandParent method cannot be accessed</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;//super.super.getWealth(); </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;// Calls Child method, due to dynamic 
+method lookup</p>
+<p>((STParent)this).getWealth();</p>
+<p>// Calls Child method, due to dynamic method lookup</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ((STGrandParent)this).getWealth();&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;System.out.println(wealth); // Prints 
+Child wealth</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;System.out.println(super.wealth); // 
+Prints Parent wealth</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Prints Parent wealth </p>
+<p>System.out.println(((STParent)(this)).wealth);</p>
+<p>// Prints GrandParent wealth</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;System.out.println(((STGrandParent)(this)).wealth);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>}</p>
+<p>}</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An inherited method, which was not abstract on the super-class, can 
+be declared abstract in a sub-class (thereby making the sub-class abstract). 
+There is no restriction. In the same token, a subclass can be declared abstract 
+regardless of whether the super-class was abstract or not.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private members are not inherited, but they do exist in the 
+sub-classes. Since the private methods are not inherited, they cannot be 
+overridden. A method in a subclass with the same signature as a private method 
+in the super-class is essentially a new method, independent from super-class, 
+since the private method in the super-class is not visible in the sub-class.</p>
+<p>public class PrivateTest {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static void main(String s[]){</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;new PTSuper().hi(); // Prints always 
+Super</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;new PTSub().hi(); // Prints Super when subclass doesn&#39;t have hi method</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Prints Sub when subclass has hi method</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;PTSuper sup;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;sup = new PTSub();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;sup.hi(); // Prints Super when subclass 
+doesn&#39;t have hi method</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Prints Sub when subclass has hi method</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;}</p>
+<p>}</p>
+<p>class PTSuper {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void hi() { // Super-class 
+implementation always calls superclass hello</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;hello();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private void hello() { // This method is 
+not inherited by subclasses, but exists in them.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Commenting out both the methods in the subclass show this.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// The test will then print &quot;hello-Super&quot; for all three calls</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// i.e. Always the super-class implementations are called</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;System.out.println(&quot;hello-Super&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>}</p>
+<p>class PTSub extends PTSuper {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void hi() { // This method 
+overrides super-class hi, calls subclass hello</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;try {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;hello(); </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;catch(Exception e) {}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; void hello() throws Exception { // This 
+method is independent from super-class hello</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Evident from, it&#39;s allowed to throw Exception</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;System.out.println(&quot;hello-Sub&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>}</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Private methods are not overridden, so calls to private methods are 
+resolved at compile time and not subject to dynamic method lookup. See the 
+following example.</p>
+<p>public class Poly {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static void main(String args[]) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;PolyA ref1 = new PolyC();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;PolyB ref2 = (PolyB)ref1;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;System.out.println(ref2.g()); // This 
+prints 1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// If f() is not private in PolyB, then prints 2</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;}</p>
+<p>}</p>
+<p>class PolyA {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private int f() { return 0; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public int g() { return 3; }</p>
+<p>}</p>
+<p>class PolyB extends PolyA {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private int f() { return 1; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public int g() { return f(); }</p>
+<p>}</p>
+<p>class PolyC extends PolyB {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public int f() { return 2; }</p>
+<p>}</p>
+<p style="">Constructors and Sub-classing</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructors are not inherited as normal methods, they have to be 
+defined in the class itself.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you define no constructors at all, then the compiler provides a 
+default constructor with no arguments. Even if, you define one constructor, this 
+default is not provided. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We can’t compile a sub-class if the immediate super-class doesn’t 
+have a no argument default constructor, and sub-class constructors are not 
+calling super or this explicitly (and expect the compiler to insert an implicit 
+super() call )</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A constructor can call other overloaded constructors by ‘this 
+(arguments)’. If you use this, it must be the first statement in the 
+constructor. This construct can be used only from within a constructor.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A constructor can’t call the same constructor from within. Compiler 
+will say ‘ recursive constructor invocation’</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A constructor can call the parent class constructor explicitly by 
+using ‘super (arguments)’. If you do this, it must be first the statement in the 
+constructor. This construct can be used only from within a constructor.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obviously, we can’t use both this and super in the same constructor. 
+If compiler sees a this or super, it won’t insert a default call to super().</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructors can’t have a return type. A method with a class name, 
+but with a return type is not considered a constructor, but just a method by 
+compiler. Expect trick questions using this.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructor body can have an empty return statement. Though void 
+cannot be specified with the constructor signature, empty return statement is 
+acceptable.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only modifiers that a constructor can have are the accessibility 
+modifiers.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructors cannot be overridden, since they are not inherited.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Initializers are used in initialization of objects and classes and to 
+define constants in interfaces. These initializers are :</p>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Static and Instance variable initializer 
+expressions.</p>
+<p>Literals and method calls to initialize variables. Static variables can be 
+initialized </p>
+<p>only by static method calls.</p>
+<p>Cannot pass on the checked exceptions. Must catch and handle them.</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Static initializer blocks.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Used to initialize static variables and 
+load native libraries.</p>
+<p>Cannot pass on the checked exceptions. Must catch and handle them.</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Instance initializer blocks.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Used to factor out code that is common 
+to all the constructors.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Also useful with anonymous classes since 
+they cannot have constructors.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All constructors must declare the 
+uncaught checked exceptions, if any.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Instance Initializers in anonymous 
+classes can throw any exception.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In all the initializers, forward referencing of variables is not 
+allowed. Forward referencing of methods is allowed.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order of code execution (when creating an object) is a bit tricky.</p>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; static variables initialization.</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; static initializer block execution. (in the 
+order of declaration, if multiple blocks found)</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; constructor header ( super or this – 
+implicit or explicit )</p>
+<p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; instance variables initialization / instance 
+initializer block(s) execution</p>
+<p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rest of the code in the constructor</p>
+<p style="">Interfaces</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All methods in an interface are implicitly public, abstract, and 
+never static.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All variables in an interface are implicitly static, public, final. 
+They cannot be transient or volatile. A class can shadow the variables it 
+inherits from an interface, with its own variables.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A top-level interface itself cannot be declared as static or final 
+since it doesn’t make sense.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Declaring parameters to be final is at method’s discretion, this is 
+not part of method signature.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Same case with final, synchronized, native. Classes can declare the 
+methods to be final, synchronized or native whereas in an interface they cannot 
+be specified like that. (These are implementation details, interface need not 
+worry about this)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;But classes cannot implement an interface method with a static 
+method.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If an interface specifies an exception list for a method, then the 
+class implementing the interface need not declare the method with the exception 
+list. (Overriding methods can specify sub-set of overridden method’s exceptions, 
+here none is a sub-set). But if the interface didn’t specify any exception list 
+for a method, then the class cannot throw any exceptions.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All interface methods should have public accessibility when 
+implemented in class.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interfaces cannot be declared final, since they are implicitly 
+abstract.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A class can implement two interfaces that have a method with the same 
+signature or variables with the same name.</p>
+<p>Inner Classes</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A class can be declared in any 
+scope. Classes defined inside of other classes are known as nested classes. 
+There are four categories of nested classes.</p>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Top-level nested classes / interfaces</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Declared as a class member with static modifier. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Just like other static features of a class. Can be accessed / 
+instantiated without an instance of the outer class. Can access only static 
+members of outer class. Can’t access instance variables or methods. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Very much like any-other package level class / interface. Provide an 
+extension to packaging by the modified naming scheme at the top level.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Classes can declare both static and non-static members.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any accessibility modifier can be specified.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interfaces are implicitly static (static modifier also can be 
+specified). They can have any accessibility modifier. There are no non-static 
+inner, local or anonymous interfaces.</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Non-static inner classes</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Declared as a class member without static.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An instance of a non-static inner class can exist only with an 
+instance of its enclosing class. So it always has to be created within a context 
+of an outer instance.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Just like other non-static features of a class. Can access all the 
+features (even private) of the enclosing outer class. Have an implicit reference 
+to the enclosing instance.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cannot have any static members.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Can have any access modifier.</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Local classes</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defined inside a block (could be a method, a constructor, a local 
+block, a static initializer or an instance initializer). Cannot be specified 
+with static modifier.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cannot have any access modifier (since they are effectively local to 
+the block)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cannot declare any static members.(Even declared in a static context)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Can access all the features of the enclosing class (because they are 
+defined inside the method of the class) but can access only final variables 
+defined inside the method (including method arguments). This is because the 
+class can outlive the method, but the method local variables will go out of 
+scope – in case of final variables, compiler makes a copy of those variables to 
+be used by the class. (New meaning for final)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Since the names of local classes are not visible outside the local 
+context, references of these classes cannot be declared outside. So their 
+functionality could be accessed only via super-class references (either 
+interfaces or classes). Objects of those class types are created inside methods 
+and returned as super-class type references to the outside world. This is the 
+reason that they can only access final variables within the local block. That 
+way, the value of the variable can be always made available to the objects 
+returned from the local context to outside world.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cannot be specified with static modifier. But if they are declared 
+inside a static context such as a static method or a static initializer, they 
+become static classes. They can only access static members of the enclosing 
+class and local final variables. But this doesn’t mean they cannot access any 
+non-static features inherited from super classes. These features are their own, 
+obtained via the inheritance hierarchy. They can be accessed normally with 
+‘this’ or ‘super’. </p>
+<p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Anonymous classes</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anonymous classes are defined where they are constructed. They can be 
+created wherever a reference expression can be used.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anonymous classes cannot have explicit constructors. Instance 
+initializers can be used to achieve the functionality of a constructor.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Typically used for creating objects on the fly.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anonymous classes can implement an interface (implicit extension of 
+Object) or explicitly extend a class. Cannot do both.</p>
+<p>Syntax: new interface name() { } or new class name() { }</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keywords implements and extends are not used in anonymous classes.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abstract classes can be specified in the creation of an anonymous 
+class. The new class is a concrete class, which automatically extends the 
+abstract class.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Discussion for local classes on static/non-static context, accessing 
+enclosing variables, and declaring static variables also holds good for 
+anonymous classes. In other words, anonymous classes cannot be specified with 
+static, but based on the context, they could become static classes. In any case, 
+anonymous classes are not allowed to declare static members. Based on the 
+context, non-static/static features of outer classes are available to anonymous 
+classes. Local final variables are always available to them.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One enclosing class can have multiple instances of inner classes. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inner classes can have synchronous methods. But calling those methods 
+obtains the lock for inner object only not the outer object.&nbsp; If you need 
+to synchronize an inner class method based on outer object, outer object lock 
+must be obtained explicitly. Locks on inner object and outer object are 
+independent.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nested classes can extend any class or can implement any interface. 
+No restrictions.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All nested classes (except anonymous classes) can be abstract or 
+final.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Classes can be nested to any depth. Top-level static classes can be 
+nested only within other static top-level classes or interfaces. Deeply nested 
+classes also have access to all variables of the outer-most enclosing class (as 
+well the immediate enclosing class’s)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Member inner classes can be forward referenced. Local inner classes 
+cannot be.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An inner class variable can shadow an outer class variable. In this 
+case, an outer class variable can be referred as 
+(outerclassname.this.variablename).</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outer class variables are accessible within the inner class, but they 
+are not inherited. They don’t become members of the inner class. This is 
+different from inheritance. (Outer class cannot be referred using ‘super’, and 
+outer class variables cannot be accessed using ‘this’)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An inner class variable can shadow an outer class variable. If the 
+inner class is sub-classed within the same outer class, the variable has to be 
+qualified explicitly in the sub-class. To fully qualify the variable, use 
+classname.this.variablename. If we don’t correctly qualify the variable, a 
+compiler error will occur. (Note that this does not happen in multiple levels of 
+inheritance where an upper-most super-class’s variable is silently shadowed by 
+the most recent super-class variable or in multiple levels of nested inner 
+classes where an inner-most class’s variable silently shadows an outer-most 
+class’s variable. Problem comes only when these two hierarchy chains 
+(inheritance and containment) clash.)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the inner class is sub-classed outside of the outer class (only 
+possible with top-level nested classes) explicit qualification is not needed (it 
+becomes regular class inheritance)<br
+ style="page-break-before: always;" clear="all">
+</p>
+<p>// Example 1</p>
+<p>public class InnerInnerTest {</p>
+<p>&nbsp; public static void main(String s[]) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Outer().new Inner().new 
+InnerInner().new InnerInnerInner().doSomething();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Outer().new 
+InnerChild().doSomething();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Outer2().new Inner2().new 
+InnerInner2().doSomething();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new InnerChild2().doSomething();</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>class Outer {</p>
+<p>&nbsp; String name = &quot;Vel&quot;;</p>
+<p>&nbsp; class Inner {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String name = &quot;Sharmi&quot;;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class InnerInner {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class InnerInnerInner 
+{</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;public void doSomething() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // No problem in 
+accessing without full qualification, </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // inner-most class 
+variable shadows the outer-most class variable </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(name); // Prints &quot;Sharmi&quot;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(Outer.this.name); // Prints &quot;Vel&quot;, explicit reference to 
+Outer</p>
+<p>// error, variable is not inherited from the outer class, it can be just 
+accessible</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(this.name); </p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(InnerInner.this.name); </p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;System.out.println(InnerInnerInner.this.name); </p>
+<p>// error, super cannot be used to access outer class.</p>
+<p>// super will always refer the parent, in this case Object</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(super.name);&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(Inner.this.name); // Prints &quot;Sharmi&quot;, Inner has declared 
+&#39;name&#39;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; /* This is an inner class extending an inner class in the same scope 
+*/</p>
+<p>&nbsp; class InnerChild extends Inner {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void doSomething() {</p>
+<p>// compiler error, explicit qualifier needed </p>
+<p>// &#39;name&#39; is inherited from Inner, Outer&#39;s &#39;name&#39; is also in scope</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(name); </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(Outer.this.name); // prints &quot;Vel&quot;, explicit reference to 
+Outer</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(super.name); // prints &quot;Sharmi&quot;, Inner has declared &#39;name&#39;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(this.name); // prints &quot;Sharmi&quot;, name is inherited by 
+InnerChild</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>class Outer2 {</p>
+<p>&nbsp; static String name = &quot;Vel&quot;;</p>
+<p>&nbsp; static class Inner2 {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; static String name = &quot;Sharmi&quot;;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class InnerInner2 {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void 
+doSomething() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(name); // prints &quot;Sharmi&quot;, inner-most hides outer-most</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(Outer2.name); // prints &quot;Vel&quot;, explicit reference to Outer2&#39;s 
+static variable</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(this.name); // error, &#39;name&#39; is not inherited</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(super.name); // error, super refers to Object</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>/* This is a stand-alone class extending an inner class */</p>
+<p>class InnerChild2 extends Outer2.Inner2 {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void doSomething() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(name); // prints &quot;Sharmi&quot;, Inner2&#39;s name is inherited</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(Outer2.name); // prints &quot;Vel&quot;, explicit reference to Outer2&#39;s 
+static variable</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(super.name); // prints &quot;Sharmi&quot;, Inner2 has declared &#39;name&#39;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(this.name); // prints &quot;Sharmi&quot;, name is inherited by 
+InnerChild2</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>}</p>
+<p>// Example 2</p>
+<p>public class InnerTest2 {</p>
+<p>&nbsp; public static void main(String s[]) {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+new OuterClass().doSomething(10, 20);</p>
+<p>// This is legal</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+OuterClass.InnerClass ic = new OuterClass().new InnerClass();</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ic.doSomething();</p>
+<p>// Compiler error, local inner classes cannot be accessed from outside</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+OuterClass.LocalInnerClass lic = new OuterClass().new LocalInnerClass(); </p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+lic.doSomething();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+new OuterClass().doAnonymous();</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<p>class OuterClass {</p>
+<p>&nbsp; final int a = 100;</p>
+<p>&nbsp; private String secret = &quot;Nothing serious&quot;;</p>
+<p>&nbsp; public void doSomething(int arg, final int fa) { </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+final int x = 100;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+int y = 200;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(this.getClass() + &quot; - in doSomething&quot;);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.print(&quot;a = &quot; + a + &quot; secret = &quot; + secret + &quot; arg = &quot; + arg + &quot; fa = &quot; 
++ fa);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(&quot; x = &quot; + x + &quot; y = &quot; + y);</p>
+<p>// Compiler error, forward reference of local inner class</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+new LocalInnerClass().doSomething();</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+abstract class AncestorLocalInnerClass { } // inner class can be abstract</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+final class LocalInnerClass extends AncestorLocalInnerClass { // can be final</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+public void doSomething() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(this.getClass() + &quot; - in doSomething&quot;);&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.print(&quot;a = &quot; + a );</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.print(&quot; secret = &quot; + secret);</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.print(&quot; arg = &quot; + arg);&nbsp; // Compiler error, accessing non-final 
+argument</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.print(&quot; fa = &quot; + fa);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(&quot; x = &quot; + x);</p>
+<p>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println(&quot; y = &quot; + y); // Compiler error, accessing non-final variable</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+new InnerClass().doSomething(); // forward reference fine for member inner class</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+new LocalInnerClass().doSomething();</p>
+<p>&nbsp; }</p>
+<p>&nbsp; abstract class AncestorInnerClass { }</p>
+<p>&nbsp; interface InnerInterface { final int someConstant = 999;} // inner 
+interface</p>
+<p>&nbsp; class InnerClass extends AncestorInnerClass implements InnerInterface 
+{ </p>
+<p>&nbsp;&nbsp;&nbsp; public void doSomething() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(this.getClass() + &quot; - in doSomething&quot;);&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;a = &quot; + a + &quot; secret = &quot; + secret + &quot; someConstant = 
+&quot; + someConstant);</p>
+<p>&nbsp;&nbsp;&nbsp; }</p>
+<p>&nbsp; }</p>
+<p>&nbsp; public void doAnonymous() {</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Anonymous class implementing the inner interface</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+System.out.println((new InnerInterface() { }).someConstant);</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+// Anonymous class extending the inner class</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+( new InnerClass() { </p>
+<p>public void doSomething() { </p>
+<p>&nbsp; secret = &quot;secret is changed&quot;; </p>
+<p>&nbsp;super.doSomething();</p>
+<p>} </p>
+<p>} ).doSomething();</p>
+<p>&nbsp; }</p>
+<p>}</p>
+<table
+ style="border: medium none ; width: 519.75pt; margin-left: 59.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0" width="693">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Entity</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Declaration Context</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Accessibility Modifiers</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Outer instance</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Direct Access to enclosing context</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Defines static or non-static members</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Package level class</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>As package member</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Public or default</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>No</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>N/A</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Both static and non-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Top level nested class (static)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>As static class member</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>All</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>No</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Static members in enclosing context</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Both static and non-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Non static inner class</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>As non-static class member</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>All</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Yes</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>All members in enclosing context</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Only non-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Local class (non-static)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>In block with non-static context</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>None</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Yes</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>All members in enclosing context + local final variables</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Only non-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Local class (static)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>In block with static context</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>None</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>No</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Static members in enclosing context + local final variables</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Only non-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Anonymous class (non-static)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>In block with non-static context</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>None</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Yes</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>All members in enclosing context + local final variables</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Only non-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Anonymous class (static)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>In block with static context</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>None</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>No</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Static members in enclosing context + local final variables</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Only non-static</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">Package level interface</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">As package member</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">Public or default</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">No</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">N/A</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Static variables and non-static method prototypes</p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">Top level nested interface (static)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">As static class member</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">All</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">No</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p style="">Static members in enclosing context</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 24pt;"
+ valign="top" width="32">
+      <p>Static variables and non-static method prototypes</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

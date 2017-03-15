@@ -1,0 +1,651 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 8</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><b
+ style=""><span style="font-size: 18pt; font-family: &quot;Times New Roman&quot;;">
+Chapter 8 java.lang package</span></b><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Object class is the ultimate 
+ancestor of all classes. If there is no extends clause, compiler inserts 
+‘extends object’. The following methods are defined in Object class. All methods 
+are public, if not specified otherwise.</span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 41.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 11.65pt;">
+      <td
+ style="border-style: solid inset inset solid; border-color: windowtext -moz-use-text-color -moz-use-text-color windowtext; border-width: 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 11.65pt;"
+ valign="top" width="186">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Method</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid inset none; border-color: windowtext windowtext -moz-use-text-color -moz-use-text-color; border-width: 0.75pt 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 11.65pt;"
+ valign="top" width="504">
+      <p class="preformatted" style="text-align: center;" align="center"><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description</span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border-style: none inset inset solid; border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color windowtext; border-width: medium 0.75pt 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">boolean 
+	  equals(Object o)</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid inset none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 14.35pt;"
+ valign="top" width="504">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">just does a 
+	  == comparison, override in descendents to provide meaningful comparison</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border-style: none inset inset solid; border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color windowtext; border-width: medium 0.75pt 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">final native 
+	  void wait()</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">final native 
+	  void notify()</span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">final native 
+	  void notifyAll()</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid inset none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 14.35pt;"
+ valign="top" width="504">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Thread 
+	  control. Two other versions of wait() accept timeout parameters and may 
+	  throw InterruptedException.</span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border-style: none inset inset solid; border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color windowtext; border-width: medium 0.75pt 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">native int 
+	  hashcode()</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid inset none; border-color: -moz-use-text-color windowtext -moz-use-text-color -moz-use-text-color; border-width: medium 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 14.35pt;"
+ valign="top" width="504">
+      <p class="MsoNormal" style="">Returns a hash code value for the object.<o:p></o:p></p>
+      <p class="MsoNormal" style="">If two objects are equal according to the <span class="code"><span style="font-size: 10pt;">
+	  equals</span></span>
+	  method, then calling the <span class="code"><span
+ style="font-size: 10pt;">hashCode</span></span> method on each of the two 
+	  objects must produce the same integer result. <o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border-style: none inset solid solid; border-color: -moz-use-text-color -moz-use-text-color windowtext windowtext; border-width: medium 0.75pt 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">protected 
+	  Object clone() throws CloneNotSupportedException</span><o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  CloneNotSupportedException is a checked Exception</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 14.35pt;"
+ valign="top" width="504">
+      <p class="MsoNormal" style="">Creates a new object of the same class as 
+	  this object. It then initializes each of the new object&#39;s fields by 
+	  assigning it the same value as the corresponding field in this object. <b>
+	  No constructor is called.</b> <o:p></o:p></p>
+      <p class="MsoNormal" style="">The <span class="code"><span
+ style="font-size: 10pt;">clone</span></span> method of class <span
+ class="code"><span style="font-size: 10pt;">Object</span></span> will only 
+	  clone an object whose class indicates that it is willing for its instances 
+	  to be cloned. A class indicates that its instances can be cloned by 
+	  declaring that it implements the <span class="code"><span
+ style="font-size: 10pt;">Cloneable</span></span> interface. Also the method has 
+	  to be made public to be called from outside the class. <o:p></o:p></p>
+      <p class="MsoNormal" style="">Arrays have a public clone method. <o:p></o:p></p>
+      <p class="MsoNormal" style="margin-left: 0.5in;">int ia[ ][ ] = { { 1 , 
+	  2}, null };<o:p></o:p></p>
+      <p class="MsoNormal" style="margin-left: 0.5in;">int ja[ ][ ] = (int[ ] [ 
+	  ])ia.clone();<o:p></o:p></p>
+      <p class="MsoNormal" style="">A clone of a multidimensional array is 
+	  shallow, which is to say that it creates only a single new array. 
+	  Subarrays are shared, so ia and ja are different but ia[0] and ja[0] are 
+	  same.<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border-style: none inset inset; border-color: -moz-use-text-color; border-width: medium 0.75pt 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">final native 
+	  Class getClass()</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none inset inset none; border-color: -moz-use-text-color; border-width: medium 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 14.35pt;"
+ valign="top" width="504">
+      <p class="MsoNormal" style="">Returns the runtime class of an object. <o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border-style: none inset inset; border-color: -moz-use-text-color; border-width: medium 0.75pt 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">String 
+	  toString</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none inset inset none; border-color: -moz-use-text-color; border-width: medium 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 14.35pt;"
+ valign="top" width="504">
+      <p class="MsoNormal" style="">Returns the string representation of the 
+	  object. Method in Object returns a string consisting of the name of the 
+	  class of which the object is an instance, the at-sign character `<span
+ class="code"><span style="font-size: 10pt; font-family: &quot;Courier New&quot;;">@</span></span>&#39;, 
+	  and the unsigned hexadecimal representation of the hash code of the 
+	  object. Override to provide useful information.<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 14.35pt;">
+      <td
+ style="border-style: none inset inset; border-color: -moz-use-text-color; border-width: medium 0.75pt 0.75pt; padding: 0in 5.4pt; width: 139.5pt; height: 14.35pt;"
+ valign="top" width="186">
+      <p class="MsoNormal" style="">protected void finalize() throws <o:p></o:p></p>
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Throwable</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none inset inset none; border-color: -moz-use-text-color; border-width: medium 0.75pt 0.75pt medium; padding: 0in 5.4pt; width: 5.25in; height: 14.35pt;"
+ valign="top" width="504">
+      <p class="MsoNormal" style="">Called by the garbage collector on an object 
+	  when garbage collection determines that there are no more references to 
+	  the object. <o:p></o:p></p>
+      <p class="MsoNormal" style="">Any exception thrown by the <span
+ class="code"><span style="font-size: 10pt;">finalize</span></span>
+	  method causes the finalization of this object to be halted, but is 
+	  otherwise ignored. <o:p></o:p></p>
+      <p class="MsoNormal" style="">The <span class="code"><span
+ style="font-size: 10pt;">finalize</span></span> method in <span
+ class="code"><span style="font-size: 10pt;">Object</span></span> does nothing. 
+	  A subclass overrides the <span class="code"><span
+ style="font-size: 10pt;">finalize</span></span> method to dispose of system 
+	  resources or to perform other cleanup.<o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Math class is final, cannot 
+be sub-classed.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Math constructor is private, 
+cannot be instantiated.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All constants and methods are 
+public and static, just access using class name.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Two constants PI and E are 
+specified.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Methods that implement 
+Trigonometry functions are native. </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All Math trig functions take 
+angle input in radians.</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Angle 
+degrees * PI / 180 = Angle radians</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Order of floating/double values:<o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">-Infinity 
+--&gt; Negative Numbers/Fractions --&gt; -0.0 --&gt; +0.0 --&gt; Positive Numbers/Fractions 
+--&gt; Infinity</span><span
+ style="font-family: &quot;Times New Roman&quot;;"></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">abs – int, long, float, 
+double versions available</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">floor – greatest integer 
+smaller than this number (look below towards the floor)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">ceil – smallest integer 
+greater than this number (look above towards the ceiling)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">For floor and ceil functions, 
+if the argument is NaN or infinity or positive zero or negative zero or already 
+a value equal to a mathematical integer, the result is the same as the argument.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">For ceil, if the argument is 
+less than zero but greater than –1.0, then the result is a negative zero</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">random – returns a double 
+between 0.0(including) and 1.0(excluding)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">round returns a long for 
+double, returns an int for float. (closest int or long value to the argument)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">The result 
+is rounded to an integer by adding<span style="">&nbsp; </span>½ , taking the 
+floor of the result, and casting the result to type int / long.</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+(int)Math.floor(a + 0.5f)</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+(long)Math.floor(a + 0.5d)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">double rint(double) returns 
+closest double equivalent to a mathematical integer. If two values are equal, it 
+returns the even integer value. rint(2.7) is 3, rint(2.5) is 2.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Math.min(-0.0, +0.0) returns 
+–0.0, Math.max(-0.0, +0.0) returns 0.0, -0.0 == +0.0 returns true.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">For a NaN or a negative 
+argument, sqrt returns a NaN.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Every primitive type has a 
+wrapper class (some names are different – Integer, Boolean, Character)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Wrapper class objects are 
+immutable.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All Wrapper classes are 
+final.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All wrapper classes, except 
+Character, have a constructor accepting string. A Boolean object, created by 
+passing a string, will have a value of false for any input other than “true” 
+(case doesn’t matter).</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Numeric wrapper constructors 
+will throw a NumberFormatException, if the passed string is not a valid number. 
+(empty strings and null strings also throw this exception)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">equals also tests the class 
+of the object, so even if an Integer object and a Long object are having the 
+same value, equals will return false.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">NaN’s can be tested 
+successfully with equals method. </span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Float f1 = 
+new Float(Float.NaN);</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Float f2 = 
+new Float(Float.NaN);</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+System.out.println( &quot;&quot;+ (f1 == f2)+&quot;<span style="">&nbsp;</span>&quot;+f1.equals(f2)+ &quot;<span
+ style="">&nbsp;</span>&quot;+(Float.NaN == Float.NaN) );</span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">The above 
+code will print false true false.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Numeric wrappers have 6 
+methods to return the numeric value – intValue(), longValue(), etc.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">valueOf method parses an 
+input string (optionally accepts a radix in case of int and long) and returns a 
+new instance of wrapper class, on which it was invoked. It’s a static method. 
+For empty/invalid/null strings it throws a NumberFormatException. For null 
+strings valueOf in Float and Double classes throw NullPointerException.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">parseInt and parseLong return 
+primitive int and long values respectively, parsing a string (optionally a 
+radix). Throw a NumberFormatException for invalid/empty/null strings.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Numeric wrappers have 
+overloaded toString methods, which accept corresponding primitive values (also a 
+radix in case of int,long) and return a string.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Void class represents void 
+primitive type. It’s not instantiable. Just a placeholder class.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Strings are immutable.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">They can be created from a 
+literal, a byte array, a char array or a string buffer.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Literals are taken from pool 
+(for optimization), so == will return true, if two strings are pointing to the 
+same literal.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Anonymous String objects 
+(literals) may have been optimized even across classes.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A String created by new 
+operator is always a different new object, even if it’s created from a literal.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">But a String can specify that 
+its contents should be placed in a pool of unique strings for possible reuse, by 
+calling intern() method. In programs that do a lot of String comparisons, 
+ensuring that all Strings are in the pool, allows to use == comparison rather 
+than the equals() method, which is slower.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All string operations 
+(concat, trim, replace, substring etc) construct and return new strings.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">toUpperCase and toLowerCase 
+will return the same string if no case conversion was needed.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">equals takes an object 
+(String class also has a version of equals that accepts a String), 
+equalsIgnoreCase takes a string. </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Passing null to indexOf or 
+lastIndexOf will throw NullPointerException, passing empty string returns 0, 
+passing a string that’s not in the target string returns –1.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">trim method removes all 
+leading and trailing white-space from a String and returns a new String. 
+White-space means, all characters with value less than or equal to the space 
+character – ‘\u0020’.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">String class is final.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">+ and += operators are 
+overloaded for Strings. </span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">reverse, append, insert are 
+not String methods.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">String Buffers are mutable 
+strings.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">StringBuffer is a final 
+class.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">They can be created empty, 
+from a string or with a capacity. An empty StringBuffer is created with 
+16-character capacity. A StringBuffer created from a String has the capacity of 
+the length of String + 16. StringBuffers created with the specified capacity has 
+the exact capacity specified. Since they can grow dynamically in size without 
+bounds, capacity doesn’t have much effect.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">append, insert, setCharAt, 
+reverse are used to manipulate the string buffer.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">setLength changes the length, 
+if the current content is larger than specified length, it’s truncated. If it is 
+smaller than the specified length, nulls are padded. This method doesn’t affect 
+the capacity.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">equals on StringBuffer<span
+ style="">&nbsp; </span>does a shallow comparison. (same like ==) Will return 
+true only if the objects are same. Don’t use it to test content equality</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">trim is not a StringBuffer 
+method.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">There is no relationship 
+between String and StringBuffer. Both extend Object class.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">String context means, ‘+’ 
+operator appearing with one String operand. String concatenation cannot be 
+applied to StringBuffers.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">A new String buffer is 
+created.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">All operands are appended (by 
+calling toString method, if needed)</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Finally a string is returned 
+by calling toString on the String Buffer.</span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt; font-family: Symbol;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">String concatenation process 
+will add a string with the value of “null”, if an object reference is null and 
+that object is appearing in a concatenation expression by itself. But if we try 
+to access its members or methods, a NullPointerException is thrown. The same is 
+true for arrays, array name is replaced with null, but trying to index it when 
+it’s null throws a NullPointerException.</span><o:p></o:p></p>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

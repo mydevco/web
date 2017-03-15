@@ -1,0 +1,794 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>All about CPP: Concise C++ tutorial by Govind Mekala</title>
+
+
+
+
+
+
+
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<p align="left">All about C++ [Author: Govind K Mekala]</p>
+<p align="left"><b>
+<a name="CHAPTER INDEX :">CHAPTER INDEX :</a></b></p>
+<p align="left"><a href="#@1: A, B, C of Objects:">@1: A, B, C of Objects</a><br>
+<a href="#@2. Dynamic Object Creation:">@2. Dynamic Object Creation</a><br>
+<a href="#@3 Containers and Inheritence">@3 Containers and Inheritence</a><br>
+<a href="#@4 Access control and friend">@4 Access control and friend</a><br>
+<a href="#@5 Virtual, Static functions and Polymorphism">@5 Virtual, Static 
+functions and Polymorphism, Pure Virtual Functions,Abstract Classes</a><br>
+<a href="#@6 Multiple Inheritence">@6 Multiple Inheritence or Virtual 
+inheritence or Diamond Inheritence</a><br>
+<a href="#@7 Templates:">@7 Templates</a><br>
+<a href="#@8 Exception handling and error detection">@8 Exception handling and 
+error detection</a><br>
+<a href="#@9 RTTI (RunTime Type Identification)">@9 RTTI (RunTime Type 
+Identification)</a><br>
+<a href="#@10 Design patterns:">@10 Design patterns</a><br>
+&nbsp;</p>
+<p align="left"><a name="@1: A, B, C of Objects:">@1: <b>A, B, C of Objects</b>:</a>
+<a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;</a>
+<a href="http://www.fortunecity.com/banners/interstitial.html?http://members.fortunecity.com/mdcwebmaster/cpp_tutorial_by_govind.htm#TOP" my_onclick="null">
+<top /></a><br>
+<br>
+The object-oriented approach provides tools for the programmer to represent 
+elements in the problem space. This representation is general enough that the 
+programmer is not constrained to any particular type of problem. We refer to the 
+elements in the problem space and their representations in the solution space as 
+&quot;objects&quot;.(From &quot;Thinking in C++&quot; by BruceEckel)<br>
+<br>
+Although very well portrayed this definition doesn&#39;t help in understanding what 
+hell is this stuff called object.<br>
+<br>
+Object is an advanced version of C structures to package data and methods 
+together to achieve<br>
+A. Data abstraction. B. Implementation Hiding (Encapsulation) C. Code 
+reusability<br>
+<br>
+Lots of things will get clear in the following example. Read carefully the C++ 
+comments after // or in between /* */.<br>
+<br>
+<a href="cpp_all_in_one_example.htm">Project Manager Example:</a><br>
+<br>
+<a name="@2. Dynamic Object Creation:">@2. <b>Dynamic Object Creation</b>:</a>&nbsp;
+<a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;
+<top /></a><br>
+<br>
+When a C++ object is created, two events occur:<br>
+1. Storage is allocated for the object.<br>
+2. The constructor is called to initialize that storage.<br>
+By now you should believe that step two always happens. C++ enforces it because 
+uninitialized objects are a major source of program bugs. It doesn&#39;t matter 
+where or how the object is created ,the constructor is always called.<br>
+Step one, however, can occur in several ways, or at alternate times:<br>
+1. Storage can be allocated before the program begins, in the static storage 
+area. This storage exists for the life of the program.<br>
+2. Storage can be created on the stack whenever a particular execution point is 
+reached (an opening brace). That storage is released automatically at the 
+complementary execution point (the closing brace). These stack-allocation 
+operations are built into the instruction set of the processor and are very 
+efficient. However, you have to know exactly how much storage you need when 
+you&#39;re writing the program so the compiler can generate the right code.<br>
+3. Storage can be allocated from a pool of memory called the heap (also known as 
+the free store). This is called dynamic memory allocation. To allocate this 
+memory, a function is called at runtime; this means you can decide at any time 
+that you want some memory and how much you need. You are also responsible for 
+determining when to release the memory, which means the lifetime of that memory 
+can be as long as you choose - it isn&#39;t determined by scope.<br>
+Often these three regions are placed in a single contiguous piece of physical 
+memory: the static area, the stack, and the heap (in an order determined by the 
+compiler writer). However, there are no rules. The stack may be in a special 
+place, and the heap may be implemented by making calls for chunks of memory from 
+the operating system. As a programmer, these things are normally shielded from 
+you, so all you need to think about is that the memory is there when you call 
+for it.<br>
+To allocate memory dynamically at runtime, C provides functions in its standard 
+library: malloc( ) and its variants calloc( ) and realloc( ) to produce memory 
+from the heap, and free( ) to release the memory back to the heap.&nbsp;<br>
+<br>
+ex: Obj* obj = (Obj*)malloc(sizeof(Obj));<br>
+free(obj);<br>
+Here, the user must determine the size of the object (one place for an error). 
+malloc( ) returns a void* because it&#39;s just a patch of memory, not an object. 
+C++ doesn&#39;t allow a void* to be assigned to any other pointer, so it must be 
+cast.<br>
+<br>
+C++ provides new and delete for dynamic object cration and deletion.<br>
+<br>
+ex: MyType *fp = new MyType(1,2);<br>
+delete fp;<br>
+<br>
+No equivalent of realloc and calloc in C++.<br>
+<br>
+New and delete are better than malloc and free because new returns pointer of 
+the correct type whereas malloc returns void* which is not type safe. New 
+operator can be overloaded.<br>
+<br>
+<a name="@3 Containers and Inheritence">@3 <b>Containers and Inheritence</b></a><b>:</b> <a href="#CHAPTER INDEX :">
+&lt;CHAPTER INDEX&gt;</a>
+<top /><br>
+<br>
+Creating an instance of one object in another class is nothing but containership 
+or composition. You need to know the instance vaiable name to access it. This 
+process is called delegation<br>
+ex:<br>
+// embedded objects<br>
+#include &quot;X.h&quot;<br>
+class Y {<br>
+int i;<br>
+X x; // Embedded object<br>
+public:<br>
+Y() { i = 0; }<br>
+void f(int ii) { i = ii; x.set(ii); }<br>
+int g() const { return i * x.read(); }<br>
+void populate() { x.populate(); }<br>
+};<br>
+<br>
+int main() {<br>
+Y y;<br>
+y.f(47);<br>
+y.populate();<br>
+}&nbsp;<br>
+<br>
+Class Y is &quot;implemented-in-terms&quot; of class X. Y class &quot;has a&quot; embedded object of 
+typeX.<br>
+<br>
+When you inherit, you are saying, &quot;This new class is like that old class.&quot; You 
+state this in code by giving the name of the class, as usual, but before the 
+opening brace of the class body, you put a colon and the name of the base class 
+(or classes, for multiple inheritance). When you do this, you automatically get 
+all the data members and member functions in the base class.&nbsp;<br>
+<br>
+example:&nbsp;<br>
+// Simple inheritance<br>
+#include &quot;X.h&quot;<br>
+#include
+<iostream /><br>
+using namespace std;<br>
+<br>
+class Y : public X {<br>
+int i; // Different from X&#39;s i<br>
+public:<br>
+Y() { i = 0; }<br>
+int change() {<br>
+i = populate(); // Different name call<br>
+return i;<br>
+}<br>
+void set(int ii) {<br>
+i = ii;<br>
+X::set(ii); // Same-name function call<br>
+}<br>
+};<br>
+<br>
+int main() {<br>
+cout &lt;&lt; &quot;sizeof(X) = &quot; &lt;&lt; sizeof(X) &lt;&lt; endl;<br>
+cout &lt;&lt; &quot;sizeof(Y) = &quot;<br>
+&lt;&lt; sizeof(Y) &lt;&lt; endl;<br>
+Y D;<br>
+D.change();<br>
+// X function interface comes through:<br>
+D.read();<br>
+D.populate();<br>
+// Redefined functions hide base versions:<br>
+D.set(12);<br>
+} ///:~<br>
+<br>
+To guarantee proper initialization during composition and inheritance we use 
+constructor initializer list.<br>
+ex: MyType::MyType(int i) : Bar(i),memb(i+1) { // ...<br>
+<br>
+We seperate the constructor by comma in case of contanership and by colon : in 
+case of inheritence.<br>
+Order of constructor &amp; destructor calls:<br>
+<br>
+first base class constructor is called.<br>
+then child or derived constructor is called<br>
+then child destructor is called<br>
+then base destructor is called.<br>
+<br>
+Constructors and destructors don&#39;t inherit. Also the operator= doesn&#39;t inherit 
+because it performs a constructor-like activity<br>
+<br>
+Acess modification:<br>
+<br>
+Public Inhertence (class Y:public X)<br>
+<br>
+private members doesn&#39;t get inherited.<br>
+protected members of base class become protected in derived class.<br>
+public member of base class become public in derived class.<br>
+<br>
+Private Inheritence (class Y:private X)<br>
+Private members doesn&#39;t get inherited.<br>
+Protected members of the base class become private in derived class.<br>
+Public members also become private in derived class.<br>
+<br>
+Protected Inheritence: (class Y: protected X)<br>
+Private members doesn&#39;t get inherited.<br>
+Protected members become private in derived class.<br>
+Public members become protected.<br>
+<br>
+<a name="@4 Access control and friend">@4 <b>Access control and friend</b></a><b>
+</b>:
+<a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;
+<top /></a><br>
+<br>
+<br>
+A PRIVATE member of a class is accesible(using dot operator) only by members and 
+friends of the class. Its the default access.<br>
+A PROTECTED member of a class is accessible by members and friends of publically 
+derived(inherited) class provided they access the base member via a pointer or 
+reference to their own derived class.<br>
+A PUBLIC member of a class is accessible by everyone.<br>
+<br>
+A friend function acts as a bridge between two classes and they can access all 
+the mebers of the class in which they are declared.<br>
+#include
+<iostream /><br>
+<br>
+class beta;//forward declaration<br>
+<br>
+class alpha<br>
+{<br>
+private:<br>
+int data;<br>
+public:<br>
+alpha(){data=5;}<br>
+friend int fri(alpha,beta); //friend function<br>
+};<br>
+class beta<br>
+{<br>
+private:<br>
+int data;<br>
+public:<br>
+beta(){data=9;}<br>
+friend int fri(alpha, beta);//friend function<br>
+};<br>
+<br>
+int fri(alpha a, beta b)<br>
+{<br>
+return (a.data + b.data);<br>
+}<br>
+void main()<br>
+{<br>
+alpha aa;<br>
+beta bb;<br>
+cout &lt;<fri(aa, bb);<br /> }<br>
+<br>
+FRIEND CLASSES<br>
+When a class is declared as friend of another class all the member fuction of 
+that class becomes friend function of the other class and have access to all 
+members of that class.<br>
+<br>
+#include
+<iostream /><br>
+class beta // forward declaration<br>
+class alpha<br>
+{<br>
+private:<br>
+int data1;<br>
+<br>
+public:<br>
+alpha() {data1=55;}<br>
+friend beta; /*beta is a friend class. Beta member function can access alpha<br>
+if we don&#39;t declare beta in forward declaration then the syntax for friend class 
+will be friend class beta */<br>
+};<br>
+<br>
+class beta {<br>
+public:<br>
+void func1(alpha a) { cout&lt;&lt; &quot;\n data1=&quot;&lt;<a.data1;}<br /> };<br>
+void main()<br>
+{<br>
+alpha a;<br>
+beta b;<br>
+b.func1(a);<br>
+}<br>
+Friendship is neither commutative nor inherited nor associative. If there is two 
+overloaded function then you have to declare both of them friend in order to 
+achieve friendship otherwise the other function will become hidden and hence 
+can&#39;t be accessed.<br>
+<br>
+<a name="@5 Virtual, Static functions and Polymorphism">@5 <b>Virtual, Static 
+functions and Polymorphism</b></a><b>, Pure Virtual Functions,Abstract Classes:</b>
+<a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;</a>
+<a href="http://www.fortunecity.com/banners/interstitial.html?http://members.fortunecity.com/mdcwebmaster/cpp_tutorial_by_govind.htm#TOP" my_onclick="null">
+<top /></a><br>
+<br>
+polymorphism is the abilty to treat many objects of different but related types 
+without regard to their differences. An entity could behave diferently at the 
+run time depending on its association with different classes in the inheritence 
+tree. In C++ its achieved by using class derivatives and inheritence and virtual 
+functions.<br>
+Virtual functions enables dynamic binding.<br>
+<br>
+Class A{<br>
+nvfunc() {.......}<br>
+virtual vfunc(){.....}<br>
+}<br>
+class B: public A<br>
+{<br>
+nvfunc() {..........}<br>
+vfunc(){..........}<br>
+}<br>
+class C:public A<br>
+{<br>
+vfunc(){.........}<br>
+}<br>
+<br>
+void main()<br>
+{<br>
+A *ap;<br>
+A a;<br>
+B b;<br>
+C c;<br>
+b.A::nvfunc(); will call method in A;<br>
+ap = &amp;b;// Downcast base class pointer to derived class.<br>
+ap.nvfunc();//Will call method in A. The fact that ap actually points to b is 
+not taken //into account as its not declared as virtual<br>
+ap.vfunc();//Will call method in B as the method is declared as virtual<br>
+//using refernce operator<br>
+A &amp;a1 = c;<br>
+a1.vfunc();//will call method in C using dynamic dynamic binding.<br>
+}<br>
+<br>
+Pure virtual function is the member function that the base class forces derived 
+classes to provide and its equated to 0.<br>
+ex: virtual vfunc()=0;<br>
+Abstract classes can not be instantiated directly and only can be be inherited.<br>
+It should not contain any variable and should contain atleast one pure virtual 
+function equated to zero.<br>
+<br>
+When a virtual function is created in an object, the object must keep track of 
+that function.<br>
+Many compilers build a virtual function table called V-Table. One of these is 
+kept for each type and each object of that type keeps a virtual table pointer (4 
+byte header) called vptr or v-pointer which points to that table. Each object&#39;s 
+vptr points to the v-table which in turn has a pointer to each of the virtual 
+functions. This is an overhead and takes CPU cycles to resolve the correct 
+function.<br>
+Whenever the derived class constructor is called and its object is added, the 
+vptr is adjusted to point to the virtual function override (if any) in the 
+derived object.<br>
+<br>
+Base class pointer is always type compatible with pointer to all derived class 
+objects.<br>
+<br>
+No Constructors can be virtual as derived class constructor should not be called 
+without calling base class constructor.&nbsp;<br>
+Virtual destructor is possible. When pointer to the derived object is passed, 
+where pointer to the base object is expected and that pointer is deleted, if the 
+destructor is virtual the derived class&#39; destructor is called. As the derived 
+class destructor automatically invoke the base class&#39; destructor, the entire 
+object will be properly destroyed.<br>
+Virtual destructor should be always defined whenever there is any other virtual 
+function in the base class.<br>
+<br>
+Static functions: Static member data are duplicated for every object created. 
+Instead they are class variables like const members and same memory is shared 
+among objects. static member functiones are defined to access static data 
+members.&nbsp;<br>
+#include
+<iostream.h /><br>
+class MyClass<br>
+{<br>
+private:<br>
+static int count;<br>
+int index;<br>
+public:<br>
+gamma()<br>
+{<br>
+count++;<br>
+index = count;<br>
+}<br>
+~gamma()<br>
+{<br>
+count--;<br>
+cout &lt;&lt; &quot;\n Destroying index=&quot; &lt;&lt; index;<br>
+}<br>
+static void getcount()<br>
+{<br>
+cout &lt;&lt; &quot;\nTotal count is &quot; &lt;&lt; count;<br>
+}<br>
+void getindex()<br>
+{<br>
+cout&lt;&lt; &quot;\nIndex is &quot; &lt;&lt; index;<br>
+}<br>
+};<br>
+<br>
+void main()<br>
+{<br>
+cout &lt;&lt; endl &lt;&lt; endl;<br>
+MyClass m1;<br>
+MyClass::getcount();//static functions are accessed using scope operator ::<br>
+<br>
+MyClass m2,m3;<br>
+MyClass::getcount();<br>
+<br>
+m1.getindex();<br>
+m2.getindex();<br>
+m3.getindex();<br>
+}<br>
+<br>
+<a name="@6 Multiple Inheritence">@6 <b>Multiple Inheritence</b></a><b> or 
+Virtual inheritence or Diamond Inheritence:</b> <a href="#CHAPTER INDEX :">
+&lt;CHAPTER INDEX&gt;</a>
+<a href="http://www.fortunecity.com/banners/interstitial.html?http://members.fortunecity.com/mdcwebmaster/cpp_tutorial_by_govind.htm#TOP" my_onclick="null">
+<top /></a><br>
+<br>
+Is used in c++ when you do not want two copies of shared base class but rather 
+to have a single shared base class. Make the base class as virtual base class 
+using virtual inheritence. Normally a class&#39; constructor initializes only its 
+own variables and its base class. Virtually inherited base classes are an 
+exception, however. They are initialized by their most derived class.<br>
+<br>
+class virtualbaseclass<br>
+{<br>
+protected basedata;<br>
+};<br>
+class derived1:virtual public virtualbaseclass;<br>
+{};<br>
+class derived2: virtual public virtualbaseclass;<br>
+{};<br>
+class mostderived: public virtualbaseclass, public virtualbaseclass<br>
+{<br>
+public:<br>
+int getdata()<br>
+{ return basedata;} //only one copy of base class due to virtual base class<br>
+}<br>
+The use of keyword virtual in these two classes cause them to share a single 
+common subobject of their base class parent. Hence there in no ambiguity in most 
+derived class for basedata.<br>
+<br>
+<a name="@7 Templates:">@7 <b>Templates:</b></a><b> </b>
+<a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;
+<top /></a><br>
+<br>
+Templates allow the separation of the type of data they manipulate. A template 
+allows the separation of the type-dependent part from type-independent part. 
+This facilitates code sharing.<br>
+<br>
+syntax :<br>
+template<class T /><br>
+{<br>
+}<br>
+<br>
+T represents unspecified type in the classtemplate defintion.<br>
+Template class is instantiated by specifying the type T.<br>
+Libraries like STL, ATL consists of various generic templates.<br>
+A complete example:<br>
+<br>
+#include
+<cassert /><br>
+#include
+<iostream /><br>
+#include
+<string /><br>
+template<class T /><br>
+class TemplateArray{<br>
+public:<br>
+TemplateArray(unsigned size=12);//default constructore<br>
+TemplateArray(const Array<t />&amp; a); //copy constructor assignment<br>
+~TemplateArray() throw();<br>
+unsigned getsize() ;<br>
+T&amp; operator[](unsigned i);<br>
+<br>
+protected:<br>
+unsigned size;<br>
+T* arr;<br>
+}<br>
+<br>
+template<class T /> inline TemplateArray<t />::TemplateArray(unsigned 
+sz):size(sz),arr(new T[sz])<br>
+{}<br>
+template<class T /> inline TemplateArray<t />::~TemplateArray()<br>
+{ delete[] arr;}<br>
+template<class T /> inline T&amp; TemplateArray<t />::operator[](unsigned i)<br>
+{&nbsp;<br>
+assert(i &gt;= size);<br>
+return arr[i];<br>
+}<br>
+<br>
+int main()<br>
+{<br>
+TemplateArray<int /> ai; ai[2]=5;<br>
+TemplateArray<char /> ac; ac[3]=&#39;G&#39;;<br>
+TemplateArray<string /> as; as[5]=&quot;Govind&quot;;<br>
+}<br>
+<br>
+The complier generates the code for the instatiated template by replacing the 
+template arguement T with the type that is supplied, such as int or string.<br>
+<br>
+Function template example:<br>
+<br>
+#include
+<string /><br>
+template<class T /><br>
+void swap(T&amp; a, T&amp; b)<br>
+{<br>
+T temp = a;<br>
+a = b;<br>
+b = temp;<br>
+}<br>
+<br>
+int main()<br>
+{<br>
+int x =10,y=20; swap (x,y);<br>
+cout&lt;&lt;&quot;x=&quot;&lt;&lt;x&lt;&lt;&quot;,&quot;&lt;&lt;&quot;y=&quot;&lt;&lt;y;&lt;br /&gt; swap(s,d);<br>
+cout&lt;&lt;&quot;s=&quot;&lt;&lt;s&lt;&lt;&quot;}</p>
+<p align="left">@8 <b>Exception handling and error detection:</b>
+<a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;
+<top /></a><br>
+<br>
+Exception handling is done using try &amp; catch blocks.<br>
+<br>
+try{<br>
+............<br>
+}<br>
+catch(ExceptionClass e)<br>
+{<br>
+// handle exceptions&nbsp;<br>
+...........<br>
+throw();<br>
+}<br>
+catch(AnotherException e1)<br>
+{<br>
+// handle exceptions&nbsp;<br>
+.........<br>
+throw();<br>
+}<br>
+<br>
+example:<br>
+<br>
+// Basic exceptions<br>
+// Exception specifications &amp; unexpected()<br>
+#include
+<exception /><br>
+#include
+<iostream /><br>
+#include
+<cstdlib /><br>
+#include
+<cstring /><br>
+using namespace std;<br>
+<br>
+class Up {};<br>
+class Fit {};<br>
+void g();<br>
+<br>
+void f(int i) throw (Up, Fit) {<br>
+switch(i) {<br>
+case 1: throw Up();<br>
+case 2: throw Fit();<br>
+}<br>
+g();<br>
+}<br>
+<br>
+// void g() {} // Version 1<br>
+void g() { throw 47; } // Version 2<br>
+// (Can throw built-in types)<br>
+<br>
+void my_unexpected() {<br>
+cout &lt;&lt; &quot;unexpected exception thrown&quot;;<br>
+exit(1);<br>
+}<br>
+<br>
+int main() {<br>
+set_unexpected(my_unexpected);<br>
+// (ignores return value)<br>
+for(int i = 1; i &lt;=3; i++)<br>
+try {<br>
+f(i);<br>
+} catch(Up) {<br>
+cout &lt;&lt; &quot;Up caught&quot; &lt;&lt; endl;<br>
+} catch(Fit) {<br>
+cout &lt;&lt; &quot;Fit caught&quot; &lt;&lt; endl;<br>
+}<br>
+}&nbsp;<br>
+&nbsp;</p>
+<p align="left">The classes Up and Fit are created solely to throw as 
+exceptions.&nbsp;<br>
+f( ) is a function that promises in its exception specification to throw only 
+exceptions of type Up and Fit, and from looking at the function definition this 
+seems plausible. Version one of g( ), called by f( ), doesn&#39;t throw any 
+exceptions so this is true. But then someone changes g( ) so it throws 
+exceptions and the new g( ) is linked in with f( ). Now f( ) begins to throw a 
+new exception, unbeknown to the creator of f( ). Thus the exception 
+specification is violated.<br>
+The my_unexpected( ) function has no arguments or return value, following the 
+proper form for a custom unexpected( ) function. It simply prints a message so 
+you can see it has been called, then exits the program. Your new unexpected( ) 
+function must not return (that is, you can write the code that way but it&#39;s an 
+error). However, it can throw another exception (you can even rethrow the same 
+exception), or call exit( ) or abort( ). If unexpected( ) throws an exception, 
+the search for the handler starts at the function call that threw the unexpected 
+exception. (This behavior is unique to unexpected( ).)<br>
+Although the new_handler( ) function pointer can be null and the system will do 
+something sensible, the unexpected( ) function pointer should never be null. The 
+default value is terminate( ) (mentioned later), but whenever you use exceptions 
+and specifications you should write your own unexpected( ) to log the error and 
+either rethrow it, throw something new, or terminate the program.<br>
+In main( ), the try block is within a for loop so all the possibilities are 
+exercised. Note that this is a way to achieve something like resumption - nest 
+the try block inside a for, while, do, or if and cause any exceptions to attempt 
+to repair the problem; then attempt the try block again.<br>
+Only the Up and Fit exceptions are caught because those are the only ones the 
+programmer of f( ) said would be thrown. Version two of g( ) causes 
+my_unexpected( ) to be called because f( ) then throws an int. (You can throw 
+any type, including a built-in type.)<br>
+In the call to set_unexpected( ), the return value is ignored, but it can also 
+be saved in a pointer to function and restored later.<br>
+<br>
+<a name="@9 RTTI (RunTime Type Identification)">@9 <b>RTTI (RunTime Type 
+Identification)</b></a><b>: </b> <a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;
+<top /></a><br>
+<br>
+<br>
+<br>
+Static type checking is when compiler checks the type correctness of operation 
+at compile time.<br>
+If class M has member function f() but not e() and X( an instance of M) tries to 
+access X.e().<br>
+This type of error will be caught at compile time itself.<br>
+<br>
+RTTI is one type of dynamic type checking that is supported by C++. Its 
+accomplished by downcasts.<br>
+<br>
+Downcasts is the conversion of a base class pointer to publically derived class 
+pointer.<br>
+The RTTI casts are:<br>
+dynamic_cast<t />()<br>
+static_cast<t />()<br>
+typeid()<br>
+const_cast()<br>
+reinterpret_cast()<br>
+<br>
+if p is a pointer, dynamic_cast<myclass* />(p) converts p to MyClass. If the 
+conversion is not valid it returns null.<br>
+similarly using refernce<br>
+if r is a refernce, dynamic_cast<myclass& />(r) converts r to a MyClass&amp;. If the 
+conversion is not valid, an exception of type bad_cast is thrown.<br>
+<br>
+example:<br>
+<br>
+#include
+<iostream /><br>
+using namespace std;<br>
+<br>
+class A {<br>
+public:<br>
+virtual ~A() throw() { };<br>
+//................<br>
+}<br>
+<br>
+A::~A() throw(){ }<br>
+<br>
+class B:public A {/*.........*/};<br>
+class C: public A {/*.........*/};<br>
+<br>
+void check(A* a) throw()<br>
+{<br>
+A* a1 = dynamic_cast<a* />(a);<br>
+if(a1!=NULL) {<br>
+cout&lt;&lt; &quot;The object is of type A\n&quot;;<br>
+}<br>
+else{<br>
+cout&lt;&lt; &quot;The object is not of type A\n&quot;;<br>
+}<br>
+}<br>
+<br>
+int main()<br>
+{<br>
+B bb;<br>
+C cc;<br>
+check(&amp;bb);<br>
+check(&amp;cc);<br>
+}<br>
+<br>
+static_cast<t />() is used to enforce the cast when the programmer is confident 
+of the type and don&#39;t want the compiler to bug him at compile time.<br>
+<br>
+Target *t = static_cast<target* />(sourceobject); // cast without checking<br>
+<br>
+typeid() determines the correct type of an object at runtime. It returns an 
+object of type_info class when a pointer or reference is passed as an arguement. 
+It returns NULL if the type could not be determined. The member called name in 
+type_info returns the name of that class.<br>
+example:<br>
+<br>
+int iobj;<br>
+cout &lt;&lt; typeid(iobj).name()&lt;<endl; int;<br prints /> cout &lt;<typeid(9.234).name()<<endl; prints double;<br />
+<br>
+class Govind {/* no virtual function*/};<br>
+class Krishna: public Govind{/* no virtual function*/};<br>
+<br>
+Krishna kris;<br>
+Govind gd;<br>
+Govind *go = &amp;kris;<br>
+Govind *g = &amp;gd;<br>
+cout &lt;&lt; typeid(*go).name()&lt;<endl; prints Govind<br /> 
+if(typeid(g)==typeid(go))//false<br>
+<br>
+<a name="@10 Design patterns:">@10 <b>Design patterns:</b></a><b> </b>
+<a href="#CHAPTER INDEX :">&lt;CHAPTER INDEX&gt;</a>
+<a href="http://www.fortunecity.com/banners/interstitial.html?http://members.fortunecity.com/mdcwebmaster/cpp_tutorial_by_govind.htm#TOP" my_onclick="null">
+<top /></a><br>
+Read <a target="_blank" href="../pdf/cpppattern-examples.pdf">advanced C++ 
+Features, Design Patterns, and Frameworks</a></p>
+<p align="left">This tutorial presents three complete case studies that 
+illustrate how patterns from the ``Gang of Four&#39;&#39; can be combined with advanced 
+C++ features to build flexible, reusable, and efficient frameworks and 
+components. The case studies include building a system sort framework, a sort 
+verification framework,and a class library for expression trees.</p>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

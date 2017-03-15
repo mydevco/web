@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>SOA tutorial: SOA Overview : SOA Interview</title>
+
+
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<h2><u><b>Service Oriented Architecture</b></u></h2>
+<p>If you are planning to develop software using Service Oriented architecture 
+then it is advised to learn at least basics of Web Services.<br>
+The following books are recommended to learn basics of Web Services:</p>
+<ul>
+  <li>Prentice Hall-J2EE™ Platform Web Services by Ray Lai</li>
+  <li>Addison Wesley- J2EE Web Services by By Richard Monson-Haefel</li>
+  <li>Sam&#39;s Securing Web Services with WS-Security by Jothy Rosenberg, David L. 
+  Remy</li>
+</ul>
+<p>&nbsp;</p>
+<p>If you would like to appear for Sun&#39;s Web Service Developer certification 
+then you can find preparation plan and exam cram notes <a href="WebServices.htm">
+here</a>.</p>
+<p>&nbsp;</p>
+<h2><u><b>Service Oriented Architecture Primer:</b></u></h2>
+<p>The promise of service oriented architecture is to liberate business from the 
+constraints of technology and unshackle technologists from the chains they 
+themselves have forged. This has major implications both for the business and 
+for the IT that supports the business.</p>
+<p>The main purpose of a service-oriented architecture (SOA) is to offer synergy 
+between the business and IT groups in an organization and to offer the 
+organization greater flexibility.</p>
+<p>One of the biggest deals in the SOA world is the idea that you don’t throw 
+things out. You take the stuff (software assets) that you use every day — well, 
+the best of the stuff you use every day — and package it in a way that lets you 
+use it, reuse it, and keep on reusing it.</p>
+<p>With SOA, these important programs become business services. You end up with 
+one single business service for a given function that gets used everywhere in 
+your organization. With SOA, when you need to change a business policy, you 
+change it in one place and, because the same service is used everywhere, you 
+have consistency throughout your organization.</p>
+<p>SOA uses the <i>find-bind-execute</i> paradigm. In this paradigm, service 
+providers register their service in a public registry. This registry is used by 
+consumers to find services that match certain criteria. If the registry has such 
+a service, it provides the consumer with a contract and an endpoint address for 
+that service. <br>
+<br>
+<img border="0" src="../images/find-bind-execute.gif" width="500" height="267"></p>
+<p>&nbsp;</p>
+<p>SOA-based applications are distributed multi-tier applications that have 
+presentation, business logic, and persistence layers. Services are the building 
+blocks of SOA applications. While any functionality can be made into a service, 
+the challenge is to define a service interface that is at the right level of 
+abstraction. Services should provide coarse-grained functionality. <br>
+&nbsp;</p>
+<p>SOA allows for the reuse of existing assets where new services can be created 
+from an existing IT infrastructure of systems. In other words, it enables 
+businesses to leverage existing investments by allowing them to reuse existing 
+applications, and promises interoperability between heterogeneous applications 
+and technologies. SOA provides a level of flexibility that wasn&#39;t possible 
+before in the sense that: </p>
+<ul>
+  <li>Services are software components with well-defined interfaces that are 
+  implementation-independent. An important aspect of SOA is the separation of 
+  the service interface (the what) from its implementation (the how). Such 
+  services are consumed by clients that are not concerned with how these 
+  services will execute their requests. </li>
+  <li>Services are self-contained (perform predetermined tasks) and loosely 
+  coupled (for independence) </li>
+  <li>Services can be dynamically discovered </li>
+  <li>Composite services can be built from aggregates of other services </li>
+</ul>
+<p><br>
+&nbsp;</p>
+<p><img border="0" src="../images/SOA_Elements.png" width="553" height="304"></p>
+<p>&nbsp;</p>
+<p><b>The Enterprise Service Bus (ESB)</b>: The ESB is actually an architectural 
+construct that can be designed and deployed in a manner that will parallel the 
+business processes environment. The bus can be implemented in various ways, such 
+as with classical messaging, EAI, and brokering technologies or by using 
+platform-specific components such as the service integration buses in J2EE 
+systems (such as WebSphere Application Server). The ESB can also be a 
+combination of both EAI and application server technologies, but the 
+implementation should not affect the overall architecture. The selection between 
+possible implementations will be the result of an initial architecture 
+assessment, including existing IT infrastructure, skills, and processes in the 
+evaluation.<br>
+<br>
+<b>Mediation</b> in an ESB enables the intelligent processing of service 
+requests and responses, events, and messages. These mediations can be 
+implemented at application service endpoints (either requestor or provider) or 
+can be distributed through the infrastructure of the bus.<br>
+<br>
+Mediation capabilities include the following:<br>
+<br>
+<b>Transformations:</b> XML-to-XML translations, database (DB) lookups, and 
+aggregations.<br>
+<br>
+<b>Message validation:</b> This can consist of verification of any data field or 
+a combination of fields with specific rules.<br>
+<br>
+<b>Content or quality service selections:</b> This requires a service selection 
+based on content or on required quality of service. As an example, a priority 
+customer should probably be routed to a higher throughput server than others of 
+lesser priority.<br>
+<br>
+<b>Content-based routing:</b> As an example, if the service parameters contain 
+some country information, the request can be routed to a provider in that 
+country.<br>
+<br>
+<b>Customized logging:</b> This is a legal requirement that might ask for 
+logging and audit tracks of the services interactions. Mediation is potentially 
+a good place for this purpose.<br>
+<br>
+<b>Metering and monitoring: </b>A bus should have all of the manageability 
+anchor points to enable control of its behavior and of the integrated services.<br>
+<br>
+<b>Autonomic behavior:</b> This is used to react when events are detected—to 
+self-configure, heal, optimize, and so on.<br>
+<br>
+<b>Policy management:</b> This allows a description of all of the behavior rules 
+that are required for the previous items in this list through externalized 
+policies based on XML.</p>
+<p>Mediators are intermediary components that operate on logical Web service 
+SOAP message representations between the requestor and the provider. These 
+mediator components can be located close to requestors, providers, or halfway 
+between both requestors and providers as true intermediaries. SOAP messages 
+usually contain a header that has to be processed by the mediation handlers, but 
+mediation can be used for purposes other than just SOAP processing and routing.</p>
+<p>You can implement an ESB in many different ways. It is important, however, to 
+reuse whatever standard infrastructure services already exist, ensuring 
+compatibility and reliability. Thus, in a best-practice-based implementation, 
+mediators should use the standard Java Web services SOAP-handling standard: 
+JAX-RPC. This standard provides access to the SOAP headers via the handler API 
+and can be hosted in a J2EE application server infrastructure. Handlers can be 
+easily chained in series and reused across systems. In addition, using embedded 
+mediations, the ESB supports a broad spectrum of ways to hop on and off the bus. 
+The ESB includes business connections that enable external partners in B2B 
+interaction scenarios to participate in the service interaction flows. In this 
+B2B case, it provides the additional mediations and security that external 
+access imposes. Mediation on the protocols that attach to the bus enables the 
+connectivity with existing service-oriented components. These protocols include 
+CORBA, RMI/IIOP, TCP/IP, JCA, native JMS, and other Java protocols.</p>
+<p>A <b>Web services gateway</b> is an additional component of a bus that 
+provides controlled access to the bus for external partners, hiding details of 
+individual internal services, validating user access, controlling access, and 
+auditing requests. The gateway uses core bus components such as mediation and 
+security to implement its routing and management services.<br>
+<br>
+Because business processes are essential to the SOA approach, the model must 
+also integrate an additional standard for this aspect: the <b>Business Process 
+Execution Language</b> (BPEL). BPEL is used by business analysts to model the 
+business processes and by programmers to implement the choreography of services.</p>
+<p>&nbsp;</p>
+<p><u><b>SOA implementation guidelines:</b></u></p>
+<p>Every vendor provides some guidelines to asses your
+<a target="_blank" href="http://www.sun.com/software/whitepapers/webservices/soa_ready.pdf">
+organizations SOA readiness</a>. Once you have assessed your current 
+architecture and deployment, these are some basic guidelines to move towards 
+SOA.</p>
+<ul>
+  <li>Use blueprint instead of starting from scratch. Do not reinvent the wheel. 
+  Build on other&#39;s experiences.</li>
+  <li>Make sure the SOA project you choose for your starting point is well 
+  defined and well confined. Prove SOA successful with something that is small, 
+  is achievable in a short time, and will have a significant impact — then build 
+  incrementally.</li>
+  <li>Stick to standards and standard interfaces. The proprietary software you 
+  build will be your own downfall. The sooner you part ways from evil 
+  temptations, the happier and healthier your software can be.</li>
+  <li>Don’t Neglect Governance: SOA governance won’t happen by itself. Address 
+  it early. SOA governance is as much about the way you work and the processes 
+  you put in place to create a SOA environment as it is about any technology 
+  issues. So, don’t just go and buy a bucket full of tools labeled SOA 
+  governance. SOA governance is about leadership and thinking through how you 
+  are going to get from where you are today to a well-coordinated approach that 
+  conforms to your corporate goals and objectives.</li>
+  <li>Pay close attention to the security implications of exposing business 
+  services.</li>
+  <li>SOA makes a lot of sense for a lot of things, but not for everything. If 
+  you have an application that is so specialized that it is isolated from other 
+  aspects of the business and works just fine, leave it alone. At the same time, 
+  when you find the software that is appropriate for SOA, you need to 
+  prioritize, scrutinize, and make sure you’re looking at the right level of 
+  granularity. For example, if you make each service very small, you might end 
+  up with thousands of little pieces of code that are hard to find and hard to 
+  reuse. The bigger the reusable service, the easier it will be to find and 
+  reuse. And some things need never, ever be exposed as services.</li>
+  <li>Don’t Postpone SOA: SOA is a long journey. The sooner you begin, the 
+  sooner you’ll get somewhere.</li>
+  <li>SOA is an architectural style that has been around for years. Web services 
+  are the preferred way to realize SOA. </li>
+  <li>SOA is more than just deploying software. Organizations need to analyze 
+  their design techniques and development methodology and 
+  partner/customer/supplier relationship. </li>
+  <li>Moving to SOA should be done incrementally and this requires a shift in 
+  how we compose service-based applications while maximizing existing IT 
+  investments.<p><br>
+  &nbsp;</li>
+</ul>
+<p><u><b>SOA Maturity Levels</b></u></p>
+<p>&nbsp;</p>
+<p>A complete overnight realization of SOA is not a viable solution. 
+Implementing SOA is a five step process. </p>
+<p><br>
+<img border="0" src="../images/soa_maturity_pyramid.gif" width="500" height="317"></p>
+<p><br>
+<b>Level1: Initial Service</b> - In the first stage companies service-enable 
+their applications using standard APIs. The costs are modest.<br>
+<br>
+<b>Level2: Architected Service</b>- In second stage companies use SOA services 
+to build new or refractor existing integration points. The company should 
+establish visibility into the entire service list and their consumers. It 
+becomes feasible to reuse services because more thought is put into policies 
+that services must adhere to, such as security and uptime requirements.<br>
+<br>
+<b>Level3: Business and Collaborative Service</b> - Third stage involves the 
+introduction of business-oriented services, such as business process management 
+(BPM). With a focus on the partnership between technology and business 
+organizations, Level 3 optimizes the flexibility of business processes, allowing 
+IT to respond quickly to changing business requirements. <br>
+<br>
+<b>Level4: Measured business services </b>- Level 4 provides continuous feedback 
+on the performance and business impact of the processes implemented at Level 3. 
+The key focus at this level is collecting data and providing that data to 
+business users, enabling them to transform the way they respond to events. It 
+could involve logging and monitoring service health constantly.<br>
+<br>
+<b>Level5: Optimized business services </b>- At this final level, 
+business-optimization rules are added, and the SOA becomes the nervous system 
+for the enterprise. Automatic responses to the measurements and displays of 
+Level 4 allow an organization to take immediate action on events. A Level 5 
+project can take the request messages entering the ESB and route that 
+information to an event-stream processor. This service correlates the behavior 
+of all traders across multiple execution venues and identifies important 
+patterns. This information might be used to execute new trades or stop a rogue 
+trader who is out of view of compliance officers. <br>
+<br>
+<br>
+There are several SOA lifecycle stages mentioned by different vendors.<br>
+&nbsp;</p>
+<p>Soa levels defines by SOA consortium:</p>
+<p>
+<img border="0" src="../images/EnterpriseSOAMaturityModel_html_4c3f24e3.png" width="710" height="419"><br>
+<br>
+&nbsp;</p>
+<p>Soa levels defined by BEA:</p>
+<p><img border="0" src="../images/beamaturitymatrix.jpg" width="745" height="509"><br>
+<br>
+<br>
+<br>
+<br>
+References:<br>
+<br>
+Service Oriented Enterprise by Setrag khoshafian<br>
+Service Oriented Architecture For Dummies<br>
+Service-Oriented Architecture Compass: Business Value, Planning, and Enterprise 
+Roadmap <br>
+By Norbert Bieberstein,, Sanjay Bose,, Marc Fiammante,, Keith Jones,, Rawn Shah
+<br>
+SOA for the Business Developer: Concepts, BPEL, and SCA, First Edition <br>
+byBen MargolisandJoseph Sharpe <br>
+&nbsp;</p>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

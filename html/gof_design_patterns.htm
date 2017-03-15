@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>GOF Design Patterns Quick Review.</title>
+
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<p><b>GOF Design Patterns and OOP Notes</b></p>
+
+<p><b><font size="2">A pattern addresses a recurring design problem that arises 
+in specific design situations and presents a solution to it” (Buschmann, et. al. 
+1996)</font><br>
+</b><i><font size="2"><a href="#oop">Object Oriented Programming Best Practices
+</a></font></i></p>
+
+<table border="2" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+  <tr>
+    <td width="100%"><b>Creational Design Patterns</b></td>
+  </tr>
+  <tr>
+    <td width="100%"><u>Factory Method</u><br>
+    Methods, which create an instance of another class is known as a Factory 
+	Method. A class (Factory Class) can contain one or more Factory Methods. 
+	Factory Methods can be static or non-static. We can create a concrete 
+	Factory class and its sub-classes can create appropriate instances. The 
+	Factory Method is only responsible for creating objects. Once they create &amp; 
+	return an object, they don’t have any control over object’s life time. You 
+	should consider using a Factory pattern to reduce coupling and to create 
+	multiple objects at run time based on some inputs or conditions. Unlike 
+	constructors, factory methods are not required to create a new object each 
+	time they are invoked. Factory methods can encapsulate the logic required to 
+	return a singleton instance of the class requested, or they can return an 
+	instance of the requested class from a pool of instances. The base Factory 
+	class is abstract.The Concrete classes override getMyClass() method to 
+	return a particular type of object.<br>
+    <br>
+    <br>
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1033" type="#_x0000_t75" style='width:378.75pt;
+ height:102pt' fillcolor="#0c9">
+ <v:imagedata src="gof_design_patterns_files/image001.wmz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=505 height=136
+src="gof_design_patterns_files/image002.gif" v:shapes="_x0000_s1033"><![endif]><br>
+    Examples of factory method in JDK:<br>
+	&nbsp;- public static Runtime getRuntime() of Runtime class.<br>
+	&nbsp;- createStatement() of Connection class (java.sql)</td>
+  </tr>
+  <tr>
+    <td width="100%"><u>Abstract Factory</u><br>
+    The Abstract Factory Method (AFM) is one level abstraction higher than the 
+	Factory Method pattern. AFM is useful when we want to return one of several 
+	related classes of objects, each of which can return several different 
+	objects on request. AFM can provide more than of type of objects.An abstract 
+	factory provides an interface for creating families of related objects 
+	without specifying their concrete classes. Abstract Factory provide a single 
+	interface to Clients to use, when they need to create a family of related 
+	objects. The Abstract factory publishes an interface for creating abstract 
+	products. But the concrete subclasses actually provide the concrete 
+	products.Accessing an abstract factory is normally done through a static 
+	method on the Abstract Factory class.Whenever we need new kind of products 
+	to be created, we just want to make new concrete factory classes. To change 
+	a complete family of products is easy. Just change the factory, the client 
+	uses. AFM helps to increase the overall flexibility of an application. This 
+	flexibility manifests itself both during design &amp; run time. During design 
+	time, you do not have to predict all future uses for an application. 
+	Instead, you create the generic frameworks and then develop implementations 
+	independently from the rest of the application. At run time, the application 
+	can easily integrate new features and resources. Use AFM when you want your 
+	system to be independent from the products it uses. This involves being 
+	independent from the creation, composition, and representation of the 
+	products. You want the ability to interchange the type of family of products 
+	the system uses. <br>
+    Whenever the application wants to deal multiple Operating Systems, Multiple 
+	Databases, Multiple Persistent Mechanisms, multiple document types, multiple 
+	image types etc. Used in JDBC, Java Mail, Swing pluggable L&amp;F, AWT toolkit, 
+	DAO.</td>
+  </tr>
+  <tr>
+    <td width="100%"><u>Builder</u><br>
+    Builder patterns allows a client to construct a complex object by specifying 
+	only its type &amp; context. The Client is totally shielded from the details of 
+	actual construction process. In builder pattern, the client is given the 
+	choice to create the type of object that he/she wants. Use builder pattern 
+	when The algorithm for creating a complex object should be independent of 
+	the parts that make up the object and how they&#39;re assembled or when a 
+	program is required to produce multiple external representation of the same 
+	data. Builder pattern allows us to vary a Product’s internal representation.</td>
+  </tr>
+  <tr>
+    <td width="100%"><u>Prototype</u><br>
+    The Prototype pattern is used when creating an instance of a class is very 
+	time-consuming or complex in some way. In that case, instead of creating 
+	more instances from scratch, its better to make copies of the available 
+	instance and modifying them as per requirement. The most important 
+	requirement for objects to be used as Prototype is that they have a method, 
+	typically called clone(), which returns a new object (copy of the original 
+	object). In shallow copy the internal object is not cloned whereas in deep 
+	copy even the internal object which is being composed, is also cloned. By 
+	default clone method returns a shallow copy. We have to override ‘clone()’ 
+	method, if we are interested in deep cloning. Only instances of those 
+	classes, which implements ‘cloneable’ interface can be cloned. The ‘clone()’ 
+	method always returns an object of type ‘Object’. So we must cast it to the 
+	actual type of object. Prototype pattern is useful for dynamically adding &amp; 
+	removing objects at run-time. It reduces the need of sub classing and helps 
+	to reduce the number of classes.<br>
+    The Prototype pattern is used when creating an instance of a class is very 
+	time-consuming or complex in some way like getting some data from Database 
+	or across the network.</td>
+  </tr>
+  <tr>
+    <td width="100%"><u>Singleton</u><br>
+    The Singleton pattern ensures that a class has only one instance. Provides a 
+	global point of access to that instance.<br>
+<!--[if gte vml 1]><v:shape
+ id="_x0000_s1029" type="#_x0000_t75" style='width:433.5pt;height:108pt'>
+ <v:imagedata src="gof_design_patterns_files/image003.jpg" o:title="jw-0425-designpatterns1"/>
+</v:shape><![endif]--><![if !vml]><img border=0 width=578 height=144
+src="gof_design_patterns_files/image004.jpg" v:shapes="_x0000_s1029"><![endif]><p>
+    Constructor is ‘PRIVATE’. This ensures that no other code in your 
+	application will be able to create an instance of this class, by using the 
+	constructor directly. Using a static method, which returns an object. Static 
+	variable, used for holding the created instance. If the instance is already 
+	there, the static method do not create a second one, instead returns the 
+	already created one.When multiple threads are introduced, you must protect 
+	the getInstance() method through synchronization. If the getInstance() 
+	method is not protected against synchronization, it is possible to return 
+	two different instances of the Singleton object. Refer to Double Checked 
+	Lock (DCL) programming pattern and ThreadLocal implementation for better 
+	singleton implementation in a multithreaded environment.</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<TABLE height=832 cellSpacing=0 cellPadding=4 width="100%" 
+align=center border=1>
+  <TBODY>
+  <TR>
+    <TD height=19>
+      <P><b>Structural Design Patterns </b> </P></TD></TR>
+  <TR>
+    <TD height=151><u>The Adapter Pattern</u><BR>The Adapter pattern is used to 
+	convert the programming interface of one class into that of another. We use 
+	adapters whenever we want unrelated classes to work together in a single 
+	program. The concept of an adapter is thus pretty simple; we write a class 
+	that has the desired interface and then make it communicate with the class 
+	that has a different interface. There are two ways to do this: by 
+	inheritance, and by object composition. In the first case, we derive a new 
+	class from the nonconforming one and add the methods we need to make the new 
+	derived class match the desired interface. The other way is to include the 
+	original class inside the new one and create the methods to translate calls 
+	within the new class. These two approaches, termed class adapters and object 
+	adapters are both fairly easy to implement in Java. </TD></TR>
+  <TR>
+    <TD height=119><u>The Bridge Pattern</u><BR>At first sight, the Bridge 
+	pattern looks much like the Adapter pattern, in that a class is used to 
+	convert one kind of interface to another. However, the intent of the Adapter 
+	pattern is to make one or more classes’ interfaces look the same as that of 
+	a particular class. The Bridge pattern is designed to separate a class’s 
+	interface from its implementation, so that you can vary or replace the 
+	implementation without changing the client code.</TD></TR>
+  <TR>
+    <TD height=124><u>The Composite Pattern</u><BR>Frequently programmers 
+	develop systems in which a component may be an individual object or it may 
+	represent a collection of objects. The Composite pattern is designed to 
+	accommodate both cases. You can use the Composite to build part-whole 
+	hierarchies or to construct data representations of trees. In summary, a 
+	composite is a collection of objects, any one of which may be either a 
+	composite, or just a primitive object. In tree nomenclature, some objects 
+	may be nodes with additional branches and some may be leaves.</TD></TR>
+  <TR>
+    <TD height=143><u>The Façade Pattern</u><BR>Frequently, as your programs 
+	evolve and develop, they grow in complexity. In fact,for all the excitement 
+	about using design patterns, these patterns sometimes generate so many 
+	classes that it is difficult to understand the program’s flow. Furthermore, 
+	there may be a number of complicated subsystems, each of which has its own 
+	complex interface.The Façade pattern allows you to simplify this complexity 
+	by providing a simplified interface to these subsystems. This simplification 
+	may in some cases reduce the flexibility of the underlying classes, but 
+	usually provides all the function needed for all but the most sophisticated 
+	users. These users can still, of course, access the underlying classes and 
+	methods.</TD></TR>
+  <TR>
+    <TD height=168><u>The Proxy Pattern</u><BR>The Proxy pattern is used when 
+	you need to represent an object that is complex or time consuming to create, 
+	by a simpler one. If creating an object is expensive in time or computer 
+	resources, Proxy allows you to postpone this creation until you need the 
+	actual object. A Proxy usually has the same methods as the object it 
+	represents, and once the object is loaded, it passes on the method calls 
+	from the Proxy to the actual object. There are several cases where a Proxy 
+	can be useful:<BR>1. If an object, such as a large image, takes a long time 
+	to load.<BR>2. If the object is on a remote machine and loading it over the 
+	network may be slow, especially during peak network load periods.<BR>3. If 
+	the object has limited access rights, the proxy can validate the 
+	accesspermissions for that user.</TD></TR>
+  <TR>
+    <TD height=38><u>The Decorator pattern</u>, a class that surrounds a given 
+	class, adds new capabilities to it, and passes all the unchanged methods to 
+	the underlying class.</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=4 width="100%" align=center 
+border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <P><b>Behavioral Design Patterns </b> </P></TD></TR>
+  <TR>
+    <TD><u>The Template Method</u><BR>Whenever you write a parent class where 
+	you leave one or more of the methods to be implemented by derived classes, 
+	you are in essence using the Template pattern. The Template pattern 
+	formalizes the idea of defining an algorithm in a class, but leaving some of 
+	the details to be implemented in subclasses. In other words, if your base 
+	class is an abstract class, as often happens in these design patterns, you 
+	are using a simple form of the Template pattern.</TD></TR>
+  <TR>
+    <TD><u>The Chain of Responsibility</u><BR>The Chain of Responsibility 
+	pattern allows a number of classes to attempt to handle a request, without 
+	any of them knowing about the capabilities of the other classes. It provides 
+	a loose coupling between these classes; the only common link is the request 
+	that is passed between them. The request is passed along until one of the 
+	classes can handle it.</TD></TR>
+  <TR>
+    <TD><u>The Command Pattern</u><BR>The Chain of Responsibility forwards 
+	requests along a chain of classes, but the Command pattern forwards a 
+	request only to a specific object. It encloses a request for a specific 
+	action inside an object and gives it a known public interface. It lets you 
+	give the client the ability to make requests without knowing anything about 
+	the actual action that will be performed, and allows you to change that 
+	action without affecting the client program in any way.</TD></TR>
+  <TR>
+    <TD><u>The Iterator Pattern</u><BR>The Iterator is one of the simplest and 
+	most frequently used of the design patterns. The Iterator pattern allows you 
+	to move through a list or collection of data using a standard interface 
+	without having to know the details of the internal representations of that 
+	data. In addition you can also define special iterators that perform some 
+	special processing and return only specified elements of the data 
+	collection. </TD></TR>
+  <TR>
+    <TD><u>The Visitor Pattern</u><BR>The Visitor pattern turns the tables on 
+	our object-oriented model and creates an external class to act on data in 
+	other classes. This is useful when you have a polymorphic operation that 
+	cannot reside in the class hierarchy for some reason.. For example, the 
+	operation wasn’t considered when the hierarchy was designed, or because it 
+	would clutter the interface of the classes unnecessarily.</TD></TR>
+  <TR>
+    <TD><u>The Mediator Pattern</u><BR>When a program is made up of a number of 
+	classes, the logic and computation is divided logically among these classes. 
+	However, as more of these isolated classes are developed in a program, the 
+	problem of communication between these classes become more complex. The more 
+	each class needs to know about the methods of another class, the more 
+	tangled the class structure can become. This makes the program harder to 
+	read and harder to maintain. Further,it can become difficult to change the 
+	program, since any change may affect code in several other classes. The 
+	Mediator pattern addresses this problem by promoting looser coupling between 
+	these classes. Mediators accomplish this by being the only class that has 
+	detailed knowledge of the methods of other classes. Classes send inform the 
+	mediator when changes occur and the Mediator passes them on to any other 
+	classes that need to be informed.</TD></TR>
+  <TR>
+    <TD><u>The State Pattern</u><BR>The State pattern is used when you want to 
+	have an object represent the state of your application, and switch 
+	application states by switching objects. For example, you could have an 
+	enclosing class switch between a number of related contained classes, and 
+	pass method calls on to the current contained class. Design Patterns 
+	suggests that the State pattern switches between internal classes in such a 
+	way that the enclosing object appears to change its class. In Java, at 
+	least, this is a bit of an exaggeration, but the actual purpose to which the 
+	classes are put can change significantly.&nbsp; Many programmers have had the 
+	experience of creating a class that performs slightly different computations 
+	or displays different information based on the arguments passed into the 
+	class. This frequently leads to some sort of switch or if-else statements 
+	inside the class that determine which behavior to carry out. It is this 
+	inelegance that the State pattern seeks to replace. </TD></TR>
+  <TR>
+    <TD><u>The Strategy Pattern</u><BR>The Strategy pattern is much like the 
+	State pattern in outline, but a little different in intent. The Strategy 
+	pattern consists of a number of related algorithms encapsulated in a driver 
+	class called the Context. Your client program can select one of these 
+	differing algorithms or in some cases the Context might select the best one 
+	for you. The intent is to make these algorithms interchangeable and provide 
+	a way to choose the most appropriate one. The difference between State and 
+	Strategy is that the user generally chooses which of several strategies to 
+	apply and that only one strategy at a time is likely to be instantiated and 
+	active within the Context class. By contrast, as we have seen, it is 
+	possible that all of the different States will be active at once and 
+	switching may occur frequently between them. In addition, Strategy 
+	encapsulates several algorithms that do more or less the same thing, while 
+	State encapsulates related classes that each do something somewhat 
+	different. Finally, the concept of transition between different states is 
+	completely missing in the Strategy pattern.</TD></TR>
+  <TR>
+    <TD><u>The Observer Pattern</u><BR>The Observer pattern assumes that the 
+	object containing the data is separate from the objects that display the 
+	data, and that these display objects observe changes in that data.&nbsp; When we 
+	implement the Observer pattern, we usually refer to the data as the Subject 
+	and each of the displays as Observers. Each of these observers registers its 
+	interest in the data by calling a public method in the Subject. Then, each 
+	observer has a known interface that the subject calls when the data change.</TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=4 align=center border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      &nbsp;</TD></TR>
+  <TR>
+    <TD>
+      <P><a name="oop"></a><b>Object Oriented Programming Best Practices </b> 
+    </P></TD></TR>
+  <TR>
+    <TD><u>Interface with Interfaces</u><BR>Use interfaces as the glue 
+	throughout your code instead of classes: define interfaces to describe the 
+	exterior of objects (i.e. their Type) and type all variables, parameters, 
+	and return values to interfaces. The most important reason to do this is 
+	that interfaces focus on the client’s needs: interfaces define what 
+	functionality a client will receive from an Object without coupling the 
+	client to the Object’s implementation. This is one of the core concepts to 
+	OO. </TD></TR>
+  <TR>
+    <TD><u>Create Different Interfaces for Different Types of Clients</u><BR>
+	Provide different interfaces to support different types of clients and to 
+	prevent exposing responsibilities to clients who should not see it. Provides 
+	a more understandable system for a particular client’s perspective and makes 
+	maintenance impacts more visible.</TD></TR>
+  <TR>
+    <TD><u>Use Interfaces over Abstract Classes</u><BR>If you can conceive of 
+	someone else implementing a class&#39;s functionality differently, define an 
+	interface, not an abstract class. Generally, use abstract classes only when 
+	they are ``partially abstract&#39;&#39;; i.e., they implement some functionality 
+	that must be shared across all subclasses. Interfaces are more flexible than 
+	abstract classes. They support multiple inheritance and can be used as 
+	`mixins&#39; in otherwise unrelated classes. </TD></TR>
+  <TR>
+    <TD><u>Rarely declare a class final</u><BR>Declare a class as final only if 
+	it is a subclass or implementation of a class or interface declaring all of 
+	its non-implementation-specific methods. (And similarly for final methods). 
+	Making a class final means that no one ever has a chance to reimplement 
+	functionality. Defining it instead to be a subclass of a base that is not 
+	final means that someone at least gets a chance to subclass the base with an 
+	alternate implementation. Which will essentially always happen in the long 
+	run. </TD></TR>
+  <TR>
+    <TD><u>Minimize statics</u> (except for static final constants). Static 
+	variables act like globals in non-OO languages. They make methods more 
+	context-dependent, hide possible side-effects, sometimes present 
+	synchronized access problems. and are the source of fragile, non-extensible 
+	constructions. Also, neither static variables nor methods are overridable in 
+	any useful sense in subclasses. </TD></TR>
+  <TR>
+    <TD><u>Use Factories for Creating Objects</u><BR>Use Factories and Factory 
+	methods for &quot;public&quot; object construction: have an object be responsible for 
+	construction instead of having clients directly call &quot;new AClass()&quot;. The 
+	reason to use factory creation methods instead of straight constructors is 
+	because they: Allow more flexibility in &quot;creating&quot; a new object: the 
+	implementation can just reuse an existing object if the semantics make 
+	sense. Can have better names: &quot;newTimeNow()&quot; and &quot;newTimeFromSeconds(...)&quot; 
+	instead of &quot;new Time()&quot; and &quot;new Time(...)&quot; Provide better separation 
+	between interface and implementation: we can document the factory method in 
+	an interface. Naturally flow into more sophisticated factory designs.The 
+	implementation can take advantage of inheritance since it is a &quot;normal&quot; 
+	object method.</TD></TR>
+  <TR>
+    <TD><u>Never declare instance variables as public</u>. The standard OO 
+	reasons. Making variables public gives up control over internal class 
+	structure. Also, methods cannot assume that variables have valid values. 
+    </TD></TR>
+  <TR>
+    <TD>All data should be <u>hidden</u> within its class. </TD></TR>
+  <TR>
+    <TD>Keep things as “<u>private as possible</u>.” Once you publicize an 
+	aspect of your library (a method, a class, a field), you can never take it 
+	out. If you do, you’ll wreck somebody’s existing code, forcing them to 
+	rewrite and redesign. If you publicize only what you must, you can change 
+	everything else with impunity, and since designs tend to evolve this is an 
+	important freedom. In this way, implementation changes will have minimal 
+	impact on derived classes. Privacy is especially important when dealing with 
+	multithreading—only private fields can be protected against un-synchronized 
+	use.</TD></TR>
+  <TR>
+    <TD>Users of a class must be dependent on its public interface, but a class 
+	should not be dependent on its users.</TD></TR>
+  <TR>
+    <TD>Do not change the state of an object without going through its public 
+	interface. </TD></TR>
+  <TR>
+    <TD>Minimize the number of messages in the protocol of a class. </TD></TR>
+  <TR>
+    <TD>Do not clutter the public interface of a class with things that users of 
+	that class are not able to use or are not interested in using.</TD></TR>
+  <TR>
+    <TD>Keep related data and behavior in one place. Spin off non-related 
+	information into another class.</TD></TR>
+  <TR>
+    <TD>Distribute system intelligence horizontally as uniformly as possible, 
+	i.e. the top level classes in a design should share the work uniformly. 
+  </TD></TR>
+  <TR>
+    <TD>Do not create god classes/objects in your system. Be very suspicious of 
+	an abstraction whose name contains Driver, Manager, System, or Subsystem. </TD></TR>
+  <TR>
+    <TD>In applications which consist of an object-oriented model interacting 
+	with a user interface, the model should never be dependent on the interface. 
+	The interface should be dependent on the model. </TD></TR>
+  <TR>
+    <TD>Inheritance should only be used to model a specialization hierarchy. 
+    </TD></TR>
+  <TR>
+    <TD>All data in a base class should be private, i.e. do not use protected 
+	data. </TD></TR>
+  <TR>
+    <TD>Theoretically, inheritance hierarchies should be deep, i.e. the deeper 
+	the better. Pragmatically, inheritance hierarchies should be no deeper than 
+	an average person can keep in their short term memory. A popular value for 
+	this depth is six. </TD></TR>
+  <TR>
+    <TD>All abstract classes must be base classes. All base classes should be 
+	abstract classes.</TD></TR>
+  <TR>
+    <TD>Factor the commonality of data, behavior, and/or interface as high as 
+	possible in the inheritance hierarchy. </TD></TR>
+  <TR>
+    <TD>If two or more classes only share common data (no common behavior) then 
+	that common data should be placed in a class which will be contained by each 
+	sharing class.</TD></TR>
+  <TR>
+    <TD>If two or more classes have common data and behavior (i.e. methods) then 
+	those classes should each inherit from a common base class which captures 
+	those data and methods. </TD></TR>
+  <TR>
+    <TD>If two or more classes only share common interface (i.e. messages, not 
+	methods) then they should inherit from a common base class only if they will 
+	be used polymorphically. </TD></TR>
+  <TR>
+    <TD>If you have an example of multiple inheritance in your design, assume 
+	you have made a mistake and prove otherwise.</TD></TR>
+  <TR>
+    <TD>Whenever there is inheritance in an object-oriented design ask yourself 
+	two questions: 1) Am I a special type of the thing I&#39;m inheriting from? and 
+	2) Is the thing I&#39;m inheriting from part of me?</TD></TR>
+  <TR>
+    <TD>Whenever you have found a multiple inheritance relationship in a 
+	object-oriented design be sure that no base class is actually a derived 
+	class of another base class, i.e. accidental multiple inheritance.</TD></TR>
+  <TR>
+    <TD><u>What are some alternatives to inheritance?</u><BR>Delegation is an 
+	alternative to inheritance. Delegation means that you include an instance of 
+	another class as an instance variable, and forward messages to the instance. 
+	It is often safer than inheritance because it forces you to think about each 
+	message you forward, because the instance is of a known class, rather than a 
+	new class, and because it doesn&#39;t force you to accept all the methods of the 
+	super class: you can provide only the methods that really make sense. On the 
+	other hand, it makes you write more code, and it is harder to re-use 
+	(because it is not a subclass). </TD></TR>
+  <TR>
+    <TD><u>The Utility Class idiom </u> <BR>A utility class contains only public 
+	static methods and is not meant to be instantiated. Utility classes are 
+	easily abused and can lead to procedural programming. However, Bloch pointed 
+	out two valid uses of this idiom. You should use a utility class to act on 
+	collections of primitives and collections of objects that implement 
+	interfaces. java.util.Collections serves as an example of a properly 
+	designed utility class. </TD></TR>
+  <TR>
+    <TD>Watch for long method definitions. Methods should be brief, functional 
+	units that describe and implement a discrete part of a class interface. A 
+	method that is long and complicated is difficult and expensive to maintain, 
+	and is probably trying to do too much all by itself. If you see such a 
+	method, it indicates that, at the least, it should be broken up into 
+	multiple methods. It may also suggest the creation of a new class. Small 
+	methods will also foster reuse within your class. (Sometimes methods must be 
+	large, but they should still do just one thing.)</TD></TR>
+  <TR>
+    <TD><u>Return Immutables From Accessor Methods</u><BR>Many accessor methods 
+	need to return values which are references to objects which represent a part 
+	of the state of the called object; directly returning the state in this form 
+	will expose the internals of the called object, and the caller will have the 
+	ability to modify that state unpredictably.</TD></TR>
+  <TR>
+    <TD><u>Copy Mutable Parameters</u><BR>If an object has to use a mutable 
+	object as a ValueObject, operations on the mutable value can change the 
+	object&#39;s internal state without its knowledge and can cause it&#39;s state to 
+	become inconsistent. Therefore: an object that holds mutable objects as 
+	state must ReturnNewObjectsFromAccessorMethods. Additionally, it must make 
+	private copies of mutable objects that are passed to it and that it needs to 
+	store internally. (by making use of use cloning)</TD></TR>
+  <TR>
+    <TD><u>Object Pooling </u> <BR>Don&#39;t do it. Outside of some cases where you 
+	are actually pooling the resource held by the object and not the object 
+	itself (e.g. thread pools, database connections, huge bitmaps, etc.), object 
+	pooling is not worth doing anymore. Object allocation is now so fast that 
+	the necessary synchronization required by an object pool implementation is 
+	slower than simply allocating new objects. </TD></TR>
+  <TR>
+    <TD>Choose interfaces over abstract classes. If you know something is going 
+	to be a base class, your first choice should be to make it an interface, and 
+	only if you’re forced to have method definitions or member variables should 
+	you change it to an abstract class. An interface talks about what the client 
+	wants to do, while a class tends to focus on (or allow) implementation 
+	details. </TD></TR></TBODY></TABLE>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

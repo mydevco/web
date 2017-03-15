@@ -1,0 +1,872 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 3</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<h1 style="text-align: left;" align="left"><span
+ style="font-size: 18pt;">Chapter 3 Modifiers</span><o:p></o:p></h1>
+<p class="MsoNormal" style="">1.<span style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Modifiers are Java keywords that provide information to compiler about 
+the nature of the code, data and classes.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Access modifiers 
+– public, protected, private<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Only applied to class level variables. 
+Method variables are visible only inside the method.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to class itself (only to 
+inner classes declared at class level, no such thing as protected or private top 
+level class)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to methods and 
+constructors.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If a class is accessible, it doesn’t 
+mean, the members are also accessible. Members’ accessibility determines what is 
+accessible and what is not. But if the class is not accessible, the members are 
+not accessible, even though they are declared public.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>If no access modifier is specified, then 
+the accessibility is default package visibility. All classes in the same package 
+can access the feature. It’s called as friendly access. But friendly is not a 
+Java keyword. Same directory is same package in Java’s consideration.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>‘private’ means only the class can access 
+it, not even sub-classes.<span style="">&nbsp;
+</span>So, it’ll cause access denial to a sub-class’s own variable/method.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>These modifiers dictate, which <u>classes</u> 
+can access the features. An <u>instance</u>
+of a <u>class</u> can access the private features of another<u>instance</u>
+of the same <u>class</u>.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>‘protected’ means all classes in the same 
+package (like default) and sub-classes in any package can access the features. 
+But a subclass in another package can access the protected members in the 
+super-class via only the references of subclass or its subclasses. A subclass in 
+the same package doesn’t have this restriction. This ensures that classes from 
+other packages are accessing only the members that are part of their inheritance 
+hierarchy.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Methods cannot be overridden to be more 
+private. Only the direction shown in following figure is permitted from parent 
+classes to sub-classes.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: 0.5in;">private
+<span style="font-family: Wingdings;"><span style="">à</span></span>
+friendly (default) <span style="font-family: Wingdings;"><span style="">à</span></span>
+protected <span style="font-family: Wingdings;"><span style="">à</span></span>
+public<o:p></o:p></p>
+<p class="MsoNormal" style=""><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Parent classes <span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Sub-classes<o:p></o:p></p>
+<p class="MsoNormal" style="">3.<span style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>final<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>final features cannot be changed.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>final classes cannot be sub-classed.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>final variables cannot be changed. 
+(Either a value has to be specified at declaration or an assignment statement 
+can appear only once).<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>final methods cannot be overridden.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Method arguments marked final are 
+read-only. Compiler error, if trying to assign values to final arguments inside 
+the method. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Member variables marked final are not 
+initialized by default. They have to be explicitly assigned a value at 
+declaration or in an initializer block. Static finals must be assigned to a 
+value in a static initializer block, instance finals must be assigned a value in 
+an instance initializer or in every constructor. Otherwise the compiler will 
+complain.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Final variables that are not assigned a 
+value at the declaration and method arguments that are marked final are called 
+blank final variables. They can be assigned a value at most once.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Local variables can be declared final as 
+well.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">4.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>abstract<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to classes and methods.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>For deferring implementation to 
+sub-classes.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Opposite of final, final can’t be 
+sub-classed, abstract must be sub-classed.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A class should be declared abstract, <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">1.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>if it has any 
+abstract methods.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">2.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>if it doesn’t 
+provide implementation to any of the abstract methods it inherited<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.75in; text-indent: -0.25in;">3.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>if it doesn’t 
+provide implementation to any of the methods in an interface that it says 
+implementing.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Just terminate the abstract method 
+signature with a ‘;’, curly braces will give a compiler error.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>A class can be abstract even if it 
+doesn’t have any abstract methods.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">5.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>static<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to nested classes, 
+methods, variables, free floating code-block (static initializer)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Static variables are initialized at class 
+load time. A class has only one copy of these variables.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Static methods can access only static 
+variables. (They have no this)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Access by class name is a recommended way 
+to access static methods/variables.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Static initializer code is run at class 
+load time.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Static methods may not be overridden to 
+be non-static. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Non-static methods may not be overridden 
+to be static.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Abstract methods may not be static.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Local variables cannot be declared as 
+static.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Actually, static methods are not 
+participating in the usual overriding mechanism of invoking the methods based on 
+the class of the object at runtime. Static method binding is done at compile 
+time, so the method to be invoked is determined by the type of reference 
+variable rather than the actual type of the object it holds at runtime. <o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in;">Let’s say a sub-class has a 
+static method which ‘overrides’ a static method in a parent class.<span style="">&nbsp; </span>
+If you have a reference variable of parent class type and you assign a child 
+class object to that variable and invoke the static method, the method invoked 
+will be the parent class method, not the child class method.<span
+ style="">&nbsp; </span>The following code explains this.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">public class 
+StaticOverridingTest {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>public static void main(String s[]) {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Child c = new Child();</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>c.doStuff(); // This will invoke Child.doStuff()</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Parent p = new Parent();</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>p.doStuff(); // This will invoke Parent.doStuff()</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>p = c;</span><o:p></o:p></p>
+<p class="MsoBodyTextIndent3" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">p.doStuff(); </span><o:p></o:p></p>
+<p class="MsoBodyTextIndent3" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">// This will 
+invoke Parent.doStuff(), rather than Child.doStuff()<span style="">&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">class Parent {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>static int x = 100;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>public static void doStuff() {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(&quot;In Parent..doStuff&quot;);</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(x);</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;">class Child 
+extends Parent {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>static int x = 200;</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>public static void doStuff() {</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(&quot;In Child..doStuff&quot;);</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>System.out.println(x);</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">&nbsp;
+</span>}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 1in;"><span
+ style="font-size: 8pt; font-family: &quot;Lucida Console&quot;;"><span style="">
+&nbsp;</span>}</span><o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">6.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>native<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to methods only. (static 
+methods also)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Written in a non-Java language, compiled 
+for a single machine target type.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Java classes use lot of native methods 
+for performance and for accessing hardware Java is not aware of.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Native method signature should be 
+terminated by a ‘;’, curly braces will provide a compiler error.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>native doesn’t affect access qualifiers. 
+Native methods can be private.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can pass/return Java objects from native 
+methods.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>System.loadLibrary is used in static 
+initializer code to load native libraries. If the library is not loaded when the 
+static method is called, an UnsatisfiedLinkError is thrown.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">7.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>transient<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to class level variables 
+only.(Local variables cannot be declared transient)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Transient variables may not be final or 
+static.(But compiler allows the declaration, since it doesn’t do any harm. 
+Variables marked transient are never serialized. Static variables are not 
+serialized anyway.)<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Not stored as part of object’s persistent 
+state, i.e. not written out during serialization.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be used for security.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">8.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>synchronized<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to methods or parts of 
+methods only.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Used to control access to critical code 
+in multi-threaded programs.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;">9.<span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>volatile<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to variables only.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Can be applied to static variables.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Cannot be applied to final variables.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Declaring a variable volatile indicates 
+that it might be modified asynchronously, so that all threads will get the 
+correct value of the variable.<o:p></o:p></p>
+<p class="MsoNormal" style="margin-left: 0.5in; text-indent: -0.25in;"><span
+ style="font-family: Symbol;">·</span><span
+ style="font-size: 7pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Used in multi-processor environments.<o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 0.5in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style=""><b><span style="font-size: 9pt;">Modifier</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style=""><b><span style="font-size: 9pt;">Class</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style=""><b><span style="font-size: 9pt;">Inner 
+	  classes (Except local and anonymous classes)</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style=""><b><span style="font-size: 9pt;">Variable</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style=""><b><span style="font-size: 9pt;">Method</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style=""><b><span style="font-size: 9pt;">Constructor</span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style=""><b><span style="font-size: 9pt;">Free 
+	  floating Code block</span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">public<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Y</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">protected<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">Y <o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="preformatted" style="margin: 0in 0in 0.0001pt;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Y</span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">(friendly)<o:p></o:p></p>
+      <p class="MsoNormal" style="">No access modifier<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">Y (OK for all)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">private<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">final<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">Y (Except anonymous classes)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">abstract<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">Y (Except anonymous classes)<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">static<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">Y <o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">Y (static initializer)<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">native<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">transient<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">synchronized<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">Y (part of method, also need to specify an 
+	  object on which a lock should be obtained)<o:p></o:p></p>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.95in;"
+ valign="top" width="91">
+      <p class="MsoNormal" style="">volatile<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 31.5pt;"
+ valign="top" width="42">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 81pt;"
+ valign="top" width="108">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">Y<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 45pt;"
+ valign="top" width="60">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt;"
+ valign="top" width="84">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 1.5in;"
+ valign="top" width="144">
+      <p class="MsoNormal" style="">N<o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

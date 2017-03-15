@@ -1,0 +1,974 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 9</title>
+  
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p><b><font size="5">Chapter 9 java.util package</font></b></p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A collection (a.k.a bag or multiset) allows a group of objects to be 
+treated as a single unit. Arbitrary objects can be stored, retrieved and 
+manipulated as elements of these collections. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collections Framework presents a set of standard utility classes to 
+manage such collections.</p>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It contains ‘core interfaces’ which allow collections to be 
+manipulated independent of their implementations. These interfaces define the 
+common functionality exhibited by collections and facilitate data exchange 
+between collections.</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A small set of implementations that are concrete implementations of 
+the core interfaces, providing data structures that a program can use.</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An assortment of algorithms to perform various operations such as, 
+sorting and searching.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collections framework is interface based, collections are 
+implemented according to their interface type, rather than by implementation 
+types. By using the interfaces whenever collections of objects need to be 
+handled, interoperability and interchangeability are achieved.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By convention each of the collection implementation classes provide 
+a constructor to create a collection based on the elements in the Collection 
+object passed as argument. By the same token, Map implementations provide a 
+constructor that accepts a Map argument. This allows the implementation of a 
+collection (Collection/Map) to be changed. But Collections and Maps are not 
+interchangeable.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interfaces and their implementations in Java 1.2</p>
+<p>Collection</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|__ Set (no dupes, null allowed based on implementation) à&nbsp; HashSet</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|__ SortedSet (Ordered Set) à TreeSet</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|__ List (ordered collection, dupes OK) à Vector, ArrayList, LinkedList </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<p>&nbsp;Map (key-value pairs, null allowed based on implementation) à HashTable, 
+HashMap</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+|__ SortedMap (Ordered Map) à TreeMap</p>
+<table
+ style="border: medium none ; margin-left: 36.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 19.5pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 67.5pt; height: 19.5pt;"
+ valign="top" width="90">
+      <p>Interface</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 346.5pt; height: 19.5pt;"
+ valign="top" width="462">
+      <p>Description</p>
+      </td>
+    </tr>
+    <tr style="height: 15.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 67.5pt; height: 15.25pt;"
+ valign="top" width="90">
+      <p style="">Collection</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 346.5pt; height: 15.25pt;"
+ valign="top" width="462">
+      <p style="">A basic interface that defines the operations that all the 
+	  classes that maintain collections of objects typically implement.</p>
+      </td>
+    </tr>
+    <tr style="height: 15.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 67.5pt; height: 15.25pt;"
+ valign="top" width="90">
+      <p style="">Set</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 346.5pt; height: 15.25pt;"
+ valign="top" width="462">
+      <p style="">Extends Collection, sets that maintain unique elements. Set 
+	  interface is defined in terms of the equals operation</p>
+      </td>
+    </tr>
+    <tr style="height: 15.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 67.5pt; height: 15.25pt;"
+ valign="top" width="90">
+      <p>SortedSet</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 346.5pt; height: 15.25pt;"
+ valign="top" width="462">
+      <p>Extends Set, maintain the elements in a sorted order</p>
+      </td>
+    </tr>
+    <tr style="height: 15.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 67.5pt; height: 15.25pt;"
+ valign="top" width="90">
+      <p>List</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 346.5pt; height: 15.25pt;"
+ valign="top" width="462">
+      <p>Extends Collection, maintain elements in a sequential order, duplicates 
+	  allowed.</p>
+      </td>
+    </tr>
+    <tr style="height: 15.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 67.5pt; height: 15.25pt;"
+ valign="top" width="90">
+      <p>Map</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 346.5pt; height: 15.25pt;"
+ valign="top" width="462">
+      <p>A basic interface that defines operations that classes that represent 
+	  mappings of keys to values typically implement</p>
+      </td>
+    </tr>
+    <tr style="height: 15.25pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 67.5pt; height: 15.25pt;"
+ valign="top" width="90">
+      <p>SortedMap</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 346.5pt; height: 15.25pt;"
+ valign="top" width="462">
+      <p>Extends Map for maps that maintain their mappings in key order.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Classes that implement the interfaces use different storage 
+mechanisms.</p>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arrays</p>
+<p>Indexed access is faster. Makes insertion, deletion and growing the store 
+more difficult.</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linked List</p>
+<p>Supports insertion, deletion and growing the store. But indexed access is 
+slower.</p>
+<p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tree</p>
+<p>Supports insertion, deletion and growing the store. Indexed access is slower. 
+But searching is faster.</p>
+<p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hashing</p>
+<p>Supports insertion, deletion and growing the store. Indexed access is slower. 
+But searching is faster.</p>
+<p>However, requires the use of unique keys for storing data elements.</p>
+<table
+ style="border: medium none ; margin-left: 0.7in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 15pt;">
+      <td rowspan="2"
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 1.25in; height: 15pt;"
+ valign="top" width="120">
+      Data Structures used to implement</td>
+      <td colspan="5"
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 391.5pt; height: 15pt;"
+ valign="top" width="522">
+      Interfaces</td>
+    </tr>
+    <tr style="height: 13.5pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 13.5pt;"
+ valign="top" width="84">
+      Set</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in; height: 13.5pt;"
+ valign="top" width="72">
+      SortedSet</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 13.5pt;"
+ valign="top" width="138">
+      List</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 13.5pt;"
+ valign="top" width="138">
+      Map</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt; height: 13.5pt;"
+ valign="top" width="90">
+      SortedMap</td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.25in; height: 16.6pt;"
+ valign="top" width="120">
+      Hash Table</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 16.6pt;"
+ valign="top" width="84">
+      HashSet<p style="">(Nulls OK)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in; height: 16.6pt;"
+ valign="top" width="72">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 16.6pt;"
+ valign="top" width="138">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 16.6pt;"
+ valign="top" width="138">
+      HashMap (Nulls OK)<p style="">HashTable (No Nulls)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt; height: 16.6pt;"
+ valign="top" width="90">
+      &nbsp;</td>
+    </tr>
+    <tr style="height: 16.15pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.25in; height: 16.15pt;"
+ valign="top" width="120">
+      Resizable Array</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 16.15pt;"
+ valign="top" width="84">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in; height: 16.15pt;"
+ valign="top" width="72">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 16.15pt;"
+ valign="top" width="138">
+      ArrayList (Nulls OK)<p style="">Vector(Nulls OK)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 16.15pt;"
+ valign="top" width="138">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt; height: 16.15pt;"
+ valign="top" width="90">
+      &nbsp;</td>
+    </tr>
+    <tr style="height: 21.1pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.25in; height: 21.1pt;"
+ valign="top" width="120">
+      Balanced Tree</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 21.1pt;"
+ valign="top" width="84">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in; height: 21.1pt;"
+ valign="top" width="72">
+      TreeSet</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 21.1pt;"
+ valign="top" width="138">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 21.1pt;"
+ valign="top" width="138">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt; height: 21.1pt;"
+ valign="top" width="90">
+      TreeMap</td>
+    </tr>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 1.25in; height: 16.6pt;"
+ valign="top" width="120">
+      Linked List</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 16.6pt;"
+ valign="top" width="84">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 0.75in; height: 16.6pt;"
+ valign="top" width="72">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 16.6pt;"
+ valign="top" width="138">
+      LinkedList (Nulls OK)</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 103.5pt; height: 16.6pt;"
+ valign="top" width="138">
+      &nbsp;</td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 67.5pt; height: 16.6pt;"
+ valign="top" width="90">
+      &nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some of the operations in the collection interfaces are optional, 
+meaning that the implementing class may choose not to provide a proper 
+implementation of such an operation. In such a case, an 
+UnsupportedOperationException is thrown when that operation is invoked.</p>
+<table
+ style="border: medium none ; margin-left: 0.7in; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 20.25pt;">
+      <td colspan="3"
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 117pt; height: 20.25pt;"
+ valign="top" width="156">
+      <p>Interface</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 20.25pt;"
+ valign="top" width="228">
+      <p>Methods</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 20.25pt;"
+ valign="top" width="270">
+      <p>Description</p>
+      </td>
+    </tr>
+    <tr style="height: 30.75pt;">
+      <td rowspan="4"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 0.75in; height: 30.75pt;"
+ width="72">
+      <p style="">Collection</p>
+      </td>
+      <td colspan="2"
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 30.75pt;"
+ valign="top" width="84">
+      <p style="">Basic Operations</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 30.75pt;"
+ valign="top" width="228">
+      <p style="">int size();</p>
+      <p style="">boolean isEmpty();</p>
+      <p style="">boolean contains(Object element);</p>
+      <p style="">boolean add(Object element);</p>
+      <p style="">boolean remove(Object element);</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 30.75pt;"
+ valign="top" width="270">
+      <p style="">Used to query a collection about its contents, and add/remove 
+	  elements. </p>
+      <p style="">The add() and remove() methods return true if the collection 
+	  was modified as a result of the operation. The contains() method checks 
+	  for membership.</p>
+      </td>
+    </tr>
+    <tr style="height: 30pt;">
+      <td colspan="2"
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 30pt;"
+ valign="top" width="84">
+      <p style="">Bulk Operations</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 30pt;"
+ valign="top" width="228">
+      <p style="">boolean containsAll(Collection c);</p>
+      <p style="">boolean addAll(Collection c);</p>
+      <p style="">boolean removeAll(Collection c);</p>
+      <p style="">boolean retainAll(Collection c);</p>
+      <p style="">void clear();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 30pt;"
+ valign="top" width="270">
+      <p style="">Perform on a collection as a single unit.</p>
+      <p style="">Operations are equivalent of set logic on arbitrary 
+	  collections (not just sets). The addAll(), removeAll(), clear() and 
+	  retainAll() methods are destructive. </p>
+      </td>
+    </tr>
+    <tr style="height: 25.6pt;">
+      <td colspan="2"
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 25.6pt;"
+ valign="top" width="84">
+      <p style="">Array Operations</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 25.6pt;"
+ valign="top" width="228">
+      <p style="">Object[] toArray();</p>
+      <p style="">Object[] toArray(Object a[]);</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 25.6pt;"
+ valign="top" width="270">
+      <p style="">These methods combined with Arrays.asList() method provide the 
+	  bridge between arrays and collections. </p>
+      </td>
+    </tr>
+    <tr style="height: 16.15pt;">
+      <td colspan="2"
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 63pt; height: 16.15pt;"
+ valign="top" width="84">
+      <p style="">Iterators</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 16.15pt;"
+ valign="top" width="228">
+      <p style="">Iterator iterator();</p>
+      <p style="">Iterator is an interface which has these methods.</p>
+      <p>boolean hasNext();</p>
+      <p>Object next();</p>
+      <p>void remove();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 16.15pt;"
+ valign="top" width="270">
+      <p style="">Returns an iterator, to iterate the collection. </p>
+      <p style="">The remove() method is the only recommended way to remove 
+	  elements from a collection during the iteration.</p>
+      </td>
+    </tr>
+    <tr style="height: 23.35pt;">
+      <td colspan="3"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 117pt; height: 23.35pt;"
+ width="156">
+      <p>Set</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 23.35pt;"
+ width="228">
+      <p>No new methods defined.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 23.35pt;"
+ valign="top" width="270">
+      <p style="">The add() method returns false, if the element is already in 
+	  the Set. No exceptions are thrown.</p>
+      </td>
+    </tr>
+    <tr style="height: 10.5pt;">
+      <td colspan="2" rowspan="4"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 56.25pt; height: 10.5pt;"
+ width="75">
+      <p>List</p>
+      <p>&nbsp;</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 10.5pt;"
+ width="81">
+      <p>Element Access by Index</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 10.5pt;"
+ valign="top" width="228">
+      <p style="">Object get(int index);</p>
+      <p style="">Object set(int index, Object element);</p>
+      <p style="">void add(int index, Object element);</p>
+      <p style="">Object remove(int index);</p>
+      <p>boolean addAll(int index, Collection c);</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 10.5pt;"
+ valign="top" width="270">
+      <p>First index is 0, last index is size() – 1. An illegal index throws 
+	  IndexOutOfBoundsException.</p>
+      </td>
+    </tr>
+    <tr style="height: 21.75pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 21.75pt;"
+ width="81">
+      <p>Element Search</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 21.75pt;"
+ valign="top" width="228">
+      <p style="">int indexOf(Object o);</p>
+      <p style="">int lastIndexOf(Object o);</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 21.75pt;"
+ valign="top" width="270">
+      <p style="">If the element is not found, return –1.</p>
+      </td>
+    </tr>
+    <tr style="height: 28.5pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 28.5pt;"
+ width="81">
+      <p>List Iterators</p>
+      <p>&nbsp;</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 28.5pt;"
+ valign="top" width="228">
+      <p>ListIterator listIterator();</p>
+      <p>ListIterator listIterator(int index);</p>
+      <p>ListIterator extends Iterator. It allows iteration in both directions.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 28.5pt;"
+ valign="top" width="270">
+      <p>ListIterator’s additional methods:</p>
+      <p>boolean hasPrevious();</p>
+      <p>boolean previous();</p>
+      <p>int nextIndex();</p>
+      <p>int prviousIndex();</p>
+      <p>void set(Object o);</p>
+      <p>void add(Object o);</p>
+      </td>
+    </tr>
+    <tr style="height: 16.5pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 16.5pt;"
+ width="81">
+      <p>Open Range View</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 16.5pt;"
+ valign="top" width="228">
+      <p>List subList(int fromIndex, int toIndex);</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 16.5pt;"
+ valign="top" width="270">
+      <p>Returns a range of the list from fromIndex (inclusive) to toIndex 
+	  (exclusive). Changes to view are reflected in the list and vice versa.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td colspan="2" rowspan="3"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 56.25pt; height: 7.75pt;"
+ width="75">
+      <p>Map</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Basic Operations</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>Object put(Object key, Object value);</p>
+      <p>Object get(Object key);</p>
+      <p>Object remove(Object key);</p>
+      <p>boolean containsKey(Object key);</p>
+      <p>boolean containsValue(Object value);</p>
+      <p>int size();</p>
+      <p>boolean isEmpty();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p style="">The put method replaces the old value, if the map previously 
+	  contained a mapping for that key. </p>
+      <p style="">The get method returns null, if the specified key couldn’t be 
+	  found in the map.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Bulk Operations</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>void putAll(Map t);</p>
+      <p>void clear();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>putAll() adds all the elements from the specified map.</p>
+      <p>clear() removes all the elements from the map.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Collection Views</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>Set keySet();</p>
+      <p>Collection values();</p>
+      <p>Set entrySet();</p>
+      <p>Note that the values () method, returns a Collection, not a set. Reason 
+	  is, multiple unique keys can map to the same value.</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>Provide different views on a Map. Changes to views are reflected in the 
+	  map and vice versa.</p>
+      <p>Each &lt;key,value&gt; pair is represented by an Object implementing 
+	  Map.Entry interface.</p>
+      <p>Object getKey();</p>
+      <p>Object getValue();</p>
+      <p>Object setValue(Object value);</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td colspan="2" rowspan="3"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 56.25pt; height: 7.75pt;"
+ width="75">
+      <p>SortedSet</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Range View Operations</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>SortedSet headSet(Object toElement);</p>
+      <p>SortedSet tailSet(Object fromElement);</p>
+      <p>SortedSet subSet(Object fromElement, Object toElement);</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>fromElement is inclusive, toElement is exclusive. The views present the 
+	  elements sorted in the same order as the underlying sorted set.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Min-Max Points</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>Object first();</p>
+      <p>Object last();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>Return the first (lowest) and last (highest) elements.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Comparator Access</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>Comparator comparator();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>Returns the compartor associated with this SortedSet, or null if it 
+	  uses natural ordering.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td colspan="2" rowspan="3"
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 56.25pt; height: 7.75pt;"
+ width="75">
+      <p>SortedMap</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Range View Operations</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>SortedMap headMap(Object toKey);</p>
+      <p>SortedSet tailMap(Object fromKey);</p>
+      <p>SortedSet subMap(Object fromKey, Object toKey);</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>SortedMap is sorted with keys.</p>
+      <p>fromKey is inclusive, toKey is exclusive. The views present the 
+	  elements sorted in the same order as the underlying sorted map.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Min-Max Points</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>Object firstKey();</p>
+      <p>Object lastKey();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>Return the first (lowest) and last (highest) keys.</p>
+      </td>
+    </tr>
+    <tr style="height: 7.75pt;">
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 60.75pt; height: 7.75pt;"
+ width="81">
+      <p>Comparator Access</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 171pt; height: 7.75pt;"
+ valign="top" width="228">
+      <p>Comparator comparator();</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 202.5pt; height: 7.75pt;"
+ valign="top" width="270">
+      <p>Returns the compartor associated with this SortedMap, or null if it 
+	  uses natural ordering.</p>
+      </td>
+    </tr>
+<!--[if !supportMisalignedColumns]--><tr height="0">
+      <td style="border: medium none ;" width="165"></td>
+      <td style="border: medium none ;" width="4"></td>
+      <td style="border: medium none ;" width="174"></td>
+      <td style="border: medium none ;" width="174"></td>
+      <td style="border: medium none ;" width="181"></td>
+    </tr>
+<!--[endif]-->
+  </tbody>
+</table>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sorting in SortedSets and SortedMaps can be implemented in two ways.</p>
+<p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objects can specify their natural order by implementing Comparable 
+interface. Many if the standard classes in Java API, such as wrapper classes, 
+String, Date and File implement this interface. This interface defines a single 
+method:</p>
+<p>int compareTo(Object o) – returns negative, zero, positive if the current 
+object is less than, equal to or greater than the specified object.</p>
+<p>In this case a natural comparator queries objects implementing Comparable 
+about their natural order. Objects implementing this interface can be used:</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As elements in a sorted set.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As keys in sorted map.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In lists which can be sorted automatically by the Collections.sort() 
+method.</p>
+<p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Objects can be sorted by specific comparators, which implement 
+Comparator interface. This interface defines the following method:</p>
+<p>int compare(Object o1, Object o2) – returns negative, zero, positive if the 
+first object is less than, equal to or greater than the second object. It is 
+recommended that its implementation doesn’t contradict the semantics of the 
+equals() method. </p>
+<p>Specific Comparators can be specified in the constructors of SortedSets and 
+SortedMaps.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All classes provide a constructor to create an empty collection 
+(corresponding to the class). HashSet, HashMap, HashTable can also be specified 
+with an initial capacity as well as a load factor (the ratio of number of 
+elements stored to its current capacity). Most of the time, default values 
+provide acceptable performance.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Vector, like an array, contains items that can be accessed using 
+an integer index. However, the size of a Vector can grow and shrink as needed to 
+accommodate adding and removing items after the Vector has been created. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vector (5,10) means initial capacity 5, additional allocation 
+(capacity increment) by 10.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stack extends Vector and implements a LIFO stack. With the usual 
+push() and pop() methods, there is a peek() method to look at the object at the 
+top of the stack without removing it from the stack.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dictionary is an obsolete class. HashTable extends dictionary. 
+Elements are stored as key-value pairs.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vector and HashTable are the only classes that are thread-safe.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArrayList (does what Vector does), HashMap(does what HashTable 
+does), LinkedList and TreeMap are new classes in Java 1.2</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In Java 1.2, Iterator duplicates the functionality of Enumeration. 
+New implementations should consider Iterator.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collections is a class, Collection is an interface.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collections class consists exclusively of static methods that operate 
+on or return collections. </p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sorting and Searching algorithms in the Collections class.</p>
+<p>static int binarySearch(List list, Object key)</p>
+<p>static void fill(List list, Object o)</p>
+<p>static void shuffle(List list, Object o)</p>
+<p>static void sort(List list)</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Factory methods to provide thread-safety and data immutability. These 
+methods return synchronized (thread-safe) / immutable collections from the 
+specified collections.</p>
+<p>List safeList = Collections.synchronizedList(new LinkedList());</p>
+<p>SortedMap fixedMap = Collections.unmodifiableSortedMap(new SortedMap());</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constants to denote immutable empty collections in the Collections 
+class: </p>
+<p>EMPTY_SET, EMPTY_LIST and EMPTY_MAP.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collections class also has the following methods:</p>
+<table
+ style="border: medium none ; margin-left: 41.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 15.25pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 2.5in; height: 15.25pt;"
+ valign="top" width="240">
+      <p>Method</p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261.75pt; height: 15.25pt;"
+ valign="top" width="349">
+      <p>Description</p>
+      </td>
+    </tr>
+    <tr style="height: 13pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.5in; height: 13pt;"
+ valign="top" width="240">
+      <p style="">public static Set singleton(Object o)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261.75pt; height: 13pt;"
+ valign="top" width="349">
+      <p style="">Returns an immutable set containing only the specified object</p>
+      </td>
+    </tr>
+    <tr style="height: 13pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.5in; height: 13pt;"
+ valign="top" width="240">
+      <p>public static List singletonList(Object o)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261.75pt; height: 13pt;"
+ valign="top" width="349">
+      <p style="">Returns an immutable list containing only the specified object</p>
+      </td>
+    </tr>
+    <tr style="height: 13pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.5in; height: 13pt;"
+ valign="top" width="240">
+      <p>public static Map singletonMap(Object key, Object value)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261.75pt; height: 13pt;"
+ valign="top" width="349">
+      <p style="">Returns an immutable map containing only the specified key, 
+	  value pair.</p>
+      </td>
+    </tr>
+    <tr style="height: 13pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 2.5in; height: 13pt;"
+ valign="top" width="240">
+      <p>public static List nCopies (int n, Object o)</p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 261.75pt; height: 13pt;"
+ valign="top" width="349">
+      <p style="">Returns an immutable list consisting of n copies of the 
+	  specified object. The newly allocated data object is tiny (it contains a 
+	  single reference to the data object). This method is useful in combination 
+	  with the List.addAll method to grow lists.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The class Arrays, provides useful algorithms that operate on arrays. 
+It also provides the static asList() method, which can be used to create List 
+views of arrays. Changes to the List view affects the array and vice versa. The 
+List size is the array size and cannot be modified. The asList() method in the 
+Arrays class and the toArray() method in the Collection interface provide the 
+bridge between arrays and collections.</p>
+<p>Set mySet = new HashSet(Arrays.asList(myArray));</p>
+<p>String[] strArray = (String[]) mySet.toArray();</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All concrete implementations of the interfaces in java.util package 
+are inherited from abstract implementations of the interfaces. For example, 
+HashSet extends AbstractSet, which extends AbstractCollection. LinkedList 
+extends AbstractList, which extends AbstractCollection. These abstract 
+implementations already provide most of the heavy machinery by implementing 
+relevant interfaces, so that customized implementations of collections can be 
+easily implemented using them.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BitSet class implements a vector of bits that grows as needed. Each 
+component of the bit set has a boolean value. The bits of a BitSet are indexed 
+by nonnegative integers. Individual indexed bits can be examined, set, or 
+cleared. One BitSet may be used to modify the contents of another BitSet through 
+logical AND, logical inclusive OR, and logical exclusive OR operations.</p>
+<p>By default, all bits in the set initially have the value false. A BitSet has 
+a size of 64, when created without specifying any size.</p>
+<p>·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConcurrentModificationException exception (extends RuntimeException) 
+may be thrown by methods that have detected concurrent modification of a backing 
+object when such modification is not permissible. </p>
+<p>For example, it is not permssible for one thread to modify a Collection while 
+another thread is iterating over it. In general, the results of the iteration 
+are undefined under these circumstances. Some Iterator implementations 
+(including those of all the collection implementations provided by the JDK) may 
+choose to throw this exception if this behavior is detected. Iterators that do 
+this are known as fail-fast iterators, as they fail quickly and cleanly, rather 
+that risking arbitrary, non-deterministic behavior at an undetermined time in 
+the future.</p>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

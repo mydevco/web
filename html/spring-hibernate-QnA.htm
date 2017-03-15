@@ -1,0 +1,722 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Spring Interview Questions and Answers : Hibernate Interview Questions 
+and Answers</title>
+
+
+
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+
+<p>Q. Explain DI or IOC pattern.<br>
+A: &nbsp;Dependency injection (DI) is a programming design pattern and architectural 
+model, sometimes also referred to as inversion of control or IOC, although 
+technically speaking, dependency injection specifically refers to an 
+implementation of a particular form of IOC. Dependancy Injection describes the 
+situation where one object uses a second object to provide a particular 
+capacity. For example, being passed a database connection as an argument to the 
+constructor instead of creating one internally. The term &quot;Dependency injection&quot; 
+is a misnomer, since it is not a dependency that is injected, rather it is a 
+provider of some capability or resource that is injected. There are three common 
+forms of dependency injection: setter-, constructor- and interface-based 
+injection. Dependency injection is a way to achieve loose coupling. Inversion of 
+control (IOC) relates to the way in which an object obtains references to its 
+dependencies. This is often done by a lookup method. The advantage of inversion 
+of control is that it decouples objects from specific lookup mechanisms and 
+implementations of the objects it depends on. As a result, more flexibility is 
+obtained for production applications as well as for testing.<br>
+<br>
+Q. What are the different IOC containers available?<br>
+A. Spring is an IOC container. Other IOC containers are HiveMind, Avalon, 
+PicoContainer.<br>
+<br>
+Q. What are the different types of dependency injection. Explain with examples.<br>
+A: There are two types of dependency injection: setter injection and constructor 
+injection.<br>
+<u>Setter Injection</u>: &nbsp;Normally in all the java beans, we will use setter and 
+getter method to set and get the value of property as follows: <br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &nbsp;&nbsp;&nbsp; public class namebean { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; String&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; public void setName(String a) { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name = a; } <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; public String getName() { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return name; } <br>
+    &nbsp;&nbsp;&nbsp; } <br>
+	&nbsp;</div>
+<div style="margin-left: 40px">
+    We will create an instance of the bean &#39;namebean&#39; (say bean1) and set 
+	property as bean1.setName(&quot;tom&quot;); Here in setter injection, we will set the 
+	property &#39;name&#39;&nbsp; in spring configuration file as showm below:<br>
+    &lt;bean id=&quot;bean1&quot;&nbsp;&nbsp; class=&quot;namebean&quot;&gt; <br>
+    &nbsp;&nbsp; &lt;property&nbsp;&nbsp; name=&quot;name&quot; &gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;tom&lt;/value&gt; <br>
+    &nbsp;&nbsp; &lt;/property&gt; <br>
+    &lt;/bean&gt; <br>
+    The subelement &lt;value&gt; sets the &#39;name&#39; property by calling the set method as 
+	setName(&quot;tom&quot;); This process is called setter injection. <br>
+    To set properties that reference other beans &lt;ref&gt;, subelement of &lt;property&gt; 
+	is used as shown below, <br>
+    &nbsp;&lt;bean id=&quot;bean1&quot;&nbsp;&nbsp; class=&quot;bean1impl&quot;&gt; <br>
+    &nbsp;&nbsp; &lt;property name=&quot;game&quot;&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ref bean=&quot;bean2&quot;/&gt; <br>
+    &nbsp;&nbsp; &lt;/property&gt; <br>
+    &lt;/bean&gt; <br>
+    &lt;bean id=&quot;bean2&quot;&nbsp;&nbsp; class=&quot;bean2impl&quot; /&gt;<br>
+	&nbsp;</div>
+<p><u>Constructor injection</u>: &nbsp;For constructor injection, we use constructor 
+with parameters as shown below, <br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &nbsp;public class namebean { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; String name; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; public namebean(String a) { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name = a; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; }&nbsp;&nbsp;&nbsp; <br>
+    } <br>
+	&nbsp;</div>
+<div style="margin-left: 40px">
+    We will set the property &#39;name&#39; while creating an instance of the bean 
+	&#39;namebean&#39; as namebean bean1 = new namebean(&quot;tom&quot;); <br>
+	&nbsp;</div>
+<div style="margin-left: 40px">
+    Here we use the &lt;constructor-arg&gt; element to set the the property by 
+	constructor injection as <br>
+    &nbsp;&lt;bean id=&quot;bean1&quot;&nbsp; class=&quot;namebean&quot;&gt; <br>
+    &nbsp;&nbsp;&nbsp; &lt;constructor-arg&gt; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value&gt;My Bean Value&lt;/value&gt; <br>
+    &nbsp;&nbsp; &lt;/constructor-arg&gt; <br>
+    &lt;/bean&gt;<br>
+	&nbsp;</div>
+<p><br>
+Q. What is spring? What are the various parts of&nbsp;spring framework? What are the 
+different persistence frameworks which could be used with spring?<br>
+A. Spring is an open source framework created to address the complexity of 
+enterprise application development. One of the chief advantages of the Spring 
+framework is its layered architecture, which allows you to be selective about 
+which of its components you use while also providing a cohesive framework for 
+J2EE application development.&nbsp;The Spring modules are built on top of the core 
+container, which defines how beans are created, configured, and managed, as 
+shown in the following figure. Each of the modules (or components) that comprise 
+the Spring framework can stand on its own or be implemented jointly with one or 
+more of the others. The functionality of each component is as follows:<br>
+<br>
+<u>The core container</u>: The core container provides the essential 
+functionality of the Spring framework. A primary component of the core container 
+is the BeanFactory, an implementation of the Factory pattern. The BeanFactory 
+applies the Inversion of Control (IOC) pattern to separate an application’s 
+configuration and dependency specification from the actual application code.<br>
+<br>
+<u>Spring context</u>: The Spring context is a configuration file that provides 
+context information to the Spring framework. The Spring context includes 
+enterprise services such as JNDI, EJB, e-mail, internalization, validation, and 
+scheduling functionality.<br>
+<br>
+<u>Spring AOP</u>: The Spring AOP module integrates aspect-oriented programming 
+functionality directly into the Spring framework, through its configuration 
+management feature. As a result you can easily AOP-enable any object managed by 
+the Spring framework. The Spring AOP module provides transaction management 
+services for objects in any Spring-based application. With Spring AOP you can 
+incorporate declarative transaction management into your applications without 
+relying on EJB components.<br>
+<br>
+<u>Spring DAO</u>: The Spring JDBC DAO abstraction layer offers a meaningful 
+exception hierarchy for managing the exception handling and error messages 
+thrown by different database vendors. The exception hierarchy simplifies error 
+handling and greatly reduces the amount of exception code you need to write, 
+such as opening and closing connections. Spring DAO’s JDBC-oriented exceptions 
+comply to its generic DAO exception hierarchy.<br>
+<br>
+<u>Spring ORM</u>: The Spring framework plugs into several ORM frameworks to 
+provide its Object Relational tool, including JDO, Hibernate, and iBatis SQL 
+Maps. All of these comply to Spring’s generic transaction and DAO exception 
+hierarchies.<br>
+<br>
+<u>Spring Web module</u>: The Web context module builds on top of the 
+application context module, providing contexts for Web-based applications. As a 
+result, the Spring framework supports integration with Jakarta Struts. The Web 
+module also eases the tasks of handling multi-part requests and binding request 
+parameters to domain objects.<br>
+<br>
+<u>Spring MVC framework</u>: The Model-View-Controller (MVC) framework is a 
+full-featured MVC implementation for building Web applications. The MVC 
+framework is highly configurable via strategy interfaces and accommodates 
+numerous view technologies including JSP, Velocity, Tiles, iText, and POI.<br>
+<br>
+Q. What is AOP? How does it relate with IOC? What are different tools to utilize 
+AOP?<br>
+A: &nbsp;Aspect-oriented programming, or AOP, is a programming technique that allows 
+programmers to modularize crosscutting concerns, or behavior that cuts across 
+the typical divisions of responsibility, such as logging and transaction 
+management. The core construct of AOP is the aspect, which encapsulates 
+behaviors affecting multiple classes into reusable modules. AOP and IOC are 
+complementary technologies in that both apply a modular approach to complex 
+problems in enterprise application development. In a typical object-oriented 
+development approach you might implement logging functionality by putting logger 
+statements in all your methods and Java classes. In an AOP approach you would 
+instead modularize the logging services and apply them declaratively to the 
+components that required logging. The advantage, of course, is that the Java 
+class doesn&#39;t need to know about the existence of the logging service or concern 
+itself with any related code. As a result, application code written using Spring 
+AOP is loosely coupled. The best tool to utilize AOP to its capability is 
+AspectJ. However AspectJ works at he byte code level and you need to use AspectJ 
+compiler to get the aop features built into your compiled code. Nevertheless AOP 
+functionality is fully integrated into the Spring context for transaction 
+management, logging, and various other features. &nbsp;In general any AOP framework 
+control aspects in three possible ways:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+  <u>Joinpoints</u>: Points in a program&#39;s execution. For example, joinpoints 
+	could define calls to specific methods in a class <br>
+  <u>Pointcuts</u>: Program constructs to designate joinpoints and collect 
+	specific context at those points <br>
+  <u>Advices</u>: Code that runs upon meeting certain conditions. For example, 
+	an advice could log a message before executing a joinpoint <br>
+	&nbsp;</div>
+<p>Q. What are the advantages of spring framework?<br>
+A.&nbsp;&nbsp;</p>
+<ol>
+  <li>Spring has layed architecture. Use what you need and leave you don&#39;t need 
+  now.</li>
+  <li>Spring Enables POJO Programming. There is no behind the scene magic here. 
+  POJO programming enables continous integration and testability.</li>
+  <li>Dependency Injection and Inversion of Control Simplifies JDBC (Read the 
+  first question.)</li>
+  <li>Open source and no vendor lock-in.</li>
+</ol>
+
+  <p>Q. Can you name a tool which could provide the initial ant files and 
+  directory structure for a new spring project.<br>
+  A: Appfuse or equinox.<br>
+<br>
+  Q. Explain BeanFactory in spring.<br>
+  A: Bean factory is an implementation of the factory design pattern and its 
+  function is to create and dispense beans. As the bean factory knows about many 
+  objects within an application, it is able to create association between 
+  collaborating objects as they are instantiated. This removes the burden of 
+  configuration from the bean and the client. There are several implementation 
+  of BeanFactory. The most useful one is 
+  &quot;org.springframework.beans.factory.xml.XmlBeanFactory&quot; It loads its beans 
+  based on the definition contained in an XML file. To create an XmlBeanFactory, 
+  pass a InputStream to the constructor. The resource will provide the XML to 
+  the factory. BeanFactory&nbsp; factory = new XmlBeanFactory(new 
+  FileInputStream(&quot;myBean.xml&quot;)); <br>
+  This line tells the bean factory to read the bean definition from the XML 
+  file. The bean definition includes the description of beans and their 
+  properties. But the bean factory doesn&#39;t instantiate the bean yet. To retrieve 
+  a bean from a &#39;BeanFactory&#39;, the getBean() method is called. When getBean() 
+  method is called, factory will instantiate the bean and begin setting the 
+  bean&#39;s properties using dependency injection.&nbsp;myBean bean1 = 
+  (myBean)factory.getBean(&quot;myBean&quot;); <br>
+<br>
+  Q. Explain the role of ApplicationContext in spring.<br>
+  A. While Bean Factory is used for simple applications, the Application Context 
+  is spring&#39;s more advanced container. Like &#39;BeanFactory&#39; it can be used to load 
+  bean definitions, wire beans together and dispense beans upon request. It also 
+  provide <br>
+  &nbsp;</p>
+</p>
+<div style="margin-left: 40px">
+    1) a means for resolving text messages, including support for 
+	internationalization. <br>
+    2) a generic way to load file resources. <br>
+    3) events to beans that are registered as listeners. <br>
+	&nbsp;</div>
+<p>Because of additional functionality, &#39;Application Context&#39; is preferred over 
+a BeanFactory. Only when the resource is scarce like mobile devices, 
+&#39;BeanFactory&#39; is used. The three commonly used implementation of &#39;Application 
+Context&#39; are <br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    1. <u>ClassPathXmlApplicationContext</u> : It Loads&nbsp; context definition from 
+	an XML file located in the classpath, treating context definitions as 
+	classpath resources. The application context is loaded from the 
+	application&#39;s classpath by using the code <br>
+    ApplicationContext&nbsp;&nbsp;&nbsp; context = new 
+	ClassPathXmlApplicationContext(&quot;bean.xml&quot;);
+  <br>
+    2. <u>FileSystemXmlApplicationContext</u> : It loads context definition from 
+	an XML file in the filesystem. The application context is loaded from the 
+	file system by using the code <br>
+    ApplicationContext&nbsp;&nbsp;&nbsp; context = new 
+	FileSystemXmlApplicationContext(&quot;bean.xml&quot;);
+  <br>
+    3. <u>XmlWebApplicationContext</u> : It loads context definition from an XML 
+	file contained within a web application. <br>
+	&nbsp;</div>
+<p>Q. How does Spring supports DAO in hibernate?<br>
+A. Spring’s HibernateDaoSupport class is a convenient super class for Hibernate 
+DAOs. It has handy methods you can call to get a Hibernate Session, or a 
+SessionFactory. The most convenient method is getHibernateTemplate(), which 
+returns a HibernateTemplate. This template wraps Hibernate checked exceptions 
+with runtime exceptions, allowing your DAO interfaces to be Hibernate 
+exception-free.<br>
+Example:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    public class UserDAOHibernate extends HibernateDaoSupport {<br>
+	&nbsp;</div>
+<div style="margin-left: 80px">
+    public User getUser(Long id) {<br>
+    return (User) getHibernateTemplate().get(User.class, id);<br>
+    }<br>
+    public void saveUser(User user) {<br>
+    getHibernateTemplate().saveOrUpdate(user);<br>
+    if (log.isDebugEnabled()) {<br>
+    log.debug(“userId set to: “ + user.getID());<br>
+    }<br>
+    }<br>
+    public void removeUser(Long id) {<br>
+    Object user = getHibernateTemplate().load(User.class, id);<br>
+    getHibernateTemplate().delete(user);<br>
+    }<br>
+	&nbsp;</div>
+<div style="margin-left: 40px">
+    }<br>
+	&nbsp;</div>
+<p><br>
+Q. What are the id generator classes in hibernate?<br>
+A: &nbsp;increment: It generates identifiers of type long, short or int that are 
+unique only when no other process is inserting data into the same table. It 
+should not the used in the clustered environment. <br>
+<u>identity</u>: It supports identity columns in DB2, MySQL, MS SQL Server, 
+Sybase and HypersonicSQL. The returned identifier is of type long, short or int. <br>
+<u>sequence</u>: The sequence generator uses a sequence in DB2, PostgreSQL, 
+Oracle, SAP DB, McKoi or a generator in Interbase. The returned identifier is of 
+type long, short or int <br>
+<u>hilo</u>: The hilo generator uses a hi/lo algorithm to efficiently generate 
+identifiers of type long, short or int, given a table and column (by default 
+hibernate_unique_key and next_hi respectively) as a source of hi values. The 
+hi/lo algorithm generates identifiers that are unique only for a particular 
+database. Do not use this generator with connections enlisted with JTA or with a 
+user-supplied connection. <br>
+<u>seqhilo</u>: The seqhilo generator uses a hi/lo algorithm to efficiently 
+generate identifiers of type long, short or int, given a named database 
+sequence. <br>
+<u>uuid</u>: The uuid generator uses a 128-bit UUID algorithm to generate 
+identifiers of type string, unique within a network (the IP address is used). 
+The UUID is encoded as a string of hexadecimal digits of length 32. <br>
+<u>guid</u>: It uses a database-generated GUID string on MS SQL Server and 
+MySQL. <br>
+native: It picks identity, sequence or hilo depending upon the capabilities of 
+the underlying database. <br>
+<u>assigned</u>: lets the application to assign an identifier to the object 
+before save() is called. This is the default strategy if no &lt;generator&gt; element 
+is specified. <br>
+<u>select</u>: retrieves a primary key assigned by a database trigger by 
+selecting the row by some unique key and retrieving the primary key value. <br>
+<u>foreign</u>: uses the identifier of another associated object. Usually used 
+in conjunction with a &lt;one-to-one&gt; primary key association. <br>
+<br>
+Q. How is a typical spring implementation look like?<br>
+A. For a typical Spring Application we need the following files <br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    1. An interface that defines the functions. <br>
+    2. An Implementation that contains properties, its setter and getter 
+	methods, functions etc., <br>
+    3. A XML file called Spring configuration file. <br>
+    4. Client program that uses the function. <br>
+  <br>
+	&nbsp;</div>
+<p>Q. How do you define hibernate mapping file in spring?<br>
+A. Add the hibernate mapping file entry in mapping resource inside&nbsp;Spring’s 
+applicationContext.xml file in the web/WEB-INF directory.&nbsp;<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &lt;property name=&quot;mappingResources&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;list&gt;<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;value&gt;org/appfuse/model/User.hbm.xml&lt;/value&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;/list&gt;<br>
+    &lt;/property&gt;<br>
+	&nbsp;</div>
+<p><br>
+Q. How do you configure spring in a web application?<br>
+A. It is very easy to configure any J2EE-based web application to use Spring. At 
+the very least, you can simply add Spring’s ContextLoaderListener to your 
+web.xml file:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &lt;listener&gt;<br>
+    &nbsp;&nbsp;&nbsp; 
+	&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;<br>
+    &lt;/listener&gt;<br>
+  <br>
+	&nbsp;</div>
+<p>Q. Can you have xyz.xml file instead of applicationcontext.xml?<br>
+A.&nbsp;ContextLoaderListener is a ServletContextListener that initializes when your 
+webapp starts up. By default, it looks for Spring’s configuration file at 
+WEB-INF/applicationContext.xml. You can change this default value by specifying 
+a &lt;context-param&gt; element named “contextConfigLocation.” Example:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &lt;listener&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener<br>
+	&nbsp;</div>
+<div style="margin-left: 80px">
+    &nbsp;&nbsp;&nbsp; &lt;context-param&gt;<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;param-value&gt;/WEB-INF/xyz.xml&lt;/param-value&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;/context-param&gt;<br>
+	&nbsp;</div>
+<div style="margin-left: 40px">
+    &nbsp;&nbsp;&nbsp; &lt;/listener-class&gt;<br>
+    &lt;/listener&gt;<br>
+	&nbsp;</div>
+<div style="margin-left: 40px">
+  <br>
+	&nbsp;</div>
+<p>Q. How do you configure your database driver in spring?<br>
+A. Using datasource 
+&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;. Example:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &lt;bean id=&quot;dataSource&quot; 
+	class=&quot;org.springframework.jdbc.datasource.DriverManagerDataSource&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;property name=&quot;driverClassName&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;value&gt;org.hsqldb.jdbcDriver&lt;/value&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;property name=&quot;url&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;value&gt;jdbc:hsqldb:db/appfuse&lt;/value&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;property name=&quot;username&quot;&gt;&lt;value&gt;sa&lt;/value&gt;&lt;/property&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;property name=&quot;password&quot;&gt;&lt;value&gt;&lt;/value&gt;&lt;/property&gt;<br>
+    &lt;/bean&gt;<br>
+	&nbsp;</div>
+<p><br>
+Q. How can you configure JNDI instead of datasource in spring 
+applicationcontext.xml?<br>
+A. Using &quot;org.springframework.jndi.JndiObjectFactoryBean&quot;. Example:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &lt;bean id=&quot;dataSource&quot; 
+	class=&quot;org.springframework.jndi.JndiObjectFactoryBean&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;property name=&quot;jndiName&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;value&gt;java:comp/env/jdbc/appfuse&lt;/value&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+    &lt;/bean&gt;<br>
+  <br>
+	&nbsp;</div>
+<p>Q. What are the key benifits of Hibernate?<br>
+A: &nbsp;These are the key benifits of Hibernate: </p>
+<ul>
+  <li>Transparent persistence based on POJOs without byte code processing&nbsp;</li>
+  <li>Powerful object-oriented hibernate query language</li>
+  <li>Descriptive O/R Mapping through mapping file.</li>
+  <li>Automatic primary key generation&nbsp;</li>
+  <li>Hibernate cache : Session Level, Query and Second level cache.</li>
+  <li>Performance: Lazy initialization, Outer join fetching, Batch fetching</li>
+</ul>
+<p>Q. What is hibernate session and session factory? How do you configure 
+sessionfactory in spring configuration file?<br>
+A. Hibernate Session is the main runtime interface between a Java application 
+and Hibernate. SessionFactory allows applications to create hibernate session by 
+reading hibernate configurations file hibernate.cfg.xml.<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    // Initialize the Hibernate environment<br>
+    Configuration cfg = new Configuration().configure();<br>
+    // Create the session factory<br>
+    SessionFactory factory = cfg.buildSessionFactory();<br>
+    // Obtain the new session object<br>
+    Session session = factory.openSession();<br>
+	&nbsp;</div>
+<p>The call to Configuration().configure() loads the hibernate.cfg.xml 
+configuration file and initializes the Hibernate environment. Once the 
+configuration is initialized, you can make any additional modifications you 
+desire programmatically. However, you must make these modifications prior to 
+creating the SessionFactory instance. An instance of SessionFactory is typically 
+created once and used to create all sessions related to a given context. <br>
+The main function of the Session is to offer create, read and delete operations 
+for instances of mapped entity classes. Instances may exist in one of three 
+states:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+  <u>transient</u>: never persistent, not associated with any Session<br>
+  <u>persistent</u>: associated with a unique Session<br>
+  <u>detached</u>: previously persistent, not associated with any Session<br>
+	&nbsp;</div>
+<p>A Hibernate Session object represents a single unit-of-work for a given data 
+store and is opened by a SessionFactory instance. You must close Sessions when 
+all work for a transaction is completed. The following illustrates a typical 
+Hibernate session: <br>
+Session session = null;<br>
+UserInfo user = null;<br>
+Transaction tx = null;<br>
+try {<br>
+&nbsp;&nbsp; session = factory.openSession();<br>
+&nbsp;&nbsp; tx = session.beginTransaction();<br>
+&nbsp;&nbsp; user = (UserInfo)session.load(UserInfo.class, id);<br>
+&nbsp;&nbsp; tx.commit();<br>
+} catch(Exception e) {<br>
+&nbsp;&nbsp; if (tx != null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tx.rollback();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (HibernateException e1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw new 
+DAOException(e1.toString()); }<br>
+&nbsp;&nbsp; } throw new DAOException(e.toString());<br>
+} finally {<br>
+&nbsp;&nbsp; if (session != null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; session.close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (HibernateException e) { }<br>
+&nbsp;&nbsp; }<br>
+}<br>
+<br>
+Q. What is the difference between hibernate get and load methods?<br>
+A. The load() method is older; get() was added to Hibernate’s API due to user 
+request. The difference is trivial: <br>
+The following Hibernate code snippet retrieves a User object from the database: 
+&nbsp;User user = (User) session.get(User.class, userID); <br>
+The get() method is special because the identifier uniquely identifies a single 
+instance of a class. Hence it’s common for applications to use the identifier as 
+a convenient handle to a persistent object. Retrieval by identifier can use the 
+cache when retrieving an object, avoiding a database hit if the object is 
+already cached. <br>
+Hibernate also provides a load() method: &nbsp;User user = (User) 
+session.load(User.class, userID); <br>
+If load() can’t find the object in the cache or database, an exception is 
+thrown. The load() method never returns null. The get() method returns <br>
+null if the object can’t be found. The load() method may return a proxy instead 
+of a real persistent instance.&nbsp;A proxy is a placeholder instance of a 
+runtime-generated subclass (through cglib or Javassist) of a mapped persistent 
+class, it can initialize itself if any method is called that is not the mapped 
+database identifier getter-method.&nbsp;On the other hand, get() never returns a 
+proxy. Choosing between get() and load() is easy: If you’re certain the 
+persistent object exists, and nonexistence would be considered exceptional, 
+load() is a good option. If you aren’t certain there is a persistent instance 
+with the given <br>
+identifier, use get() and test the return value to see if it’s null. Using 
+load() has a further implication: The application may retrieve a valid reference 
+(a proxy) to a <br>
+persistent instance without hitting the database to retrieve its persistent 
+state. So load() might not throw an exception when it doesn’t find the 
+persistent object <br>
+in the cache or database; the exception would be thrown later, when the proxy is 
+accessed. &nbsp;<br>
+<br>
+Q. What type of transaction management is supported in hibernate?&nbsp;<br>
+A. Hibernate communicates with the database via a JDBC Connection; hence it must 
+support both managed and non-managed transactions.<br>
+&nbsp;&nbsp;&nbsp; <u>non-managed in web containers</u>:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &lt;bean id=&quot;transactionManager&quot; 
+	class=&quot;org.springframework.orm.hibernate.HibernateTransactionManager&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;property name=&quot;sessionFactory&quot;&gt;<br>
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &lt;ref local=&quot;sessionFactory&quot;/&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+    &lt;/bean&gt;<br>
+	&nbsp;</div>
+<p>&nbsp;&nbsp;&nbsp; <u>managed in application server using JTA</u>:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    &lt;bean id=&quot;transactionManager&quot; 
+	class=&quot;org.springframework.transaction.jta.JtaTransactionManager.&quot;&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;property name=&quot;sessionFactory&quot;&gt;<br>
+    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &lt;ref local=&quot;sessionFactory&quot;/&gt;<br>
+    &nbsp;&nbsp;&nbsp; &lt;/property&gt;<br>
+    &lt;/bean&gt;<br>
+	&nbsp;</div>
+<p><br>
+Q. What is lazy loading and how do you achieve that in hibernate?<br>
+A. Lazy setting decides whether to load child objects while loading the Parent 
+Object. You need to specify parent class.Lazy = true in hibernate mapping file. 
+By default the lazy loading of the child objects is true. This make sure that 
+the child objects are not loaded unless they are explicitly invoked in the 
+application by calling getChild() method on parent. In this case hibernate 
+issues a fresh database call to load the child when getChild() is actully called 
+on the Parent object. But in some cases you do need to load the child objects 
+when parent is loaded. Just make the lazy=false and hibernate will load the 
+child when parent is loaded from the database. Examples: Address child of User 
+class can be made lazy if it is not required frequently. But you may need to 
+load the Author object for Book parent whenever you deal with the book for 
+online bookshop.<br>
+Hibernate does not support lazy initialization for detached objects. Access to a 
+lazy association outside of the context of an open Hibernate session will result 
+in an exception. <br>
+<br>
+Q. What are the different fetching strategy in Hibernate?<br>
+A. Hibernate3 defines the following fetching strategies:<br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+  <u>Join fetching</u> - Hibernate retrieves the associated instance or 
+	collection in the same SELECT, using an OUTER JOIN.<br>
+    Select fetching - a second SELECT is used to retrieve the associated entity 
+	or collection. Unless you explicitly disable lazy fetching by specifying 
+	lazy=&quot;false&quot;, this second select will only be executed when you actually 
+	access the association.<br>
+  <u>Subselect fetching</u> - a second SELECT is used to retrieve the associated 
+	collections for all entities retrieved in a previous query or fetch. Unless 
+	you explicitly disable <u>lazy fetching</u> by specifying lazy=&quot;false&quot;, this 
+	second select will only be executed when you actually access the 
+	association.Batch fetching - an optimization strategy for select fetching - 
+	Hibernate retrieves a batch of entity instances or collections in a single 
+	SELECT, by specifying a list of primary keys or foreign keys.<br>
+    For more details read short primer on fetching strategy at
+  <a href="http://www.hibernate.org/315.html" target="_blank">
+    http://www.hibernate.org/315.html</a><br>
+	&nbsp;</div>
+<p>Q. What are different types of cache hibernate supports&nbsp;?<br>
+A. Caching is widely used for optimizing database applications. Hibernate uses 
+two different caches for objects: <u>first-level cache</u> and <u>second-level 
+cache</u>. First-level cache is associated with the Session object, while 
+second-level cache is associated with the Session Factory object. By default, 
+Hibernate uses first-level cache on a per-transaction basis. Hibernate uses this 
+cache mainly to reduce the number of SQL queries it needs to generate within a 
+given transaction. For example, if an object is modified several times within 
+the same transaction, Hibernate will generate only one SQL UPDATE statement at 
+the end of the transaction, containing all the modifications. To reduce database 
+traffic, second-level cache keeps loaded objects at the Session Factory level 
+between transactions. These objects are available to the whole application, not 
+just to the user running the query. This way, each time a query returns an 
+object that is already loaded in the cache, one or more database transactions 
+potentially are avoided. In addition, you can use a <u>query-level cache</u> if 
+you need to cache actual query results, rather than just persistent objects. The 
+query cache should always be used in conjunction with the second-level cache. 
+Hibernate supports the following open-source cache implementations 
+out-of-the-box: <br>
+&nbsp;</p>
+<ul>
+  <li><a href="http://ehcache.sourceforge.net/" target="new">EHCache</a> is a 
+  fast, lightweight, and easy-to-use in-process cache. It supports read-only and 
+  read/write caching, and memory- and disk-based caching. However, it does not 
+  support clustering. </li>
+  <li><a href="http://www.opensymphony.com/oscache/" target="new">OSCache</a> is 
+  another open-source caching solution. It is part of a larger package, which 
+  also provides caching functionalities for JSP pages or arbitrary objects. It 
+  is a powerful and flexible package, which, like EHCache, supports read-only 
+  and read/write caching, and memory- and disk-based caching. It also provides 
+  basic support for clustering via either JavaGroups or JMS. </li>
+  <li><a href="http://swarmcache.sourceforge.net/" target="new">SwarmCache</a> 
+  is a simple cluster-based caching solution based on JavaGroups. It supports 
+  read-only or nonstrict read/write caching (the next section explains this 
+  term). This type of cache is appropriate for applications that typically have 
+  many more read operations than write operations. </li>
+  <li><a href="http://www.jboss.com/products/jbosscache" target="new">JBoss 
+  TreeCache</a> is a powerful replicated (synchronous or asynchronous) and 
+  transactional cache. Use this solution if you really need a true 
+  transaction-capable caching architecture.</li>
+  <li>Commercial <a href="http://hibernate.org/132.html" target="new">Tangosol 
+  Coherence cache</a>. </li>
+</ul>
+<p>Q. What are the different caching strategies?<br>
+A. The following four caching strategies are available: </p>
+<ul>
+  <li>Read-only: This strategy is useful for data that is read frequently but 
+  never updated. This is by far the simplest and best-performing cache strategy.
+  </li>
+  <li>Read/write: Read/write caches may be appropriate if your data needs to be 
+  updated. They carry more overhead than read-only caches. In non-JTA 
+  environments, each transaction should be completed when Session.close() or 
+  Session.disconnect() is called. </li>
+  <li>Nonstrict read/write: This strategy does not guarantee that two 
+  transactions won&#39;t simultaneously modify the same data. Therefore, it may be 
+  most appropriate for data that is read often but only occasionally modified.
+  </li>
+  <li>Transactional: This is a fully transactional cache that may be used only 
+  in a JTA environment. </li>
+</ul>
+<p>Q. How do you configure 2nd level cach in hibernate?<br>
+A. To activate second-level caching, you need to define the 
+hibernate.cache.provider_class property in the hibernate.cfg.xml file as 
+follows: &lt;hibernate-configuration&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;session-factory&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;property 
+name=&quot;hibernate.cache.provider_class&quot;&gt;org.hibernate.cache.EHCacheProvider&lt;/property&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/session-factory&gt;<br>
+&lt;/hibernate-configuration&gt;<br>
+By default, the second-level cache is activated and uses the EHCache provider.<br>
+To use the query cache you must first enable it by setting the property 
+hibernate.cache.use_query_cache to true in hibernate.properties.<br>
+&nbsp;</p>
+<p>Q.&nbsp;What is the difference between sorted and ordered collection in hibernate?<br>
+A. A sorted collection is sorted in-memory using java comparator, while order 
+collection is ordered at the database level using order by clause.<br>
+&nbsp;</p>
+<p><a>Q.&nbsp;What are the types of inheritence models and describe how they work 
+like vertical inheritence and horizontal?<br>
+A. There are three types of inheritance mapping in hibernate :</a><br>
+&nbsp;</p>
+<div style="margin-left: 40px">
+    Example: Let us take the simple example of 3 java classes. Class Manager and 
+	Worker are inherited from Employee Abstract class.<br>
+    1. Table per concrete class with unions : In this case there will be 2 
+	tables. Tables: Manager, Worker [all common attributes will be duplicated]<br>
+    2. Table per class hierarchy: Single Table can be mapped to a class 
+	hierarchy. There will be only one table in database called &#39;Employee&#39; that 
+	will represent all the attributes required for all 3 classes. But it needs 
+	some discriminating column to differentiate between Manager and worker;<br>
+    3. Table per subclass: In this case there will be 3 tables represent 
+	Employee, Manager and Worker<br>
+	&nbsp;</div>
+
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

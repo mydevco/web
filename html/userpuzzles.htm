@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+<title>Puzzles, Data structure and algorithms bits</title>
+
+
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+		<!--webbot bot="Include" U-Include="userpuzzles_s.htm" TAG="BODY" startspan -->
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+  <tr>
+    <td width="100%" bgcolor="#C0C0C0">
+	Problem: Two trains enter a tunnel 200 miles long (yeah, its a big tunnel) 
+	travelling at 100 mph at the same time from opposite directions. as soon as 
+	they enter the tunnel a supersonic bee flying at 1000 mph starts from one 
+	train and heads toward the other one. as soon as it reaches the other one it 
+	turns around and heads back toward the first, going back and forth between 
+	the trains until the trains collide in a fiery explosion in the middle of 
+	the tunnel (the bee survives). how far did the bee travel? 
+</TD></TR><TR><TD>
+		Solution: The tunnel is 200 miles long. the trains meet in the middle 
+		travelling at 100 mph, so it takes them an hour to reach the middle. the 
+		bee is travelling 1000 mph for an hour (since its flying the whole time 
+		the trains are racing toward one another) - so basically the bee goes 
+		1000 miles. 
+</TD></TR><TR><TD bgcolor="#C0C0C0">
+
+		Problem: two MIT math grads bump into each other at Fairway on the upper 
+		west side. they haven&#39;t seen each other in over 20 years. the first grad 
+		says to the second: &quot;how have you been?&quot; second: &quot;great! i got married 
+		and i have three daughters now&quot; first: &quot;really? how old are they?&quot; 
+		second: &quot;well, the product of their ages is 72, and the sum of their 
+		ages is the same as the number on that building over there..&quot; first: 
+		&quot;right, ok.. oh wait.. hmm, i still don&#39;t know&quot; second: &quot;oh sorry, the 
+		oldest one just started to play the piano&quot; first: &quot;wonderful! my oldest 
+		is the same age!&quot; How old are the daughters? 
+
+</TD></TR><TR><TD>
+
+
+		Solution: solution: Start with what you know. you know there are 3 
+		daughters whose ages multiply to 72. let&#39;s look at the possibilities... 
+		Ages: Sum of ages: 1 1 72 74 1 2 36 39 1 3 24 28 1 4 18 23 1 6 12 19 1 8 
+		9 18 2 2 18 22 2 3 12 17 2 4 9 15 2 6 6 14 3 3 8 14 3 4 6 13 after 
+		looking at the building number the man still can&#39;t figure out what their 
+		ages are (we&#39;re assuming since he&#39;s an MIT math grad, he can factor 72 
+		and add up the sums), so the building number must be 14, since that is 
+		the only sum that has more than one possibility. finally the man 
+		discovers that there is an oldest daughter. that rules out the &quot;2 6 6&quot; 
+		possibility since the two oldest would be twins. therefore, the 
+		daughters ages must be &quot;3 3 8&quot;.
+</TD></TR><TR><TD bgcolor="#C0C0C0">
+
+		Problem: five pirates have 100 gold coins. they have to divide up the 
+		loot. in order of seniority (suppose pirate 5 is most senior, pirate 1 
+		is least senior), the most senior pirate proposes a distribution of the 
+		loot. they vote and if at least 50% accept the proposal, the loot is 
+		divided as proposed. otherwise the most senior pirate is executed, and 
+		they start over again with the next senior pirate. what solution does 
+		the most senior pirate propose? assume they are very intelligent and 
+		extremely greedy (and that they would prefer not to die). (to be clear 
+		on what 50% means, 3 pirates must vote for the proposal when there are 5 
+		for it to pass. 2 if there are 4. 2 if there are 3. etc... )
+
+</TD></TR><TR><TD>
+
+		Solution: Most of the time people answers like &quot;the most senior pirate 
+		takes half and divides the rest up among the least senior pirates.&quot; um, 
+		you missed the whole point to begin with. Sorry. any answer without a 
+		specific logic behind it is invalid.
+
+<p>If I ask you why pirate 5 gave x coins to pirate 1, please don&#39;t say &quot;because 
+he&#39;s nice&quot;. Now for the real solution. Pirate 5 being the most senior knows that 
+he needs to get 2 other people to vote for his solution in order for him not to 
+be executed. so who can he get to vote for him, and why would they choose to 
+vote for him?
+</p>
+<p>If you start thinking that pirate 4 will never vote for him, because he would 
+rather have 5 die and then be in charge and take it all for himself, you are on 
+the right track. But it gets more complicated. lets consider if there were only 
+1 pirate. Obviously he would take it all for himself and no one would complain. 
+If there were 2 pirates, pirate 2 being the most senior, he would just vote for 
+himself and that would be 50% of the vote, so he&#39;s obviously going to keep all 
+the money for himself. If there were 3 pirates, pirate 3 has to convince at 
+least one other person to join in his plan. So who can he convince and how? </p>
+<p>Here is the leap that needs to be made to solve this problem. Pirate 3 
+realizes that if his plan is not adopted he will be executed and they will be 
+left with 2 pirates. He already knows what happens when there are 2 pirates as 
+we just figured out. Pirate 2 takes all the money himself and gives nothing to 
+pirate 1. So pirate 3 proposes that he will take 99 gold coins and give 1 coin 
+to pirate 1.</p>
+<p>Pirate 1 says, well, 1 is better than none, and since I know if I don&#39;t vote 
+for pirate 3, I get nothing, I should vote for this plan. now we know what 
+happens when there are 3 pirates. so what happens with 4? Well pirate 4 has to 
+convince 1 other person to join in his plan. he knows if he walks the plank then 
+pirate 3 will get 99 coins and pirate 1 will get 1 coin. Pirate 4 could propose 
+giving pirate 1 two coins, and surely pirate 1 would vote for him, since 2 is 
+better than 1. But as greedy as he is, pirate 4 would rather not part with 2 
+whole coins. He realizes that if he gets executed, then pirate 3&#39;s scenario 
+happens and pirate 2 gets the shaft in that scenario (he gets zero coins). So 
+pirate 4 proposes that he will give 1 coin to pirate 2, and pirate 2 seeing that 
+1 is better than 0 will obviously vote for this plan.
+
+</p>
+<p>A common objection is that pirate 2 is not guaranteed to vote for this plan 
+since he might hope for the case when there are only 2 pirates and then he gets 
+all the booty. But that is why I said that the pirates are extremely 
+intelligent. Pirate 2 realizes that pirate 3 is smart enough to make the optimal 
+proposal, so he realizes that there will never be 2 pirates left, because 3 
+doesn&#39;t want to die and we just showed that 3 has a winning proposal. So lets 
+sum up at this point Pirate.</p>
+<p>Pirate&nbsp;&nbsp;&nbsp; 5==&gt; ?&nbsp; ?&nbsp; ?&nbsp; ?&nbsp; ? </p>
+<p>Pirate&nbsp;&nbsp;&nbsp; 4==&gt; 0&nbsp; 1&nbsp; 0 99</p>
+<p>Pirate&nbsp;&nbsp;&nbsp; 3==&gt; 1&nbsp; 0 99&nbsp; -&nbsp; - </p>
+<p>Pirate&nbsp;&nbsp;&nbsp; 2==&gt; 0 100 -&nbsp; -&nbsp; - </p>
+<p>Pirate&nbsp;&nbsp;&nbsp; 1==&gt; 100 </p>
+<p>Once you see the pattern it becomes very clear. You have to realize that when 
+a pirate&#39;s plan does not succeed then that means you are in the same situation 
+with one less pirate.
+</p>
+<ol>
+  <li>Pirate 1 needs 0 other people to vote for him. So he votes for himself and 
+  takes all the money. 
+  </li>
+  <li>Pirate 2 needs 0 other people to vote for him. so he votes for himself and 
+  takes all the money. Pirate 1 gets 0.</li>
+  <li>Pirate 3 needs 1 other person to vote for him. He gives 1 coin to pirate 1 
+  for his vote - if we are reduced to 2 pirates, pirate 1 gets 0 so pirate 1 
+  knows 1 is better than none. Pirate 3 takes 99. pirate 2 gets 0. </li>
+  <li>Pirate 4 needs 1 other person to vote for him. He gives 1 coin to pirate 2 
+  - if we reduce to 3 pirates, pirate 2 gets 0 so pirate 2 knows 1 is better 
+  than none. Pirate 4 takes 99. Pirate 3 gets 0. Pirate 1 gets 0. </li>
+  <li>Pirate 5 needs 2 other people to vote for him. Its clear now that the 2 
+  people he needs to convince are the 2 who get shafted in the 4 pirate scenario 
+  - pirate 3 and pirate 1. So he can give them each 1 coin (which is better than 
+  0 - what they would get otherwise) and keep 98 for himself.
+
+
+  </li>
+</ol>
+<p>Pirate 5==&gt; 1&nbsp; 0&nbsp; 1&nbsp; 0 98
+</p>
+<p>What happens, if there are 15 pirates? Pirate 15 needs 7 other people to vote 
+for him, so he recruits pirates 13,11,9,7,5,3, and 1 with 1 coin each and keeps 
+93 coins himself. Those pirates will all vote for him because they know that 
+they get 0 coins If he dies and pirate 14 is in charge.
+
+</TD></TR><TR><TD bgcolor="#C0C0C0">
+
+		Problem: A bad king has a cellar of 1000 bottles of delightful and very 
+		expensive wine. a neighboring queen plots to kill the bad king and sends 
+		a servant to poison the wine. (un) fortunately the bad king&#39;s guards 
+		catch the servant after he has only poisoned one bottle. alas, the 
+		guards don&#39;t know which bottle but know that the poison is so strong 
+		that even if diluted 1,000,000 times it would still kill the king. 
+		furthermore, it takes one month to have an effect. the bad king decides 
+		he will get some of the prisoners in his vast dungeons to drink the 
+		wine. being a clever bad king he knows he needs to murder no more than 
+		10 prisoners - believing he can fob off such a low death rate - and will 
+		still be able to drink the rest of the wine at his anniversary party in 
+		5 weeks time. Explain how?
+
+</TD></TR><TR><TD>
+
+		Solution:
+
+<p>1000 is less than 1024. If there were 1024 or more bottles of wine it would 
+take more than 10 prisoners. number the bottles 1 to 1000, and write the number 
+in binary format. </p>
+<p>Bottle 1&nbsp;&nbsp;&nbsp; = 0000000001 bottle 250&nbsp; = 0011111010 bottle 
+1000 = 1111101000 now take your prisoner&#39;s 1 through 10 and let prisoner 1 take 
+a sip from every bottle that has a 1 in its least significant bit. let prisoner 
+10 take a sip from every bottle with a 1 in its most significant bit. etc. </p>
+<p>Prisoner&nbsp;&nbsp;&nbsp; 10 9 8 7 6 5 4 3 2 1 bottle 924&nbsp;&nbsp; 1 1 1 
+0 0 1 1 1 0 0 for instance, bottle #924 would be sipped by 10,9,8,5,4 and 3. 
+That way if bottle #924 was the poisoned one, only those prisoners would die.
+</p>
+<p>After four weeks, line the prisoners up in their bit order and read each 
+living prisoner as a 0 bit and each dead prisoner as a 1 bit. The number that 
+you get is the bottle of wine that was poisoned. </p>
+<p>Additional question: To increase your chance of living, which prisoner would 
+you want to be? If there were 1023 bottles, it wouldn&#39;t matter since everyone 
+would have to take 512 sips. but there are 23 bottles less, so the people whose 
+bits would have been on from 1001 to 1023 won&#39;t have to take a sip. 1001 is 
+[11111 01001] in binary and 1023 is [11111 11111]. The most five significant 
+bits are the most interesting because they would always be on from 1001 to 1023, 
+so all those people are missing out on 23 bottles of wine that they otherwise 
+would have had to drink. So in order to increase your chance of living, you&#39;d 
+probably want to be prisoner 6 to 10. (But depending on how the king determines 
+who is least significant and who is most significant you could get shafted.) 
+Note that if the king was really trying to kill the least number of prisoners, 
+he should have let 999 prisoners each take a sip from their respective bottle 
+numerically (If he had that many prisoners at his disposal). That way only one 
+prisoner would die, and there&#39;s a chance of 1/1000 that no one would die, but 
+then the puzzle isn&#39;t very fun.
+
+</TD></TR><TR><TD bgcolor="#C0C0C0">
+
+		Problem: a mad bomber is out on the job, making bombs. He has two fuses 
+		(pieces of string) of varying thickness which each burn for 30 seconds. 
+		unfortunately he wants this bomb to go off in 45 seconds. He can&#39;t cut 
+		the one fuse in half because the fuses are different thicknesses and he 
+		can&#39;t be sure how long it will burn. (For example: The first half of the 
+		fuse might burn up in 10 seconds and the second half in 20 seconds.. the 
+		fuse doesn&#39;t burn at a constant rate, but the total time it would burn 
+		is 30 seconds). How can he arrange the fuses to make his bomb go off at 
+		the right time?
+
+</TD></TR><TR><TD>
+
+		Solution: Light both ends of one of the fuses. when that fuse goes out, 
+		15 seconds has elapsed. Then light the other fuse.
+</TD></TR><TR><TD bgcolor="#C0C0C0">
+
+		Problem: Reverse a string - word by word. For example reverse &quot;the house 
+		is blue&quot;, the answer should be &quot;blue is house the&quot;. the words are 
+		reversed, but the letters are still in order (within the word). 
+</TD></TR><TR><TD>
+
+		Solution: First reversing the string normally, and then just reversing 
+		each word.
+
+<p>Initially: the house is blue
+</p>
+<p>Reverse: eulb si esuoh eht
+</p>
+<p>Wanted : blue is house the
+</p>
+</TD></TR><TR><TD bgcolor="#C0C0C0">
+<p>Problem:<br>
+<br>
+A dysfunctional family has to cross the river. On one side of the river are a 
+mom and 2 daughters, dad and 2 sons, the maid and the dog. There is a boat only 
+big enough to hold 2 people (counting the dog as 1 person). only the adults are 
+capable of operating the boat. everyone has to get to the other side, without 
+anything bad happening.
+<br>
+<br>
+difficulties: If the dog is left with anyone and the maid isn&#39;t there to control 
+him, he&#39;ll bite. the dad can&#39;t be left with any of the daughters when the mom 
+isn&#39;t there. likewise, the mom can&#39;t be trusted alone with either of the sons 
+when the dad isn&#39;t there.
+<br>
+<br>
+Remember! only an adult can operate the boat, AND the boat can&#39;t drive itself.<br>
+<br>
+<br>
+</TD></TR><TR><TD>
+		Solution:<br>
+<br>
+		We start with a mother (m), two daughters (d1, d2), a father (f), two 
+		sons (s1, s2), a housemaid (h), and a dog (c - canine) on the west (W) 
+		shore, and they all want to get to the east (E) shore.
+<br>
+<br>
+<br>
+		W = {m, d1, d2, f, s1, s2, h, c} // Everyone on the west shore<br>
+		E = {} // no one on the east shore<br>
+		Let&#39;s move everyone, over... <br>
+<br>
+		Housemaid and canine go east, and the housemaid comes back: <br>
+<br>
+<br>
+		W = {m, d1, d2, f, s1, s2, h}<br>
+		E = {c}<br>
+		Housemaid and s1 go east, h and c come back: <br>
+<br>
+<br>
+		W = {m, d1, d2, f, s2, h, c}<br>
+		E = {s1}<br>
+		Father and s2 go east, father comes back: <br>
+<br>
+<br>
+		W = {m, d1, d2, f, h, c}<br>
+		E = {s1, s2}<br>
+		Mother and father go east, mother comes back: <br>
+<br>
+<br>
+		W = {m, d1, d2, h, c}<br>
+		E = {f, s1, s2}<br>
+		h and c go east, father comes back: <br>
+<br>
+<br>
+		W = {m, d1, d2, f}<br>
+		E = {s1, s2, h, c}<br>
+		Father and mother go east, mother comes back: <br>
+<br>
+<br>
+		W = {m, d1, d2}<br>
+		E = {f, s1, s2, h, c}<br>
+		Mother and d1 go east, housemaid and c come back: <br>
+<br>
+<br>
+		W = {d2, h, c}<br>
+		E = {m, d1, f, s1, s2}<br>
+		h and d2 go east, h comes back <br>
+<br>
+<br>
+		W = {h, c}<br>
+		E = {m, d1, d2, f, s1, s2}<br>
+		h and c go east <br>
+<br>
+<br>
+		W = {}<br>
+
+		E = {m, d1, d2, f, s1, s2, h, c}<p><br>
+</p>
+</p>
+</TD></TR><TR><TD bgcolor="#C0C0C0">   
+<p>Problem: Mike has to get 4 cups of water into one of the cups. He must have 
+it right on and all he can use is water, a 5 cup pail, and a 3 cup pail.  
+</p>
+</TD></TR><TR><TD> 
+<p>Solution: Start with the 5-cup pail empty, and the 3-cup pail full. Pour the 
+3-cup pail into the 5-cup pail. We now have the larger pail 3/5ths full, leaving 
+2/5ths space. Now refill the 3-cup pail and pour 2 cups worth of this into the 
+5-cup pail to fill it completely. This leaves 1 cup at the bottom of the 3-cup 
+pail. Empty out the 5-cup pail and pour the 1 cup from 3-cup pail into the 5-cup 
+pail. Now refill the 3-cup pail and pour a further 3 cups into the 5-cup pail to 
+bring the total in the 5-cup pail to 4 cups. We now have exactly 4 cups of water 
+in the 5-cup pail. </p>
+
+</TD></TR><TR><TD bgcolor="#C0C0C0">    
+<p>Problem: Write a program for the problem: the array of integers indicating 
+the marks of the students is given, You have to calculate the percentile of the 
+students according to this rule: the percentile of a student is the %of no of 
+student having marks less than him. For e.g.: suppose Student Marks 
+</p>
+<p>A 12</p>
+<p>&nbsp;B 60</p>
+<p>&nbsp;C 80</p>
+<p>&nbsp;D 71</p>
+<p>&nbsp;E 30</p>
+<p>&nbsp;F 45 </p>
+</TD></TR><TR><TD>
+<p>Solution: Percentile of C = 5/5 *100 = 100 (out of 5 students 5 are having 
+marks less than him) Percentile of B = 3/5*100 = 60% (out of 5, 3 have marks is 
+less than him) Percentile of A = 0/5*100 = 0%. </p>
+</TD></TR><TR><TD bgcolor="#C0C0C0">
+<p>Problem: How many surface cubes are in n*n*n cube and how many non surface 
+cubes.
+</p>
+</TD></TR><TR><TD>
+<p>Solution: There are n3 cubes total. If you can calculate the number of cubes 
+that aren’t on the surface, you’ll also be able to calculate the number that 
+are. There are (n – 2)3 cubes that are not on the surface. Subtracting this from 
+the total number of cubes gives you n3 – (n – 2)3 cubes on the surface. For 
+4*4*4 cube: Total 64 cubes. (4-2)3=8 non surface cubes. 64-8=56 Surface cubes.
+</p>
+ </TD></TR>
+ </table>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+<!--webbot bot="Include" i-checksum="5031" endspan --><!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

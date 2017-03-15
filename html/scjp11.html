@@ -1,0 +1,884 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- #BeginTemplate "../master.dwt" -->
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<!-- #BeginEditable "doctitle" -->
+  <title>Java Fundamentals 11</title>
+<meta content="Description of Your Site Goes Here." name="description" />
+<meta content="keywords for your site here separate with commas" name="keywords" />
+<!-- #EndEditable -->
+<link href="../styles/style2.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+.auto-style1 {
+	border-width: 0px;
+}
+.auto-style2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	font-size: xx-large;
+}
+.auto-style3 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Begin Container -->
+<div id="container">
+	<!-- Begin Masthead -->
+	<div id="masthead">
+		<a href="../default.html">
+		<img alt="My developer connection home" height="88" src="../images/MDC-logo.gif" width="282" class="auto-style1" /></a>
+		<span class="auto-style2"><strong>My Developer Connection</strong><br />
+		</span><span class="auto-style3">knowledgebase for software developers</span></div>
+	<!-- End Masthead -->
+	<!-- Begin Page Content -->
+	<div id="page_content" style="left: 0px; top: 0px; height: 569px">
+		<!-- Begin Sidebar -->
+		<div id="sidebar">
+			<ul>
+				<li><a href="../default.html">Home</a></li>
+				<li><a href="../about_mdc.htm">About</a></li>
+				<li><a href="../bestpracticelist.htm">Best Practices</a></li>
+				<li><a href="../articlelist.htm">Articles</a></li>
+				<li><a href="../tutoriallist.htm">Tutorials</a></li>
+				<li><a href="../tipslist.htm">Tips and Samples</a></li>
+				<li><a href="#">Architecture</a></li>
+				<li><a href="../faqs.htm">FAQs</a></li>
+			</ul>
+		</div>
+		<!-- End Sidebar -->
+		<!-- Begin Content -->
+		<div id="content">
+			<!-- #BeginEditable "content" -->
+<p class="MsoNormal" style="margin-left: 0.25in; text-indent: -0.25in;"><b
+ style=""><span style="font-size: 18pt;">Chapter 11 Layout Managers</span></b><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Precise layout functionality 
+is often performed and a repetitive task. By the principles of OOP, it should be 
+done by classes dedicated to it. These classes are layout managers.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Platform independence 
+requires that we delegate the positioning and painting to layout managers. Even 
+then, Java does not guarantee a button will look the same in different 
+platforms.(w/o using Swing)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Components are added to a 
+container using add method. A layout manager is associated with the container to 
+handle the positioning and appearance of the components. <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">add method is overloaded. 
+Constraints are used differently by different layout managers. Index can be used 
+to add the component at a particular place. Default is –1 ( i.e. at the end)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Component 
+add(Component comp)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Component 
+add(Component comp, int index)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+add(Component comp, Object constraints)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted" style="margin: 0in 0in 0.0001pt 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">void 
+add(Component comp, Object constraints, int index)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">setLayout is used to 
+associate a layout manager to a container. Panel class has a constructor that 
+takes a layout manager. getLayout returns the associated layout manager.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">It is recommended that the 
+layout manager be associated with the container before any component is added. 
+If we associate the layout manager after the components are added and the 
+container is already made visible, the components appear as if they have been 
+added by the previous layout manager (if none was associated before, then the 
+default). Only subsequent operations (such as resizing) on the container use the 
+new layout manager. But if the container was not made visible before the new 
+layout is added, the components are re-laid out by the new layout manager.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Positioning can be done 
+manually by passing null to setLayout. <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Flow Layout Manager<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Honors components preferred 
+size.(Doesn’t constraint height or width)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Arranges components in 
+horizontal rows, if there’s not enough space, it creates another row.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If the container is not big 
+enough to show all the components, Flow Layout Manager does not resize the 
+component, it just displays whatever can be displayed in the space the container 
+has.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Justification (LEFT, RIGHT or 
+CENTER) can be specified in the constructor of layout manager.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Default for applets and 
+panels.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Grid Layout Manager<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Never honors the components’ 
+preferred size<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Arranges the components in no 
+of rows/columns specified in the constructor. Divides the space the container 
+has into equal size cells that form a matrix of rows/columns.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Each component will take up a 
+cell in the order in which it is added (left to right, row by row)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Each component will be of the 
+same size (as the cell)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If a component is added when 
+the grid is full, a new column is created and the entire container is re-laid 
+out.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Border Layout Manager<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Divides the container into 5 
+regions – NORTH, SOUTH, EAST, WEST and CENTER <u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">When adding a component, 
+specify which region to add. If nothing is specified, CENTER is assumed by 
+default.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Regions can be specified by 
+the constant strings defined in BorderLayout (all upper case) or using Strings 
+(Title case, like North, South etc)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">NORTH and SOUTH components – 
+height honored, but made as wide as the container. Used for toolbars and status 
+bars.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">EAST and WEST components – 
+width honored, but made as tall as the container (after the space taken by 
+NORTH, SOUTH components). Used for scrollbars.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">CENTER takes up the left over 
+space. If there are no other components, it gets all the space.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">If no component is added to 
+CENTER, container’s background color is painted in that space.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Each region can display only 
+one component. If another component is added, it hides the earlier component.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Card Layout Manager<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Draws in time rather than 
+space. Only one component displayed at a time.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Like a tabbed panel without 
+tabs. (Can be used for wizards interface, i.e. by clicking next, displays the 
+next component)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Components added are given a 
+name and methods on the CardLayout manager can be invoked to show the component 
+using this name. Also the manager contains methods to iterate through the 
+components. For all methods, the parent container should be specified.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+first(Container parent)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+next(Container parent)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+previous(Container parent)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: 0.5in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+last(Container parent)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.75in; text-indent: 0.25in;"><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+show(Container parent, String name)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Component shown occupies the 
+entire container. If it is smaller it is resized to fit the entire size of the 
+container. No visual clue is given about the container has other components.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.25in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">·</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Gridbag Layout Manager<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Like the GridLayout manger 
+uses a rectangular grid.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Flexible. Components can 
+occupy multiple cells. Also the width and height of the cells need not be 
+uniform. i.e A component may span multiple rows and columns but the region it 
+occupies is always rectangular. Components can have different sizes (which is 
+not the case with Grid layout)<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Requires lot of constraints 
+to be set for each component that is added.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">GridBagConstraints class is 
+used to specify the constraints.<u1:p></u1:p></span><o:p></o:p></p>
+<p class="preformatted"
+ style="margin: 0in 0in 0.0001pt 0.5in; text-indent: -0.25in;"><span
+ style="font-size: 10pt;">§</span><span
+ style="font-size: 7pt; font-family: &quot;Times New Roman&quot;;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+ style="font-family: &quot;Times New Roman&quot;;">Same GridBagConstraints 
+object can be re-used by all the components.<u1:p></u1:p></span><o:p></o:p></p>
+<table
+ style="border: medium none ; margin-left: 45.9pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 16.6pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 63.75pt; height: 16.6pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;"><u1:p></u1:p>
+	  Specify<u1:p></u1:p></span></b><o:p></o:p></p>
+      <p class="preformatted" style="">&nbsp;<o:p></o:p></p>
+      </td>
+      <u1:p></u1:p><td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 16.6pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Name of the 
+	  constraints<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 16.6pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 16.6pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Default<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 44.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63.75pt; height: 44.5pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Location<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 44.5pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int gridx<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int gridy<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 44.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Column and 
+	  row positions of the upper left corner of the component in the grid. Added 
+	  relative to the previous component if specified 
+	  GridBagConstraints.RELATIVE<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 44.5pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridBagConstraints.RELATIVE in both directions<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 44.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63.75pt; height: 44.5pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Dimension<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 44.5pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+	  gridwidth<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int 
+	  gridheight<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 44.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Number of 
+	  cells occupied by the component horizontally and vertically in the grid.<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridBagConstraints.REMAINDER<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;"><span style="">&nbsp;&nbsp;
+      </span>- specify this for last component<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridBagConstraints.RELATIVE<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;"><span style="">&nbsp;&nbsp;
+      </span>- specify this for next-to-last component<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 44.5pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">One cell in 
+	  both directions<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 44.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63.75pt; height: 44.5pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Growth 
+	  Factor<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 44.5pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">double 
+	  weigthx<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">double 
+	  weigthy<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 44.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">How to use 
+	  the extra space if available.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 44.5pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">0 for both, 
+	  meaning that the area allocated for the component will not grow beyond the 
+	  preferred size.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 44.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63.75pt; height: 44.5pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Anchoring<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 44.5pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int anchor<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 44.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Where a 
+	  component should be placed within its display area.<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constants 
+	  defined in GridBagConstraints:<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">CENTER, 
+	  NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 44.5pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridBagConstraints.CENTER<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 44.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63.75pt; height: 44.5pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Filling<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 44.5pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int fill<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 44.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">How the 
+	  component is to stretch and fill its display area.<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constants 
+	  defined in GridBagConstraints:<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">NONE, BOTH, 
+	  HORIZONTAL, VERTICAL<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 44.5pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridBagConstraints.NONE<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 44.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63.75pt; height: 44.5pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Padding<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 44.5pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int ipadx<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">int ipady<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 44.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Internal 
+	  padding added to each side of the component. Dimension of the component 
+	  will grow to (width + 2 * ipadx) and (height + 2 * ipady)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 44.5pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">0 pixels in 
+	  either direction<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 44.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 63.75pt; height: 44.5pt;"
+ valign="top" width="85">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Insets<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 107.25pt; height: 44.5pt;"
+ valign="top" width="143">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Insets 
+	  insets<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 44.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">External 
+	  padding (border) around the component.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 146.25pt; height: 44.5pt;"
+ valign="top" width="195">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">(0,0,0,0) 
+	  (top, left, bottom, right)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoNormal" style="margin: 0in 1in 0.0001pt;"><span
+ style="display: none;"><!--[if !supportEmptyParas]-->&nbsp;<!--[endif]--><o:p></o:p></span></p>
+<table
+ style="border: medium none ; margin-left: 44.4pt; border-collapse: collapse;"
+ border="1" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr style="height: 13pt;">
+      <td
+ style="border: 0.5pt solid windowtext; padding: 0in 5.4pt; width: 73.5pt; height: 13pt;"
+ valign="top" width="98">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Layout 
+	  Manager<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 117pt; height: 13pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Description<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 13pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constructors<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 58.5pt; height: 13pt;"
+ valign="top" width="78">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constants<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: solid solid solid none; border-color: windowtext windowtext windowtext -moz-use-text-color; border-width: 0.5pt 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 70.5pt; height: 13pt;"
+ valign="top" width="94">
+      <p class="preformatted" style=""><b><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Default For<u1:p></u1:p></span></b><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 48.1pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 73.5pt; height: 48.1pt;"
+ valign="top" width="98">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">FlowLayout<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 117pt; height: 48.1pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Lays out the 
+	  components in row-major order. Rows growing from left to right, top to 
+	  bottom.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 48.1pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">FlowLayout()<span
+ style="">&nbsp; </span>- center aligned, 5 pixels gap both horizontally and 
+	  vertically<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  FlowLayout(int alignment)<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  FlowLayout(int alignment, int hgap, int vgap)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 58.5pt; height: 48.1pt;"
+ valign="top" width="78">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">LEFT<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">CENTER<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">RIGHT<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 70.5pt; height: 48.1pt;"
+ valign="top" width="94">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Panel and 
+	  its subclasses (Applet)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 26.5pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 73.5pt; height: 26.5pt;"
+ valign="top" width="98">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">GridLayout<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 117pt; height: 26.5pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Lays out the 
+	  components in a specified rectangular grid, from left to right in each row 
+	  and filling rows from top to bottom.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 26.5pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">GridLayout() 
+	  – equivalent to GridLayout(1,0)<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridLayout(int rows, int columns)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 58.5pt; height: 26.5pt;"
+ valign="top" width="78">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">N/A<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 70.5pt; height: 26.5pt;"
+ valign="top" width="94">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">None<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 58pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 73.5pt; height: 58pt;"
+ valign="top" width="98">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">BorderLayout<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 117pt; height: 58pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Up to 5 
+	  components can be placed in particular locations: north, south, east, west 
+	  and center.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 58pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  BorderLayout()<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  BorderLayout(int hgap, int vgap)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 58.5pt; height: 58pt;"
+ valign="top" width="78">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">NORTH<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">SOUTH<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">EAST<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">WEST<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">CENTER<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 70.5pt; height: 58pt;"
+ valign="top" width="94">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Window and 
+	  its subclasses (Dialog and Frame)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 58pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 73.5pt; height: 58pt;"
+ valign="top" width="98">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">CardLayout<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 117pt; height: 58pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Components 
+	  are handled as a stack of indexed cards. Shows only one at a time. <u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 58pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">CardLayout()<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  CardLayout(int hgap, int vgap)<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 58.5pt; height: 58pt;"
+ valign="top" width="78">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">N/A<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 70.5pt; height: 58pt;"
+ valign="top" width="94">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">None<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+    <tr style="height: 58pt;">
+      <td
+ style="border-style: none solid solid; border-color: -moz-use-text-color windowtext windowtext; border-width: medium 0.5pt 0.5pt; padding: 0in 5.4pt; width: 73.5pt; height: 58pt;"
+ valign="top" width="98">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridbagLayout<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 117pt; height: 58pt;"
+ valign="top" width="156">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Customizable 
+	  and flexible layout manager that lays out the components in a rectangular 
+	  grid.<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 2.75in; height: 58pt;"
+ valign="top" width="264">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">
+	  GridbagLayout()<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 58.5pt; height: 58pt;"
+ valign="top" width="78">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Defined in 
+	  GridBag<u1:p></u1:p></span><o:p></o:p></p>
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">Constraints 
+	  class. See the above table<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+      <td
+ style="border-style: none solid solid none; border-color: -moz-use-text-color windowtext windowtext -moz-use-text-color; border-width: medium 0.5pt 0.5pt medium; padding: 0in 5.4pt; width: 70.5pt; height: 58pt;"
+ valign="top" width="94">
+      <p class="preformatted" style=""><span
+ style="font-size: 10pt; font-family: &quot;Times New Roman&quot;;">None<u1:p></u1:p></span><o:p></o:p></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+			<!-- #EndEditable --></div>
+		<!-- End Content --></div>
+	<!-- End Page Content -->
+	<!-- Begin Footer -->
+	<div id="footer">
+	</div>
+	<!-- End Footer --></div>
+<!-- End Container -->
+
+</body>
+
+<!-- #EndTemplate -->
+
+</html>
